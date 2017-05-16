@@ -1,0 +1,72 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    Properties properties = new Properties()
+    def configFile = file('configs.properties')
+    if (configFile.isFile()) {
+        properties.load(new FileInputStream(configFile.path))
+    }
+
+    if (null == properties) {
+        println '+-----------------------the file of configs.properties is not exist-----------------------+'
+        return
+    }
+
+    defaultConfig {
+        minSdkVersion 15
+
+        buildConfigField "String", "SDK_NAME", "\"${properties['sdk_name']}\""
+        buildConfigField "int", "SDK_VERSION_CODE", "${properties['sdk_version_code']}"
+        buildConfigField "String", "SDK_VERSION_NAME", "\"${properties['sdk_version_name']}\""
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // request tool
+    final okhttp3 = '3.6.0'
+    // async tool
+    final rxjava = '2.1.0'
+    final rxandroid = '2.0.1'
+
+    // request tool dependencies
+    def requestDependencies = [
+            okhttp            : "com.squareup.okhttp3:okhttp:${okhttp3}'",
+            logginginterceptor: "com.squareup.okhttp3:logging-interceptor:${okhttp3}",
+            urlconnection     : "com.squareup.okhttp3:okhttp-urlconnection:${okhttp3}"
+    ]
+
+    // async tool dependencies
+    def asyncDependencies = [
+            rxjava   : "io.reactivex.rxjava2:rxjava:${rxjava}",
+            rxandroid: "io.reactivex.rxjava2:rxandroid:${rxandroid}"
+    ]
+
+    compile requestDependencies.okhttp
+    compile requestDependencies.logginginterceptor
+    compile requestDependencies.urlconnection
+
+    compile asyncDependencies.rxjava
+    compile asyncDependencies.rxandroid
+
+    compile 'com.alibaba:fastjson:1.1.57.android'
+}
