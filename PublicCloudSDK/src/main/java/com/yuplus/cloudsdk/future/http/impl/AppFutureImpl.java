@@ -3,6 +3,7 @@ package com.yuplus.cloudsdk.future.http.impl;
 import com.yuplus.cloudsdk.base.BaseParams;
 import com.yuplus.cloudsdk.future.data.params.IntegerParams;
 import com.yuplus.cloudsdk.future.data.params.ListParams;
+import com.yuplus.cloudsdk.future.data.params.LongParams;
 import com.yuplus.cloudsdk.future.data.params.MapParams;
 import com.yuplus.cloudsdk.future.http.ApiCst;
 import com.yuplus.cloudsdk.future.http.IAppFuture;
@@ -56,23 +57,35 @@ public class AppFutureImpl implements IAppFuture {
 
     @Override
     public void getDevicesByConditionWithPage(int start, int pageSize, Object tag, BaseCallback callback) {
-        MapParams requestParams = new MapParams()
+        MapParams params1 = new MapParams();
+        MapParams params2 = new MapParams()
                 .addParam("start", String.valueOf(start))
                 .addParam("length", String.valueOf(pageSize))
                 .addParam("sort", "createTime")
                 .addParam("sortType", "desc")
                 .addParam("statCount", String.valueOf(true));
+        ListParams requestParams = new ListParams()
+                .addParam(params1)
+                .addParam(params2);
         postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, requestParams, tag, callback);
     }
 
     @Override
     public void getAllDevicesByCondition(BaseParams params, Object tag, BaseCallback callback) {
-        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, params, tag, callback);
+        MapParams params1 = new MapParams();
+        ListParams requestParams = new ListParams()
+                .addParam(params1)
+                .addParam(params);
+        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, requestParams, tag, callback);
     }
 
     @Override
     public void getAllDevicesByCondition(String params, Object tag, BaseCallback callback) {
-        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, params, tag, callback);
+        MapParams params1 = new MapParams();
+        ListParams requestParams = new ListParams()
+                .addParam(params1)
+                .addParam(params);
+        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, requestParams, tag, callback);
     }
 
     @Override
@@ -93,7 +106,7 @@ public class AppFutureImpl implements IAppFuture {
     @Override
     public void getCustomerById(String customerId, Object tag, BaseCallback callback) {
         ListParams requestParams = new ListParams()
-                .addParam(customerId);
+                .addParam(Long.parseLong(customerId));
         postJSON(ApiCst.GET_CUSTOMER_INFO_BY_ID_API, requestParams, tag, callback);
     }
 
@@ -111,7 +124,7 @@ public class AppFutureImpl implements IAppFuture {
     @Override
     public void sendAlertRecoverAction(String alertId, Object tag, BaseCallback callback) {
         ListParams params1 = new ListParams()
-                .addParam(alertId);
+                .addParam(Long.parseLong(alertId));
         MapParams requestParams = new MapParams()
                 .addParam("actionType", "recover")
                 .addParam("alertIds", params1.toJson())
@@ -124,7 +137,7 @@ public class AppFutureImpl implements IAppFuture {
     @Override
     public void sendAlertClaimAction(String alertId, Object tag, BaseCallback callback) {
         ListParams params1 = new ListParams()
-                .addParam(alertId);
+                .addParam(Long.parseLong(alertId));
         MapParams requestParams = new MapParams()
                 .addParam("actionType", "claim")
                 .addParam("alertIds", params1.toJson());
@@ -134,14 +147,14 @@ public class AppFutureImpl implements IAppFuture {
     @Override
     public void deviceActivateGateway(String deviceId, Object tag, BaseCallback callback) {
         ListParams requestParams = new ListParams()
-                .addParam(deviceId);
+                .addParam(Long.parseLong(deviceId));
         postJSON(ApiCst.DEVICE_ACTIVATE_GATEWAY_API, requestParams, tag, callback);
     }
 
     @Override
     public void deviceDeactivateGateway(String deviceId, Object tag, BaseCallback callback) {
         ListParams requestParams = new ListParams()
-                .addParam(deviceId);
+                .addParam(Long.parseLong(deviceId));
         postJSON(ApiCst.DEVICE_DEACTIVATE_GATEWAY_API, requestParams, tag, callback);
     }
 
@@ -213,7 +226,7 @@ public class AppFutureImpl implements IAppFuture {
 
     @Override
     public void getAttrsByModelId(String modeId, Object tag, BaseCallback callback) {
-        ListParams requestParams = new ListParams()
+        LongParams requestParams = new LongParams()
                 .addParam(Long.parseLong(modeId));
         postJSON(ApiCst.GET_MODEL_ATTRS_API, requestParams, tag, callback);
     }
