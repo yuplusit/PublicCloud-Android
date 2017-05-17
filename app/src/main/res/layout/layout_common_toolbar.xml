@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+                                   android:id="@+id/toolbar_common"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="@dimen/height_toolbar_size"
+                                   android:background="?attr/colorPrimary"
+                                   android:minHeight="@dimen/height_toolbar_size">
+
+    <!--<ViewStub
+        android:id="@+id/toolbar_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout="@layout/layout_toolbar_logo" />-->
+
+    <ViewStub
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout="@layout/layout_toolbar_title" />
+
+    <!--<ViewStub
+        android:id="@+id/toolbar_edit"
+        android:layout_width="@dimen/search_edit_width_size"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout="@layout/layout_search_edit" />-->
+</android.support.v7.widget.Toolbar>

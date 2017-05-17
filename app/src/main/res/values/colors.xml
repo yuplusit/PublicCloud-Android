@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="common_white">#FFFFFFFF</color>
+    <color name="common_text_gray">#7C7C7C</color>
+    <color name="common_text_dark">#3F3F3F</color>
+    <color name="common_window_background">#FFEDEDED</color>
+
+    <color name="progress_hub_text_color">#FFFFFF</color>
+    <color name="progress_hub_bg_color">#DF404040</color>
 </resources>

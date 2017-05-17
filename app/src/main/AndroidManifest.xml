@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.yuplus.industry.publiccloud">
+          package="com.yuplus.publiccloud">
 
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -14,13 +14,13 @@
     <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
 
     <application
-        android:name=".AppApplication"
+        android:name="com.yuplus.publiccloud.AppApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".test.TestApiActivity">
+        android:theme="@style/common_activity_theme">
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".test.TestRequestActivity">
+        <activity android:name="com.yuplus.publiccloud.ui.activity.TestRequestActivity">
 
         </activity>
     </application>

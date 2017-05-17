@@ -1,1 +1,1 @@
-include ':app', ':AppUICore', ':PublicCloudSDK'
+include ':app', ':PublicCloudSDK'
