@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <include
+        android:id="@+id/layout_toast"
+        layout="@layout/layout_toast"/>
+
+    <include
+        android:id="@+id/common_id_toolbar"
+        layout="@layout/layout_common_toolbar"/>
+
+    <RelativeLayout
+        android:id="@+id/login_id_input_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/common_id_toolbar"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:background="@drawable/common_edit_border"
+        android:paddingLeft="@dimen/padding_12dp"
+        android:paddingRight="@dimen/padding_12dp">
+
+        <com.yuplus.publiccloud.ui.widget.ClearableEditText
+            android:id="@+id/login_id_account"
+            style="@style/login_edit_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/login_account"
+            android:inputType="text"/>
+
+        <View
+            android:id="@+id/reg_id_phone_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_0.5dp"
+            android:layout_below="@id/login_id_account"
+            android:background="@color/edit_border_color"/>
+
+        <com.yuplus.publiccloud.ui.widget.ClearableEditText
+            android:id="@+id/login_id_password"
+            style="@style/login_edit_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/reg_id_phone_divider"
+            android:background="@null"
+            android:hint="@string/login_password"
+            android:inputType="textPassword"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/login_id_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_id_input_area"
+        android:layout_marginLeft="@dimen/margin_16dp"
+        android:layout_marginRight="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_50dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/common_login"
+        android:textColor="@color/common_white"
+        android:textSize="@dimen/font_18sp"/>
+</RelativeLayout>

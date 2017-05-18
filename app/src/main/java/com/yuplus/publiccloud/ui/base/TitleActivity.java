@@ -50,7 +50,7 @@ public abstract class TitleActivity extends BaseActivity {
     }
 
     public void setShowHomeBack() {
-        setShowHomeAsUpRes(R.drawable.common_toolbar_back, new View.OnClickListener() {
+        setShowHomeAsUpRes(R.drawable.ic_common_back, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

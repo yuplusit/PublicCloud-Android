@@ -1,10 +1,12 @@
 package com.yuplus.cloudsdk.okhttp;
 
+import android.app.Application;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.yuplus.cloudsdk.config.SDKConfiguration;
 import com.yuplus.cloudsdk.cst.HttpCst;
 import com.yuplus.cloudsdk.okhttp.builder.GetRequestBuilder;
 import com.yuplus.cloudsdk.okhttp.builder.OtherRequestBuilder;
@@ -28,8 +30,10 @@ import okhttp3.internal.platform.Platform;
  */
 
 public class OkHttpUtils {
-    private String  mTag;
-    private boolean mDebug;
+    private String           mTag;
+    private boolean          mDebug;
+    private Application      mApplication;
+    private SDKConfiguration mSdkConfiguration;
     private static String TAG = "PublicCloudSDK Request";
 
     private                 OkHttpClient mOkHttpClient;
@@ -38,10 +42,10 @@ public class OkHttpUtils {
     private volatile static OkHttpUtils  mInstance;
 
     public static OkHttpUtils getInstance() {
-        return initClient(null);
+        return getInstance(null);
     }
 
-    public static OkHttpUtils initClient(OkHttpClient okHttpClient) {
+    public static OkHttpUtils getInstance(OkHttpClient okHttpClient) {
         if (mInstance == null) {
             synchronized (OkHttpUtils.class) {
                 if (mInstance == null) {
@@ -61,6 +65,17 @@ public class OkHttpUtils {
         }
         mPlatform = Platform.get();
     }
+
+    public OkHttpUtils setSdkConfiguration(SDKConfiguration sdkConfiguration) {
+        this.mSdkConfiguration = sdkConfiguration;
+        return this;
+    }
+
+    public SDKConfiguration getSdkConfiguration() {
+        return mSdkConfiguration;
+    }
+
+
 
     public static GetRequestBuilder get() {
         return new GetRequestBuilder();
@@ -157,6 +172,15 @@ public class OkHttpUtils {
                 }
             }
         });
+    }
+
+    public Application getApplication() {
+        return mApplication;
+    }
+
+    public OkHttpUtils setApplication(Application application) {
+        this.mApplication = application;
+        return this;
     }
 
     /**

@@ -1,5 +1,8 @@
 package com.yuplus.cloudsdk.future.http;
 
+import com.yuplus.cloudsdk.config.SDKConfiguration;
+import com.yuplus.cloudsdk.okhttp.OkHttpUtils;
+
 /**
  * @user longzhen
  * @date 5/13/2017
@@ -7,11 +10,16 @@ package com.yuplus.cloudsdk.future.http;
  */
 
 public class ApiCst {
+    private static SDKConfiguration mSdkConfiguration;
 
-    public static final String HOST_NAME = "http://36.110.36.118";
-    public static final String PORT = ":8095";
-    public static final String ROUTE = "/api/rest/post";
-    public static final String REQUEST_API = HOST_NAME + PORT + ROUTE;
+    static {
+        mSdkConfiguration = OkHttpUtils.getInstance().getSdkConfiguration();
+    }
+
+    private static final String HOST_NAME   = mSdkConfiguration.getHttpHost();
+    private static final int    PORT        = mSdkConfiguration.getHttpPort();
+    private static final String ROUTE       = mSdkConfiguration.getBasePath();
+    private static final String REQUEST_API = HOST_NAME + (PORT != 80 && PORT > 0 ? (":" + PORT) : "") + ROUTE;
 
 
     //登录接口

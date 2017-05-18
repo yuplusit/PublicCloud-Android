@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yuplus.cloudsdk.okhttp.OkHttpUtils;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -35,6 +37,7 @@ public abstract class BaseFragment extends AbsFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        OkHttpUtils.getInstance().cancel(this);
         if (null != mUnbinder) {
             mUnbinder.unbind();
         }

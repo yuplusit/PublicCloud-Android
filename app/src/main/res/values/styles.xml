@@ -33,4 +33,18 @@
         <item name="android:background">@color/colorPrimary</item>
     </style>
 
+
+
+
+    <style name="common_edit_text_padding_style">
+        <item name="android:paddingBottom">@dimen/padding_12dp</item>
+        <item name="android:paddingTop">@dimen/padding_12dp</item>
+    </style>
+
+    <style name="login_edit_text_style" parent="common_edit_text_padding_style">
+        <item name="android:textSize">@dimen/font_16sp</item>
+        <item name="android:textColor">@color/common_black</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
 </resources>

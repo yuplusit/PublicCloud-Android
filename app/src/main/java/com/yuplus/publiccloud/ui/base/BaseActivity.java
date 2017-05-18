@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 
+import com.yuplus.cloudsdk.okhttp.OkHttpUtils;
 import com.yuplus.publiccloud.R;
 
 import butterknife.BindView;
@@ -15,6 +16,7 @@ import butterknife.BindView;
  */
 
 public abstract class BaseActivity extends AbsActivity {
+    @Nullable
     @BindView(R.id.common_id_toolbar)
     Toolbar mCommonTb;
 
@@ -33,5 +35,11 @@ public abstract class BaseActivity extends AbsActivity {
 
     public Toolbar getToolbar() {
         return mCommonTb;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        OkHttpUtils.getInstance().cancel(this);
     }
 }
