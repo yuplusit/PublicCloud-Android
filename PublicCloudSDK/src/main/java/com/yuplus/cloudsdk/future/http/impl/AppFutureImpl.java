@@ -299,10 +299,10 @@ public class AppFutureImpl implements IAppFuture {
      *
      * @param params   json数据
      * @param tag      网络请求TAG标记
-     * @param callBack 回调操作
+     * @param callback 回调操作
      * @return Request请求对象
      */
-    public void postJSON(final String url, final String params, final Object tag, final BaseCallback callBack) {
+    public void postJSON(final String url, final String params, final Object tag, final BaseCallback callback) {
         String requestContent;
         if (StringUtils.isBlank(params)) {
             requestContent = "";
@@ -316,7 +316,7 @@ public class AppFutureImpl implements IAppFuture {
                     .content(requestContent)
                     .mediaType(MediaType.parse("application/json; charset=utf-8"))
                     .build()
-                    .execute(callBack);
+                    .execute(callback);
         } catch (Exception e) {
             e.printStackTrace();
         }

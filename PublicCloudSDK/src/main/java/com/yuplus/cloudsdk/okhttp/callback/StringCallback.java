@@ -1,5 +1,8 @@
 package com.yuplus.cloudsdk.okhttp.callback;
 
+import com.yuplus.cloudsdk.cst.HttpCst;
+import com.yuplus.cloudsdk.log.LogUtils;
+
 import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -29,7 +32,7 @@ public abstract class StringCallback extends BaseCallback<String> {
 
     @Override
     public void onSuccess(String response,Call request) {
-
+        LogUtils.t(HttpCst.TAG).d(response);
     }
 
     @Override

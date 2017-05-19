@@ -2,6 +2,7 @@ package com.yuplus.publiccloud;
 
 import android.app.Application;
 
+import com.yuplus.cloudsdk.CloudSDKManager;
 import com.yuplus.cloudsdk.config.SDKConfiguration;
 import com.yuplus.cloudsdk.future.http.impl.AppFutureImpl;
 import com.yuplus.cloudsdk.okhttp.HttpsCerManager;
@@ -12,8 +13,6 @@ import com.yuplus.cloudsdk.okhttp.cookie.jar.cache.SetCookieCache;
 import com.yuplus.cloudsdk.okhttp.cookie.jar.persistence.SharedPrefsCookiePersistor;
 import com.yuplus.publiccloud.cst.AppCst;
 
-import java.net.CookieManager;
-import java.net.CookiePolicy;
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
@@ -39,9 +38,6 @@ public class AppApplication extends Application {
         appFutureImpl = new AppFutureImpl();
         HttpsCerManager.SSLParams sslParams = HttpsCerManager.getSslSocketFactory(null, null, null);
 
-        CookieManager cookieManager = new CookieManager();
-        cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
-
         //CookieJarImpl cookieJar1 = new CookieJarImpl(new PersistentCookieStore(getApplicationContext()));
         ClearableCookieJar cookieJar1 = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(getApplicationContext()));
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -56,16 +52,16 @@ public class AppApplication extends Application {
                 })
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
                 .build();
+        OkHttpUtils.getInstance(okHttpClient);
         SDKConfiguration configuration = new SDKConfiguration.Builder()
                 .setAppName(AppCst.APP_NAME)
-                .setReadTimeout(10000L)
-                .setWriteTimeout(10000L)
                 .setHttpHost(AppCst.SERVER_HOST)
                 .setHttpPort(AppCst.SERVER_PORT)
                 .setBasePath(AppCst.SERVER_BASE_PATH)
                 .build();
-        OkHttpUtils.getInstance(okHttpClient)
+        CloudSDKManager.getInstance()
                 .setApplication(this)
+                .initLogUtil(AppCst.APP_NAME)
                 .setSdkConfiguration(configuration);
     }
 

@@ -6,7 +6,7 @@ package com.yuplus.cloudsdk.base;
  * @desc 基类:网络请求响应数据对象
  */
 
-public abstract class BaseResponse<T extends BaseBean> extends BaseBean {
+public abstract class BaseResponse<T> extends BaseBean {
 
     // 错误码
     protected int    code;

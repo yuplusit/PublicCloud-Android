@@ -6,7 +6,7 @@ package com.yuplus.cloudsdk.util;
  * @desc
  */
 
-public class JsonUtils {
+public class JsonTableUtils {
     public static String stringToJSON(String strJson) {
         // 计数tab的个数
         int tabNum = 0;

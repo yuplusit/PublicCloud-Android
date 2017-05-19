@@ -7,6 +7,7 @@ package com.yuplus.cloudsdk.cst;
  */
 
 public class HttpCst {
+    public static final String TAG = "HTTP";
     //Http请求默认连接超时时间, 15s
     public static final int CONNECTION_TIMEOUT = 15000;
     //Http请求默认数据读取超时时间, 10s

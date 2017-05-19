@@ -21,11 +21,10 @@
         android:supportsRtl="true"
         android:theme="@style/common_activity_theme">
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name=".ui.activity.TestApiActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-                <action android:name="com.yuplus.cloudsdk.future.Action.LOGIN_AGAIN_ACTION"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
@@ -39,15 +38,13 @@
             android:name=".ui.activity.MainActivity"
             android:screenOrientation="portrait"/>
 
-        <activity
+        <!--<activity
             android:name=".ui.activity.TestApiActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"/>-->
 
         <activity
-            android:name="ui.activity.TestRequestActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:name=".ui.activity.TestRequestActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

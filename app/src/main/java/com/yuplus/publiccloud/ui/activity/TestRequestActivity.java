@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.yuplus.cloudsdk.okhttp.OkHttpUtils;
 import com.yuplus.cloudsdk.okhttp.callback.StringCallback;
-import com.yuplus.cloudsdk.util.JsonUtils;
+import com.yuplus.cloudsdk.util.JsonTableUtils;
 import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
 import com.yuplus.publiccloud.ui.base.TitleActivity;
@@ -67,7 +67,7 @@ public class TestRequestActivity extends TitleActivity {
             mRequestApiTv.setText(url);
         }
         if (StringUtils.isNotBlank(params)) {
-            mRequestParamsTv.setText(JsonUtils.stringToJSON(params));
+            mRequestParamsTv.setText(JsonTableUtils.stringToJSON(params));
         }
         startRequest();
     }
@@ -90,7 +90,7 @@ public class TestRequestActivity extends TitleActivity {
                     @Override
                     public void onSuccess(String response, Call request) {
                         super.onSuccess(response, request);
-                        mReponseDataTv.setText(JsonUtils.stringToJSON(response));
+                        mReponseDataTv.setText(JsonTableUtils.stringToJSON(response));
                         mLoadingView.hide();
                     }
 

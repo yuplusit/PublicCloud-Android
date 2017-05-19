@@ -3,6 +3,7 @@ package com.yuplus.cloudsdk.okhttp.callback;
 import com.alibaba.fastjson.JSON;
 import com.yuplus.cloudsdk.base.BaseResponse;
 import com.yuplus.cloudsdk.cst.HttpCst;
+import com.yuplus.cloudsdk.log.LogUtils;
 
 import java.lang.reflect.ParameterizedType;
 
@@ -38,6 +39,7 @@ public abstract class JsonCallback<T> extends BaseCallback<T> {
 
     @Override
     public void onSuccess(T response, Call request) {
+        LogUtils.t(HttpCst.TAG).d(JSON.toJSONString(response),request.request().url());
         BaseResponse baseResponse = (BaseResponse) response;
         int code = baseResponse.getCode();
         if (code != HttpCst.Code.SUCCESS) {

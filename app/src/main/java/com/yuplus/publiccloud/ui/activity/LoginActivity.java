@@ -2,9 +2,7 @@ package com.yuplus.publiccloud.ui.activity;
 
 import android.os.Bundle;
 
-import com.alibaba.fastjson.JSON;
 import com.yuplus.cloudsdk.future.data.bean.UserBean;
-import com.yuplus.cloudsdk.util.LogUtils;
 import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
 import com.yuplus.publiccloud.mvp.presenter.LoginPresenter;
@@ -85,13 +83,12 @@ public class LoginActivity extends TitleActivity implements LoginView {
 
     @Override
     public void onLoginSuccess(UserBean user) {
-        LogUtils.d("------>JSONString:" + JSON.toJSONString(user));
         DispatchManager.startMainActivity(this);
     }
 
     @Override
     public void onLoginFailure(String msg) {
-        LogUtils.d(msg);
+
     }
 
 

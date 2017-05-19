@@ -1,7 +1,7 @@
 package com.yuplus.cloudsdk.future.http;
 
+import com.yuplus.cloudsdk.CloudSDKManager;
 import com.yuplus.cloudsdk.config.SDKConfiguration;
-import com.yuplus.cloudsdk.okhttp.OkHttpUtils;
 
 /**
  * @user longzhen
@@ -13,7 +13,7 @@ public class ApiCst {
     private static SDKConfiguration mSdkConfiguration;
 
     static {
-        mSdkConfiguration = OkHttpUtils.getInstance().getSdkConfiguration();
+        mSdkConfiguration = CloudSDKManager.getInstance().getSdkConfiguration();
     }
 
     private static final String HOST_NAME   = mSdkConfiguration.getHttpHost();
