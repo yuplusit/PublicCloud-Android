@@ -1,8 +1,9 @@
-package com.yuplus.cloudsdk.future.data.bean;
+package com.yuplus.cloudsdk.future.data.response;
 
 import android.os.Parcel;
 
 import com.yuplus.cloudsdk.base.BaseResponse;
+import com.yuplus.cloudsdk.future.data.bean.KpiValueBean;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
+Properties properties = new Properties()
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
 
-    Properties properties = new Properties()
     def configFile = file('configs.properties')
     if (configFile.isFile()) {
         properties.load(new FileInputStream(configFile.path))
@@ -37,6 +37,14 @@ android {
     lintOptions {
         abortOnError false
     }
+}
+
+task makeJar(type: Copy) {
+    delete 'build/libs/' + properties['sdk_name'] + '-' + properties['platform'] + '-' + properties['sdk_version_name'] + '.jar'
+    from('build/intermediates/bundles/release/')
+    into('build/libs/')
+    include('classes.jar')
+    rename('classes.jar', properties['sdk_name'] + '-' + properties['platform'] + '-' + properties['sdk_version_name'] + '.jar')
 }
 
 dependencies {

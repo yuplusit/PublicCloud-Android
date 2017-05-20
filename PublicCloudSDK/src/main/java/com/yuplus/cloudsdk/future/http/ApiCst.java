@@ -2,6 +2,7 @@ package com.yuplus.cloudsdk.future.http;
 
 import com.yuplus.cloudsdk.CloudSDKManager;
 import com.yuplus.cloudsdk.config.SDKConfiguration;
+import com.yuplus.cloudsdk.log.LogUtils;
 
 /**
  * @user longzhen
@@ -14,6 +15,11 @@ public class ApiCst {
 
     static {
         mSdkConfiguration = CloudSDKManager.getInstance().getSdkConfiguration();
+        if (null == mSdkConfiguration) {
+            RuntimeException exception = new RuntimeException("the sDKConfiguration is null when use the apiCst class,so you need set the sDKConfiguration.");
+            LogUtils.e(exception, "the sDKConfiguration is null when use the apiCst class,so you need set the sDKConfiguration.");
+            throw exception;
+        }
     }
 
     private static final String HOST_NAME   = mSdkConfiguration.getHttpHost();

@@ -5,12 +5,15 @@
                 android:orientation="vertical">
 
     <include
-        android:id="@+id/layout_toast"
-        layout="@layout/layout_toast"/>
-
-    <include
         android:id="@+id/common_id_toolbar"
         layout="@layout/layout_common_toolbar"/>
+    <include
+        android:id="@+id/layout_toast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/layout_toast"
+        android:layout_below="@+id/common_id_toolbar"/>
+
 
     <RelativeLayout
         android:id="@+id/login_id_input_area"

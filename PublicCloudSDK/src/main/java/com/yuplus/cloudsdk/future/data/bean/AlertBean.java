@@ -14,58 +14,6 @@ import java.util.List;
 
 public class AlertBean extends BaseBean {
 
-
-    /**
-     * eventId : 256818526636421
-     * alertId : 257410963669650
-     * srcEventId : null
-     * alertCode : 241395148996082
-     * nodeId : 205383111786064
-     * domains : /0/186793350166066/187515173236078/187515173236081/
-     * nodeTypes : /0/1/9/187515173236065/197979751246185/
-     * devName : 泰安中心医院污水（plc）
-     * appName : 泰安中心医院污水（plc）
-     * relatedNodeId : 0
-     * instance : null
-     * instance2 : null
-     * kpiValue : 0
-     * kpiCode : 197979751246190
-     * kpiUnit : NA
-     * severity : 4
-     * title : 故障停机
-     * message : 调液池提升泵1运行:关 [62095] 异常
-     * arisingTime : 2017-05-04T09:34:46.963+0000
-     * receiveTime : 2017-05-04T09:34:46.963+0000
-     * agentId : RULE:239865883516064
-     * filtered : false
-     * tags : null
-     * classified : false
-     * domainList : ["0","186793350166066","187515173236078","187515173236081"]
-     * nodeTypeList : ["0","1","9","187515173236065","197979751246185"]
-     * tagList : null
-     * count : 3000
-     * state : 5
-     * causeAlertId : 0
-     * related : false
-     * firstArisingTime : 2017-05-03T08:35:16.598+0000
-     * oldSeverity : 4
-     * updateTime : 2017-05-17T10:03:44.018+0000
-     * openTime : null
-     * closeTime : null
-     * openBy : null
-     * closeBy : null
-     * owner : 润兴管理员
-     * orderId : null
-     * orderStatus : null
-     * comments :
-     * incidentId : 0
-     * claimTime : 2017-05-17T10:03:44.017+0000
-     * claimBy : 润兴管理员
-     * upgradeTime : null
-     * upgradeCount : 0
-     * activeState : 0
-     */
-
     private long         eventId;
     private long         alertId;
     private String       srcEventId;

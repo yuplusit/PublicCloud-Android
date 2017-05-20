@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.yuplus.industry.publiccloudsdk">
+          package="com.yuplus.cloudsdk">
 
     <application>
         <uses-permission android:name="android.permission.WRITE_SETTINGS"/>

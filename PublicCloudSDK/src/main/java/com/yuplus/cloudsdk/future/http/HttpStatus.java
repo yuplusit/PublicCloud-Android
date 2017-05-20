@@ -7,5 +7,8 @@ package com.yuplus.cloudsdk.future.http;
  */
 
 public class HttpStatus {
-
+    //正常返回
+    public static final int SUCCESS     = 0;
+    //登录超时
+    public static final int LOGIN_AGAIN = 10020;
 }

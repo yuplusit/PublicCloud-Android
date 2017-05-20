@@ -1,9 +1,11 @@
 package com.yuplus.cloudsdk.cst;
 
+import com.yuplus.cloudsdk.BuildConfig;
 import com.yuplus.cloudsdk.CloudSDKManager;
 import com.yuplus.cloudsdk.config.SDKConfiguration;
+import com.yuplus.cloudsdk.log.LogUtils;
 import com.yuplus.cloudsdk.util.StringUtils;
-import com.yuplus.industry.publiccloudsdk.BuildConfig;
+
 
 /**
  * @user longzhen
@@ -12,10 +14,15 @@ import com.yuplus.industry.publiccloudsdk.BuildConfig;
  */
 
 public class ConfigCst {
-    private static SDKConfiguration mConfiguration;
+    private static SDKConfiguration mSdkConfiguration;
 
     static {
-        mConfiguration = CloudSDKManager.getInstance().getSdkConfiguration();
+        mSdkConfiguration = CloudSDKManager.getInstance().getSdkConfiguration();
+        if (null == mSdkConfiguration) {
+            RuntimeException exception = new RuntimeException("the sDKConfiguration is null when use the apiCst class,so you need set the sDKConfiguration.");
+            LogUtils.e(exception, "the sDKConfiguration is null when use the apiCst class,so you need set the sDKConfiguration.");
+            throw exception;
+        }
     }
 
     //框架名
@@ -23,5 +30,5 @@ public class ConfigCst {
     //框架是否处于调试模式
     public static boolean DEBUG    = BuildConfig.DEBUG;
     //框架调试标记
-    public static String  TAG      = StringUtils.isBlank(mConfiguration.getAppName()) ? SDK_NAME : mConfiguration.getAppName();
+    public static String  TAG      = StringUtils.isBlank(mSdkConfiguration.getAppName()) ? SDK_NAME : mSdkConfiguration.getAppName();
 }

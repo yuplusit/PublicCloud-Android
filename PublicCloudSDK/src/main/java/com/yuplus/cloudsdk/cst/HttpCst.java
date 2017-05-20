@@ -66,11 +66,4 @@ public class HttpCst {
         public static final String LOGIN_AGAIN  = "登录超时，请重新登录!";
         public static final String FAILURE_CODE_MSG = "ErrCode:%1$d,Message:%2$s";
     }
-
-    public static class Code {
-        //正常返回
-        public static final int SUCCESS = 0;
-        //登录超时
-        public static final int LOGIN_AGAIN = 10020;
-    }
 }
