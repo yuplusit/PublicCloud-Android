@@ -14,14 +14,14 @@ import java.util.List;
 
 public class UserBean extends BaseBean {
 
-    private String       userID;
-    private String       enterpriseID;
+    private long         userID;
+    private long         enterpriseID;
     private String       roleID;
     private String       userType;
     private String       loginName;
     private String       userName;
     private String       createDate;
-    private String         creator;
+    private String       creator;
     private String       emailAddress;
     private int          status;
     private int          flag;
@@ -34,7 +34,7 @@ public class UserBean extends BaseBean {
     private long         updator;
     private String       countryRegion;
     private int          industry;
-    private String         domainID;
+    private String       domainID;
     private String       domainPath;
     private String       address;
     private String       city;
@@ -49,22 +49,22 @@ public class UserBean extends BaseBean {
     private List<String> userDomainPathList;
     private List<String> functionCodeSet;
 
-    private EnterpriseBean enterprise;
+    private EnterpriseBean       enterprise;
     private List<UserDomainBean> userDomainList;
 
-    public String getUserID() {
+    public long getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(long userID) {
         this.userID = userID;
     }
 
-    public String getEnterpriseID() {
+    public long getEnterpriseID() {
         return enterpriseID;
     }
 
-    public void setEnterpriseID(String enterpriseID) {
+    public void setEnterpriseID(long enterpriseID) {
         this.enterpriseID = enterpriseID;
     }
 
@@ -344,8 +344,8 @@ public class UserBean extends BaseBean {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.userID);
-        dest.writeString(this.enterpriseID);
+        dest.writeLong(this.userID);
+        dest.writeLong(this.enterpriseID);
         dest.writeString(this.roleID);
         dest.writeString(this.userType);
         dest.writeString(this.loginName);
@@ -386,8 +386,8 @@ public class UserBean extends BaseBean {
     }
 
     protected UserBean(Parcel in) {
-        this.userID = in.readString();
-        this.enterpriseID = in.readString();
+        this.userID = in.readLong();
+        this.enterpriseID = in.readLong();
         this.roleID = in.readString();
         this.userType = in.readString();
         this.loginName = in.readString();

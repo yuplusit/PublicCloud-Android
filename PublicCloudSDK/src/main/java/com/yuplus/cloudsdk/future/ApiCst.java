@@ -1,4 +1,4 @@
-package com.yuplus.cloudsdk.future.http;
+package com.yuplus.cloudsdk.future;
 
 import com.yuplus.cloudsdk.CloudSDKManager;
 import com.yuplus.cloudsdk.config.SDKConfiguration;

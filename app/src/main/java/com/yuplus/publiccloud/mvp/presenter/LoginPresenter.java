@@ -1,14 +1,10 @@
 package com.yuplus.publiccloud.mvp.presenter;
 
-import com.yuplus.cloudsdk.future.data.bean.UserBean;
-import com.yuplus.cloudsdk.future.data.response.UserResponse;
-import com.yuplus.cloudsdk.okhttp.callback.JsonCallback;
+import com.yuplus.cloudsdk.future.FutureResult;
+import com.yuplus.cloudsdk.future.listener.FutureListener;
 import com.yuplus.publiccloud.AppApplication;
 import com.yuplus.publiccloud.mvp.base.BasePresenter;
 import com.yuplus.publiccloud.mvp.view.LoginView;
-
-import okhttp3.Call;
-import okhttp3.Request;
 
 /**
  * @user longzhen
@@ -23,9 +19,9 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     public void login(String account, String password) {
-        AppApplication.appFutureImpl.login(account, password, tag, new JsonCallback<UserResponse>() {
+       /* AppApplication.appFutureImpl.login(account, password, tag, new FutureListener() {
             @Override
-            public void onStart(Request request) {
+            public void onStart(FutureResult request) {
                 super.onStart(request);
                 getView().showLoading();
             }
@@ -42,6 +38,30 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             public void onFailure(Call request, Exception e) {
                 super.onFailure(request, e);
                 getView().onLoginFailure(e.getMessage());
+                getView().hideLoading();
+            }
+        });*/
+        AppApplication.appFutureImpl.login(account, password, tag, new FutureListener() {
+
+            @Override
+            public void onStart() {
+                super.onStart();
+                getView().showLoading();
+            }
+
+            @Override
+            public void onSuccess(FutureResult result) {
+                super.onSuccess(result);
+
+            }
+
+            @Override
+            public void onFailure(FutureResult result) {
+                super.onFailure(result);
+                Exception ex = result.getException();
+                if(null != ex){
+                    getView().onLoginFailure(ex.getMessage());
+                }
                 getView().hideLoading();
             }
         });

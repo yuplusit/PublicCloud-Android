@@ -4,6 +4,9 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.yuplus.cloudsdk.cst.HttpCst;
+import com.yuplus.cloudsdk.future.handler.BaseHandler;
+import com.yuplus.cloudsdk.future.listener.FutureListener;
+import com.yuplus.cloudsdk.log.LogUtils;
 import com.yuplus.cloudsdk.okhttp.OkHttpUtils;
 import com.yuplus.cloudsdk.okhttp.callback.BaseCallback;
 
@@ -36,6 +39,8 @@ public class RequestCall {
 
     private OkHttpClient clone;
 
+    private Class<? extends BaseHandler> handlerCls;
+
     public RequestCall(BaseRequest request) {
         this.baseRequest = request;
     }
@@ -65,6 +70,15 @@ public class RequestCall {
 
     public BaseRequest getOkHttpRequest() {
         return baseRequest;
+    }
+
+    public RequestCall handlerCls(Class<? extends BaseHandler> handler) {
+        this.handlerCls = handler;
+        return this;
+    }
+
+    public Class<? extends BaseHandler> getHandlerCls() {
+        return handlerCls;
     }
 
     public Call generateCall(BaseCallback callback) {
@@ -103,7 +117,7 @@ public class RequestCall {
         if (callback != null) {
             callback.onStart(request);
         }
-        OkHttpUtils.getInstance().execute(this, callback);
+        execute(this, callback);
     }
 
     // 同步解析成对象
@@ -133,6 +147,84 @@ public class RequestCall {
             return new ArrayList<T>(JSON.parseArray(jsonObject.getString(parseWhat), clazz));
         }
         return new ArrayList<T>(JSON.parseArray(response, clazz));
+    }
+
+    public void sendFailResultCallback(final Call call, final Exception e, final BaseCallback callback) {
+        if (callback == null) return;
+        OkHttpUtils.getInstance().getHandler().post(new Runnable() {
+            @Override
+            public void run() {
+                callback.onFailure(call, e);
+            }
+        });
+    }
+
+    public void sendSuccessResultCallback(final Object object, final Call call, final BaseCallback callback) {
+        if (callback == null) return;
+        OkHttpUtils.getInstance().getHandler().post(new Runnable() {
+            @Override
+            public void run() {
+                callback.onSuccess(object, call);
+            }
+        });
+    }
+
+    //普通网络请求
+    public void execute(final RequestCall requestCall, BaseCallback callback) {
+        final BaseCallback finalCallback = callback;
+        requestCall.getCall().enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(Call call, final IOException e) {
+                sendFailResultCallback(call, e, finalCallback);
+            }
+
+            @Override
+            public void onResponse(final Call call, final Response response) {
+                try {
+                    if (response.isSuccessful()) {
+                        sendSuccessResultCallback(finalCallback.parseResponse(response), call, finalCallback);
+                    } else {
+                        sendFailResultCallback(call, new RuntimeException(response.body().string()), finalCallback);
+                    }
+                } catch (Exception e) {
+                    sendFailResultCallback(call, e, finalCallback);
+                }
+            }
+        });
+    }
+
+    //含有网络请求后有业务处理逻辑处理
+    public void execute(FutureListener listener) throws IllegalAccessException, InstantiationException {
+        final Class classType = getHandlerCls();
+        if (null == classType) {
+            LogUtils.e("the response handler is null");
+            throw new RuntimeException("the response handler is null");
+        }
+        final BaseHandler handler = (BaseHandler) classType.newInstance();
+        generateCall(null);
+        if (null != listener) {
+            handler.setFutureListener(listener);
+            listener.onStart();
+        }
+        this.getCall().enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(Call call, final IOException e) {
+                handler.onFailure(call, e);
+            }
+
+            @Override
+            public void onResponse(final Call call, final Response response) {
+                try {
+                    if (response.isSuccessful()) {
+                        handler.onResponse(call, response);
+                    } else {
+                        handler.onFailure(call, new RuntimeException(response.body().string()));
+                    }
+                } catch (Exception e) {
+                    handler.onFailure(call, e);
+                }
+            }
+        });
     }
 
     public void cancel() {

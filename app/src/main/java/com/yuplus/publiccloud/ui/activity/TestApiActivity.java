@@ -7,7 +7,7 @@ import android.view.View;
 import com.yuplus.cloudsdk.future.data.params.ListParams;
 import com.yuplus.cloudsdk.future.data.params.LongParams;
 import com.yuplus.cloudsdk.future.data.params.MapParams;
-import com.yuplus.cloudsdk.future.http.ApiCst;
+import com.yuplus.cloudsdk.future.ApiCst;
 import com.yuplus.publiccloud.R;
 import com.yuplus.publiccloud.ui.base.TitleActivity;
 
@@ -280,7 +280,7 @@ public class TestApiActivity extends TitleActivity {
             @Override
             public void onClick(View view) {
                 ListParams requestParams = new ListParams()
-                        .addParam("");
+                        .addParam("ConfigurationCommon");
                 Intent intent = new Intent(TestApiActivity.this, TestRequestActivity.class);
                 intent.putExtra("URL", ApiCst.GET_CONFIG_API);
                 intent.putExtra("PARAMS", requestParams.toJson());

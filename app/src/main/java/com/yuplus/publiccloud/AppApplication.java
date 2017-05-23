@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.yuplus.cloudsdk.CloudSDKManager;
 import com.yuplus.cloudsdk.config.SDKConfiguration;
-import com.yuplus.cloudsdk.future.http.impl.AppFutureImpl;
+import com.yuplus.cloudsdk.future.impl.AppFutureImpl;
 import com.yuplus.cloudsdk.okhttp.HttpsCerManager;
 import com.yuplus.cloudsdk.okhttp.OkHttpUtils;
 import com.yuplus.cloudsdk.okhttp.cookie.jar.ClearableCookieJar;

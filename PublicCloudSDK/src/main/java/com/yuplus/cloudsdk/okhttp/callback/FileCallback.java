@@ -19,8 +19,6 @@ public abstract class FileCallback extends BaseCallback<File> {
     private String dstFileDir; // 目标文件存储的文件夹路径
     private String dstFileName; // 目标文件存储的文件名
 
-    public abstract void inProgress(float progress);
-
     public FileCallback(String dstFileDir, String dstFileName) {
         this.dstFileDir = dstFileDir;
         this.dstFileName = dstFileName;
@@ -54,7 +52,7 @@ public abstract class FileCallback extends BaseCallback<File> {
                 OkHttpUtils.getInstance().getHandler().post(new Runnable() {
                     @Override
                     public void run() {
-                        inProgress(finalSum * 1.0f / total);
+                        onProgress(finalSum * 1.0f / total);
                     }
                 });
             }

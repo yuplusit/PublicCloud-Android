@@ -2,66 +2,137 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/common_white"
                 android:orientation="vertical">
 
-    <include
-        android:id="@+id/common_id_toolbar"
-        layout="@layout/layout_common_toolbar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/common_id_toolbar"
+        android:layout_marginTop="@dimen/margin_70dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/padding_6dp"
+            android:background="@drawable/common_round_primary_bg">
+
+            <ImageView
+                android:layout_width="@dimen/width_70dp"
+                android:layout_height="@dimen/height_70dp"
+                android:src="@drawable/ic_login_title"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/login_id_input_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/common_id_toolbar"
+            android:layout_marginTop="@dimen/margin_60dp"
+            android:layout_marginLeft="@dimen/margin_30dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/login_edit_text_style"
+                    android:text="@string/login_account"/>
+
+                <com.yuplus.publiccloud.ui.widget.ClearableEditText
+                    android:id="@+id/login_id_account"
+                    style="@style/login_edit_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_marginLeft="@dimen/margin_40dp"
+                    android:layout_marginRight="@dimen/margin_20dp"
+                    android:hint="@string/login_account_hint"
+                    android:inputType="text"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height_0.5dp"
+                android:layout_below="@id/login_id_account"
+                android:background="@color/edit_border_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/login_edit_text_style"
+                    android:text="@string/login_password"/>
+
+                <com.yuplus.publiccloud.ui.widget.ClearableEditText
+                    android:id="@+id/login_id_password"
+                    style="@style/login_edit_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:layout_marginLeft="@dimen/margin_40dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:hint="@string/login_password_empty"
+                    android:inputType="textPassword"/>
+
+                <ImageView
+                    android:id="@+id/login_id_password_show"
+                    android:layout_width="@dimen/width_20dp"
+                    android:layout_height="@dimen/width_20dp"
+                    android:clickable="true"
+                    android:layout_marginRight="@dimen/margin_20dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/login_input_eye_ic"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height_0.5dp"
+                android:background="@color/edit_border_color"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/login_id_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_30dp"
+            android:layout_marginRight="@dimen/margin_30dp"
+            android:layout_marginTop="@dimen/margin_70dp"
+            android:paddingTop="@dimen/padding_12dp"
+            android:paddingBottom="@dimen/padding_12dp"
+            android:gravity="center"
+            android:background="@drawable/common_round_primary_btn"
+            android:text="@string/common_login"
+            android:textColor="@color/common_text_color_white_to_primary"
+            android:textSize="@dimen/font_18sp"/>
+    </LinearLayout>
+
     <include
         android:id="@+id/layout_toast"
+        layout="@layout/layout_toast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/layout_toast"
         android:layout_below="@+id/common_id_toolbar"/>
 
-
-    <RelativeLayout
-        android:id="@+id/login_id_input_area"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/common_id_toolbar"
-        android:layout_marginTop="@dimen/margin_20dp"
-        android:background="@drawable/common_edit_border"
-        android:paddingLeft="@dimen/padding_12dp"
-        android:paddingRight="@dimen/padding_12dp">
-
-        <com.yuplus.publiccloud.ui.widget.ClearableEditText
-            android:id="@+id/login_id_account"
-            style="@style/login_edit_text_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:hint="@string/login_account"
-            android:inputType="text"/>
-
-        <View
-            android:id="@+id/reg_id_phone_divider"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line_height_0.5dp"
-            android:layout_below="@id/login_id_account"
-            android:background="@color/edit_border_color"/>
-
-        <com.yuplus.publiccloud.ui.widget.ClearableEditText
-            android:id="@+id/login_id_password"
-            style="@style/login_edit_text_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/reg_id_phone_divider"
-            android:background="@null"
-            android:hint="@string/login_password"
-            android:inputType="textPassword"/>
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/login_id_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/login_id_input_area"
-        android:layout_marginLeft="@dimen/margin_16dp"
-        android:layout_marginRight="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_50dp"
-        android:background="@color/colorPrimary"
-        android:text="@string/common_login"
-        android:textColor="@color/common_white"
-        android:textSize="@dimen/font_18sp"/>
+        style="@style/login_edit_text_style"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/common_question"/>
 </RelativeLayout>

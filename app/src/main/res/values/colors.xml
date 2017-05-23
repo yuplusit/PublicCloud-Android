@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#3C8DBC</color>
+    <color name="colorPrimaryDark">#3C8DBC</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="common_white">#FFFFFFFF</color>
@@ -13,5 +13,10 @@
 
     <color name="progress_hub_text_color">#FFFFFF</color>
     <color name="progress_hub_bg_color">#DF404040</color>
-    <color name="edit_border_color">#ffdedede</color>
+    <color name="edit_border_color">#FFECECEC</color>
+
+    <color name="font_primary">#FF383838</color>
+    <color name="font_secondary">#FF5b5b5b</color>
+    <color name="font_thirdary">@color/common_black</color>
+
 </resources>

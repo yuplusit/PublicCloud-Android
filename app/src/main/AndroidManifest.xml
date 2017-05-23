@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/common_activity_theme">
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -30,9 +30,9 @@
             </intent-filter>
         </activity>
 
-        <activity
+        <!--<activity
             android:name=".ui.activity.LoginActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"/>-->
 
         <activity
             android:name=".ui.activity.MainActivity"
