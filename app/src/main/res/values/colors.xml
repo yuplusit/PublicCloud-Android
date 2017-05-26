@@ -6,6 +6,9 @@
 
     <color name="common_white">#FFFFFFFF</color>
     <color name="common_black">#FF000000</color>
+    <color name="common_shadow">#11000000</color>
+    <color name="common_transparent">#00000000</color>
+    <color name="common_background_color">#FFF5F5F5</color>
     <color name="common_alpha_black">#90000000</color>
     <color name="common_text_gray">#7C7C7C</color>
     <color name="common_text_dark">#3F3F3F</color>
@@ -17,6 +20,11 @@
 
     <color name="font_primary">#FF383838</color>
     <color name="font_secondary">#FF5b5b5b</color>
-    <color name="font_thirdary">@color/common_black</color>
+    <color name="font_thirdary">#FFC2C2C2</color>
+
+    <!-- 告警颜色 -->
+    <color name="alert_yellow_color">#FFE9AD2B</color>
+    <color name="alert_red_color">#FFE56961</color>
+    <color name="alert_green_color">#FF6DD2CE</color>
 
 </resources>

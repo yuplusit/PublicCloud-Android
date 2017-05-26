@@ -22,10 +22,11 @@ public class ApiCst {
         }
     }
 
-    private static final String HOST_NAME   = mSdkConfiguration.getHttpHost();
-    private static final int    PORT        = mSdkConfiguration.getHttpPort();
-    private static final String ROUTE       = mSdkConfiguration.getBasePath();
-    private static final String REQUEST_API = HOST_NAME + (PORT != 80 && PORT > 0 ? (":" + PORT) : "") + ROUTE;
+    public static final  String HOST_NAME      = mSdkConfiguration.getHttpHost();
+    public static final  int    PORT           = mSdkConfiguration.getHttpPort();
+    public static final  String ROUTE          = mSdkConfiguration.getBasePath();
+    public static final  String SERVER_ADDRESS = HOST_NAME + (PORT != 80 && PORT > 0 ? (":" + PORT) : "");
+    private static final String REQUEST_API    = SERVER_ADDRESS + ROUTE;
 
 
     //登录接口

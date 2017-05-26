@@ -33,10 +33,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
-
-    lintOptions {
-        abortOnError false
-    }
 }
 
 task makeJar(type: Copy) {
@@ -73,8 +69,8 @@ dependencies {
     compile requestDependencies.logginginterceptor
     compile requestDependencies.urlconnection
 
-    compile asyncDependencies.rxjava
-    compile asyncDependencies.rxandroid
+    /*compile asyncDependencies.rxjava
+    compile asyncDependencies.rxandroid*/
 
     compile 'com.alibaba:fastjson:1.1.57.android'
 }

@@ -21,14 +21,20 @@ public class CustomerBean extends BaseBean {
     private String conditionField;
 
     private ValuesBean values;
-    private String  customerName;
-    private String  duty;
-    private String  customerContact;
-    private String  customerPhone;
-    private String  customerEmail;
-    private String  customerAddress;
-    private String  description;
-    private String  risingTime;
+    private String     customerName;
+    private String     duty;
+    private String     customerContact;
+    private String     customerPhone;
+    private String     customerEmail;
+    private String     customerAddress;
+    private String     description;
+    private String     risingTime;
+
+    //后拼接
+    private int    deviceCount;
+    private int    alertCount;
+    private int    orderCount;
+    private String imageUrl;
 
     public String getDomainPath() {
         return domainPath;
@@ -158,6 +164,38 @@ public class CustomerBean extends BaseBean {
         this.risingTime = risingTime;
     }
 
+    public int getDeviceCount() {
+        return deviceCount;
+    }
+
+    public void setDeviceCount(int deviceCount) {
+        this.deviceCount = deviceCount;
+    }
+
+    public int getAlertCount() {
+        return alertCount;
+    }
+
+    public void setAlertCount(int alertCount) {
+        this.alertCount = alertCount;
+    }
+
+    public int getOrderCount() {
+        return orderCount;
+    }
+
+    public void setOrderCount(int orderCount) {
+        this.orderCount = orderCount;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public static class ValuesBean extends BaseBean {
         private String standardAddress;
         private double longitude;
@@ -245,6 +283,10 @@ public class CustomerBean extends BaseBean {
         dest.writeString(this.customerAddress);
         dest.writeString(this.description);
         dest.writeString(this.risingTime);
+        dest.writeInt(this.deviceCount);
+        dest.writeInt(this.alertCount);
+        dest.writeInt(this.orderCount);
+        dest.writeString(this.imageUrl);
     }
 
     public CustomerBean() {
@@ -267,6 +309,10 @@ public class CustomerBean extends BaseBean {
         this.customerAddress = in.readString();
         this.description = in.readString();
         this.risingTime = in.readString();
+        this.deviceCount = in.readInt();
+        this.alertCount = in.readInt();
+        this.orderCount = in.readInt();
+        this.imageUrl = in.readString();
     }
 
     public static final Creator<CustomerBean> CREATOR = new Creator<CustomerBean>() {

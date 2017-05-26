@@ -55,7 +55,8 @@
                     android:layout_marginLeft="@dimen/margin_40dp"
                     android:layout_marginRight="@dimen/margin_20dp"
                     android:hint="@string/login_account_hint"
-                    android:inputType="text"/>
+                    android:inputType="text"
+                    android:text="runxing"/>
             </LinearLayout>
 
             <View
@@ -85,7 +86,8 @@
                     android:layout_marginLeft="@dimen/margin_40dp"
                     android:layout_marginRight="@dimen/margin_10dp"
                     android:hint="@string/login_password_empty"
-                    android:inputType="textPassword"/>
+                    android:inputType="textPassword"
+                    android:text="test123"/>
 
                 <ImageView
                     android:id="@+id/login_id_password_show"

@@ -25,4 +25,15 @@
     <string name="login_login_failure">登录失败，请重试！</string>
     <string name="login_login_success">登录成功</string>
     <string name="login_login_exit">退出登录</string>
+
+    <!-- 客户页 -->
+    <string name="customer_type_flag">医</string>
+    <string name="customer_device_count">设备数量</string>
+    <string name="customer_alert_count">告警数量</string>
+    <string name="customer_order_count">工单数量</string>
+
+    <string name="device_all_count">设备总数</string>
+    <string name="alert_all_count">告警总数</string>
+    <string name="order_all_count">工单总数</string>
+
 </resources>

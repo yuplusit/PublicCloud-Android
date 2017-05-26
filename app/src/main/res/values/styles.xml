@@ -1,17 +1,21 @@
 <resources>
 
     <!-- Base application theme. -->
-<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         &lt;!&ndash; Customize your theme here. &ndash;&gt;
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>-->
 
-    <style name="common_activity_theme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:windowBackground">@color/common_window_background</item>
+
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
 
     <!--Dialog-->
@@ -28,12 +32,14 @@
 
     <!-- toolbar -->
     <style name="common_toolbar_title_style">
-        <item name="android:textSize">@dimen/font_18sp</item>
+        <item name="android:textSize">@dimen/font_20sp</item>
         <item name="android:textColor">@color/common_white</item>
-        <item name="android:background">@color/colorPrimary</item>
     </style>
 
-
+    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
 
 
     <style name="common_edit_text_padding_style">

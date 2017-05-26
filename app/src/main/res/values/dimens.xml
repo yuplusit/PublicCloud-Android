@@ -128,6 +128,7 @@
     <dimen name="width_110dp">110dp</dimen>
     <dimen name="width_120dp">120dp</dimen>
     <dimen name="width_160dp">160dp</dimen>
+    <dimen name="width_200dp">200dp</dimen>
     <dimen name="width_250dp">250dp</dimen>
     <dimen name="width_260dp">260dp</dimen>
     <dimen name="width_270dp">270dp</dimen>
@@ -154,6 +155,8 @@
     <dimen name="height_16dp">16dp</dimen>
     <dimen name="height_18dp">18dp</dimen>
     <dimen name="height_20dp">20dp</dimen>
+    <dimen name="height_22dp">22dp</dimen>
+    <dimen name="height_23dp">23dp</dimen>
     <dimen name="height_25dp">25dp</dimen>
     <dimen name="height_28dp">28dp</dimen>
     <dimen name="height_30dp">30dp</dimen>

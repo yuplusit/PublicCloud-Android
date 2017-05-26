@@ -1,6 +1,6 @@
 package com.yuplus.cloudsdk.future.handler;
 
-import com.yuplus.cloudsdk.future.data.response.ProjectListBean;
+import com.yuplus.cloudsdk.future.data.response.ProjectListResponse;
 
 /**
  * @user longzhen
@@ -8,5 +8,5 @@ import com.yuplus.cloudsdk.future.data.response.ProjectListBean;
  * @desc
  */
 
-public class ProjectListHandler extends HttpHandler<ProjectListBean> {
+public class ProjectListHandler extends HttpHandler<ProjectListResponse> {
 }

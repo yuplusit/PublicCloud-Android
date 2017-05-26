@@ -13,7 +13,7 @@ import java.util.List;
  * @desc
  */
 
-public class ProjectListBean extends BaseResponse<List<ProjectBean>> {
+public class ProjectListResponse extends BaseResponse<List<ProjectBean>> {
 
     @Override
     public int describeContents() {
@@ -24,21 +24,21 @@ public class ProjectListBean extends BaseResponse<List<ProjectBean>> {
     public void writeToParcel(Parcel dest, int flags) {
     }
 
-    public ProjectListBean() {
+    public ProjectListResponse() {
     }
 
-    protected ProjectListBean(Parcel in) {
+    protected ProjectListResponse(Parcel in) {
     }
 
-    public static final Creator<ProjectListBean> CREATOR = new Creator<ProjectListBean>() {
+    public static final Creator<ProjectListResponse> CREATOR = new Creator<ProjectListResponse>() {
         @Override
-        public ProjectListBean createFromParcel(Parcel source) {
-            return new ProjectListBean(source);
+        public ProjectListResponse createFromParcel(Parcel source) {
+            return new ProjectListResponse(source);
         }
 
         @Override
-        public ProjectListBean[] newArray(int size) {
-            return new ProjectListBean[size];
+        public ProjectListResponse[] newArray(int size) {
+            return new ProjectListResponse[size];
         }
     };
 }

@@ -14,15 +14,10 @@ import android.view.View;
 public abstract class AbsFragment extends Fragment {
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        init(savedInstanceState);
-    }
-
-    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initPresenter();
+        init(savedInstanceState);
         initView();
         initData();
         initListener();
@@ -32,17 +27,17 @@ public abstract class AbsFragment extends Fragment {
 
     protected abstract int getLayoutRes();
 
-    private void init(Bundle savedInstanceState) {
+    protected void init(Bundle savedInstanceState) {
     }
 
     protected abstract void initPresenter();
 
-    private void initView() {
+    protected void initView() {
     }
 
-    private void initData() {
+    protected void initData() {
     }
 
-    private void initListener() {
+    protected void initListener() {
     }
 }

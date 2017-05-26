@@ -3,7 +3,6 @@
                                    android:id="@+id/toolbar_common"
                                    android:layout_width="match_parent"
                                    android:layout_height="@dimen/height_toolbar_size"
-                                   android:background="?attr/colorPrimary"
                                    android:minHeight="@dimen/height_toolbar_size">
 
     <!--<ViewStub

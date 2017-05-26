@@ -41,7 +41,7 @@ public abstract class TitleActivity extends BaseActivity {
         if (resId > 0) {
             getToolbar().setBackgroundColor(getResources().getColor(resId));
         } else {
-            getToolbar().setBackgroundColor(getResources().getColor(R.color.common_white));
+            getToolbar().setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         }
     }
 

@@ -93,7 +93,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
             mPasswordEt.requestFocus();
             return false;
         }
-        if (password.length() <= 6) {
+        if (password.length() < 6) {
             ToastUtils.showToast(this, getString(R.string.login_password_error));
             mPasswordEt.requestFocus();
             return false;

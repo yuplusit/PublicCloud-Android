@@ -21,18 +21,23 @@ public class ProjectBean extends BaseBean {
     private String conditionField;
 
     private ValuesBean values;
-    private String projectName;
-    private int    distributorId;
-    private String distributorName;
-    private String projectAddress;
-    private String installDate;
-    private String debugFinishDate;
-    private String qualityCloseDate;
-    private long   customerId;
-    private String customerName;
-    private String projectNo;
-    private String startTime;
-    private String risingTime;
+    private String     projectName;
+    private int        distributorId;
+    private String     distributorName;
+    private String     projectAddress;
+    private String     installDate;
+    private String     debugFinishDate;
+    private String     qualityCloseDate;
+    private long       customerId;
+    private String     customerName;
+    private String     projectNo;
+    private String     startTime;
+    private String     risingTime;
+
+    //需拼接
+    private int deviceCount;
+    private int alertCount;
+    private int orderCount;
 
     public String getDomainPath() {
         return domainPath;
@@ -194,6 +199,30 @@ public class ProjectBean extends BaseBean {
         this.risingTime = risingTime;
     }
 
+    public int getDeviceCount() {
+        return deviceCount;
+    }
+
+    public void setDeviceCount(int deviceCount) {
+        this.deviceCount = deviceCount;
+    }
+
+    public int getAlertCount() {
+        return alertCount;
+    }
+
+    public void setAlertCount(int alertCount) {
+        this.alertCount = alertCount;
+    }
+
+    public int getOrderCount() {
+        return orderCount;
+    }
+
+    public void setOrderCount(int orderCount) {
+        this.orderCount = orderCount;
+    }
+
     public static class ValuesBean extends BaseBean {
         private String standardAddress;
         private double longitude;
@@ -286,6 +315,9 @@ public class ProjectBean extends BaseBean {
         dest.writeString(this.projectNo);
         dest.writeString(this.startTime);
         dest.writeString(this.risingTime);
+        dest.writeInt(this.deviceCount);
+        dest.writeInt(this.alertCount);
+        dest.writeInt(this.orderCount);
     }
 
     public ProjectBean() {
@@ -312,6 +344,9 @@ public class ProjectBean extends BaseBean {
         this.projectNo = in.readString();
         this.startTime = in.readString();
         this.risingTime = in.readString();
+        this.deviceCount = in.readInt();
+        this.alertCount = in.readInt();
+        this.orderCount = in.readInt();
     }
 
     public static final Creator<ProjectBean> CREATOR = new Creator<ProjectBean>() {

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/project_id_system_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_5dp"
+            android:layout_marginRight="@dimen/margin_5dp"
+            android:background="@color/colorPrimary"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:paddingBottom="@dimen/padding_14dp"
+            android:paddingTop="@dimen/padding_14dp"
+            android:singleLine="true"
+            android:textColor="@color/common_white"
+            android:textSize="@dimen/font_16sp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/common_white"
+            android:paddingBottom="@dimen/padding_14dp"
+            android:paddingLeft="@dimen/padding_30dp"
+            android:paddingRight="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_14dp">
+
+            <TextView
+                android:id="@+id/project_id_device_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/project_id_device_icon"
+                android:text="@string/device_all_count"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_16sp"/>
+
+            <TextView
+                android:id="@+id/project_id_device_count"
+                android:layout_width="@dimen/width_35dp"
+                android:layout_height="@dimen/height_22dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/common_round_yellow_bg"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/font_14sp"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:background="@color/common_window_background"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/common_white"
+            android:paddingBottom="@dimen/padding_14dp"
+            android:paddingLeft="@dimen/padding_30dp"
+            android:paddingRight="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_14dp">
+
+            <TextView
+                android:id="@+id/project_id_alert_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/project_id_alert_icon"
+                android:text="@string/alert_all_count"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_16sp"/>
+
+            <TextView
+                android:id="@+id/project_id_alert_count"
+                android:layout_width="@dimen/width_35dp"
+                android:layout_height="@dimen/height_22dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/common_round_red_bg"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/font_14sp"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:background="@color/common_window_background"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/common_white"
+            android:paddingBottom="@dimen/padding_14dp"
+            android:paddingLeft="@dimen/padding_30dp"
+            android:paddingRight="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_14dp">
+
+            <TextView
+                android:id="@+id/project_id_order_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/project_id_order_icon"
+                android:text="@string/order_all_count"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_16sp"/>
+
+            <TextView
+                android:id="@+id/project_id_order_count"
+                android:layout_width="@dimen/width_35dp"
+                android:layout_height="@dimen/height_22dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/common_round_green_bg"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/font_14sp"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:background="@color/common_window_background"/>
+    </LinearLayout>
+
+</LinearLayout>

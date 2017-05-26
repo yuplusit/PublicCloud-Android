@@ -144,10 +144,10 @@ public class AppFutureImpl implements IAppFuture {
                 .addParam(Long.parseLong(alertId));
         MapParams requestParams = new MapParams()
                 .addParam("actionType", "recover")
-                .addParam("alertIds", params1.toJson())
-                .addParam("recoverAll", String.valueOf(true))
-                .addParam("resolved", String.valueOf(true))
-                .addParam("clearOut", String.valueOf(true));
+                .addParam("alertIds", params1.getParams())
+                .addParam("recoverAll", true)
+                .addParam("resolved", true)
+                .addParam("clearOut", true);
         postJSON(ApiCst.ALERT_SEND_RECOVER_ACTION_API, requestParams, tag, AlertActionHandler.class, listener);
     }
 
@@ -157,7 +157,7 @@ public class AppFutureImpl implements IAppFuture {
                 .addParam(Long.parseLong(alertId));
         MapParams requestParams = new MapParams()
                 .addParam("actionType", "claim")
-                .addParam("alertIds", params1.toJson());
+                .addParam("alertIds", params1.getParams());
         postJSON(ApiCst.ALERT_SEND_CLAIM_ACTION_API, requestParams, tag, AlertActionHandler.class, listener);
     }
 
@@ -215,7 +215,7 @@ public class AppFutureImpl implements IAppFuture {
     public void getKpiValueList(BaseParams kpiQueryModel, Object tag, FutureListener listener) {
         ListParams requestParams = new ListParams()
                 .addParam("kpi")
-                .addParam(kpiQueryModel.toJson());
+                .addParam(kpiQueryModel.getParams());
         postJSON(ApiCst.GET_KPI_VALUE_LIST_API, requestParams, tag, KpiValueListHandler.class, listener);
     }
 

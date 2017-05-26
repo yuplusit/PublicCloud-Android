@@ -24,6 +24,13 @@ public class ListParams extends BaseParams<List> {
         return this;
     }
 
+    public ListParams addAllParam(Object object) {
+        if (object instanceof List) {
+            this.params.addAll((List) object);
+        }
+        return this;
+    }
+
     @Override
     public String toJson() {
         return JSON.toJSONString(this.params);

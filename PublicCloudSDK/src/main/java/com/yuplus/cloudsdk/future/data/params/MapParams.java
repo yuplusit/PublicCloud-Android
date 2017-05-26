@@ -2,7 +2,6 @@ package com.yuplus.cloudsdk.future.data.params;
 
 import com.alibaba.fastjson.JSON;
 import com.yuplus.cloudsdk.base.BaseParams;
-import com.yuplus.cloudsdk.util.StringUtils;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,15 +12,15 @@ import java.util.concurrent.ConcurrentHashMap;
  * @desc
  */
 
-public class MapParams extends BaseParams<Map<String, String>> {
+public class MapParams extends BaseParams<Map<String, Object>> {
 
     public MapParams() {
         super();
-        this.params = new ConcurrentHashMap<String, String>();
+        this.params = new ConcurrentHashMap<String, Object>();
     }
 
-    public MapParams addParam(String key, String value) {
-        if (StringUtils.isNotBlank(key) && null != value) {
+    public MapParams addParam(String key, Object value) {
+        if (null != value) {
             this.params.put(key, value);
         }
         return this;

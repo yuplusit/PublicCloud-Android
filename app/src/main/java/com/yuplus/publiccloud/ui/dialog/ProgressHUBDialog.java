@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.ldoublem.loadingviewlib.view.LVGearsTwo;
 import com.yuplus.publiccloud.R;
 
 /**
@@ -17,7 +16,6 @@ import com.yuplus.publiccloud.R;
  * @desc
  */
 public class ProgressHUBDialog extends Dialog {
-    private LVGearsTwo mLoadingView;
 
     public ProgressHUBDialog(Context context) {
         super(context);
@@ -66,27 +64,6 @@ public class ProgressHUBDialog extends Dialog {
             txt.setText(message);
             txt.invalidate();
         }
-    }
-
-    @Override
-    public void dismiss() {
-        super.dismiss();
-        mLoadingView.stopAnim();
-    }
-
-    @Override
-    public void show() {
-        super.show();
-        if(null == mLoadingView){
-            mLoadingView = (LVGearsTwo)findViewById(R.id.progress_hub_id_loading);
-        }
-        mLoadingView.startAnim();
-    }
-
-    @Override
-    public void hide() {
-        super.hide();
-        mLoadingView.stopAnim();
     }
 }
 

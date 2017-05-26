@@ -8,10 +8,10 @@ import okhttp3.Call;
 public class FutureResult {
     private int       code;
     private boolean   success;
-    private Object    mAttach;
-    private String    mJsonData;
+    private Object    attach;
+    private String    jsonData;
     private Call      call;
-    private Exception mException;
+    private Exception exception;
 
     public FutureResult() {
         code = -1;
@@ -51,7 +51,7 @@ public class FutureResult {
      * @param attach
      */
     public FutureResult setAttach(Object attach) {
-        this.mAttach = attach;
+        this.attach = attach;
         return this;
     }
 
@@ -61,7 +61,7 @@ public class FutureResult {
      * @return
      */
     public Object getAttach() {
-        return this.mAttach;
+        return this.attach;
     }
 
     /**
@@ -90,7 +90,7 @@ public class FutureResult {
      * @param ex
      */
     public FutureResult setException(Exception ex) {
-        this.mException = ex;
+        this.exception = ex;
         return this;
     }
 
@@ -100,7 +100,7 @@ public class FutureResult {
      * @return
      */
     public Exception getException() {
-        return this.mException;
+        return this.exception;
     }
 
     /**
@@ -109,7 +109,7 @@ public class FutureResult {
      * @return
      */
     public String getJsonData() {
-        return mJsonData;
+        return jsonData;
     }
 
     /**
@@ -118,7 +118,7 @@ public class FutureResult {
      * @return
      */
     public FutureResult setJsonData(String jsonData) {
-        this.mJsonData = jsonData;
+        this.jsonData = jsonData;
         return this;
     }
 }

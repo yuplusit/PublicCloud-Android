@@ -20,4 +20,32 @@ public class AppCst {
 
     //SplashActivity页面过度的时间
     public static final int SPLASH_TRANSITION_TIME = 3000;
+
+
+    //common key one  -->key one
+    public static final String COMMON_KEY = "common_key";
+
+    //common key status  -->key two
+    public static final String COMMON_STATUS = "common_status";
+
+    //common key flag  -->key three
+    public static final String COMMON_FLAG = "common_flag";
+
+    //common key data  -->key four
+    public static final String COMMON_DATA = "common_data";
+
+    //common key url  -->key five
+    public static final String COMMON_URL = "common_url";
+
+    //common key type  -->key six
+    public static final String COMMON_TYPE = "common_type";
+
+    //common key title -->key seven
+    public static final String COMMON_TITLE = "common_title";
+
+    //common key title -->key eight
+    public static final String COMMON_CONTENT = "common_title";
+
+    //common key id -->key id
+    public static final String COMMON_ID = "common_id";
 }

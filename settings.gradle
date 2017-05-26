@@ -1,1 +1,1 @@
-include ':app', ':PublicCloudSDK', ':ECharts'
+include ':app', ':PublicCloudSDK'
