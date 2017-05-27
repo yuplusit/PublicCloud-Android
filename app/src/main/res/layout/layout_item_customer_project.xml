@@ -14,13 +14,13 @@
             android:id="@+id/project_id_system_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_5dp"
-            android:layout_marginRight="@dimen/margin_5dp"
             android:background="@color/colorPrimary"
             android:ellipsize="end"
             android:gravity="center"
-            android:paddingBottom="@dimen/padding_14dp"
-            android:paddingTop="@dimen/padding_14dp"
+            android:paddingBottom="@dimen/padding_12dp"
+            android:paddingLeft="@dimen/padding_5dp"
+            android:paddingRight="@dimen/padding_5dp"
+            android:paddingTop="@dimen/padding_12dp"
             android:singleLine="true"
             android:textColor="@color/common_white"
             android:textSize="@dimen/font_16sp"/>
@@ -28,11 +28,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/common_white"
-            android:paddingBottom="@dimen/padding_14dp"
+            android:background="@drawable/item_touch_bg"
+            android:clickable="true"
+            android:paddingBottom="@dimen/padding_12dp"
             android:paddingLeft="@dimen/padding_30dp"
             android:paddingRight="@dimen/padding_16dp"
-            android:paddingTop="@dimen/padding_14dp">
+            android:paddingTop="@dimen/padding_12dp">
 
             <TextView
                 android:id="@+id/project_id_device_icon"
@@ -72,11 +73,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/common_white"
-            android:paddingBottom="@dimen/padding_14dp"
+            android:background="@drawable/item_touch_bg"
+            android:clickable="true"
+            android:paddingBottom="@dimen/padding_12dp"
             android:paddingLeft="@dimen/padding_30dp"
             android:paddingRight="@dimen/padding_16dp"
-            android:paddingTop="@dimen/padding_14dp">
+            android:paddingTop="@dimen/padding_12dp">
 
             <TextView
                 android:id="@+id/project_id_alert_icon"
@@ -116,11 +118,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/common_white"
-            android:paddingBottom="@dimen/padding_14dp"
+            android:background="@drawable/item_touch_bg"
+            android:clickable="true"
+            android:paddingBottom="@dimen/padding_12dp"
             android:paddingLeft="@dimen/padding_30dp"
             android:paddingRight="@dimen/padding_16dp"
-            android:paddingTop="@dimen/padding_14dp">
+            android:paddingTop="@dimen/padding_12dp">
 
             <TextView
                 android:id="@+id/project_id_order_icon"

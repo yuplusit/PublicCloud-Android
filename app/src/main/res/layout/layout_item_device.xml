@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_touch_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/padding_10dp"
+            android:paddingLeft="@dimen/padding_15dp"
+            android:paddingRight="@dimen/padding_15dp"
+            android:paddingTop="@dimen/padding_10dp">
+
+            <ImageView
+                android:id="@+id/device_id_img"
+                android:layout_width="@dimen/width_100dp"
+                android:layout_height="@dimen/height_70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_device_default"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/device_id_img"
+                android:layout_alignTop="@+id/device_id_img"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_toRightOf="@+id/device_id_img">
+
+                <LinearLayout
+                    android:id="@+id/device_id_device_containter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设备名称："
+                        android:textColor="@color/font_secondary"
+                        android:textSize="@dimen/font_11sp"/>
+
+                    <TextView
+                        android:id="@+id/device_id_device_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:paddingRight="@dimen/padding_10dp"
+                        android:singleLine="true"
+                        android:text="泰安中心污水电压电流温度变送"
+                        android:textColor="@color/font_secondary"
+                        android:textSize="@dimen/font_11sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/device_id_sn_containter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/device_id_device_containter"
+                    android:layout_marginTop="@dimen/margin_2dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="序列号："
+                        android:textColor="@color/font_secondary"
+                        android:textSize="@dimen/font_11sp"/>
+
+                    <TextView
+                        android:id="@+id/device_id_sn_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:paddingRight="@dimen/padding_10dp"
+                        android:singleLine="true"
+                        android:text="电压电流温度变送"
+                        android:textColor="@color/font_secondary"
+                        android:textSize="@dimen/font_11sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/device_id_customer_containter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/device_id_sn_containter"
+                    android:layout_marginTop="@dimen/margin_2dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="使用用户："
+                        android:textColor="@color/font_secondary"
+                        android:textSize="@dimen/font_11sp"/>
+
+                    <TextView
+                        android:id="@+id/device_id_customer_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:paddingRight="@dimen/padding_10dp"
+                        android:singleLine="true"
+                        android:text="泰安"
+                        android:textColor="@color/font_secondary"
+                        android:textSize="@dimen/font_11sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/device_id_state_isnormal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_device_normal"
+                        android:drawablePadding="@dimen/padding_3dp"
+                        android:text="正常"
+                        android:textColor="@color/common_green"
+                        android:textSize="@dimen/font_10sp"/>
+
+                    <TextView
+                        android:id="@+id/device_id_state_swtich"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_8dp"
+                        android:drawableLeft="@drawable/ic_device_normal"
+                        android:drawablePadding="@dimen/padding_3dp"
+                        android:text="启用"
+                        android:textColor="@color/common_green"
+                        android:textSize="@dimen/font_10sp"/>
+
+                    <TextView
+                        android:id="@+id/device_id_state_isonline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_8dp"
+                        android:drawableLeft="@drawable/ic_device_normal"
+                        android:drawablePadding="@dimen/padding_3dp"
+                        android:text="离线"
+                        android:textColor="@color/common_green"
+                        android:textSize="@dimen/font_10sp"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"/>
+    </LinearLayout>
+</LinearLayout>

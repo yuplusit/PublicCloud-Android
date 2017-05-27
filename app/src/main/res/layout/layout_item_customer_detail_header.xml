@@ -8,8 +8,13 @@
         android:id="@+id/custom_id_bg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_200dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_customer_bg"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_200dp"
+        android:background="@color/common_transparent_40_precent"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -19,18 +24,37 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="@dimen/width_70dp"
+            android:layout_height="@dimen/height_70dp">
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/custom_id_avatar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_customer_bg"
-                app:riv_border_color="@android:color/white"
-                app:riv_border_width="1dp"
+                app:riv_border_color="@color/avatar_border_color"
+                app:riv_border_width="3dp"
                 app:riv_oval="true"/>
+
+            <LinearLayout
+                android:layout_width="@dimen/width_16dp"
+                android:layout_height="@dimen/height_16dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/margin_2dp"
+                android:layout_marginRight="@dimen/margin_2dp"
+                android:background="@drawable/common_oval_primary_bg"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/customer_type_flag"
+                    android:textColor="@color/common_white"
+                    android:textSize="@dimen/font_10sp"/>
+            </LinearLayout>
         </RelativeLayout>
 
         <LinearLayout
@@ -68,7 +92,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_60dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/common_alpha_black"
+        android:background="@color/common_transparent_65_precent"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -95,6 +119,12 @@
                 android:textSize="@dimen/font_15sp"/>
         </LinearLayout>
 
+        <View
+            android:layout_width="@dimen/line_height_0.5dp"
+            android:layout_height="@dimen/height_40dp"
+            android:background="@color/common_white"
+            android:layout_gravity="center"/>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -118,6 +148,12 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/font_15sp"/>
         </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/line_height_0.5dp"
+            android:layout_height="@dimen/height_40dp"
+            android:background="@color/common_white"
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="0dp"

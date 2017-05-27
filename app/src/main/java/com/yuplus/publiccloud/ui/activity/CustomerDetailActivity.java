@@ -1,16 +1,23 @@
 package com.yuplus.publiccloud.ui.activity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.makeramen.roundedimageview.RoundedImageView;
+import com.yuplus.cloudsdk.BitmapUtils;
 import com.yuplus.cloudsdk.future.data.bean.CustomerBean;
 import com.yuplus.cloudsdk.future.data.bean.KpiValueBean;
 import com.yuplus.cloudsdk.future.data.bean.ProjectBean;
@@ -25,6 +32,9 @@ import com.yuplus.publiccloud.mvp.view.ProjectListView;
 import com.yuplus.publiccloud.ui.adapter.CustomerDetailAdapter;
 import com.yuplus.publiccloud.ui.base.TitleActivity;
 import com.yuplus.publiccloud.ui.dialog.ProgressHUBDialog;
+import com.yuplus.publiccloud.ui.listener.HidingScrollListener;
+import com.yuplus.publiccloud.util.BlurUtils;
+import com.yuplus.publiccloud.util.DensityUtils;
 import com.yuplus.publiccloud.util.ToastUtils;
 
 import java.util.ArrayList;
@@ -58,6 +68,8 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
 
     private CustomerBean      mCustomer;
     private List<ProjectBean> mProjectList;
+    private Toolbar           mToolbar;
+    private int               mMoveDistance;
 
     @Override
     protected int getLayoutRes() {
@@ -87,6 +99,7 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
         setShowHomeBack();
 
         mProjectList = new ArrayList<>();
+        mToolbar = getToolbar();
 
         mProjectPresenter.findProjectListByCustomerId(String.valueOf(mCustomer.getId()));
     }
@@ -111,14 +124,30 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
         mCustomerOrderCountTv = (TextView) headerView.findViewById(R.id.customer_id_order_count);
 
         mCustomerNameTv.setText(mCustomer.getCustomerContact());
-        Glide.with(this)
-                .load(mCustomer.getImageUrl())
-                .error(R.drawable.ic_customer_bg)
-                .into(mCustomerBgIv);
-        Glide.with(this)
-                .load(mCustomer.getImageUrl())
-                .error(R.drawable.ic_customer_bg)
-                .into(mCustomerAvatar);
+        if (StringUtils.isNotBlank(mCustomer.getImageUrl())) {
+            Glide.with(this)
+                    .load(mCustomer.getImageUrl())
+                    .asBitmap()
+                    .error(R.drawable.ic_customer_bg)
+                    .into(new SimpleTarget<Bitmap>() {
+                        @Override
+                        public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                            Bitmap bitmap = BlurUtils.doBlur(resource, 1, 10);
+                            mCustomerBgIv.setImageBitmap(bitmap);
+                        }
+                    });
+            Glide.with(this)
+                    .load(mCustomer.getImageUrl())
+                    .error(R.drawable.ic_customer_bg)
+                    .into(mCustomerAvatar);
+        } else {
+            Bitmap bitmap = BitmapUtils.drawableToBitamp(getResources().getDrawable(R.drawable.ic_customer_bg));
+            Bitmap blurBitmap = BlurUtils.doBlur(bitmap, 3, 1);
+            mCustomerBgIv.setImageBitmap(blurBitmap);
+            mCustomerAvatar.setImageBitmap(bitmap);
+        }
+
+
         mCustomerDeviceCountTv.setText(String.valueOf(mCustomer.getDeviceCount()));
         mCustomerAlertCountTv.setText(String.valueOf(mCustomer.getAlertCount()));
         mCustomerOrderCountTv.setText(String.valueOf(mCustomer.getOrderCount()));
@@ -146,6 +175,49 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
             public void onLoadMore() {
             }
         });
+        mXRecyclerView.addOnScrollListener(new HidingScrollListener() {
+
+            @Override
+            public void onHide() {
+                hideToolbar();
+            }
+
+            @Override
+            public void onShow() {
+                showToolbar();
+            }
+
+            @Override
+            public void onScrolled(int dx, int dy) {
+                mMoveDistance += dy;
+                if(mMoveDistance <= DensityUtils.dip2px(CustomerDetailActivity.this,200f)){
+                    setToolbarBackground(R.color.common_transparent);
+                }else{
+                    setToolbarBackground(R.color.common_transparent_40_precent);
+                }
+            }
+        });
+
+        mXRecyclerView.setRefreshPullDirectionListener(new XRecyclerView.RefreshPullDirectionListener() {
+
+            @Override
+            public void onDown() {
+                hideToolbar();
+            }
+
+            @Override
+            public void onReset() {
+                showToolbar();
+            }
+        });
+    }
+
+    private void hideToolbar() {
+        mToolbar.animate().translationY(-mToolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+    }
+
+    private void showToolbar() {
+        mToolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
     }
 
     @Override

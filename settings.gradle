@@ -1,1 +1,1 @@
-include ':app', ':PublicCloudSDK'
+include ':app', ':PublicCloudSDK', ':XRecyclerview'

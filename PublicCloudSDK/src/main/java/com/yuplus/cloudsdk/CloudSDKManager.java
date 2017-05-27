@@ -41,8 +41,8 @@ public class CloudSDKManager {
 
     public CloudSDKManager initLogUtil(String tag) {
         LogUtils.init(tag) // default PRETTYLOGGER or use just init()
-                .methodCount(6) // default 2
-                .methodOffset(5) // default 0
+                /*.methodCount(6) // default 2
+                .methodOffset(5) // default 0*/
                 .logAdapter(new AndroidLogAdapter());
         return this;
     }

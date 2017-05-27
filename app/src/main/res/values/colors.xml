@@ -7,7 +7,10 @@
     <color name="common_white">#FFFFFFFF</color>
     <color name="common_black">#FF000000</color>
     <color name="common_shadow">#11000000</color>
+    <color name="common_green">#FF00FF00</color>
     <color name="common_transparent">#00000000</color>
+    <color name="common_transparent_40_precent">#3C000000</color>
+    <color name="common_transparent_65_precent">#85000000</color>
     <color name="common_background_color">#FFF5F5F5</color>
     <color name="common_alpha_black">#90000000</color>
     <color name="common_text_gray">#7C7C7C</color>
@@ -26,5 +29,7 @@
     <color name="alert_yellow_color">#FFE9AD2B</color>
     <color name="alert_red_color">#FFE56961</color>
     <color name="alert_green_color">#FF6DD2CE</color>
+
+    <color name="avatar_border_color">#85FFFFFF</color>
 
 </resources>

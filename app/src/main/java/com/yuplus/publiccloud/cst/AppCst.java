@@ -21,6 +21,8 @@ public class AppCst {
     //SplashActivity页面过度的时间
     public static final int SPLASH_TRANSITION_TIME = 3000;
 
+    //分页数量
+    public static final int PAGE_SIZE = 10;
 
     //common key one  -->key one
     public static final String COMMON_KEY = "common_key";

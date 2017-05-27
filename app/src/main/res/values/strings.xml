@@ -4,6 +4,7 @@
     <string name="common_login">登录</string>
     <string name="common_question">遇到问题？</string>
     <string name="common_exit_tip">再按一次退出应用</string>
+    <string name="common_edittext_hint">输入要查找的设备</string>
 
     <string name="menu_square_bingo">我的首页</string>
     <string name="menu_my_bingo">我的分享</string>
