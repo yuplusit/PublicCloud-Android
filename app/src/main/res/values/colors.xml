@@ -30,6 +30,9 @@
     <color name="font_secondary">#FF5b5b5b</color>
     <color name="font_thirdary">#FFC2C2C2</color>
 
+    <!-- Tab栏底色 -->
+    <color name="tab_bg_color">#FFFBFBFB</color>
+
     <!-- 告警颜色 -->
     <color name="alert_yellow_color">#FFE9AD2B</color>
     <color name="alert_red_color">#FFE56961</color>

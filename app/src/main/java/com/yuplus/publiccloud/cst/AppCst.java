@@ -10,10 +10,10 @@ public class AppCst {
     public static final String APP_NAME = "PublicCloud";
 
     //服务器地址
-    public static final String SERVER_HOST = "http://36.110.36.118";
+    public static final String SERVER_HOST = "http://demo.proudsmart.com";//"http://36.110.36.118";
 
     //服务器端口
-    public static final int SERVER_PORT = 8095;
+    public static final int SERVER_PORT = 80;//8095;
 
     //Api基本path
     public static final String SERVER_BASE_PATH = "/api/rest/post";

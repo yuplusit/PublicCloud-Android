@@ -14,7 +14,7 @@ import com.yuplus.publiccloud.ui.base.TitleActivity;
 import com.yuplus.publiccloud.ui.fragment.CustomerFragment;
 import com.yuplus.publiccloud.ui.fragment.DeviceFragment;
 import com.yuplus.publiccloud.ui.fragment.HomeFirstFragment;
-import com.yuplus.publiccloud.ui.fragment.WarningFragment;
+import com.yuplus.publiccloud.ui.fragment.AlertFragment;
 import com.yuplus.publiccloud.ui.widget.FragmentTabHost;
 import com.yuplus.publiccloud.util.ToastUtils;
 import com.yuplus.publiccloud.util.ViewUtils;
@@ -70,7 +70,7 @@ public class MainActivity extends TitleActivity {
                 DeviceFragment.class, null);
 
         mTabHost.addTab(mTabHost.newTabSpec("3").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_ALERT_SOLID, "告警")),
-                WarningFragment.class, null);
+                AlertFragment.class, null);
 
         mTabHost.getTabWidget().setDividerDrawable(null);
         mTabHost.getTabWidget().setStripEnabled(false);

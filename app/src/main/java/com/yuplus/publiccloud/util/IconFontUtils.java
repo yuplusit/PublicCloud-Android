@@ -2,6 +2,7 @@ package com.yuplus.publiccloud.util;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.widget.TextView;
 
 import com.yuplus.publiccloud.enums.EAppIconFont;
 
@@ -55,6 +56,14 @@ public class IconFontUtils {
         }
         return typeface;
     }
+
+    public static void setIconFont(TextView textView, EAppIconFont eAppIconFont) {
+        Typeface typeface = IconFontUtils.getTypeface(textView.getContext(), eAppIconFont);
+        String value = eAppIconFont.getValue();
+        textView.setText(value);
+        textView.setTypeface(typeface);
+    }
+
 
     static class IconWrapper {
         private Typeface mTypeface;

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_touch_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/padding_14dp"
+        android:paddingLeft="@dimen/padding_12dp"
+        android:paddingRight="@dimen/padding_12dp"
+        android:paddingTop="@dimen/padding_14dp">
+
+        <LinearLayout
+            android:id="@+id/alert_id_state_layout"
+            android:layout_width="@dimen/width_65dp"
+            android:layout_height="@dimen/height_65dp"
+            android:background="@drawable/common_oval_primary_bg"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/alert_id_state_flag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/font_25sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/alert_id_state_layout"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_toRightOf="@+id/alert_id_state_layout"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alert_id_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="温度过高"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_16sp" />
+
+                <TextView
+                    android:id="@+id/alert_id_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2017-05-09 11:54"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/alert_id_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_3dp"
+                android:paddingRight="@dimen/padding_10dp"
+                android:text="温度1:111.00C[4]异常"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/common_round_stroke_success"
+                    android:paddingBottom="@dimen/padding_2dp"
+                    android:paddingLeft="@dimen/padding_5dp"
+                    android:paddingRight="@dimen/padding_5dp"
+                    android:paddingTop="@dimen/padding_2dp"
+                    android:text="已解决"
+                    android:textColor="@color/common_success"
+                    android:textSize="@dimen/font_13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height_1dp"
+        android:background="@color/common_window_background" />
+</LinearLayout>

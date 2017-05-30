@@ -60,17 +60,18 @@ public class AppFutureImpl implements IAppFuture {
                 .addParam("nodeType", "")
                 .addParam("alertCodes", "")
                 .addParam("createTimeFrom", "")
-                .addParam("pageSize", String.valueOf(pageSize))
+                .addParam("createTimeTo", "")
+                .addParam("pageSize", pageSize)
                 .addParam("messageFilter", "")
                 .addParam("severities", severities)
                 .addParam("states", states);
         MapParams params2 = new MapParams()
-                .addParam("start", String.valueOf(start))
-                .addParam("length", String.valueOf(pageSize))
+                .addParam("start", start)
+                .addParam("length", pageSize)
                 .addParam("sort", "createTime")
                 .addParam("sortType", "desc")
-                .addParam("statCount", String.valueOf(true))
-                .addParam("total", "0");
+                .addParam("statCount", true)
+                .addParam("total", 0);
         ListParams requestParams = new ListParams()
                 .addParam(params1.getParams())
                 .addParam(params2.getParams());
@@ -109,10 +110,10 @@ public class AppFutureImpl implements IAppFuture {
         MapParams params1 = new MapParams()
                 .addParam("domainPath", domainPath);
         MapParams params2 = new MapParams()
-                .addParam("start", String.valueOf(0))
+                .addParam("start", 0)
                 .addParam("sort", "createTime")
                 .addParam("sortType", "desc")
-                .addParam("", String.valueOf(true));
+                .addParam("", true);
         ListParams requestParams = new ListParams()
                 .addParam(params1.getParams())
                 .addParam(params2.getParams());

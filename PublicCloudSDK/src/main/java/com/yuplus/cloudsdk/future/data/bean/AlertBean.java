@@ -23,7 +23,7 @@ public class AlertBean extends BaseBean {
     private String       nodeTypes;
     private String       devName;
     private String       appName;
-    private int          relatedNodeId;
+    private long          relatedNodeId;
     private String       kpiValue;
     private long         kpiCode;
     private String       kpiUnit;
@@ -37,7 +37,7 @@ public class AlertBean extends BaseBean {
     private boolean      classified;
     private int          count;
     private int          state;
-    private int          causeAlertId;
+    private long          causeAlertId;
     private boolean      related;
     private String       firstArisingTime;
     private int          oldSeverity;
@@ -50,7 +50,7 @@ public class AlertBean extends BaseBean {
     private String       orderId;
     private String       orderStatus;
     private String       comments;
-    private int          incidentId;
+    private long          incidentId;
     private String       claimTime;
     private String       claimBy;
     private String       upgradeTime;
@@ -131,11 +131,11 @@ public class AlertBean extends BaseBean {
         this.appName = appName;
     }
 
-    public int getRelatedNodeId() {
+    public long getRelatedNodeId() {
         return relatedNodeId;
     }
 
-    public void setRelatedNodeId(int relatedNodeId) {
+    public void setRelatedNodeId(long relatedNodeId) {
         this.relatedNodeId = relatedNodeId;
     }
 
@@ -243,11 +243,11 @@ public class AlertBean extends BaseBean {
         this.state = state;
     }
 
-    public int getCauseAlertId() {
+    public long getCauseAlertId() {
         return causeAlertId;
     }
 
-    public void setCauseAlertId(int causeAlertId) {
+    public void setCauseAlertId(long causeAlertId) {
         this.causeAlertId = causeAlertId;
     }
 
@@ -347,11 +347,11 @@ public class AlertBean extends BaseBean {
         this.comments = comments;
     }
 
-    public int getIncidentId() {
+    public long getIncidentId() {
         return incidentId;
     }
 
-    public void setIncidentId(int incidentId) {
+    public void setIncidentId(long incidentId) {
         this.incidentId = incidentId;
     }
 
@@ -428,7 +428,7 @@ public class AlertBean extends BaseBean {
         dest.writeString(this.nodeTypes);
         dest.writeString(this.devName);
         dest.writeString(this.appName);
-        dest.writeInt(this.relatedNodeId);
+        dest.writeLong(this.relatedNodeId);
         dest.writeString(this.kpiValue);
         dest.writeLong(this.kpiCode);
         dest.writeString(this.kpiUnit);
@@ -442,7 +442,7 @@ public class AlertBean extends BaseBean {
         dest.writeByte(this.classified ? (byte) 1 : (byte) 0);
         dest.writeInt(this.count);
         dest.writeInt(this.state);
-        dest.writeInt(this.causeAlertId);
+        dest.writeLong(this.causeAlertId);
         dest.writeByte(this.related ? (byte) 1 : (byte) 0);
         dest.writeString(this.firstArisingTime);
         dest.writeInt(this.oldSeverity);
@@ -455,7 +455,7 @@ public class AlertBean extends BaseBean {
         dest.writeString(this.orderId);
         dest.writeString(this.orderStatus);
         dest.writeString(this.comments);
-        dest.writeInt(this.incidentId);
+        dest.writeLong(this.incidentId);
         dest.writeString(this.claimTime);
         dest.writeString(this.claimBy);
         dest.writeString(this.upgradeTime);
@@ -478,7 +478,7 @@ public class AlertBean extends BaseBean {
         this.nodeTypes = in.readString();
         this.devName = in.readString();
         this.appName = in.readString();
-        this.relatedNodeId = in.readInt();
+        this.relatedNodeId = in.readLong();
         this.kpiValue = in.readString();
         this.kpiCode = in.readLong();
         this.kpiUnit = in.readString();
@@ -492,7 +492,7 @@ public class AlertBean extends BaseBean {
         this.classified = in.readByte() != 0;
         this.count = in.readInt();
         this.state = in.readInt();
-        this.causeAlertId = in.readInt();
+        this.causeAlertId = in.readLong();
         this.related = in.readByte() != 0;
         this.firstArisingTime = in.readString();
         this.oldSeverity = in.readInt();
@@ -505,7 +505,7 @@ public class AlertBean extends BaseBean {
         this.orderId = in.readString();
         this.orderStatus = in.readString();
         this.comments = in.readString();
-        this.incidentId = in.readInt();
+        this.incidentId = in.readLong();
         this.claimTime = in.readString();
         this.claimBy = in.readString();
         this.upgradeTime = in.readString();

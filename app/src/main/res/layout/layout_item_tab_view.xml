@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/margin_4dp"
         android:textColor="@color/tab_item_select_bg"
-        android:textSize="@dimen/font_22sp"/>
+        android:textSize="@dimen/font_25sp"/>
 
     <TextView
         android:id="@+id/tab_item_icon_desc"
@@ -20,7 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/margin_4dp"
-        android:layout_marginTop="@dimen/margin_2dp"
         android:textColor="@color/tab_item_select_bg"
         android:textSize="@dimen/font_10sp"/>
 </LinearLayout>

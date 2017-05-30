@@ -82,6 +82,6 @@ public abstract class UltimateViewAdapter extends RecyclerView.Adapter<RecyclerV
     public void clear(List<?> list) {
         int size = list.size();
         list.clear();
-        notifyItemRangeRemoved(0, size);
+        notifyDataSetChanged();
     }
 }

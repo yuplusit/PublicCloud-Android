@@ -137,11 +137,15 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
             mDeviceStateTv.setBackground(getResources().getDrawable(R.drawable.common_round_stroke_warning));
         }
         if ("active".equalsIgnoreCase(mDevice.getManagedStatus())) {
-            mDeviceOpenBtn.setSelected(false);
-            mDeviceStopBtn.setSelected(true);
+            mDeviceOpenBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_sec));
+            mDeviceOpenBtn.setTextColor(getResources().getColor(R.color.common_text_color_white_to_primary));
+            mDeviceStopBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_first));
+            mDeviceStopBtn.setTextColor(getResources().getColor(R.color.common_text_color_primary_to_white));
         } else {
-            mDeviceOpenBtn.setSelected(true);
-            mDeviceStopBtn.setSelected(false);
+            mDeviceOpenBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_first));
+            mDeviceOpenBtn.setTextColor(getResources().getColor(R.color.common_text_color_primary_to_white));
+            mDeviceStopBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_sec));
+            mDeviceStopBtn.setTextColor(getResources().getColor(R.color.common_text_color_white_to_primary));
         }
         if (StringUtils.isNotBlank(mDevice.getSn())) {
             mDeviceSnTv.setText(mDevice.getSn());
@@ -149,10 +153,10 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
         if (StringUtils.isNotBlank(mDevice.getCreateTime())) {
             mDeviceProductTv.setText(DateUtils.timeFormat(mDevice.getCreateTime(), "yyyy-MM-dd hh:mm"));
         }
-        setIconFont(mDeviceTestNameTv, EAppIconFont.APP_TEST_NAME_ICON);
-        setIconFont(mDeviceTestValueTv, EAppIconFont.APP_TEST_VALUE_ICON);
-        setIconFont(mDeviceTestDateTv, EAppIconFont.APP_TEST_CALENDAR_ICON);
-        setIconFont(mDeviceTestHistoryTv, EAppIconFont.APP_TEST_HISTORY_ICON);
+        IconFontUtils.setIconFont(mDeviceTestNameTv, EAppIconFont.APP_TEST_NAME_ICON);
+        IconFontUtils.setIconFont(mDeviceTestValueTv, EAppIconFont.APP_TEST_VALUE_ICON);
+        IconFontUtils.setIconFont(mDeviceTestDateTv, EAppIconFont.APP_TEST_CALENDAR_ICON);
+        IconFontUtils.setIconFont(mDeviceTestHistoryTv, EAppIconFont.APP_TEST_HISTORY_ICON);
 
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -166,13 +170,6 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
         mXRecyclerView.setArrowImageView(R.drawable.ic_down_grey);
         mXRecyclerView.setLoadingMoreEnabled(false);
         mXRecyclerView.setPullRefreshEnabled(false);
-    }
-
-    private void setIconFont(TextView textView, EAppIconFont eAppIconFont) {
-        Typeface typeface = IconFontUtils.getTypeface(this, eAppIconFont);
-        String value = eAppIconFont.getValue();
-        textView.setText(value);
-        textView.setTypeface(typeface);
     }
 
     @Override

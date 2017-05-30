@@ -65,6 +65,11 @@ public abstract class BaseUltimateViewAdapter<T> extends UltimateViewAdapter {
         return mData;
     }
 
+
+    public void clear() {
+        super.clear(mData);
+    }
+
     /**
      * 获取ViewHolder
      * 用这个方法前，必须得调用setRecyclerView()方法
