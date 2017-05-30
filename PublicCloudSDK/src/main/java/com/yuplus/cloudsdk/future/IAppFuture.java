@@ -41,9 +41,10 @@ public interface IAppFuture {
      * @param start    分页的起始位置
      * @param pageSize 分页的大小
      * @param tag      网络请求TAG标记
+     * @param total    列表总数
      * @param listener 回调操作
      */
-    void getDevicesByConditionWithPage(int start, int pageSize, Object tag, FutureListener listener);
+    void getDevicesByConditionWithPage(int start, int pageSize, int total, Object tag, FutureListener listener);
 
     /**
      * 通过条件筛选获取所有的设备信息
@@ -52,7 +53,7 @@ public interface IAppFuture {
      * @param tag      网络请求TAG标记
      * @param listener 回调操作
      */
-    void getAllDevicesByCondition(BaseParams params, Object tag, FutureListener listener);
+    void getDevicesByConditionWithPage(BaseParams params, Object tag, FutureListener listener);
 
     /**
      * 通过条件筛获取所有的设备信息
@@ -61,7 +62,7 @@ public interface IAppFuture {
      * @param tag      网络请求TAG标记
      * @param listener 回调操作
      */
-    void getAllDevicesByCondition(String params, Object tag, FutureListener listener);
+    void getDevicesByConditionWithPage(String params, Object tag, FutureListener listener);
 
     /**
      * 获取所有的设备信息
@@ -70,7 +71,7 @@ public interface IAppFuture {
      * @param tag        网络请求TAG标记
      * @param listener   回调操作
      */
-    void getAllDevices(String domainPath, Object tag,FutureListener listener);
+    void getAllDevices(String domainPath, Object tag, FutureListener listener);
 
     /**
      * 通过id来获取客户的信息
@@ -87,7 +88,7 @@ public interface IAppFuture {
      * @param tag      网络请求TAG标记
      * @param listener 回调操作
      */
-    void getAllCustomerInfoList(Object tag,FutureListener listener);
+    void getAllCustomerInfoList(Object tag, FutureListener listener);
 
     /**
      * 关闭告警
@@ -186,7 +187,7 @@ public interface IAppFuture {
      * @param tag           网络请求TAG标记
      * @param listener      回调操作
      */
-    void getKpiValueList(BaseParams kpiQueryModel, Object tag,FutureListener listener);
+    void getKpiValueList(BaseParams kpiQueryModel, Object tag, FutureListener listener);
 
     /**
      * 获取系统各级别KPI/KQI数据
@@ -195,7 +196,7 @@ public interface IAppFuture {
      * @param tag           网络请求TAG标记
      * @param listener      回调操作
      */
-    void getKpiValueList(String kpiQueryModel, Object tag,FutureListener listener);
+    void getKpiValueList(String kpiQueryModel, Object tag, FutureListener listener);
 
     /**
      * 通过模型IDS列表获取模型
@@ -204,7 +205,7 @@ public interface IAppFuture {
      * @param tag      网络请求TAG标记
      * @param listener 回调操作
      */
-    void getModelByIds(List<String> ids, Object tag,FutureListener listener);
+    void getModelByIds(List<Long> ids, Object tag, FutureListener listener);
 
     /**
      * 通过模型ID列表获取模型KPIS
@@ -213,7 +214,7 @@ public interface IAppFuture {
      * @param tag      网络请求TAG标记
      * @param listener 回调操作
      */
-    void getKpisByModelId(String modeId, Object tag, FutureListener listener);
+    void getKpisByModelId(long modeId, Object tag, FutureListener listener);
 
     /**
      * 通过模型ID列表获取模型属性定义
@@ -222,7 +223,7 @@ public interface IAppFuture {
      * @param tag      网络请求TAG标记
      * @param listener 回调操作
      */
-    void getAttrsByModelId(String modeId, Object tag, FutureListener listener);
+    void getAttrsByModelId(long modeId, Object tag, FutureListener listener);
 
     /**
      * 获得系统内单位的定义

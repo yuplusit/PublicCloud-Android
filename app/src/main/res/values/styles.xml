@@ -8,14 +8,46 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>-->
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="common_activity_theme_base" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:windowBackground">@color/common_window_background</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/common_background_color</item>
 
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
+
+    <!--<style name="activity_animation_first" parent="@android:style/Animation.Translucent">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_right_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+        <item name="android:taskOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:taskOpenExitAnimation">@anim/slide_right_out</item>
+        <item name="android:taskCloseEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:taskCloseExitAnimation">@anim/slide_right_out</item>
+        <item name="android:taskToFrontEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:taskToFrontExitAnimation">@anim/slide_right_out</item>
+        <item name="android:taskToBackEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:taskToBackExitAnimation">@anim/slide_right_out</item>
+    </style>-->
+
+    <style name="activityAnimation" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <style name="common_activity_theme" parent="common_activity_theme_base">
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+    </style>
+
+    <style name="common_activity_fullScreen" parent="common_activity_theme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <!--Dialog-->

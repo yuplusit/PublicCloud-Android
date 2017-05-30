@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/common_id_toolbar"
+        layout="@layout/layout_common_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_detail_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding_15dp"
+        android:paddingLeft="@dimen/padding_20dp"
+        android:paddingRight="@dimen/padding_10dp"
+        android:paddingTop="@dimen/padding_15dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/device_detail_id_avatar"
+            android:layout_width="@dimen/width_60dp"
+            android:layout_height="@dimen/height_60dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_device_default"
+            app:riv_border_color="@color/common_white"
+            app:riv_border_width="@dimen/line_height_1dp"
+            app:riv_oval="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/device_detail_id_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="泰安中心医院高压无线测温"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/font_18sp" />
+
+            <TextView
+                android:id="@+id/device_detail_id_sate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@drawable/common_round_stroke_success"
+                android:paddingBottom="@dimen/padding_2dp"
+                android:paddingLeft="@dimen/padding_12dp"
+                android:paddingRight="@dimen/padding_12dp"
+                android:paddingTop="@dimen/padding_2dp"
+                android:text="正常"
+                android:textColor="@color/common_success"
+                android:textSize="@dimen/font_12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_white"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="序列号："
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_14sp" />
+
+                <TextView
+                    android:id="@+id/device_detail_id_sn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SS-600"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/device_detail_id_open_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5dp"
+                android:background="@drawable/detail_swtich_btn_first"
+                android:clickable="true"
+                android:paddingBottom="@dimen/padding_2dp"
+                android:paddingLeft="@dimen/padding_12dp"
+                android:paddingRight="@dimen/padding_12dp"
+                android:paddingTop="@dimen/padding_2dp"
+                android:text="启用"
+                android:textColor="@color/common_text_color_primary_to_white"
+                android:textSize="@dimen/font_14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="出厂日期："
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_14sp" />
+
+                <TextView
+                    android:id="@+id/device_detail_id_product_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2017-04-18"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/device_detail_id_stop_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5dp"
+                android:background="@drawable/detail_swtich_btn_sec"
+                android:clickable="true"
+                android:paddingBottom="@dimen/padding_2dp"
+                android:paddingLeft="@dimen/padding_12dp"
+                android:paddingRight="@dimen/padding_12dp"
+                android:paddingTop="@dimen/padding_2dp"
+                android:text="停用"
+                android:textColor="@color/common_text_color_white_to_primary"
+                android:textSize="@dimen/font_14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@color/common_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/padding_8dp"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingRight="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_8dp"
+            android:text="工况"
+            android:textColor="@color/font_primary"
+            android:textSize="@dimen/font_16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:background="@color/common_window_background" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/padding_5dp"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingRight="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_5dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/device_detail_id_test_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/width_25dp"
+                    android:minHeight="@dimen/height_25dp"
+                    android:layout_marginLeft="@dimen/margin_18dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/font_22sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="测点名称"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/device_detail_id_test_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/width_25dp"
+                    android:minHeight="@dimen/height_25dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/font_22sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="当前值"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/device_detail_id_test_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/width_25dp"
+                    android:minHeight="@dimen/height_25dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/font_22sp" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="采集时间"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/device_detail_id_test_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/width_25dp"
+                    android:layout_marginRight="@dimen/margin_6dp"
+                    android:minHeight="@dimen/height_25dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/font_22sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="历史值"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:background="@color/common_window_background" />
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/device_detail_id_recylerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>

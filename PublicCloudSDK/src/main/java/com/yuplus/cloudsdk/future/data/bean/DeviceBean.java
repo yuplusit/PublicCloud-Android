@@ -12,25 +12,29 @@ import com.yuplus.cloudsdk.base.BaseBean;
 
 public class DeviceBean extends BaseBean {
 
-    private String             domainPath;
-    private long               id;
-    private String             label;
-    private String             createTime;
-    private String             modifyTime;
+    private String domainPath;
+    private long id;
+    private String label;
+    private String createTime;
+    private String modifyTime;
 
-    private ValuesBean         values;
-    private long               gatewayId;
-    private long               customerId;
-    private long               projectId;
-    private String             externalDevId;
-    private long               modelId;
-    private String             category;
-    private String             domains;
-    private String             sn;
-    private String             activeTime;
-    private String             managedStatus;
+    private ValuesBean values;
+    private long gatewayId;
+    private long customerId;
+    private long projectId;
+    private String externalDevId;
+    private long modelId;
+    private String category;
+    private String domains;
+    private String sn;
+    private String activeTime;
+    private String managedStatus;
 
     private PhysicalConfigBean physicalConfig;
+
+    private String customerName;
+    private int severity;
+    private int onlineStatus;
 
 
     public String getDomainPath() {
@@ -169,6 +173,30 @@ public class DeviceBean extends BaseBean {
         this.physicalConfig = physicalConfig;
     }
 
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public int getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(int severity) {
+        this.severity = severity;
+    }
+
+    public int getOnlineStatus() {
+        return onlineStatus;
+    }
+
+    public void setOnlineStatus(int onlineStatus) {
+        this.onlineStatus = onlineStatus;
+    }
+
     public static class ValuesBean extends BaseBean {
         private String modelType;
         private String series;
@@ -233,17 +261,12 @@ public class DeviceBean extends BaseBean {
     }
 
     public static class PhysicalConfigBean extends BaseBean {
-        private boolean             autoActive;
-        private int                 stationNo;
-        /**
-         * byteOrder16 : BE
-         * byteOrder32 : HLWBE
-         * floatbyteOrder : BE
-         */
+        private boolean autoActive;
+        private int stationNo;
 
         private AnalysisConfigsBean analysisConfigs;
-        private String              accessProtocol;
-        private String              analysisProtocol;
+        private String accessProtocol;
+        private String analysisProtocol;
 
         public boolean isAutoActive() {
             return autoActive;
@@ -412,6 +435,9 @@ public class DeviceBean extends BaseBean {
         dest.writeString(this.sn);
         dest.writeString(this.activeTime);
         dest.writeString(this.managedStatus);
+        dest.writeString(this.customerName);
+        dest.writeInt(this.severity);
+        dest.writeInt(this.onlineStatus);
         dest.writeParcelable(this.physicalConfig, flags);
     }
 
@@ -435,6 +461,9 @@ public class DeviceBean extends BaseBean {
         this.sn = in.readString();
         this.activeTime = in.readString();
         this.managedStatus = in.readString();
+        this.customerName = in.readString();
+        this.severity = in.readInt();
+        this.onlineStatus = in.readInt();
         this.physicalConfig = in.readParcelable(PhysicalConfigBean.class.getClassLoader());
     }
 

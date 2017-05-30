@@ -1,36 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_50dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:gravity="center">
 
-        <com.yuplus.publiccloud.ui.widget.IconCenterEditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_35dp"
-            android:layout_marginLeft="@dimen/margin_20dp"
-            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_marginLeft="@dimen/margin_25dp"
+            android:layout_marginRight="@dimen/margin_25dp"
+            android:layout_marginTop="@dimen/margin_2dp"
+            android:layout_marginBottom="@dimen/margin_6dp"
             android:background="@drawable/common_round_edittext_bg"
-            android:drawableLeft="@drawable/ic_search"
-            android:drawablePadding="@dimen/padding_5dp"
             android:gravity="center_vertical"
-            android:hint="@string/common_edittext_hint"
-            android:imeOptions="actionSearch"
-            android:padding="@dimen/padding_5dp"
-            android:paddingLeft="@dimen/padding_5dp"
-            android:paddingRight="@dimen/padding_5dp"
-            android:singleLine="true"
-            android:textSize="@dimen/font_14sp"/>
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_10dp"
+            android:paddingRight="@dimen/padding_6dp">
+
+            <com.yuplus.publiccloud.ui.widget.ClearableEditText
+                android:id="@+id/device_id_search_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/common_white"
+                android:textColorHint="@color/common_hint"
+                android:hint="@string/common_edittext_device_hint"
+                android:imeOptions="actionSearch"
+                android:padding="@dimen/padding_5dp"
+                android:paddingLeft="@dimen/padding_5dp"
+                android:paddingRight="@dimen/padding_5dp"
+                android:singleLine="true"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_14sp" />
+
+            <ImageView
+                android:id="@+id/device_id_search_btn"
+                android:layout_width="@dimen/width_28dp"
+                android:layout_height="@dimen/height_28dp"
+                android:background="@drawable/btn_shadow_bg"
+                android:clickable="true"
+                android:src="@drawable/ic_search" />
+        </LinearLayout>
     </LinearLayout>
 
     <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:id="@+id/device_id_recylerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 </LinearLayout>

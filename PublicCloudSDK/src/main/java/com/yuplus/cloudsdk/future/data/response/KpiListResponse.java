@@ -4,6 +4,9 @@ import android.os.Parcel;
 
 import com.yuplus.cloudsdk.base.BaseResponse;
 import com.yuplus.cloudsdk.future.data.bean.KpiBean;
+import com.yuplus.cloudsdk.future.data.params.ListParams;
+
+import java.util.List;
 
 /**
  * @user longzhen
@@ -11,7 +14,7 @@ import com.yuplus.cloudsdk.future.data.bean.KpiBean;
  * @desc
  */
 
-public class KpiListResponse extends BaseResponse<KpiBean> {
+public class KpiListResponse extends BaseResponse<List<KpiBean>> {
 
     @Override
     public int describeContents() {

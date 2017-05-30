@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Parcelable;
 
 import com.yuplus.cloudsdk.future.data.bean.CustomerBean;
+import com.yuplus.cloudsdk.future.data.bean.DeviceBean;
 import com.yuplus.publiccloud.cst.AppCst;
 import com.yuplus.publiccloud.ui.activity.CustomerDetailActivity;
+import com.yuplus.publiccloud.ui.activity.DeviceDetailActivity;
 import com.yuplus.publiccloud.ui.activity.LoginActivity;
 import com.yuplus.publiccloud.ui.activity.MainActivity;
 
@@ -57,6 +59,20 @@ public class DispatchManager {
         }
         Intent intent = new Intent(context, CustomerDetailActivity.class);
         intent.putExtra(AppCst.COMMON_DATA, (Parcelable) customer);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 调到设备详情页
+     * @param context
+     * @param device
+     */
+    public static void startDeviceDetailActivity(Context context, DeviceBean device) {
+        if (null == context) {
+            return;
+        }
+        Intent intent = new Intent(context, DeviceDetailActivity.class);
+        intent.putExtra(AppCst.COMMON_DATA, (Parcelable) device);
         context.startActivity(intent);
     }
 }

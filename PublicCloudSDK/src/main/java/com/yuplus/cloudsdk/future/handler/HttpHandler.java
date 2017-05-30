@@ -32,7 +32,7 @@ public class HttpHandler<T> extends BaseHandler {
     public void onResponse(Call call, Response response) {
         try {
             final String str = response.body().string();
-            LogUtils.t(HttpCst.TAG).d(str, call.request().url());
+            LogUtils.t(HttpCst.TAG).d(str);
             BaseResponse baseResponse = (BaseResponse) JSON.parseObject(str, getClazz());
             final int code = baseResponse.getCode();
             if (code == HttpStatus.SUCCESS) {

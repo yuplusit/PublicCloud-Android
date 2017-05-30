@@ -26,9 +26,9 @@ public class MainActivity extends TitleActivity {
     @BindView(android.R.id.tabhost)
     FragmentTabHost mTabHost;
     @BindView(R.id.main_navigation_layout)
-    NavigationView  mainNavigationLayout;
+    NavigationView mainNavigationLayout;
     @BindView(R.id.main_drawer_layout)
-    DrawerLayout    mainDrawerLayout;
+    DrawerLayout mainDrawerLayout;
 
     private long startTime = 0L;
 
@@ -60,16 +60,16 @@ public class MainActivity extends TitleActivity {
     private void initTabs() {
         mTabHost.setup(this, getSupportFragmentManager(), R.id.main_tab_content);
 
-        mTabHost.addTab(mTabHost.newTabSpec("0").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_HOME, "首页")),
+        mTabHost.addTab(mTabHost.newTabSpec("0").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_HOME_SOLID, "首页")),
                 HomeFirstFragment.class, null);
 
-        mTabHost.addTab(mTabHost.newTabSpec("1").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_PERSONAL_STROKE, "客户")),
+        mTabHost.addTab(mTabHost.newTabSpec("1").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_CUSTOMER_SOLID, "客户")),
                 CustomerFragment.class, null);
 
-        mTabHost.addTab(mTabHost.newTabSpec("2").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_DEVICE_STROKE, "设备")),
+        mTabHost.addTab(mTabHost.newTabSpec("2").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_DEVICE_SOLID, "设备")),
                 DeviceFragment.class, null);
 
-        mTabHost.addTab(mTabHost.newTabSpec("3").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_WARNING_01, "告警")),
+        mTabHost.addTab(mTabHost.newTabSpec("3").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_ALERT_SOLID, "告警")),
                 WarningFragment.class, null);
 
         mTabHost.getTabWidget().setDividerDrawable(null);
@@ -85,13 +85,13 @@ public class MainActivity extends TitleActivity {
         mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                if("0".equals(tabId)){
+                if ("0".equals(tabId)) {
                     setTitle("首页");
-                }else if ("1".equals(tabId)){
+                } else if ("1".equals(tabId)) {
                     setTitle("客户");
-                }else if("2".equals(tabId)){
+                } else if ("2".equals(tabId)) {
                     setTitle("设备");
-                }else if("3".equals(tabId)){
+                } else if ("3".equals(tabId)) {
                     setTitle("告警");
                 }
             }
@@ -102,7 +102,7 @@ public class MainActivity extends TitleActivity {
     public void onBackPressed() {
         if (mainDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
             mainDrawerLayout.closeDrawers();
-            return ;
+            return;
         }
         long currentTime = System.currentTimeMillis();
         FragmentManager fm = getSupportFragmentManager();

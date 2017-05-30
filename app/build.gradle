@@ -47,5 +47,6 @@ dependencies {
     // SystemBarTint
     compile 'com.makeramen:roundedimageview:2.3.0'
     compile 'junit:junit:4.12'
+    testCompile 'junit:junit:4.12'
     compile project(':XRecyclerview')
 }

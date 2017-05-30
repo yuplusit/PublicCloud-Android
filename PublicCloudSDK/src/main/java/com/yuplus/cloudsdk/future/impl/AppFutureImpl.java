@@ -15,6 +15,7 @@ import com.yuplus.cloudsdk.future.handler.ConfigurationListHandler;
 import com.yuplus.cloudsdk.future.handler.CustomerHandler;
 import com.yuplus.cloudsdk.future.handler.CustomerListHandler;
 import com.yuplus.cloudsdk.future.handler.DeviceHandler;
+import com.yuplus.cloudsdk.future.handler.DeviceListHandler;
 import com.yuplus.cloudsdk.future.handler.DomainListHandler;
 import com.yuplus.cloudsdk.future.handler.KpiListHandler;
 import com.yuplus.cloudsdk.future.handler.KpiValueListHandler;
@@ -28,7 +29,11 @@ import com.yuplus.cloudsdk.future.listener.FutureListener;
 import com.yuplus.cloudsdk.okhttp.OkHttpUtils;
 import com.yuplus.cloudsdk.util.StringUtils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 import okhttp3.MediaType;
 
@@ -67,42 +72,36 @@ public class AppFutureImpl implements IAppFuture {
                 .addParam("statCount", String.valueOf(true))
                 .addParam("total", "0");
         ListParams requestParams = new ListParams()
-                .addParam(params1)
-                .addParam(params2);
+                .addParam(params1.getParams())
+                .addParam(params2.getParams());
         postJSON(ApiCst.GET_ALERT_BY_PAGE_API, requestParams, tag, AlertListHandler.class, listener);
     }
 
     @Override
-    public void getDevicesByConditionWithPage(int start, int pageSize, Object tag, FutureListener listener) {
-        MapParams params1 = new MapParams();
+    public void getDevicesByConditionWithPage(int start, int pageSize, int total, Object tag, FutureListener listener) {
+        MapParams params1 = new MapParams()
+                .addParam("projectId", "");
         MapParams params2 = new MapParams()
-                .addParam("start", String.valueOf(start))
-                .addParam("length", String.valueOf(pageSize))
+                .addParam("start", start)
+                .addParam("length", pageSize)
                 .addParam("sort", "createTime")
                 .addParam("sortType", "desc")
-                .addParam("statCount", String.valueOf(true));
+                .addParam("statCount", true)
+                .addParam("total", total);
         ListParams requestParams = new ListParams()
-                .addParam(params1)
-                .addParam(params2);
-        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, requestParams, tag, AlertListHandler.class, listener);
+                .addParam(params1.getParams())
+                .addParam(params2.getParams());
+        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, requestParams, tag, DeviceListHandler.class, listener);
     }
 
     @Override
-    public void getAllDevicesByCondition(BaseParams params, Object tag, FutureListener listener) {
-        MapParams params1 = new MapParams();
-        ListParams requestParams = new ListParams()
-                .addParam(params1)
-                .addParam(params);
-        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, requestParams, tag, AlertListHandler.class, listener);
+    public void getDevicesByConditionWithPage(BaseParams params, Object tag, FutureListener listener) {
+        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, params, tag, DeviceListHandler.class, listener);
     }
 
     @Override
-    public void getAllDevicesByCondition(String params, Object tag, FutureListener listener) {
-        MapParams params1 = new MapParams();
-        ListParams requestParams = new ListParams()
-                .addParam(params1)
-                .addParam(params);
-        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, requestParams, tag, AlertListHandler.class, listener);
+    public void getDevicesByConditionWithPage(String params, Object tag, FutureListener listener) {
+        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, params, tag, DeviceListHandler.class, listener);
     }
 
     @Override
@@ -115,9 +114,9 @@ public class AppFutureImpl implements IAppFuture {
                 .addParam("sortType", "desc")
                 .addParam("", String.valueOf(true));
         ListParams requestParams = new ListParams()
-                .addParam(params1)
-                .addParam(params2);
-        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, requestParams, tag, AlertListHandler.class, listener);
+                .addParam(params1.getParams())
+                .addParam(params2.getParams());
+        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, requestParams, tag, DeviceListHandler.class, listener);
     }
 
     @Override
@@ -228,29 +227,30 @@ public class AppFutureImpl implements IAppFuture {
     }
 
     @Override
-    public void getModelByIds(List<String> ids, Object tag, FutureListener listener) {
+    public void getModelByIds(List<Long> ids, Object tag, FutureListener listener) {
         ListParams requestParams = new ListParams()
                 .addParam(ids);
         postJSON(ApiCst.GET_MODEL_API, requestParams, tag, ModeListHandler.class, listener);
     }
 
     @Override
-    public void getKpisByModelId(String modeId, Object tag, FutureListener listener) {
+    public void getKpisByModelId(long modeId, Object tag, FutureListener listener) {
         ListParams requestParams = new ListParams()
-                .addParam(Long.parseLong(modeId));
+                .addParam(modeId);
         postJSON(ApiCst.GET_MODEL_KPIS_API, requestParams, tag, KpiListHandler.class, listener);
     }
 
     @Override
-    public void getAttrsByModelId(String modeId, Object tag, FutureListener listener) {
+    public void getAttrsByModelId(long modeId, Object tag, FutureListener listener) {
         LongParams requestParams = new LongParams()
-                .addParam(Long.parseLong(modeId));
+                .addParam(modeId);
         postJSON(ApiCst.GET_MODEL_ATTRS_API, requestParams, tag, AttrListHandler.class, listener);
     }
 
     @Override
     public void getAllUnits(Object tag, FutureListener listener) {
-        postJSON(ApiCst.GET_UNIT_API, "", tag, UnitListHandler.class, listener);
+        ListParams requestParams = new ListParams();
+        postJSON(ApiCst.GET_UNIT_API, requestParams, tag, UnitListHandler.class, listener);
     }
 
     @Override

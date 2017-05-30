@@ -17,41 +17,9 @@ public class IconFontUtils {
         return Typeface.createFromAsset(context.getAssets(), "font/appicon.otf");
     }
 
-    public static Typeface getSystemIconTypeface(Context context) {
-        return Typeface.createFromAsset(context.getAssets(), "font/systemicon.otf");
-    }
-
     public static Typeface getTypeface(Context context, EAppIconFont iconFont) {
         Typeface typeface = null;
         switch (iconFont) {
-            case APP_ICON_HOME:
-            case APP_ICON_USER:
-            case APP_ICON_DEVICE_STROKE:
-            case APP_ICON_WARNING_01:
-            case APP_ICON_ORDER:
-            case APP_ICON_EYE:
-            case APP_ICON_PERSONAL_STROKE:
-            case APP_ICON_DEVICE_SOLID:
-            case APP_ICON_DEAWER:
-            case APP_ICON_PERSONAL_SOLID:
-            case APP_ICON_WARNING_02:
-            case APP_ICON_SCRREN:
-            case APP_ICON_DATA:
-            case APP_ICON_MENU:
-            case APP_ICON_REFRESH_01:
-            case APP_ICON_REFRESH_02:
-            case APP_ICON_REFRESH_03:
-            case APP_ICON_REFRESH_04:
-            case APP_ICON_REFRESH_05:
-            case APP_ICON_REFRESH_06:
-            case APP_ICON_REFRESH_07:
-            case APP_ICON_REFRESH_08:
-            case APP_ICON_REFRESH_09:
-            case APP_ICON_REFRESH_10:
-            case APP_ICON_LOGINOFF_01:
-            case APP_ICON_LOGINOFF_02:
-                typeface = getAppIconTypeface(context);
-                break;
             case SYSTEM_ICON_CAR:
             case SYSTEM_ICON_O2:
             case SYSTEM_ICON_WATER:
@@ -60,17 +28,37 @@ public class IconFontUtils {
             case SYSTEM_ICON_CONDITIONER:
             case SYSTEM_ICON_WATER_LOOP:
             case SYSTEM_ICON_LIFT:
-                typeface = getSystemIconTypeface(context);
-                break;
-            default:
+            case APP_ICON_HOME_STROKE:
+            case APP_ICON_CUSTOMER_STROKE:
+            case APP_ICON_DEVICE_STROKE:
+            case APP_ICON_ALERT_STROKE:
+            case APP_ICON_ORDER_STROKE:
+            case APP_ICON_HOME_SOLID:
+            case APP_ICON_CUSTOMER_SOLID:
+            case APP_ICON_DEVICE_SOLID:
+            case APP_ICON_ALERT_SOLID:
+            case APP_ICON_ORDER_SOLID:
+            case APP_ICON_ORDER_STROKE_SEC:
+            case APP_ITEM_ICON_DEVICE:
+            case APP_ITEM_ICON_ALERT:
+            case APP_ALERT_DEALING_ICON:
+            case APP_ALERT_FLAG_ICON:
+            case APP_ALERT_ALL_ICON:
+            case APP_ALERT_NEW_ICON:
+            case APP_ALERT_FINISH_ICON:
+            case APP_TEST_CALENDAR_ICON:
+            case APP_TEST_HISTORY_ICON:
+            case APP_TEST_NAME_ICON:
+            case APP_TEST_VALUE_ICON:
                 typeface = getAppIconTypeface(context);
+                break;
         }
         return typeface;
     }
 
     static class IconWrapper {
         private Typeface mTypeface;
-        private String   mValue;
+        private String mValue;
 
         public Typeface getmTypeface() {
             return mTypeface;

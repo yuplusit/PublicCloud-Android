@@ -13,16 +13,16 @@ import com.yuplus.cloudsdk.base.BaseBean;
 public class KpiValueBean extends BaseBean {
 
     private long nodeId;
-    private int    kpiCode;
-    private int    quality;
-    private int    value;
+    private long kpiCode;
+    private int quality;
+    private long value;
     private String arisingTime;
     private String insertTime;
     private String agentId;
     private String valueStr;
-    private int    resourceId;
-    private int    computeTaskId;
-    private int    dataSerialNumber;
+    private long resourceId;
+    private long computeTaskId;
+    private long dataSerialNumber;
     private String dataTime;
     private String granularityUnit;
     private String aggregateType;
@@ -30,7 +30,7 @@ public class KpiValueBean extends BaseBean {
     private String forecastMethod;
     private Integer compressCount;
     private String domainPath;
-    private int    modelId;
+    private long modelId;
     private String kpiName;
     private String extendDomains;
 
@@ -42,11 +42,11 @@ public class KpiValueBean extends BaseBean {
         this.nodeId = nodeId;
     }
 
-    public int getKpiCode() {
+    public long getKpiCode() {
         return kpiCode;
     }
 
-    public void setKpiCode(int kpiCode) {
+    public void setKpiCode(long kpiCode) {
         this.kpiCode = kpiCode;
     }
 
@@ -58,11 +58,11 @@ public class KpiValueBean extends BaseBean {
         this.quality = quality;
     }
 
-    public int getValue() {
+    public long getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(long value) {
         this.value = value;
     }
 
@@ -98,27 +98,27 @@ public class KpiValueBean extends BaseBean {
         this.valueStr = valueStr;
     }
 
-    public int getResourceId() {
+    public long getResourceId() {
         return resourceId;
     }
 
-    public void setResourceId(int resourceId) {
+    public void setResourceId(long resourceId) {
         this.resourceId = resourceId;
     }
 
-    public int getComputeTaskId() {
+    public long getComputeTaskId() {
         return computeTaskId;
     }
 
-    public void setComputeTaskId(int computeTaskId) {
+    public void setComputeTaskId(long computeTaskId) {
         this.computeTaskId = computeTaskId;
     }
 
-    public int getDataSerialNumber() {
+    public long getDataSerialNumber() {
         return dataSerialNumber;
     }
 
-    public void setDataSerialNumber(int dataSerialNumber) {
+    public void setDataSerialNumber(long dataSerialNumber) {
         this.dataSerialNumber = dataSerialNumber;
     }
 
@@ -178,11 +178,11 @@ public class KpiValueBean extends BaseBean {
         this.domainPath = domainPath;
     }
 
-    public int getModelId() {
+    public long getModelId() {
         return modelId;
     }
 
-    public void setModelId(int modelId) {
+    public void setModelId(long modelId) {
         this.modelId = modelId;
     }
 
@@ -211,16 +211,16 @@ public class KpiValueBean extends BaseBean {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(this.nodeId);
-        dest.writeInt(this.kpiCode);
+        dest.writeLong(this.kpiCode);
         dest.writeInt(this.quality);
-        dest.writeInt(this.value);
+        dest.writeLong(this.value);
         dest.writeString(this.arisingTime);
         dest.writeString(this.insertTime);
         dest.writeString(this.agentId);
         dest.writeString(this.valueStr);
-        dest.writeInt(this.resourceId);
-        dest.writeInt(this.computeTaskId);
-        dest.writeInt(this.dataSerialNumber);
+        dest.writeLong(this.resourceId);
+        dest.writeLong(this.computeTaskId);
+        dest.writeLong(this.dataSerialNumber);
         dest.writeString(this.dataTime);
         dest.writeString(this.granularityUnit);
         dest.writeString(this.aggregateType);
@@ -228,7 +228,7 @@ public class KpiValueBean extends BaseBean {
         dest.writeString(this.forecastMethod);
         dest.writeValue(this.compressCount);
         dest.writeString(this.domainPath);
-        dest.writeInt(this.modelId);
+        dest.writeLong(this.modelId);
         dest.writeString(this.kpiName);
         dest.writeString(this.extendDomains);
     }
@@ -238,16 +238,16 @@ public class KpiValueBean extends BaseBean {
 
     protected KpiValueBean(Parcel in) {
         this.nodeId = in.readLong();
-        this.kpiCode = in.readInt();
+        this.kpiCode = in.readLong();
         this.quality = in.readInt();
-        this.value = in.readInt();
+        this.value = in.readLong();
         this.arisingTime = in.readString();
         this.insertTime = in.readString();
         this.agentId = in.readString();
         this.valueStr = in.readString();
-        this.resourceId = in.readInt();
-        this.computeTaskId = in.readInt();
-        this.dataSerialNumber = in.readInt();
+        this.resourceId = in.readLong();
+        this.computeTaskId = in.readLong();
+        this.dataSerialNumber = in.readLong();
         this.dataTime = in.readString();
         this.granularityUnit = in.readString();
         this.aggregateType = in.readString();
@@ -255,7 +255,7 @@ public class KpiValueBean extends BaseBean {
         this.forecastMethod = in.readString();
         this.compressCount = (Integer) in.readValue(Integer.class.getClassLoader());
         this.domainPath = in.readString();
-        this.modelId = in.readInt();
+        this.modelId = in.readLong();
         this.kpiName = in.readString();
         this.extendDomains = in.readString();
     }

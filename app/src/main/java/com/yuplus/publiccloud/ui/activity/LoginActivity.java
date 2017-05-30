@@ -108,7 +108,9 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     public void onLoginFailure(String msg) {
-        ToastUtils.showToast(this, msg);
+        if(StringUtils.isNotBlank(msg)){
+            ToastUtils.showToast(this, msg);
+        }
     }
 
 

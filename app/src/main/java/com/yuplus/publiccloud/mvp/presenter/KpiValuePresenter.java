@@ -19,11 +19,7 @@ import java.util.List;
 
 public class KpiValuePresenter extends BasePresenter<KpiValueView> {
 
-    public void getKpiValueListByNodeIds(List<Long> nodeIds) {
-        List<Long> kpiCodes = new ArrayList();
-        kpiCodes.add(3001L);//设备数量
-        kpiCodes.add(3003L);//告警数量
-        kpiCodes.add(3004L);//工单数量
+    public void getKpiValueListByNodeIds(List<Long> kpiCodes,List<Long> nodeIds) {
         MapParams params = new MapParams()
                 .addParam("category", "ci")
                 .addParam("isRealTimeData", true)

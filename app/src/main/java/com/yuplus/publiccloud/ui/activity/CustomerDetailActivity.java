@@ -53,23 +53,23 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
     @BindView(R.id.custom_detail_id_recylerview)
     XRecyclerView mXRecyclerView;
 
-    private TextView         mCustomerNameTv;
-    private ImageView        mCustomerBgIv;
+    private TextView mCustomerNameTv;
+    private ImageView mCustomerBgIv;
     private RoundedImageView mCustomerAvatar;
-    private TextView         mCustomerDeviceCountTv;
-    private TextView         mCustomerAlertCountTv;
-    private TextView         mCustomerOrderCountTv;
+    private TextView mCustomerDeviceCountTv;
+    private TextView mCustomerAlertCountTv;
+    private TextView mCustomerOrderCountTv;
 
-    private ProjectPresenter  mProjectPresenter;
+    private ProjectPresenter mProjectPresenter;
     private KpiValuePresenter mKpiValuePresenter;
 
-    private ProgressHUBDialog     mLoadingView;
+    private ProgressHUBDialog mLoadingView;
     private CustomerDetailAdapter mCustomerDetailAdapter;
 
-    private CustomerBean      mCustomer;
+    private CustomerBean mCustomer;
     private List<ProjectBean> mProjectList;
-    private Toolbar           mToolbar;
-    private int               mMoveDistance;
+    private Toolbar mToolbar;
+    private int mMoveDistance;
 
     @Override
     protected int getLayoutRes() {
@@ -190,9 +190,9 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
             @Override
             public void onScrolled(int dx, int dy) {
                 mMoveDistance += dy;
-                if(mMoveDistance <= DensityUtils.dip2px(CustomerDetailActivity.this,200f)){
+                if (mMoveDistance <= DensityUtils.dip2px(CustomerDetailActivity.this, 200f)) {
                     setToolbarBackground(R.color.common_transparent);
-                }else{
+                } else {
                     setToolbarBackground(R.color.common_transparent_40_precent);
                 }
             }
@@ -244,8 +244,14 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
                 nodeIds.add(project.getId());
             }
             if (ListUtils.isNotEmpty(nodeIds)) {
-                mKpiValuePresenter.getKpiValueListByNodeIds(nodeIds);
+                List<Long> kpiCodes = new ArrayList();
+                kpiCodes.add(3001L);//设备数量
+                kpiCodes.add(3003L);//告警数量
+                kpiCodes.add(3004L);//工单数量
+                mKpiValuePresenter.getKpiValueListByNodeIds(kpiCodes, nodeIds);
             }
+        } else {
+            mXRecyclerView.refreshComplete();
         }
     }
 
@@ -256,18 +262,18 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
                 for (KpiValueBean kpiValue : data) {
                     if (project.getId() == kpiValue.getNodeId()) {
                         if (kpiValue.getKpiCode() == 3001) {
-                            project.setDeviceCount(kpiValue.getValue());
+                            project.setDeviceCount((int)kpiValue.getValue());
                         } else if (kpiValue.getKpiCode() == 3003) {
-                            project.setAlertCount(kpiValue.getValue());
+                            project.setAlertCount((int)kpiValue.getValue());
                         } else if (kpiValue.getKpiCode() == 3004) {
-                            project.setOrderCount(kpiValue.getValue());
+                            project.setOrderCount((int)kpiValue.getValue());
                         }
                     }
                 }
             }
             mCustomerDetailAdapter.insertAll(mProjectList);
-            mXRecyclerView.refreshComplete();
         }
+        mXRecyclerView.refreshComplete();
     }
 
     @Override

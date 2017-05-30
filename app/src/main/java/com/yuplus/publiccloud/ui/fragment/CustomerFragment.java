@@ -44,14 +44,14 @@ public class CustomerFragment extends BaseFragment implements CustomerView, KpiV
 
     private CustomerPresenter mCustomerPresenter;
     private KpiValuePresenter mKpiValuePresenter;
-    private ConfigPresenter   mConfigPresenter;
+    private ConfigPresenter mConfigPresenter;
 
-    private CustomerAdapter   mCustomerAdapter;
+    private CustomerAdapter mCustomerAdapter;
     private ProgressHUBDialog mLoadingView;
 
-    private List<Long>              mCustomerIds;
-    private List<CustomerBean>      mCustomerInfoList;
-    private List<KpiValueBean>      mKpiValueBeanList;
+    private List<Long> mCustomerIds;
+    private List<CustomerBean> mCustomerInfoList;
+    private List<KpiValueBean> mKpiValueBeanList;
     private List<ConfigurationBean> mConfigurationList;
 
     @Override
@@ -118,7 +118,7 @@ public class CustomerFragment extends BaseFragment implements CustomerView, KpiV
             @Override
             public void onItemClick(View view, int position) {
                 CustomerBean customer = mCustomerAdapter.getItem(position);
-                DispatchManager.startCustomerDetailActivity(getActivity(),customer);
+                DispatchManager.startCustomerDetailActivity(getActivity(), customer);
             }
         });
     }
@@ -132,7 +132,11 @@ public class CustomerFragment extends BaseFragment implements CustomerView, KpiV
                 mCustomerIds.add(customer.getId());
             }
             if (ListUtils.isNotEmpty(mCustomerIds)) {
-                mKpiValuePresenter.getKpiValueListByNodeIds(mCustomerIds);
+                List<Long> kpiCodes = new ArrayList();
+                kpiCodes.add(3001L);//设备数量
+                kpiCodes.add(3003L);//告警数量
+                kpiCodes.add(3004L);//工单数量
+                mKpiValuePresenter.getKpiValueListByNodeIds(kpiCodes, mCustomerIds);
             }
         }
     }
@@ -146,11 +150,11 @@ public class CustomerFragment extends BaseFragment implements CustomerView, KpiV
                 final List<KpiValueBean> resultValueList = getKpiValueBean(customer.getId());
                 for (KpiValueBean kpiValue : resultValueList) {
                     if (kpiValue.getKpiCode() == 3001) {
-                        customer.setDeviceCount(kpiValue.getValue());
+                        customer.setDeviceCount((int)kpiValue.getValue());
                     } else if (kpiValue.getKpiCode() == 3003) {
-                        customer.setAlertCount(kpiValue.getValue());
+                        customer.setAlertCount((int)kpiValue.getValue());
                     } else if (kpiValue.getKpiCode() == 3004) {
-                        customer.setOrderCount(kpiValue.getValue());
+                        customer.setOrderCount((int)kpiValue.getValue());
                     }
                 }
             }
@@ -170,6 +174,8 @@ public class CustomerFragment extends BaseFragment implements CustomerView, KpiV
                     customer.setImageUrl(imgUrl);
                 }
             }
+        }
+        if (ListUtils.isNotEmpty(mCustomerInfoList)) {
             mCustomerAdapter.insertAll(mCustomerInfoList);
         }
         mXRecyclerView.refreshComplete();
