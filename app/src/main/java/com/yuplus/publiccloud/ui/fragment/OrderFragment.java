@@ -5,14 +5,14 @@ import com.yuplus.publiccloud.ui.base.BaseFragment;
 
 /**
  * @user longzhen
- * @date 5/17/2017
+ * @date 5/31/2017
  * @desc
  */
 
-public class HomeFirstFragment extends BaseFragment {
+public class OrderFragment extends BaseFragment {
     @Override
     protected int getLayoutRes() {
-        return R.layout.fragment_home_first;
+        return R.layout.fragment_order;
     }
 
     @Override

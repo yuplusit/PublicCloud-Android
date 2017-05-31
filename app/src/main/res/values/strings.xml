@@ -6,6 +6,7 @@
     <string name="common_question">遇到问题？</string>
     <string name="common_exit_tip">再按一次退出应用</string>
     <string name="common_no_more_data">没有更多的数据了</string>
+    <string name="common_null">--</string>
     <string name="common_edittext_device_hint">输入要查找的设备</string>
 
     <string name="menu_square_bingo">我的首页</string>
@@ -38,6 +39,18 @@
     <string name="device_all_count">设备总数</string>
     <string name="alert_all_count">告警总数</string>
     <string name="order_all_count">工单总数</string>
+
+    <!-- Alert区域 -->
+    <string name="alert_state_new">新产生</string>
+    <string name="alert_state_sure">已确认</string>
+    <string name="alert_state_doing">处理中</string>
+    <string name="alert_state_solve">已解决</string>
+    <string name="alert_state_skip">已忽略</string>
+    <string name="alert_state_other">未知</string>
+    <string name="alert_severity_01">警告</string>
+    <string name="alert_severity_02">次要</string>
+    <string name="alert_severity_03">重要</string>
+    <string name="alert_severity_04">严重</string>
 
     <!-- Device区域 -->
     <string name="device_managed_status_01">启用</string>

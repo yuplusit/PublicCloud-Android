@@ -9,6 +9,9 @@ package com.yuplus.publiccloud.cst;
 public class AppCst {
     public static final String APP_NAME = "PublicCloud";
 
+    //SP名字
+    public static final String SHAREDPREFERENCES_NAME = APP_NAME;
+
     //服务器地址
     public static final String SERVER_HOST = "http://demo.proudsmart.com";//"http://36.110.36.118";
 

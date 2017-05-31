@@ -12,6 +12,7 @@ import com.yuplus.cloudsdk.okhttp.cookie.jar.PersistentCookieJar;
 import com.yuplus.cloudsdk.okhttp.cookie.jar.cache.SetCookieCache;
 import com.yuplus.cloudsdk.okhttp.cookie.jar.persistence.SharedPrefsCookiePersistor;
 import com.yuplus.publiccloud.cst.AppCst;
+import com.yuplus.publiccloud.sp.PublicCloudPreferences;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,14 +29,16 @@ import okhttp3.OkHttpClient;
  */
 
 public class AppApplication extends Application {
-    public static AppFutureImpl  appFutureImpl;
-    public static AppApplication application;
+    public static AppFutureImpl          appFutureImpl;
+    public static AppApplication         application;
+    public static PublicCloudPreferences prefer;
 
     @Override
     public void onCreate() {
         super.onCreate();
         application = this;
         appFutureImpl = new AppFutureImpl();
+        prefer = PublicCloudPreferences.getInstance(this);
         HttpsCerManager.SSLParams sslParams = HttpsCerManager.getSslSocketFactory(null, null, null);
 
         //CookieJarImpl cookieJar1 = new CookieJarImpl(new PersistentCookieStore(getApplicationContext()));

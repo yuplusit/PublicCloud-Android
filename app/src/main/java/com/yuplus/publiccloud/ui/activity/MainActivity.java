@@ -13,8 +13,9 @@ import com.yuplus.publiccloud.enums.EAppIconFont;
 import com.yuplus.publiccloud.ui.base.TitleActivity;
 import com.yuplus.publiccloud.ui.fragment.CustomerFragment;
 import com.yuplus.publiccloud.ui.fragment.DeviceFragment;
-import com.yuplus.publiccloud.ui.fragment.HomeFirstFragment;
+import com.yuplus.publiccloud.ui.fragment.HomeFragment;
 import com.yuplus.publiccloud.ui.fragment.AlertFragment;
+import com.yuplus.publiccloud.ui.fragment.OrderFragment;
 import com.yuplus.publiccloud.ui.widget.FragmentTabHost;
 import com.yuplus.publiccloud.util.ToastUtils;
 import com.yuplus.publiccloud.util.ViewUtils;
@@ -61,7 +62,7 @@ public class MainActivity extends TitleActivity {
         mTabHost.setup(this, getSupportFragmentManager(), R.id.main_tab_content);
 
         mTabHost.addTab(mTabHost.newTabSpec("0").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_HOME_SOLID, "首页")),
-                HomeFirstFragment.class, null);
+                HomeFragment.class, null);
 
         mTabHost.addTab(mTabHost.newTabSpec("1").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_CUSTOMER_SOLID, "客户")),
                 CustomerFragment.class, null);
@@ -71,6 +72,9 @@ public class MainActivity extends TitleActivity {
 
         mTabHost.addTab(mTabHost.newTabSpec("3").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_ALERT_SOLID, "告警")),
                 AlertFragment.class, null);
+
+        mTabHost.addTab(mTabHost.newTabSpec("4").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_ORDER_SOLID, "工单")),
+                OrderFragment.class, null);
 
         mTabHost.getTabWidget().setDividerDrawable(null);
         mTabHost.getTabWidget().setStripEnabled(false);

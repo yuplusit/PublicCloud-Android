@@ -7,7 +7,6 @@ import android.widget.ImageView;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
-import com.yuplus.cloudsdk.future.data.bean.ConfigurationBean;
 import com.yuplus.cloudsdk.future.data.bean.CustomerBean;
 import com.yuplus.cloudsdk.future.data.bean.DeviceBean;
 import com.yuplus.cloudsdk.future.data.bean.DeviceListBean;
@@ -106,7 +105,6 @@ public class DeviceFragment extends BaseFragment implements CustomerView, Device
         mXRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         mXRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
         mXRecyclerView.setArrowImageView(R.drawable.ic_down_grey);
-        mXRecyclerView.setLoadingMoreEnabled(true);
     }
 
     @Override
