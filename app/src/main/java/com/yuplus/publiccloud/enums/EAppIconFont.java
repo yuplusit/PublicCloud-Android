@@ -38,7 +38,16 @@ public enum EAppIconFont {
     APP_TEST_CALENDAR_ICON("\ua067"),
     APP_TEST_NAME_ICON("\ua068"),
     APP_TEST_VALUE_ICON("\ua069"),
-    APP_TEST_HISTORY_ICON("\ua070");
+    APP_TEST_HISTORY_ICON("\ua070"),
+    APP_CLOCK_OPEN_ICON("\ua071"),
+    APP_CLOCK_CLOSE_ICON("\ua072"),
+    APP_CLOCK_DOING_ICON("\ua073"),
+    APP_DEVICE_OFFLINE_ICON("\ua074"),
+    APP_DEVICE_OPENED_ICON("\ua075"),
+    APP_DEVICE_ONLINE_ICON("\ua076"),
+    APP_DEVICE_NORMAL_ICON("\ua077"),
+    APP_DEVICE_abNORMAL_ICON("\ua078"),
+    APP_MESSAGE_ICON("\ua079");
 
     private String mValue;
 

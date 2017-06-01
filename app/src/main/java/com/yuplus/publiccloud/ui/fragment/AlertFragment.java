@@ -17,8 +17,9 @@ import com.yuplus.publiccloud.cst.AppCst;
 import com.yuplus.publiccloud.enums.EAppIconFont;
 import com.yuplus.publiccloud.mvp.presenter.AlertPresenter;
 import com.yuplus.publiccloud.mvp.view.AlertListView;
+import com.yuplus.publiccloud.ui.DispatchManager;
 import com.yuplus.publiccloud.ui.adapter.AlertAdapter;
-import com.yuplus.publiccloud.ui.adapter.CustomerAdapter;
+import com.yuplus.publiccloud.ui.adapter.BaseUltimateViewAdapter;
 import com.yuplus.publiccloud.ui.base.BaseFragment;
 import com.yuplus.publiccloud.ui.dialog.ProgressHUBDialog;
 import com.yuplus.publiccloud.util.IconFontUtils;
@@ -28,7 +29,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * @user longzhen
@@ -39,34 +39,44 @@ import butterknife.OnClick;
 public class AlertFragment extends BaseFragment implements AlertListView {
 
     @BindView(R.id.alert_id_all_layout)
-    LinearLayout mAllAlertIconLl;
+    LinearLayout  mAllAlertIconLl;
     @BindView(R.id.alert_id_new_layout)
-    LinearLayout mNewAlertIconLl;
+    LinearLayout  mNewAlertIconLl;
     @BindView(R.id.alert_id_dealing_layout)
-    LinearLayout mDealingAlertIconLl;
+    LinearLayout  mDealingAlertIconLl;
     @BindView(R.id.alert_id_finish_layout)
-    LinearLayout mFinishAlertIconLl;
+    LinearLayout  mFinishAlertIconLl;
     @BindView(R.id.alert_id_all_icon)
-    TextView mAllAlertIconTv;
+    TextView      mAllAlertIconTv;
     @BindView(R.id.alert_id_new_icon)
-    TextView mNewAlertIconTv;
+    TextView      mNewAlertIconTv;
     @BindView(R.id.alert_id_dealing_icon)
-    TextView mDealingAlertIconTv;
+    TextView      mDealingAlertIconTv;
     @BindView(R.id.alert_id_finish_icon)
-    TextView mFinishAlertIconTv;
+    TextView      mFinishAlertIconTv;
     @BindView(R.id.alert_id_recylerview)
     XRecyclerView mXRecyclerView;
 
     private List<View> mViewList = new ArrayList<>();
-    private List<AlertBean> mAlertList;
+    private List<AlertBean>   mAlertList;
     private ProgressHUBDialog mLoadingView;
-    private AlertAdapter mAlertAdapter;
-    private AlertPresenter mAlertPresenter;
+    private AlertAdapter      mAlertAdapter;
+    private AlertPresenter    mAlertPresenter;
 
-    private int start = 0;
-    private int total = 0;
+    private int    start      = 0;
+    private int    total      = 0;
     private String severities = "1,2,3,4";
-    private String states = "0,5,10,20";
+    private String states     = "0,5,10,20";
+    private String mDomian;
+
+    public static AlertFragment newInstance(String domain) {
+
+        Bundle args = new Bundle();
+        AlertFragment fragment = new AlertFragment();
+        args.putString(AppCst.COMMON_DATA, domain);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     protected int getLayoutRes() {
@@ -83,12 +93,16 @@ public class AlertFragment extends BaseFragment implements AlertListView {
     @Override
     protected void init(Bundle savedInstanceState) {
         super.init(savedInstanceState);
+        Bundle bundle = getArguments();
+        if (null != bundle) {
+            mDomian = bundle.getString(AppCst.COMMON_DATA);
+        }
         mAlertList = new ArrayList<>();
         mViewList.add(mAllAlertIconLl);
         mViewList.add(mNewAlertIconLl);
         mViewList.add(mDealingAlertIconLl);
         mViewList.add(mFinishAlertIconLl);
-        mAlertPresenter.getAlert(true, start, AppCst.PAGE_SIZE, severities, states);
+        mAlertPresenter.getAlert(true, start, AppCst.PAGE_SIZE, mDomian, severities, states);
 
     }
 
@@ -127,7 +141,7 @@ public class AlertFragment extends BaseFragment implements AlertListView {
             public void onRefresh() {
                 start = 0;
                 total = 0;
-                mAlertPresenter.getAlert(true, 0, AppCst.PAGE_SIZE, severities, states);
+                mAlertPresenter.getAlert(true, 0, AppCst.PAGE_SIZE, mDomian, severities, states);
             }
 
             @Override
@@ -137,7 +151,15 @@ public class AlertFragment extends BaseFragment implements AlertListView {
                     ToastUtils.make(R.string.common_no_more_data);
                     return;
                 }
-                mAlertPresenter.getAlert(false, start, AppCst.PAGE_SIZE, severities, states);
+                mAlertPresenter.getAlert(false, start, AppCst.PAGE_SIZE, mDomian, severities, states);
+            }
+        });
+
+        mAlertAdapter.setOnItemClickListener(new BaseUltimateViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                AlertBean alert = mAlertAdapter.getItem(position);
+                DispatchManager.startAlertDetailActivity(getActivity(), alert);
             }
         });
 
@@ -146,23 +168,23 @@ public class AlertFragment extends BaseFragment implements AlertListView {
             public void onClick(View v) {
                 selectViewState(v);
                 states = "0,5,10,20";
-                mAlertPresenter.getAlert(true, 0, AppCst.PAGE_SIZE, severities, states);
+                mAlertPresenter.getAlert(true, 0, AppCst.PAGE_SIZE, mDomian, severities, states);
             }
         });
         mNewAlertIconLl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectViewState(v);
-                states = "5";
-                mAlertPresenter.getAlert(true, 0, AppCst.PAGE_SIZE, severities, states);
+                states = "0";
+                mAlertPresenter.getAlert(true, 0, AppCst.PAGE_SIZE, mDomian, severities, states);
             }
         });
         mDealingAlertIconLl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectViewState(v);
-                states = "10";
-                mAlertPresenter.getAlert(true, 0, AppCst.PAGE_SIZE, severities, states);
+                states = "5,10";
+                mAlertPresenter.getAlert(true, 0, AppCst.PAGE_SIZE, mDomian, severities, states);
             }
         });
         mFinishAlertIconLl.setOnClickListener(new View.OnClickListener() {
@@ -170,7 +192,7 @@ public class AlertFragment extends BaseFragment implements AlertListView {
             public void onClick(View v) {
                 selectViewState(v);
                 states = "20";
-                mAlertPresenter.getAlert(true, 0, AppCst.PAGE_SIZE, severities, states);
+                mAlertPresenter.getAlert(true, 0, AppCst.PAGE_SIZE, mDomian, severities, states);
             }
         });
     }

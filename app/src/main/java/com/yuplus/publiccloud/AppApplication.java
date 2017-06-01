@@ -1,9 +1,8 @@
 package com.yuplus.publiccloud;
 
-import android.app.Application;
-
 import com.yuplus.cloudsdk.CloudSDKManager;
 import com.yuplus.cloudsdk.config.SDKConfiguration;
+import com.yuplus.cloudsdk.future.data.bean.UserBean;
 import com.yuplus.cloudsdk.future.impl.AppFutureImpl;
 import com.yuplus.cloudsdk.okhttp.HttpsCerManager;
 import com.yuplus.cloudsdk.okhttp.OkHttpUtils;
@@ -20,6 +19,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 
 import okhttp3.OkHttpClient;
+import solid.ren.skinlibrary.base.SkinBaseApplication;
 
 
 /**
@@ -28,9 +28,10 @@ import okhttp3.OkHttpClient;
  * @desc
  */
 
-public class AppApplication extends Application {
+public class AppApplication extends SkinBaseApplication {
     public static AppFutureImpl          appFutureImpl;
     public static AppApplication         application;
+    public static UserBean               user;
     public static PublicCloudPreferences prefer;
 
     @Override

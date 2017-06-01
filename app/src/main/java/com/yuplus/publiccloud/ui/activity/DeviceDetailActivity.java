@@ -1,6 +1,5 @@
 package com.yuplus.publiccloud.ui.activity;
 
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -45,36 +44,36 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
     @BindView(R.id.device_detail_id_avatar)
     RoundedImageView mDeviceAvatar;
     @BindView(R.id.device_detail_id_name)
-    TextView mDeviceNameTv;
+    TextView         mDeviceNameTv;
     @BindView(R.id.device_detail_id_sate)
-    TextView mDeviceStateTv;
+    TextView         mDeviceStateTv;
     @BindView(R.id.device_detail_id_sn)
-    TextView mDeviceSnTv;
+    TextView         mDeviceSnTv;
     @BindView(R.id.device_detail_id_open_btn)
-    TextView mDeviceOpenBtn;
+    TextView         mDeviceOpenBtn;
     @BindView(R.id.device_detail_id_product_date)
-    TextView mDeviceProductTv;
+    TextView         mDeviceProductTv;
     @BindView(R.id.device_detail_id_stop_btn)
-    TextView mDeviceStopBtn;
+    TextView         mDeviceStopBtn;
     @BindView(R.id.device_detail_id_test_name)
-    TextView mDeviceTestNameTv;
+    TextView         mDeviceTestNameTv;
     @BindView(R.id.device_detail_id_test_value)
-    TextView mDeviceTestValueTv;
+    TextView         mDeviceTestValueTv;
     @BindView(R.id.device_detail_id_test_date)
-    TextView mDeviceTestDateTv;
+    TextView         mDeviceTestDateTv;
     @BindView(R.id.device_detail_id_test_history)
-    TextView mDeviceTestHistoryTv;
+    TextView         mDeviceTestHistoryTv;
     @BindView(R.id.device_detail_id_recylerview)
-    XRecyclerView mXRecyclerView;
+    XRecyclerView    mXRecyclerView;
 
     private ProgressHUBDialog mLoadingView;
 
-    private DeviceBean mDevice;
-    private KpisPresenter mKpisPresenter;
-    private UnitPresenter mUnitPresenter;
+    private DeviceBean        mDevice;
+    private KpisPresenter     mKpisPresenter;
+    private UnitPresenter     mUnitPresenter;
     private KpiValuePresenter mKpiValuePresenter;
-    private List<KpiBean> mKpiList;
-    private List<UnitBean> mUnitList;
+    private List<KpiBean>     mKpiList;
+    private List<UnitBean>    mUnitList;
     private DeviceTestAdapter mDeviceTestAdapter;
 
     @Override
@@ -103,7 +102,7 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
             finish();
         }
         setShowTitle(true);
-        setTitle(mDevice.getLabel());
+        setTitle("设备信息");
         setShowHomeBack();
 
         mKpiList = new ArrayList<>();

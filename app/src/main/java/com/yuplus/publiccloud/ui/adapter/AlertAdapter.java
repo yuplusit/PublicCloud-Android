@@ -42,11 +42,11 @@ public class AlertAdapter extends BaseUltimateViewAdapter<AlertBean> {
             ViewHolder viewHolder = (ViewHolder) holder;
             AlertBean alert = getItem(position);
             IconFontUtils.setIconFont(viewHolder.mStateFlagTv, EAppIconFont.APP_ALERT_FLAG_ICON);
+            IconFontUtils.setIconFont(viewHolder.mFirstAlertIcon, EAppIconFont.APP_CLOCK_OPEN_ICON);
+            IconFontUtils.setIconFont(viewHolder.mRecentAlertIcon, EAppIconFont.APP_CLOCK_DOING_ICON);
+            IconFontUtils.setIconFont(viewHolder.mCloseAlertIcon, EAppIconFont.APP_CLOCK_CLOSE_ICON);
             if (StringUtils.isNotBlank(alert.getTitle())) {
                 viewHolder.mAlertLabelTv.setText(alert.getTitle());
-            }
-            if (StringUtils.isNotBlank(alert.getArisingTime())) {
-                viewHolder.mAlertTimeTv.setText(DateUtils.timeFormat(alert.getArisingTime(), "yyyy-MM-dd hh:mm"));
             }
             if (StringUtils.isNotBlank(alert.getMessage())) {
                 viewHolder.mAlertDescTv.setText(alert.getMessage());
@@ -136,8 +136,6 @@ public class AlertAdapter extends BaseUltimateViewAdapter<AlertBean> {
         TextView mStateFlagTv;
         @BindView(R.id.alert_id_label)
         TextView mAlertLabelTv;
-        @BindView(R.id.alert_id_time)
-        TextView mAlertTimeTv;
         @BindView(R.id.alert_id_desc)
         TextView mAlertDescTv;
 
@@ -154,6 +152,13 @@ public class AlertAdapter extends BaseUltimateViewAdapter<AlertBean> {
         TextView     mRecentAlertTimeTv;
         @BindView(R.id.alert_id_close_alert_time)
         TextView     mCloseAlertTimeTv;
+
+        @BindView(R.id.alert_id_first_alert_icon)
+        TextView mFirstAlertIcon;
+        @BindView(R.id.alert_id_recent_alert_icon)
+        TextView mRecentAlertIcon;
+        @BindView(R.id.alert_id_close_alert_icon)
+        TextView mCloseAlertIcon;
 
         public ViewHolder(View itemView) {
             super(itemView, onItemClickListener);

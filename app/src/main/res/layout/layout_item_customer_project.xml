@@ -26,6 +26,7 @@
             android:textSize="@dimen/font_16sp"/>
 
         <RelativeLayout
+            android:id="@+id/project_id_device_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/item_touch_bg"
@@ -71,6 +72,7 @@
             android:background="@color/common_window_background"/>
 
         <RelativeLayout
+            android:id="@+id/project_id_alert_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/item_touch_bg"
@@ -116,6 +118,7 @@
             android:background="@color/common_window_background"/>
 
         <RelativeLayout
+            android:id="@+id/project_id_order_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/item_touch_bg"

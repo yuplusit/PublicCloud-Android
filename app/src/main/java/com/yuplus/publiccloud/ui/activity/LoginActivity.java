@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.yuplus.cloudsdk.future.data.bean.UserBean;
 import com.yuplus.cloudsdk.util.StringUtils;
+import com.yuplus.publiccloud.AppApplication;
 import com.yuplus.publiccloud.R;
 import com.yuplus.publiccloud.mvp.presenter.LoginPresenter;
 import com.yuplus.publiccloud.mvp.view.LoginView;
@@ -103,12 +104,16 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     public void onLoginSuccess(UserBean user) {
+        if (null == user) {
+            return;
+        }
+        AppApplication.user = user;
         DispatchManager.startMainActivity(this);
     }
 
     @Override
     public void onLoginFailure(String msg) {
-        if(StringUtils.isNotBlank(msg)){
+        if (StringUtils.isNotBlank(msg)) {
             ToastUtils.showToast(this, msg);
         }
     }

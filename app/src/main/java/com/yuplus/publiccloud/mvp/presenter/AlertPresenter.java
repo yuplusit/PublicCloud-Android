@@ -13,8 +13,8 @@ import com.yuplus.publiccloud.mvp.view.AlertListView;
 
 public class AlertPresenter extends BasePresenter<AlertListView> {
 
-    public void getAlert(final boolean isRefresh, int start, int pageSize, String severities, String states) {
-        AppApplication.appFutureImpl.getAlertByPage(start, pageSize, severities, states, tag, new FutureListener() {
+    public void getAlert(final boolean isRefresh, int start, int pageSize, String domains, String severities, String states) {
+        AppApplication.appFutureImpl.getAlertByPage(start, pageSize, domains, severities, states, tag, new FutureListener() {
             @Override
             public void onStart() {
                 super.onStart();

@@ -27,9 +27,9 @@ public class MainActivity extends TitleActivity {
     @BindView(android.R.id.tabhost)
     FragmentTabHost mTabHost;
     @BindView(R.id.main_navigation_layout)
-    NavigationView mainNavigationLayout;
+    NavigationView  mainNavigationLayout;
     @BindView(R.id.main_drawer_layout)
-    DrawerLayout mainDrawerLayout;
+    DrawerLayout    mainDrawerLayout;
 
     private long startTime = 0L;
 
@@ -97,6 +97,8 @@ public class MainActivity extends TitleActivity {
                     setTitle("设备");
                 } else if ("3".equals(tabId)) {
                     setTitle("告警");
+                } else if ("4".equals(tabId)) {
+                    setTitle("工单");
                 }
             }
         });

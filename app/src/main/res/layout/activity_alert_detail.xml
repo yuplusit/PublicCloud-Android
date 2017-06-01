@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/common_id_toolbar"
+        layout="@layout/layout_common_toolbar"/>
+
+    <include
+        layout="@layout/layout_item_alert"/>
+
+    <EditText
+        android:id="@+id/alert_handle_id_feedback_et"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_80dp"
+        android:background="@color/common_white"
+        android:gravity="left|top"
+        android:hint="处理意见："
+        android:paddingBottom="@dimen/padding_10dp"
+        android:paddingLeft="@dimen/padding_16dp"
+        android:paddingRight="@dimen/padding_16dp"
+        android:paddingTop="@dimen/padding_10dp"
+        android:textColor="@color/font_secondary"
+        android:textSize="@dimen/font_11sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/alert_handle_id_close_btn"
+            android:layout_width="@dimen/width_80dp"
+            android:layout_height="@dimen/height_35dp"
+            android:gravity="center"
+            android:text="关闭告警"
+            android:textColor="@color/common_white"
+            android:textSize="@dimen/font_14sp"/>
+
+        <TextView
+            android:id="@+id/alert_handle_id_sure_btn"
+            android:layout_width="@dimen/width_80dp"
+            android:layout_height="@dimen/height_35dp"
+            android:layout_marginLeft="@dimen/margin_6dp"
+            android:gravity="center"
+            android:text="确认告警"
+            android:textColor="@color/common_white"
+            android:textSize="@dimen/font_14sp"/>
+
+        <TextView
+            android:id="@+id/alert_handle_id_order_btn"
+            android:layout_width="@dimen/width_80dp"
+            android:layout_height="@dimen/height_35dp"
+            android:layout_marginLeft="@dimen/margin_6dp"
+            android:gravity="center"
+            android:text="转工单"
+            android:textColor="@color/common_white"
+            android:textSize="@dimen/font_14sp"/>
+    </LinearLayout>
+</LinearLayout>

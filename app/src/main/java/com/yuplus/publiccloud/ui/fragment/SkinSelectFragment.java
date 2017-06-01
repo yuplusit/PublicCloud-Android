@@ -7,22 +7,22 @@ import com.yuplus.publiccloud.ui.base.BaseFragment;
 
 /**
  * @user longzhen
- * @date 5/31/2017
+ * @date 6/1/2017
  * @desc
  */
 
-public class OrderFragment extends BaseFragment {
+public class SkinSelectFragment extends BaseFragment {
 
-    public static OrderFragment newInstance() {
+    public static SkinSelectFragment newInstance() {
         Bundle args = new Bundle();
-        OrderFragment fragment = new OrderFragment();
+        SkinSelectFragment fragment = new SkinSelectFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     protected int getLayoutRes() {
-        return R.layout.fragment_order;
+        return R.layout.fragment_skin_select;
     }
 
     @Override

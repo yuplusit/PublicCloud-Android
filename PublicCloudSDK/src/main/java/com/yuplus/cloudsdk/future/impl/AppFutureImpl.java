@@ -29,11 +29,7 @@ import com.yuplus.cloudsdk.future.listener.FutureListener;
 import com.yuplus.cloudsdk.okhttp.OkHttpUtils;
 import com.yuplus.cloudsdk.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 import okhttp3.MediaType;
 
@@ -54,9 +50,9 @@ public class AppFutureImpl implements IAppFuture {
     }
 
     @Override
-    public void getAlertByPage(int start, int pageSize, String severities, String states, Object tag, FutureListener listener) {
+    public void getAlertByPage(int start, int pageSize, String domains, String severities, String states, Object tag, FutureListener listener) {
         MapParams params1 = new MapParams()
-                .addParam("domain", "")
+                .addParam("domain", domains == null ? "" : domains)
                 .addParam("nodeType", "")
                 .addParam("alertCodes", "")
                 .addParam("createTimeFrom", "")
@@ -79,9 +75,9 @@ public class AppFutureImpl implements IAppFuture {
     }
 
     @Override
-    public void getDevicesByConditionWithPage(int start, int pageSize, int total, Object tag, FutureListener listener) {
+    public void getDevicesByConditionWithPage(long projectId, int start, int pageSize, int total, Object tag, FutureListener listener) {
         MapParams params1 = new MapParams()
-                .addParam("projectId", "");
+                .addParam("projectId", projectId > 0L ? String.valueOf(projectId) : "");
         MapParams params2 = new MapParams()
                 .addParam("start", start)
                 .addParam("length", pageSize)
@@ -139,9 +135,9 @@ public class AppFutureImpl implements IAppFuture {
     }
 
     @Override
-    public void sendAlertRecoverAction(String alertId, Object tag, FutureListener listener) {
+    public void sendAlertRecoverAction(long alertId, Object tag, FutureListener listener) {
         ListParams params1 = new ListParams()
-                .addParam(Long.parseLong(alertId));
+                .addParam(alertId);
         MapParams requestParams = new MapParams()
                 .addParam("actionType", "recover")
                 .addParam("alertIds", params1.getParams())
@@ -152,9 +148,9 @@ public class AppFutureImpl implements IAppFuture {
     }
 
     @Override
-    public void sendAlertClaimAction(String alertId, Object tag, FutureListener listener) {
+    public void sendAlertClaimAction(long alertId, Object tag, FutureListener listener) {
         ListParams params1 = new ListParams()
-                .addParam(Long.parseLong(alertId));
+                .addParam(alertId);
         MapParams requestParams = new MapParams()
                 .addParam("actionType", "claim")
                 .addParam("alertIds", params1.getParams());

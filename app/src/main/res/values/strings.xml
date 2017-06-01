@@ -6,7 +6,7 @@
     <string name="common_question">遇到问题？</string>
     <string name="common_exit_tip">再按一次退出应用</string>
     <string name="common_no_more_data">没有更多的数据了</string>
-    <string name="common_null">--</string>
+    <string name="common_null">——</string>
     <string name="common_edittext_device_hint">输入要查找的设备</string>
 
     <string name="menu_square_bingo">我的首页</string>
@@ -51,6 +51,13 @@
     <string name="alert_severity_02">次要</string>
     <string name="alert_severity_03">重要</string>
     <string name="alert_severity_04">严重</string>
+
+    <string name="alert_order_function_no_opened">转工单功能暂未开启</string>
+
+    <!-- 用户Area区域 -->
+    <string name="customer_area_device_list">设备列表</string>
+    <string name="customer_area_alert_list">告警列表</string>
+    <string name="customer_area_order_list">工单列表</string>
 
     <!-- Device区域 -->
     <string name="device_managed_status_01">启用</string>

@@ -2,9 +2,9 @@ package com.yuplus.publiccloud.ui.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
+import solid.ren.skinlibrary.base.SkinBaseActivity;
 
 /**
  * @user longzhen
@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
  * @desc
  */
 
-public abstract class AbsActivity extends AppCompatActivity {
+public abstract class AbsActivity extends SkinBaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public abstract class AbsActivity extends AppCompatActivity {
 
     protected void init(Bundle savedInstanceState) {
     }
+
     protected void initView() {
     }
 

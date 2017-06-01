@@ -1,341 +1,555 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/common_white"
-              android:orientation="vertical"
-              android:paddingBottom="@dimen/padding_10dp"
-              android:paddingLeft="@dimen/padding_16dp"
-              android:paddingRight="@dimen/padding_16dp"
-              android:paddingTop="@dimen/padding_5dp">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/common_white">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding_10dp"
+        android:paddingLeft="@dimen/padding_16dp"
+        android:paddingRight="@dimen/padding_16dp"
+        android:paddingTop="@dimen/padding_5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="未解决"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_16sp"/>
+
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/home_id_undo_alert_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/common_orange"
+                    android:textSize="@dimen/font_20sp"
+                    app:autoStart="false"
+                    app:incrementValue="5"
+                    app:startValue="0"
+                    app:timeInterval="2"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/width_200dp"
+                android:layout_height="@dimen/height_200dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/main_ring_bg"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="日新增告警数"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_16sp"/>
+
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/home_id_day_alert_add_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/common_orange"
+                    android:textSize="@dimen/font_30sp"
+                    app:autoStart="false"
+                    app:incrementValue="5"
+                    app:startValue="0"
+                    app:timeInterval="2"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_height_1dp"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:layout_marginRight="@dimen/margin_20dp"
+                    android:background="@color/common_window_background"/>
+
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/home_id_day_alert_no_deal_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/common_orange"
+                    android:textSize="@dimen/font_30sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="待处理告警数"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_16sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="已处理"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_16sp"/>
+
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/home_id_done_alert_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/common_orange"
+                    android:textSize="@dimen/font_20sp"
+                    app:autoStart="false"
+                    app:incrementValue="5"
+                    app:startValue="0"
+                    app:timeInterval="2"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:background="@color/common_window_background"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="@dimen/margin_10dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="未解决"
-                android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_16sp"/>
-
-            <TextView
-                android:id="@+id/home_id_undo_alert_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="99"
-                android:textColor="@color/common_orange"
-                android:textSize="@dimen/font_20sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="@dimen/width_200dp"
-            android:layout_height="@dimen/height_200dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/main_ring_bg"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="日新增告警数"
-                android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_16sp"/>
-
-            <TextView
-                android:id="@+id/home_id_day_alert_add_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="300"
-                android:textColor="@color/common_orange"
-                android:textSize="@dimen/font_30sp"/>
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/line_height_1dp"
-                android:layout_marginLeft="@dimen/margin_20dp"
-                android:layout_marginRight="@dimen/margin_20dp"
-                android:background="@color/common_window_background"/>
-
-            <TextView
-                android:id="@+id/home_id_day_alert_no_deal_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="300"
-                android:textColor="@color/common_orange"
-                android:textSize="@dimen/font_30sp"/>
+                android:layout_width="@dimen/line_height_4dp"
+                android:layout_height="@dimen/height_12dp"
+                android:background="@color/common_blue"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="待处理告警数"
-                android:textColor="@color/font_secondary"
+                android:layout_marginLeft="@dimen/margin_5dp"
+                android:text="设备服务"
+                android:textColor="@color/font_primary"
                 android:textSize="@dimen/font_16sp"/>
-
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/btn_shadow_bg"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_2dp"
+                android:paddingLeft="@dimen/padding_5dp"
+                android:paddingRight="@dimen/padding_5dp">
+
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/home_id_device_all_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/common_blue"
+                    android:textSize="@dimen/font_30sp"
+                    app:autoStart="false"
+                    app:incrementValue="5"
+                    app:startValue="0"
+                    app:timeInterval="2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="总设备数"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_11sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/btn_shadow_bg"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_2dp"
+                android:paddingLeft="@dimen/padding_5dp"
+                android:paddingRight="@dimen/padding_5dp">
+
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/home_id_device_online_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/common_blue"
+                    android:textSize="@dimen/font_30sp"
+                    app:autoStart="false"
+                    app:incrementValue="5"
+                    app:startValue="0"
+                    app:timeInterval="2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="在线设备"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_11sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_shadow_bg"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_2dp"
+                android:paddingLeft="@dimen/padding_5dp"
+                android:paddingRight="@dimen/padding_5dp">
+
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/home_id_device_add_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/common_blue"
+                    android:textSize="@dimen/font_30sp"
+                    app:autoStart="false"
+                    app:incrementValue="5"
+                    app:startValue="0"
+                    app:timeInterval="2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="月增设备"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_11sp"/>
+            </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/margin_10dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/line_height_4dp"
+                android:layout_height="@dimen/height_12dp"
+                android:background="@color/common_green"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="已处理"
-                android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_16sp"/>
-
-            <TextView
-                android:id="@+id/home_id_done_alert_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="99"
-                android:textColor="@color/common_orange"
-                android:textSize="@dimen/font_20sp"/>
-        </LinearLayout>
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/line_height_1dp"
-        android:layout_marginBottom="@dimen/margin_10dp"
-        android:layout_marginTop="@dimen/margin_10dp"
-        android:background="@color/common_window_background"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <View
-            android:layout_width="@dimen/line_height_4dp"
-            android:layout_height="@dimen/height_12dp"
-            android:background="@color/common_blue"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_5dp"
-            android:text="设备服务"
-            android:textColor="@color/font_primary"
-            android:textSize="@dimen/font_16sp"/>
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/btn_shadow_bg"
-            android:clickable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/padding_2dp"
-            android:paddingLeft="@dimen/padding_5dp"
-            android:paddingRight="@dimen/padding_5dp">
-
-            <TextView
-                android:id="@+id/home_id_device_all_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="100"
-                android:textColor="@color/common_blue"
-                android:textSize="@dimen/font_30sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="总设备数"
-                android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_11sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/btn_shadow_bg"
-            android:clickable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/padding_2dp"
-            android:paddingLeft="@dimen/padding_5dp"
-            android:paddingRight="@dimen/padding_5dp">
-
-            <TextView
-                android:id="@+id/home_id_device_online_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="99"
-                android:textColor="@color/common_blue"
-                android:textSize="@dimen/font_30sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="在线设备"
-                android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_11sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/btn_shadow_bg"
-            android:clickable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/padding_2dp"
-            android:paddingLeft="@dimen/padding_5dp"
-            android:paddingRight="@dimen/padding_5dp">
-
-            <TextView
-                android:id="@+id/home_id_device_add_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3"
-                android:textColor="@color/common_blue"
-                android:textSize="@dimen/font_30sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="月增设备"
-                android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_11sp"/>
-        </LinearLayout>
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/margin_10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <View
-            android:layout_width="@dimen/line_height_4dp"
-            android:layout_height="@dimen/height_12dp"
-            android:background="@color/common_green"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_5dp"
-            android:text="维修工单"
-            android:textColor="@color/font_primary"
-            android:textSize="@dimen/font_16sp"/>
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/btn_shadow_bg"
-            android:clickable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/padding_2dp"
-            android:paddingLeft="@dimen/padding_5dp"
-            android:paddingRight="@dimen/padding_5dp">
-
-            <TextView
-                android:id="@+id/home_id_order_all_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="100"
-                android:textColor="@color/common_green"
-                android:textSize="@dimen/font_30sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5dp"
                 android:text="维修工单"
-                android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_11sp"/>
+                android:textColor="@color/font_primary"
+                android:textSize="@dimen/font_16sp"/>
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/btn_shadow_bg"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_2dp"
+                android:paddingLeft="@dimen/padding_5dp"
+                android:paddingRight="@dimen/padding_5dp">
+
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/home_id_order_all_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/common_green"
+                    android:textSize="@dimen/font_30sp"
+                    app:autoStart="false"
+                    app:incrementValue="5"
+                    app:startValue="0"
+                    app:timeInterval="2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="维修工单"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_11sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/btn_shadow_bg"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_2dp"
+                android:paddingLeft="@dimen/padding_5dp"
+                android:paddingRight="@dimen/padding_5dp">
+
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/home_id_order_no_deal_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/common_green"
+                    android:textSize="@dimen/font_30sp"
+                    app:autoStart="false"
+                    app:incrementValue="5"
+                    app:startValue="0"
+                    app:timeInterval="2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="待处理工单"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_11sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_shadow_bg"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_2dp"
+                android:paddingLeft="@dimen/padding_5dp"
+                android:paddingRight="@dimen/padding_5dp">
+
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/home_id_order_server_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/common_green"
+                    android:textSize="@dimen/font_30sp"
+                    app:autoStart="false"
+                    app:incrementValue="5"
+                    app:startValue="0"
+                    app:timeInterval="2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="服务客户数"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_11sp"/>
+            </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/btn_shadow_bg"
-            android:clickable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/padding_2dp"
-            android:paddingLeft="@dimen/padding_5dp"
-            android:paddingRight="@dimen/padding_5dp">
+            android:layout_marginBottom="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/home_id_order_no_deal_count"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_13dp"
+                    android:layout_marginTop="@dimen/margin_6dp">
+
+                    <com.yuplus.publiccloud.ui.widget.AnimateHorizontalProgressBar
+                        android:id="@+id/home_id_evaluate_bar_01"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:ahp_backgroundColor="@color/common_success"
+                        app:ahp_progressColor="@color/common_white"/>
+
+                    <TextView
+                        android:id="@+id/home_id_evaluate_text_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/margin_2dp"
+                        android:textColor="@color/common_white"
+                        android:textSize="@dimen/font_7sp"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="很满意"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_10sp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_13dp"
+                    android:layout_marginTop="@dimen/margin_6dp">
+
+                    <com.yuplus.publiccloud.ui.widget.AnimateHorizontalProgressBar
+                        android:id="@+id/home_id_evaluate_bar_02"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:ahp_backgroundColor="@color/common_pink"
+                        app:ahp_progressColor="@color/common_white"/>
+
+                    <TextView
+                        android:id="@+id/home_id_evaluate_text_02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/margin_2dp"
+                        android:textColor="@color/common_white"
+                        android:textSize="@dimen/font_7sp"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="满意"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_10sp"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="99"
-                android:textColor="@color/common_green"
-                android:textSize="@dimen/font_30sp"/>
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/padding_15dp"
+                android:paddingRight="@dimen/padding_15dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="客户"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_15sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="满意度"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="待处理工单"
-                android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_11sp"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_13dp"
+                    android:layout_marginTop="@dimen/margin_6dp">
+
+                    <com.yuplus.publiccloud.ui.widget.AnimateHorizontalProgressBar
+                        android:id="@+id/home_id_evaluate_bar_03"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:ahp_backgroundColor="@color/common_white"
+                        app:ahp_progressColor="@color/common_blue"/>
+
+                    <TextView
+                        android:id="@+id/home_id_evaluate_text_03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_2dp"
+                        android:textColor="@color/common_white"
+                        android:textSize="@dimen/font_7sp"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="一般"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_10sp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_13dp"
+                    android:layout_marginTop="@dimen/margin_6dp">
+
+                    <com.yuplus.publiccloud.ui.widget.AnimateHorizontalProgressBar
+                        android:id="@+id/home_id_evaluate_bar_04"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:ahp_backgroundColor="@color/common_white"
+                        app:ahp_progressColor="@color/common_orange"/>
+
+                    <TextView
+                        android:id="@+id/home_id_evaluate_text_04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_2dp"
+                        android:text="62%"
+                        android:textColor="@color/common_white"
+                        android:textSize="@dimen/font_7sp"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="不满意"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_10sp"/>
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/btn_shadow_bg"
-            android:clickable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/padding_2dp"
-            android:paddingLeft="@dimen/padding_5dp"
-            android:paddingRight="@dimen/padding_5dp">
-
-            <TextView
-                android:id="@+id/home_id_order_server_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3"
-                android:textColor="@color/common_green"
-                android:textSize="@dimen/font_30sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="服务客户数"
-                android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_11sp"/>
-        </LinearLayout>
-    </RelativeLayout>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

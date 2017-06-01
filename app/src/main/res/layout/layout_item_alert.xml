@@ -14,8 +14,8 @@
 
         <LinearLayout
             android:id="@+id/alert_id_state_layout"
-            android:layout_width="@dimen/width_55dp"
-            android:layout_height="@dimen/height_55dp"
+            android:layout_width="@dimen/width_40dp"
+            android:layout_height="@dimen/height_40dp"
             android:background="@drawable/common_oval_primary_bg"
             android:gravity="center">
 
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/alert_id_state_layout"
-            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_marginLeft="@dimen/margin_12dp"
             android:layout_toRightOf="@+id/alert_id_state_layout"
             android:orientation="vertical">
 
@@ -52,13 +52,38 @@
                     android:textColor="@color/font_primary"
                     android:textSize="@dimen/font_15sp"/>
 
-                <TextView
-                    android:id="@+id/alert_id_time"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2017-05-09 11:54"
-                    android:textColor="@color/font_secondary"
-                    android:textSize="@dimen/font_12sp"/>
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/alert_id_flag_severity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/flag_round_serious_bg"
+                        android:paddingBottom="@dimen/padding_1dp"
+                        android:paddingLeft="@dimen/padding_6dp"
+                        android:paddingRight="@dimen/padding_6dp"
+                        android:paddingTop="@dimen/padding_1dp"
+                        android:text="严重"
+                        android:textColor="@color/common_serious"
+                        android:textSize="@dimen/font_10sp"/>
+
+                    <TextView
+                        android:id="@+id/alert_id_flag_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:background="@drawable/flag_round_success_bg"
+                        android:paddingBottom="@dimen/padding_1dp"
+                        android:paddingLeft="@dimen/padding_6dp"
+                        android:paddingRight="@dimen/padding_6dp"
+                        android:paddingTop="@dimen/padding_1dp"
+                        android:text="已解决"
+                        android:textColor="@color/common_success"
+                        android:textSize="@dimen/font_10sp"/>
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -71,39 +96,6 @@
                 android:textColor="@color/font_secondary"
                 android:textSize="@dimen/font_13sp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/alert_id_flag_severity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/flag_round_serious_bg"
-                    android:paddingBottom="@dimen/padding_1dp"
-                    android:paddingLeft="@dimen/padding_5dp"
-                    android:paddingRight="@dimen/padding_5dp"
-                    android:paddingTop="@dimen/padding_1dp"
-                    android:text="严重"
-                    android:textColor="@color/common_serious"
-                    android:textSize="@dimen/font_10sp"/>
-
-                <TextView
-                    android:id="@+id/alert_id_flag_state"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_10dp"
-                    android:background="@drawable/flag_round_success_bg"
-                    android:paddingBottom="@dimen/padding_1dp"
-                    android:paddingLeft="@dimen/padding_5dp"
-                    android:paddingRight="@dimen/padding_5dp"
-                    android:paddingTop="@dimen/padding_1dp"
-                    android:text="已解决"
-                    android:textColor="@color/common_success"
-                    android:textSize="@dimen/font_10sp"/>
-            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 
@@ -112,7 +104,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/padding_5dp"
-        android:paddingTop="@dimen/padding_5dp">
+        android:paddingTop="@dimen/padding_8dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -121,17 +113,20 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
+            <TextView
                 android:id="@+id/alert_id_first_alert_icon"
-                android:layout_width="@dimen/width_16dp"
-                android:layout_height="@dimen/height_16dp"
-                android:src="@drawable/ic_clock_open"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/width_16dp"
+                android:minWidth="@dimen/width_16dp"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_14sp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_3dp"
-                android:gravity="center_horizontal"
+                android:gravity="center_vertical|left"
                 android:orientation="vertical">
 
                 <TextView
@@ -163,17 +158,20 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
+            <TextView
                 android:id="@+id/alert_id_recent_alert_icon"
-                android:layout_width="@dimen/width_16dp"
-                android:layout_height="@dimen/height_16dp"
-                android:src="@drawable/ic_clock_recent"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/width_16dp"
+                android:minWidth="@dimen/width_16dp"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_14sp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_3dp"
-                android:gravity="center_horizontal"
+                android:gravity="center_vertical|left"
                 android:orientation="vertical">
 
                 <TextView
@@ -187,6 +185,7 @@
                     android:id="@+id/alert_id_recent_alert_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="left"
                     android:text="2017.06.06"
                     android:textColor="@color/font_secondary"
                     android:textSize="@dimen/font_10sp"/>
@@ -205,17 +204,20 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
+            <TextView
                 android:id="@+id/alert_id_close_alert_icon"
-                android:layout_width="@dimen/width_16dp"
-                android:layout_height="@dimen/height_16dp"
-                android:src="@drawable/ic_clock_close"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/width_16dp"
+                android:minWidth="@dimen/width_16dp"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_14sp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_3dp"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView

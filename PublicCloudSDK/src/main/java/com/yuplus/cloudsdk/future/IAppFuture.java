@@ -28,23 +28,25 @@ public interface IAppFuture {
      *
      * @param start      分页的起始位置
      * @param pageSize   分页的大小
+     * @param domain
      * @param severities 告警的严重性(1:警告;2:次要;3:重要;4:严重) 例如:全部：severities="1,2,3,4"
      * @param states     告警的状态(0:新产生;5:已确认;10:处理中;20:已解决;30:已忽略) @example:全部：states= "0,5,10,20"
      * @param tag        网络请求TAG标记
      * @param listener   回调操作
      */
-    void getAlertByPage(int start, int pageSize, String severities, String states, Object tag, FutureListener listener);
+    void getAlertByPage(int start, int pageSize, String domain, String severities, String states, Object tag, FutureListener listener);
 
     /**
      * 获取设备信息(分页)
      *
-     * @param start    分页的起始位置
-     * @param pageSize 分页的大小
-     * @param tag      网络请求TAG标记
-     * @param total    列表总数
-     * @param listener 回调操作
+     * @param projectId 项目ID
+     * @param start     分页的起始位置
+     * @param pageSize  分页的大小
+     * @param tag       网络请求TAG标记
+     * @param total     列表总数
+     * @param listener  回调操作
      */
-    void getDevicesByConditionWithPage(int start, int pageSize, int total, Object tag, FutureListener listener);
+    void getDevicesByConditionWithPage(long projectId, int start, int pageSize, int total, Object tag, FutureListener listener);
 
     /**
      * 通过条件筛选获取所有的设备信息
@@ -97,7 +99,7 @@ public interface IAppFuture {
      * @param tag      网络请求TAG标记
      * @param listener 回调操作
      */
-    void sendAlertRecoverAction(String alertId, Object tag, FutureListener listener);
+    void sendAlertRecoverAction(long alertId, Object tag, FutureListener listener);
 
     /**
      * 确认警告
@@ -106,7 +108,7 @@ public interface IAppFuture {
      * @param tag      网络请求TAG标记
      * @param listener 回调操作
      */
-    void sendAlertClaimAction(String alertId, Object tag, FutureListener listener);
+    void sendAlertClaimAction(long alertId, Object tag, FutureListener listener);
 
     /**
      * 启用设备

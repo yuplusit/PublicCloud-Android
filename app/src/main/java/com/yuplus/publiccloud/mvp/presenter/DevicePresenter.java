@@ -1,7 +1,6 @@
 package com.yuplus.publiccloud.mvp.presenter;
 
 import com.yuplus.cloudsdk.future.FutureResult;
-import com.yuplus.cloudsdk.future.data.bean.ConfigurationBean;
 import com.yuplus.cloudsdk.future.data.bean.DeviceListBean;
 import com.yuplus.cloudsdk.future.data.params.ListParams;
 import com.yuplus.cloudsdk.future.data.params.MapParams;
@@ -9,8 +8,6 @@ import com.yuplus.cloudsdk.future.listener.FutureListener;
 import com.yuplus.publiccloud.AppApplication;
 import com.yuplus.publiccloud.mvp.base.BasePresenter;
 import com.yuplus.publiccloud.mvp.view.DeviceListView;
-
-import java.util.List;
 
 /**
  * @user longzhen
@@ -20,8 +17,8 @@ import java.util.List;
 
 public class DevicePresenter extends BasePresenter<DeviceListView> {
 
-    public void getDevicesByConditionWithPage(final boolean isRefresh, final int start, final int pageSize, int total) {
-        AppApplication.appFutureImpl.getDevicesByConditionWithPage(start, pageSize, total, tag, new FutureListener() {
+    public void getDevicesByConditionWithPage(final boolean isRefresh, final long projectId, final int start, final int pageSize, int total) {
+        AppApplication.appFutureImpl.getDevicesByConditionWithPage(projectId, start, pageSize, total, tag, new FutureListener() {
             @Override
             public void onStart() {
                 super.onStart();

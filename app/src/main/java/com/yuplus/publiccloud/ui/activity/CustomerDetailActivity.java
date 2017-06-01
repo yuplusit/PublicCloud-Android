@@ -153,7 +153,7 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
         mCustomerOrderCountTv.setText(String.valueOf(mCustomer.getOrderCount()));
         mXRecyclerView.addHeaderView(headerView);
 
-        mCustomerDetailAdapter = new CustomerDetailAdapter(this, null);
+        mCustomerDetailAdapter = new CustomerDetailAdapter(this, null,mCustomer);
         mXRecyclerView.setAdapter(mCustomerDetailAdapter);
 
         mXRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);

@@ -34,7 +34,7 @@ public class UserBean extends BaseBean {
     private long         updator;
     private String       countryRegion;
     private int          industry;
-    private String       domainID;
+    private Long       domainID;
     private String       domainPath;
     private String       address;
     private String       city;
@@ -204,11 +204,11 @@ public class UserBean extends BaseBean {
         this.industry = industry;
     }
 
-    public String getDomainID() {
+    public Long getDomainID() {
         return domainID;
     }
 
-    public void setDomainID(String domainID) {
+    public void setDomainID(Long domainID) {
         this.domainID = domainID;
     }
 
@@ -364,7 +364,7 @@ public class UserBean extends BaseBean {
         dest.writeLong(this.updator);
         dest.writeString(this.countryRegion);
         dest.writeInt(this.industry);
-        dest.writeString(this.domainID);
+        dest.writeLong(this.domainID);
         dest.writeString(this.domainPath);
         dest.writeString(this.address);
         dest.writeString(this.city);
@@ -406,7 +406,7 @@ public class UserBean extends BaseBean {
         this.updator = in.readLong();
         this.countryRegion = in.readString();
         this.industry = in.readInt();
-        this.domainID = in.readString();
+        this.domainID = in.readLong();
         this.domainPath = in.readString();
         this.address = in.readString();
         this.city = in.readString();

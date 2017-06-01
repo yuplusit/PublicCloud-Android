@@ -4,13 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Parcelable;
 
+import com.yuplus.cloudsdk.future.data.bean.AlertBean;
 import com.yuplus.cloudsdk.future.data.bean.CustomerBean;
 import com.yuplus.cloudsdk.future.data.bean.DeviceBean;
 import com.yuplus.publiccloud.cst.AppCst;
+import com.yuplus.publiccloud.ui.activity.AlertDetailActivity;
+import com.yuplus.publiccloud.ui.activity.CustomerAreaActivity;
 import com.yuplus.publiccloud.ui.activity.CustomerDetailActivity;
 import com.yuplus.publiccloud.ui.activity.DeviceDetailActivity;
 import com.yuplus.publiccloud.ui.activity.LoginActivity;
 import com.yuplus.publiccloud.ui.activity.MainActivity;
+import com.yuplus.publiccloud.ui.activity.SlideAreaActivity;
 
 /**
  * @user longzhen
@@ -63,7 +67,8 @@ public class DispatchManager {
     }
 
     /**
-     * 调到设备详情页
+     * 跳到设备详情页
+     *
      * @param context
      * @param device
      */
@@ -73,6 +78,57 @@ public class DispatchManager {
         }
         Intent intent = new Intent(context, DeviceDetailActivity.class);
         intent.putExtra(AppCst.COMMON_DATA, (Parcelable) device);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 跳到告警详情页
+     *
+     * @param context
+     * @param alert
+     */
+    public static void startAlertDetailActivity(Context context, AlertBean alert) {
+        if (null == context) {
+            return;
+        }
+        Intent intent = new Intent(context, AlertDetailActivity.class);
+        intent.putExtra(AppCst.COMMON_DATA, (Parcelable) alert);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 跳到project综合区
+     *
+     * @param context
+     * @param title
+     * @param projectId
+     * @param domain
+     */
+    public static void startCustomerAreaActivity(Context context, String title, long projectId, String domain) {
+        if (null == context) {
+            return;
+        }
+        Intent intent = new Intent(context, CustomerAreaActivity.class);
+        intent.putExtra(AppCst.COMMON_TITLE, title);
+        intent.putExtra(AppCst.COMMON_ID, projectId);
+        intent.putExtra(AppCst.COMMON_KEY, domain);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 跳转到侧边栏综合区
+     *
+     * @param context
+     * @param title
+     * @param type
+     */
+    public static void startSlideAreaActivity(Context context, String title, int type) {
+        if (null == context) {
+            return;
+        }
+        Intent intent = new Intent(context, SlideAreaActivity.class);
+        intent.putExtra(AppCst.COMMON_TITLE, title);
+        intent.putExtra(AppCst.COMMON_TYPE, type);
         context.startActivity(intent);
     }
 }

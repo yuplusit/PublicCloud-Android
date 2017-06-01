@@ -43,25 +43,35 @@ import butterknife.OnClick;
 
 public class DeviceFragment extends BaseFragment implements CustomerView, DeviceListView, KpiValueView {
     @BindView(R.id.device_id_recylerview)
-    XRecyclerView mXRecyclerView;
+    XRecyclerView     mXRecyclerView;
     @BindView(R.id.device_id_search_et)
     ClearableEditText mSearchEt;
     @BindView(R.id.device_id_search_btn)
-    ImageView mSearchBtn;
+    ImageView         mSearchBtn;
 
     private CustomerPresenter mCustomerPresenter;
-    private DevicePresenter mDevicePresenter;
+    private DevicePresenter   mDevicePresenter;
     private KpiValuePresenter mKpiValuePresenter;
 
-    private ProgressHUBDialog mLoadingView;
-    private DeviceAdapter mDeviceAdapter;
+    private ProgressHUBDialog  mLoadingView;
+    private DeviceAdapter      mDeviceAdapter;
     private List<CustomerBean> mCustomerList;
-    private List<DeviceBean> mDeviceList;
+    private List<DeviceBean>   mDeviceList;
 
     private int start = 0;
     private int total = 0;
-    private String mSearchContent;
+    private String  mSearchContent;
     private boolean isConditionSearch;
+    private long    mProjectId;
+
+    public static DeviceFragment newInstance(long projectId) {
+
+        Bundle args = new Bundle();
+        DeviceFragment fragment = new DeviceFragment();
+        args.putLong(AppCst.COMMON_ID, projectId);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     protected int getLayoutRes() {
@@ -84,6 +94,10 @@ public class DeviceFragment extends BaseFragment implements CustomerView, Device
     @Override
     protected void init(Bundle savedInstanceState) {
         super.init(savedInstanceState);
+        Bundle bundle = getArguments();
+        if (null != bundle) {
+            mProjectId = bundle.getLong(AppCst.COMMON_ID);
+        }
         mCustomerList = new ArrayList<>();
         mDeviceList = new ArrayList<>();
 
@@ -127,7 +141,7 @@ public class DeviceFragment extends BaseFragment implements CustomerView, Device
                 if (isConditionSearch) {
                     mDevicePresenter.searchDeviceByConditionWithPage(false, mSearchContent, start, AppCst.PAGE_SIZE, total);
                 } else {
-                    mDevicePresenter.getDevicesByConditionWithPage(false, start, AppCst.PAGE_SIZE, total);
+                    mDevicePresenter.getDevicesByConditionWithPage(false, mProjectId, start, AppCst.PAGE_SIZE, total);
                 }
 
             }
@@ -163,7 +177,7 @@ public class DeviceFragment extends BaseFragment implements CustomerView, Device
         if (isConditionSearch) {
             mDevicePresenter.searchDeviceByConditionWithPage(true, mSearchContent, 0, AppCst.PAGE_SIZE, total);
         } else {
-            mDevicePresenter.getDevicesByConditionWithPage(true, 0, AppCst.PAGE_SIZE, total);
+            mDevicePresenter.getDevicesByConditionWithPage(true, mProjectId, 0, AppCst.PAGE_SIZE, total);
         }
     }
 
@@ -215,9 +229,9 @@ public class DeviceFragment extends BaseFragment implements CustomerView, Device
                 for (KpiValueBean kpiValue : data) {
                     if (device.getId() == kpiValue.getNodeId()) {
                         if (kpiValue.getKpiCode() == 999999) {//故障状态
-                            device.setSeverity((int)kpiValue.getValue());
+                            device.setSeverity((int) kpiValue.getValue());
                         } else if (kpiValue.getKpiCode() == 999998) {//在线状态
-                            device.setOnlineStatus((int)kpiValue.getValue());
+                            device.setOnlineStatus((int) kpiValue.getValue());
                         }
                     }
                 }
