@@ -138,10 +138,20 @@
         </LinearLayout>
     </LinearLayout>
 
-    <com.jcodecraeer.xrecyclerview.XRecyclerView
-        android:id="@+id/alert_id_recylerview"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/margin_8dp"
-        android:background="@color/common_white" />
+        android:background="@color/common_white">
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/alert_id_recylerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <include
+            android:id="@+id/recylerview_id_empty_data"
+            layout="@layout/layout_item_empty_data"
+            android:visibility="gone"/>
+    </RelativeLayout>
 </LinearLayout>

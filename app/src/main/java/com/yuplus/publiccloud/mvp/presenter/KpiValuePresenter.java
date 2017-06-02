@@ -19,7 +19,7 @@ import java.util.List;
 
 public class KpiValuePresenter extends BasePresenter<KpiValueView> {
 
-    public void getKpiValueListByNodeIds(List<Long> kpiCodes,List<Long> nodeIds) {
+    public void getKpiValueListByNodeIds(List<Long> kpiCodes, List<Long> nodeIds) {
         MapParams params = new MapParams()
                 .addParam("category", "ci")
                 .addParam("isRealTimeData", true)
@@ -28,6 +28,42 @@ public class KpiValuePresenter extends BasePresenter<KpiValueView> {
                 .addParam("startTime", null)
                 .addParam("endTime", null)
                 .addParam("timeRange", "")
+                .addParam("statisticType", "psiot")
+                .addParam("includeInstance", true)
+                .addParam("condList", new ArrayList<>());
+        AppApplication.appFutureImpl.getKpiValueList(params, tag, new FutureListener() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                getView().showLoading();
+            }
+
+            @Override
+            public void onSuccess(FutureResult result) {
+                super.onSuccess(result);
+                getView().onRenderKpiValueData((List<KpiValueBean>) result.getAttach());
+                getView().hideLoading();
+            }
+
+            @Override
+            public void onFailure(FutureResult result) {
+                super.onFailure(result);
+                getView().onFailure(null == result.getException() ? "" : result.getException().getMessage());
+                getView().hideLoading();
+            }
+        });
+    }
+
+    public void getKpiValueListByNodeIds(List<Long> kpiCodes, List<Long> nodeIds, long timePeriod) {
+        MapParams params = new MapParams()
+                .addParam("category", "ci")
+                .addParam("isRealTimeData", true)
+                .addParam("nodeIds", nodeIds)
+                .addParam("kpiCodes", kpiCodes)
+                .addParam("startTime", null)
+                .addParam("endTime", null)
+                .addParam("timeRange", "")
+                .addParam("timePeriod", timePeriod)
                 .addParam("statisticType", "psiot")
                 .addParam("includeInstance", true)
                 .addParam("condList", new ArrayList<>());

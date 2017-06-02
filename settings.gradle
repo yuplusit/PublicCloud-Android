@@ -1,1 +1,1 @@
-include ':app', ':PublicCloudSDK', ':XRecyclerview'
+include ':app', ':PublicCloudSDK', ':XRecyclerview', ':BlueSkinStyle', ':DullGreySkinStyle', ':GreenSkinStyle', ':RedSkinStyle'

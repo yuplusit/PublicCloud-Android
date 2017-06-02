@@ -14,6 +14,7 @@ import com.yuplus.cloudsdk.future.data.bean.ProjectBean;
 import com.yuplus.cloudsdk.log.LogUtils;
 import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
+import com.yuplus.publiccloud.cst.TypeCst;
 import com.yuplus.publiccloud.ui.DispatchManager;
 
 import java.util.List;
@@ -59,19 +60,19 @@ public class CustomerDetailAdapter extends BaseUltimateViewAdapter<ProjectBean> 
             viewHolder.mDeviceLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    DispatchManager.startCustomerAreaActivity(mContext, mContext.getString(R.string.customer_area_device_list), project.getId(), domains);
+                    DispatchManager.startCustomerAreaActivity(mContext, TypeCst.CustomerArea.DEVICE_PAGE, mContext.getString(R.string.customer_area_device_list), project.getId(), domains);
                 }
             });
             viewHolder.mAlertLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    DispatchManager.startCustomerAreaActivity(mContext, mContext.getString(R.string.customer_area_alert_list), project.getId(), domains);
+                    DispatchManager.startCustomerAreaActivity(mContext, TypeCst.CustomerArea.ALERT_PAGE, mContext.getString(R.string.customer_area_alert_list), project.getId(), domains);
                 }
             });
             viewHolder.mOrderLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    DispatchManager.startCustomerAreaActivity(mContext, mContext.getString(R.string.customer_area_order_list), project.getId(), domains);
+                    DispatchManager.startCustomerAreaActivity(mContext, TypeCst.CustomerArea.ORDER_PAGE, mContext.getString(R.string.customer_area_order_list), project.getId(), domains);
                 }
             });
         }

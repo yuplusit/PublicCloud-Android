@@ -56,6 +56,8 @@ public class AlertFragment extends BaseFragment implements AlertListView {
     TextView      mFinishAlertIconTv;
     @BindView(R.id.alert_id_recylerview)
     XRecyclerView mXRecyclerView;
+    @BindView(R.id.recylerview_id_empty_data)
+    View          mEmptyDataView;
 
     private List<View> mViewList = new ArrayList<>();
     private List<AlertBean>   mAlertList;
@@ -226,8 +228,8 @@ public class AlertFragment extends BaseFragment implements AlertListView {
         } else {
             if (isRefresh) {
                 mAlertAdapter.clear();
-
             }
+            mXRecyclerView.setEmptyView(mEmptyDataView);
         }
         mXRecyclerView.refreshComplete();
     }

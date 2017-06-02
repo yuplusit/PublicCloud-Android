@@ -12,6 +12,7 @@ import com.yuplus.publiccloud.ui.activity.AlertDetailActivity;
 import com.yuplus.publiccloud.ui.activity.CustomerAreaActivity;
 import com.yuplus.publiccloud.ui.activity.CustomerDetailActivity;
 import com.yuplus.publiccloud.ui.activity.DeviceDetailActivity;
+import com.yuplus.publiccloud.ui.activity.DeviceHistoryAcitivity;
 import com.yuplus.publiccloud.ui.activity.LoginActivity;
 import com.yuplus.publiccloud.ui.activity.MainActivity;
 import com.yuplus.publiccloud.ui.activity.SlideAreaActivity;
@@ -104,11 +105,12 @@ public class DispatchManager {
      * @param projectId
      * @param domain
      */
-    public static void startCustomerAreaActivity(Context context, String title, long projectId, String domain) {
+    public static void startCustomerAreaActivity(Context context, int type, String title, long projectId, String domain) {
         if (null == context) {
             return;
         }
         Intent intent = new Intent(context, CustomerAreaActivity.class);
+        intent.putExtra(AppCst.COMMON_DATA, type);
         intent.putExtra(AppCst.COMMON_TITLE, title);
         intent.putExtra(AppCst.COMMON_ID, projectId);
         intent.putExtra(AppCst.COMMON_KEY, domain);
@@ -129,6 +131,25 @@ public class DispatchManager {
         Intent intent = new Intent(context, SlideAreaActivity.class);
         intent.putExtra(AppCst.COMMON_TITLE, title);
         intent.putExtra(AppCst.COMMON_TYPE, type);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 打开设备历史测点数据
+     *
+     * @param context
+     * @param kpiCode
+     * @param nodeId
+     * @param testName
+     */
+    public static void startDeviceHistoryDataActivity(Context context, long kpiCode, long nodeId, String testName) {
+        if (null == context) {
+            return;
+        }
+        Intent intent = new Intent(context, DeviceHistoryAcitivity.class);
+        intent.putExtra(AppCst.COMMON_DATA, kpiCode);
+        intent.putExtra(AppCst.COMMON_ID, nodeId);
+        intent.putExtra(AppCst.COMMON_CONTENT, testName);
         context.startActivity(intent);
     }
 }

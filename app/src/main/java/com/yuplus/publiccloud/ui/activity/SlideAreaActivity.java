@@ -9,6 +9,7 @@ import com.yuplus.publiccloud.ui.base.TitleActivity;
 import com.yuplus.publiccloud.ui.fragment.FeedbackHelpFragment;
 import com.yuplus.publiccloud.ui.fragment.MessageFragment;
 import com.yuplus.publiccloud.ui.fragment.SkinSelectFragment;
+import com.yuplus.publiccloud.ui.fragment.UserInfoFragment;
 import com.yuplus.publiccloud.util.FragmentUtils;
 
 /**
@@ -53,6 +54,9 @@ public class SlideAreaActivity extends TitleActivity {
                 break;
             case TypeCst.SlideArea.TYPE_FEEDBACK_HELP:
                 FragmentUtils.showFragment(getSupportFragmentManager(), FeedbackHelpFragment.newInstance(), R.id.fragment_id_containter);
+                break;
+            case TypeCst.SlideArea.TYPE_USER_INFO:
+                FragmentUtils.showFragment(getSupportFragmentManager(), UserInfoFragment.newInstance(), R.id.fragment_id_containter);
                 break;
         }
     }

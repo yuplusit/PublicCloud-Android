@@ -3,6 +3,7 @@
 
     <string name="common_login">登录</string>
     <string name="common_no"> 未知</string>
+    <string name="common_no_data">暂无数据</string>
     <string name="common_question">遇到问题？</string>
     <string name="common_exit_tip">再按一次退出应用</string>
     <string name="common_no_more_data">没有更多的数据了</string>

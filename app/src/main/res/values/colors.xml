@@ -35,7 +35,7 @@
 
     <color name="font_primary">#FF383838</color>
     <color name="font_secondary">#FF5b5b5b</color>
-    <color name="font_thirdary">#FFC2C2C2</color>
+    <color name="font_thirdary">#FFB2B2B2</color>
 
     <!-- Tab栏底色 -->
     <color name="tab_bg_color">#FFFBFBFB</color>
@@ -46,5 +46,11 @@
     <color name="alert_green_color">#FF6DD2CE</color>
 
     <color name="avatar_border_color">#85FFFFFF</color>
+
+    <!-- 皮肤颜色 -->
+    <color name="skin_style_red_color">#FFDB544F</color>
+    <color name="skin_style_blue_color">#FF388AB9</color>
+    <color name="skin_style_green_color">#FF159F85</color>
+    <color name="skin_style_dullgrey_color">#FF3B4E5F</color>
 
 </resources>

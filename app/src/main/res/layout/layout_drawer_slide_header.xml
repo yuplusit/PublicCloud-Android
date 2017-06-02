@@ -21,14 +21,14 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
             <ImageView
-                android:id="@+id/iv_user_avatar"
+                android:id="@+id/user_id_avatar"
                 android:layout_width="@dimen/width_80dp"
                 android:layout_height="@dimen/height_80dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_user_avatar"/>
 
             <TextView
-                android:id="@+id/tv_nick_name"
+                android:id="@+id/user_id_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10dp"
@@ -37,7 +37,7 @@
                 android:textSize="@dimen/font_18sp"/>
 
             <TextView
-                android:id="@+id/tv_user_sign"
+                android:id="@+id/user_id_sign"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="账号：baogang"
@@ -52,6 +52,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/slide_id_message_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_45dp"
                 android:background="@drawable/item_touch_bg"
@@ -95,6 +96,7 @@
                 android:background="@color/common_window_background"/>
 
             <LinearLayout
+                android:id="@+id/slide_id_skin_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_45dp"
                 android:background="@drawable/item_touch_bg"
@@ -125,6 +127,7 @@
                 android:background="@color/common_window_background"/>
 
             <LinearLayout
+                android:id="@+id/slide_id_feedback_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_45dp"
                 android:background="@drawable/item_touch_bg"
@@ -155,6 +158,7 @@
                 android:background="@color/common_window_background"/>
 
             <LinearLayout
+                android:id="@+id/slide_id_share_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_45dp"
                 android:background="@drawable/item_touch_bg"
@@ -185,6 +189,7 @@
                 android:background="@color/common_window_background"/>
 
             <LinearLayout
+                android:id="@+id/slide_id_about_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_45dp"
                 android:background="@drawable/item_touch_bg"
@@ -222,6 +227,7 @@
                 android:background="@color/common_window_background"/>
 
             <LinearLayout
+                android:id="@+id/slide_id_logoff_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_45dp"
                 android:layout_marginTop="@dimen/margin_50dp"

@@ -44,6 +44,8 @@ import butterknife.OnClick;
 public class DeviceFragment extends BaseFragment implements CustomerView, DeviceListView, KpiValueView {
     @BindView(R.id.device_id_recylerview)
     XRecyclerView     mXRecyclerView;
+    @BindView(R.id.recylerview_id_empty_data)
+    View              mEmptyDatView;
     @BindView(R.id.device_id_search_et)
     ClearableEditText mSearchEt;
     @BindView(R.id.device_id_search_btn)
@@ -236,6 +238,8 @@ public class DeviceFragment extends BaseFragment implements CustomerView, Device
                     }
                 }
             }
+        } else {
+            mXRecyclerView.setEmptyView(mEmptyDatView);
         }
         mDeviceAdapter.insertAll(mDeviceList);
         mXRecyclerView.refreshComplete();

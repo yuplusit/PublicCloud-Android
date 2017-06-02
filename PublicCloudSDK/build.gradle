@@ -48,9 +48,6 @@ dependencies {
 
     // request tool
     final okhttp3 = '3.6.0'
-    // async tool
-    final rxjava = '2.1.0'
-    final rxandroid = '2.0.1'
 
     // request tool dependencies
     def requestDependencies = [
@@ -59,18 +56,10 @@ dependencies {
             urlconnection     : "com.squareup.okhttp3:okhttp-urlconnection:${okhttp3}"
     ]
 
-    // async tool dependencies
-    def asyncDependencies = [
-            rxjava   : "io.reactivex.rxjava2:rxjava:${rxjava}",
-            rxandroid: "io.reactivex.rxjava2:rxandroid:${rxandroid}"
-    ]
-
     compile requestDependencies.okhttp
     compile requestDependencies.logginginterceptor
     compile requestDependencies.urlconnection
 
-    /*compile asyncDependencies.rxjava
-    compile asyncDependencies.rxandroid*/
 
     compile 'com.alibaba:fastjson:1.1.57.android'
 }

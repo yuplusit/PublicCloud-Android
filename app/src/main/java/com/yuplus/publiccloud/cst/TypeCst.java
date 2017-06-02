@@ -17,5 +17,6 @@ public interface TypeCst {
         public final static int TYPE_MESSAGE       = 0;
         public final static int TYPE_SKIN_SELECT   = 1;
         public final static int TYPE_FEEDBACK_HELP = 2;
+        public final static int TYPE_USER_INFO     = 3;
     }
 }

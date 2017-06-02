@@ -5,9 +5,19 @@
               android:background="@color/common_background_color"
               android:orientation="vertical">
 
-    <com.jcodecraeer.xrecyclerview.XRecyclerView
-        android:id="@+id/customer_id_recyclerview"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/common_background_color"/>
+        android:layout_height="match_parent">
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/customer_id_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/common_background_color"/>
+
+        <include
+            android:id="@+id/recylerview_id_empty_data"
+            layout="@layout/layout_item_empty_data"
+            android:visibility="gone"/>
+    </RelativeLayout>
 </LinearLayout>

@@ -60,7 +60,7 @@ public class DeviceTestAdapter extends BaseUltimateViewAdapter<KpiBean> {
         }
     }
 
-    private String getUnitFlag(String key) {
+    public String getUnitFlag(String key) {
         if (null == mUnitList || StringUtils.isBlank(key)) {
             return null;
         }

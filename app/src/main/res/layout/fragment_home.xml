@@ -30,7 +30,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="未解决"
+                    android:text="处理中"
                     android:textColor="@color/font_secondary"
                     android:textSize="@dimen/font_16sp"/>
 
@@ -310,7 +310,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="维修工单"
+                    android:text="工单总数"
                     android:textColor="@color/font_secondary"
                     android:textSize="@dimen/font_11sp"/>
             </LinearLayout>
@@ -374,7 +374,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="服务客户数"
+                    android:text="客户总数"
                     android:textColor="@color/font_secondary"
                     android:textSize="@dimen/font_11sp"/>
             </LinearLayout>

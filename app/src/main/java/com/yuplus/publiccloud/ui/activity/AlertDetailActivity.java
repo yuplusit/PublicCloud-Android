@@ -173,8 +173,8 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
             textColor = R.color.common_primary;
         }
         mAlertFlagStateTv.setText(stateValue);
-        mAlertFlagStateTv.setTextColor(getColor(textColor));
-        mAlertFlagStateTv.setBackground(getDrawable(bgResId));
+        mAlertFlagStateTv.setTextColor(getResources().getColor(textColor));
+        mAlertFlagStateTv.setBackground(getResources().getDrawable(bgResId));
     }
 
     public void handleSeverity(AlertBean alert) {
@@ -205,8 +205,8 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
             textColor = R.color.common_serious;
         }
         mAlertFlagSeverityTv.setText(severityValue);
-        mAlertFlagSeverityTv.setTextColor(getColor(textColor));
-        mAlertFlagSeverityTv.setBackground(getDrawable(flagBgResId));
+        mAlertFlagSeverityTv.setTextColor(getResources().getColor(textColor));
+        mAlertFlagSeverityTv.setBackground(getResources().getDrawable(flagBgResId));
         mStateLayout.setBackground(getDrawable(bgResId));
     }
 

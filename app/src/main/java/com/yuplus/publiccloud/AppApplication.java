@@ -1,5 +1,8 @@
 package com.yuplus.publiccloud;
 
+import android.content.Context;
+import android.support.multidex.MultiDex;
+
 import com.yuplus.cloudsdk.CloudSDKManager;
 import com.yuplus.cloudsdk.config.SDKConfiguration;
 import com.yuplus.cloudsdk.future.data.bean.UserBean;
@@ -33,6 +36,12 @@ public class AppApplication extends SkinBaseApplication {
     public static AppApplication         application;
     public static UserBean               user;
     public static PublicCloudPreferences prefer;
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
     @Override
     public void onCreate() {

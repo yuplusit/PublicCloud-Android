@@ -41,17 +41,19 @@ public class CustomerFragment extends BaseFragment implements CustomerView, KpiV
 
     @BindView(R.id.customer_id_recyclerview)
     XRecyclerView mXRecyclerView;
+    @BindView(R.id.recylerview_id_empty_data)
+    View          mEmptyDataView;
 
     private CustomerPresenter mCustomerPresenter;
     private KpiValuePresenter mKpiValuePresenter;
-    private ConfigPresenter mConfigPresenter;
+    private ConfigPresenter   mConfigPresenter;
 
-    private CustomerAdapter mCustomerAdapter;
+    private CustomerAdapter   mCustomerAdapter;
     private ProgressHUBDialog mLoadingView;
 
-    private List<Long> mCustomerIds;
-    private List<CustomerBean> mCustomerInfoList;
-    private List<KpiValueBean> mKpiValueBeanList;
+    private List<Long>              mCustomerIds;
+    private List<CustomerBean>      mCustomerInfoList;
+    private List<KpiValueBean>      mKpiValueBeanList;
     private List<ConfigurationBean> mConfigurationList;
 
     @Override
@@ -150,11 +152,11 @@ public class CustomerFragment extends BaseFragment implements CustomerView, KpiV
                 final List<KpiValueBean> resultValueList = getKpiValueBean(customer.getId());
                 for (KpiValueBean kpiValue : resultValueList) {
                     if (kpiValue.getKpiCode() == 3001) {
-                        customer.setDeviceCount((int)kpiValue.getValue());
+                        customer.setDeviceCount((int) kpiValue.getValue());
                     } else if (kpiValue.getKpiCode() == 3003) {
-                        customer.setAlertCount((int)kpiValue.getValue());
+                        customer.setAlertCount((int) kpiValue.getValue());
                     } else if (kpiValue.getKpiCode() == 3004) {
-                        customer.setOrderCount((int)kpiValue.getValue());
+                        customer.setOrderCount((int) kpiValue.getValue());
                     }
                 }
             }
@@ -177,6 +179,8 @@ public class CustomerFragment extends BaseFragment implements CustomerView, KpiV
         }
         if (ListUtils.isNotEmpty(mCustomerInfoList)) {
             mCustomerAdapter.insertAll(mCustomerInfoList);
+        } else {
+            mXRecyclerView.setEmptyView(mEmptyDataView);
         }
         mXRecyclerView.refreshComplete();
     }

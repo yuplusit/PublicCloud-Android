@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 import android.widget.TextView;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
@@ -24,6 +25,8 @@ import com.yuplus.publiccloud.mvp.presenter.UnitPresenter;
 import com.yuplus.publiccloud.mvp.view.KpiValueView;
 import com.yuplus.publiccloud.mvp.view.KpisView;
 import com.yuplus.publiccloud.mvp.view.UnitListView;
+import com.yuplus.publiccloud.ui.DispatchManager;
+import com.yuplus.publiccloud.ui.adapter.BaseUltimateViewAdapter;
 import com.yuplus.publiccloud.ui.adapter.DeviceTestAdapter;
 import com.yuplus.publiccloud.ui.base.TitleActivity;
 import com.yuplus.publiccloud.ui.dialog.ProgressHUBDialog;
@@ -174,6 +177,20 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
     @Override
     protected void initListener() {
         super.initListener();
+        mDeviceTestAdapter.setOnItemClickListener(new BaseUltimateViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                final KpiBean kpi = mDeviceTestAdapter.getItem(position);
+                String testName = "";
+                if (StringUtils.isNotBlank(kpi.getName())) {
+                    testName += kpi.getName();
+                }
+                if (StringUtils.isNotBlank(kpi.getUnit())) {
+                    testName += "(" + mDeviceTestAdapter.getUnitFlag(kpi.getUnit()) + ")";
+                }
+                DispatchManager.startDeviceHistoryDataActivity(DeviceDetailActivity.this, kpi.getId(), kpi.getNodeId(), testName);
+            }
+        });
     }
 
     @Override

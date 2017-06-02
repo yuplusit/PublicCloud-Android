@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/common_id_toolbar"
+        layout="@layout/layout_common_toolbar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/padding_2dp"
+        android:paddingLeft="@dimen/padding_12dp"
+        android:paddingTop="@dimen/padding_10dp"
+        android:text="最近一小时趋势"
+        android:textColor="@color/font_thirdary"
+        android:textSize="@dimen/font_13sp"/>
+
+    <com.yuplus.publiccloud.ui.echarts.EChartsView
+        android:id="@+id/history_id_echarts"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_200dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height_1dp"
+        android:background="@color/common_window_background"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/padding_12dp"
+        android:paddingLeft="@dimen/padding_20dp"
+        android:paddingRight="@dimen/padding_20dp"
+        android:paddingTop="@dimen/padding_12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="时间"
+            android:textColor="@color/font_primary"
+            android:textSize="@dimen/font_16sp"/>
+
+        <TextView
+            android:id="@+id/history_id_testname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/font_primary"
+            android:textSize="@dimen/font_16sp"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height_1dp"
+        android:background="@color/common_window_background"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/history_id_recylerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <include
+            android:id="@+id/recylerview_id_empty_data"
+            layout="@layout/layout_item_empty_data"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -94,8 +94,8 @@ public class AlertAdapter extends BaseUltimateViewAdapter<AlertBean> {
             textColor = R.color.common_primary;
         }
         viewHolder.mAlertFlagStateTv.setText(stateValue);
-        viewHolder.mAlertFlagStateTv.setTextColor(mContext.getColor(textColor));
-        viewHolder.mAlertFlagStateTv.setBackground(mContext.getDrawable(bgResId));
+        viewHolder.mAlertFlagStateTv.setTextColor(mContext.getResources().getColor(textColor));
+        viewHolder.mAlertFlagStateTv.setBackground(mContext.getResources().getDrawable(bgResId));
     }
 
     public void handleSeverity(ViewHolder viewHolder, AlertBean alert) {
@@ -126,8 +126,8 @@ public class AlertAdapter extends BaseUltimateViewAdapter<AlertBean> {
             textColor = R.color.common_serious;
         }
         viewHolder.mAlertFlagSeverityTv.setText(severityValue);
-        viewHolder.mAlertFlagSeverityTv.setTextColor(mContext.getColor(textColor));
-        viewHolder.mAlertFlagSeverityTv.setBackground(mContext.getDrawable(flagBgResId));
+        viewHolder.mAlertFlagSeverityTv.setTextColor(mContext.getResources().getColor(textColor));
+        viewHolder.mAlertFlagSeverityTv.setBackground(mContext.getResources().getDrawable(flagBgResId));
         viewHolder.mStateLayout.setBackground(mContext.getDrawable(bgResId));
     }
 

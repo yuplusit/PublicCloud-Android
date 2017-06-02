@@ -1,0 +1,28 @@
+<html xmlns:height="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+    <title>ECharts</title>
+
+    <script src="./echarts.min.js"></script>
+</head>
+<body>
+<div id="echart-contatiner" style="height: 100%;width: 100%"></div>
+</body>
+<script type="text/javascript">
+createChart();
+  function createChart(option) {
+    // 为echarts对象加载数据
+    //alert("来自客户端的信息：" + option);
+    var myChart = echarts.init(document.getElementById('echart-contatiner'));
+    // 为echarts对象加载数据
+    myChart.setOption(option);
+  }
+
+
+
+
+
+</script>
+</html>

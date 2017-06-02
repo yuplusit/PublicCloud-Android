@@ -112,9 +112,12 @@ public class HomeFragment extends BaseFragment implements KpiValueView {
         List<Long> nodeIds = new ArrayList<>();
         nodeIds.add(AppApplication.user.getDomainID());
         List<Long> kpiCodes = new ArrayList<>();
+        kpiCodes.add(3050L);//已解决告警总数
+        kpiCodes.add(3051L);//处理中告警总数
         kpiCodes.add(3012L);//总设备数
         kpiCodes.add(3014L);//在线设备
-        kpiCodes.add(3033L);//月增加设备
+        kpiCodes.add(3048L);//月增加设备
+        kpiCodes.add(3049L);//工单总数
         kpiCodes.add(3004L);//待处理工单
         kpiCodes.add(3022L);//服务客户数
         kpiCodes.add(3005L);//日新增告警数
@@ -126,15 +129,24 @@ public class HomeFragment extends BaseFragment implements KpiValueView {
     public void onRenderKpiValueData(List<KpiValueBean> data) {
         if (ListUtils.isNotEmpty(data)) {
             for (KpiValueBean kpiValue : data) {
-                if (kpiValue.getKpiCode() == 3012L) {
+                if (kpiValue.getKpiCode() == 3050L) {
+                    mDoneAlertCount.setEndValue(kpiValue.getValue());
+                    mDoneAlertCount.start();
+                } else if (kpiValue.getKpiCode() == 3051L) {
+                    mUntreatedAlertCount.setEndValue(kpiValue.getValue());
+                    mUntreatedAlertCount.start();
+                } else if (kpiValue.getKpiCode() == 3012L) {
                     mDeviceAllCount.setEndValue(kpiValue.getValue());
                     mDeviceAllCount.start();
                 } else if (kpiValue.getKpiCode() == 3014L) {
                     mDeviceOnlineCount.setEndValue(kpiValue.getValue());
                     mDeviceOnlineCount.start();
-                } else if (kpiValue.getKpiCode() == 3033L) {
+                } else if (kpiValue.getKpiCode() == 3048L) {
                     mDeviceAddCount.setEndValue(kpiValue.getValue());
                     mDeviceAddCount.start();
+                } else if (kpiValue.getKpiCode() == 3049L) {
+                    mOrderAllCount.setEndValue(kpiValue.getValue());
+                    mOrderAllCount.start();
                 } else if (kpiValue.getKpiCode() == 3004L) {
                     mOrderUntreatedCount.setEndValue(kpiValue.getValue());
                     mOrderUntreatedCount.start();
