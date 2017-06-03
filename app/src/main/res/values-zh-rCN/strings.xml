@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">PublicCloud</string>
+
+    <string name="common_login">登录</string>
+    <string name="common_no"> 未知</string>
+    <string name="common_no_data">暂无数据</string>
+    <string name="common_question">遇到问题？</string>
+    <string name="common_exit_tip">再按一次退出应用</string>
+    <string name="common_no_more_data">没有更多的数据了</string>
+    <string name="common_null">——</string>
+    <string name="common_edittext_device_hint">输入要查找的设备</string>
+
+    <string name="menu_square_bingo">我的首页</string>
+    <string name="menu_my_bingo">我的分享</string>
+    <string name="menu_my_favorite">我的收藏</string>
+    <string name="menu_change_theme">设置主题</string>
+    <string name="menu_send_to_friend">发送给好友</string>
+    <string name="menu_share">分享</string>
+    <string name="menu_feedback">反馈</string>
+    <string name="menu_about">关于</string>
+
+    <string name="login_account">账号</string>
+    <string name="login_password">密码</string>
+    <string name="login_password_forget">忘记密码</string>
+    <string name="login_account_empty">请输入账户名</string>
+    <string name="login_account_hint">用户名/手机号/邮箱</string>
+    <string name="login_password_empty">请输入登录密码</string>
+    <string name="login_password_error">密码长度必须大于等于6位</string>
+    <string name="login_login_tips">正在登录，请稍候...</string>
+    <string name="login_login_failure">登录失败，请重试！</string>
+    <string name="login_login_success">登录成功</string>
+    <string name="login_login_exit">退出登录</string>
+
+    <!-- 客户页 -->
+    <string name="customer_type_flag">医</string>
+    <string name="customer_device_count">设备数量</string>
+    <string name="customer_alert_count">告警数量</string>
+    <string name="customer_order_count">工单数量</string>
+
+    <string name="device_all_count">设备总数</string>
+    <string name="alert_all_count">告警总数</string>
+    <string name="order_all_count">工单总数</string>
+
+    <!-- Alert区域 -->
+    <string name="alert_state_new">新产生</string>
+    <string name="alert_state_sure">已确认</string>
+    <string name="alert_state_doing">处理中</string>
+    <string name="alert_state_solve">已解决</string>
+    <string name="alert_state_skip">已忽略</string>
+    <string name="alert_state_other">未知</string>
+    <string name="alert_severity_01">警告</string>
+    <string name="alert_severity_02">次要</string>
+    <string name="alert_severity_03">重要</string>
+    <string name="alert_severity_04">严重</string>
+
+    <string name="alert_order_function_no_opened">转工单功能暂未开启</string>
+
+    <!-- 用户Area区域 -->
+    <string name="customer_area_device_list">设备列表</string>
+    <string name="customer_area_alert_list">告警列表</string>
+    <string name="customer_area_order_list">工单列表</string>
+
+    <!-- Device区域 -->
+    <string name="device_managed_status_01">启用</string>
+    <string name="device_managed_status_02">停用</string>
+    <string name="device_online_status_01">在线</string>
+    <string name="device_online_status_02">离线</string>
+    <string name="device_online_status_03">无数据</string>
+    <string name="device_severity_status_01">正常</string>
+    <string name="device_severity_status_02">告警</string>
+
+    <string name="device_search_no_data_tip">请输入你所需要搜索的设备信息</string>
+</resources>

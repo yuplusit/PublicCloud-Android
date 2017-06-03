@@ -1,8 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:skin="http://schemas.android.com/android/skin"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/skin_id_red_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@drawable/item_touch_bg"
+            android:paddingBottom="@dimen/padding_5dp"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="西瓜红"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_16sp"/>
+
+                <LinearLayout
+                    android:layout_width="@dimen/width_20dp"
+                    android:layout_height="@dimen/width_20dp"
+                    android:layout_marginLeft="@dimen/margin_25dp"
+                    android:background="@color/skin_style_red_color"/>
+            </LinearLayout>
+
+            <RadioButton
+                android:id="@+id/skin_id_red_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/margin_20dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+           android:layout_marginLeft="@dimen/margin_16dp"
+            android:background="@color/common_window_background"/>
+
+        <LinearLayout
+            android:id="@+id/skin_id_blue_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@drawable/item_touch_bg"
+            android:paddingBottom="@dimen/padding_5dp"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="工业蓝"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_16sp"/>
+
+                <LinearLayout
+                    android:layout_width="@dimen/width_20dp"
+                    android:layout_height="@dimen/width_20dp"
+                    android:layout_marginLeft="@dimen/margin_25dp"
+                    android:background="@color/skin_style_blue_color"/>
+            </LinearLayout>
+
+            <RadioButton
+                android:id="@+id/skin_id_blue_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/margin_20dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:background="@color/common_window_background"/>
+
+        <LinearLayout
+            android:id="@+id/skin_id_green_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@drawable/item_touch_bg"
+            android:paddingBottom="@dimen/padding_5dp"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="宝石绿"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_16sp"/>
+
+                <LinearLayout
+                    android:layout_width="@dimen/width_20dp"
+                    android:layout_height="@dimen/width_20dp"
+                    android:layout_marginLeft="@dimen/margin_25dp"
+                    android:background="@color/skin_style_green_color"/>
+            </LinearLayout>
+
+            <RadioButton
+                android:id="@+id/skin_id_green_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/margin_20dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:background="@color/common_window_background"/>
+
+        <LinearLayout
+            android:id="@+id/skin_id_dullgrey_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@drawable/item_touch_bg"
+            android:paddingBottom="@dimen/padding_5dp"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="深度灰"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_16sp"/>
+
+                <LinearLayout
+                    android:layout_width="@dimen/width_20dp"
+                    android:layout_height="@dimen/width_20dp"
+                    android:layout_marginLeft="@dimen/margin_25dp"
+                    android:background="@color/skin_style_dullgrey_color"/>
+            </LinearLayout>
+
+            <RadioButton
+                android:id="@+id/skin_id_dullgrey_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/margin_20dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:background="@color/common_window_background"/>
+    </LinearLayout>
 
 </LinearLayout>

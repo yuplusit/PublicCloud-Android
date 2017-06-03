@@ -4,5 +4,52 @@
     <color name="colorPrimaryDark">#159F85</color>
     <color name="colorAccent">#159F85</color>
 
+    <color name="common_white">#FFFFFFFF</color>
+    <color name="common_black">#FF000000</color>
+    <color name="common_gray">#FFDCDCDC</color>
+    <color name="common_shadow">#11000000</color>
+    <color name="common_hint">#FFA7A7AE</color>
+    <color name="common_serious">#FFFF6B6B</color>
+    <color name="common_primary">#FF007AFF</color>
+    <color name="common_green">#FF4CD964</color>
+    <color name="common_purple">#FF8A6DE9</color>
+    <color name="common_pale_green">#FF3FDFBB</color>
+    <color name="common_blue">#FF51cff8</color>
+    <color name="common_pink">#FFEF6095</color>
+    <color name="common_orange">#FFFF8B82</color>
+    <color name="common_success">#FF4CD964</color>
+    <color name="common_warning">#FFF0AD4E</color>
+    <color name="common_transparent">#00000000</color>
+    <color name="common_transparent_40_precent">#3C000000</color>
+    <color name="common_transparent_65_precent">#85000000</color>
     <color name="common_background_color">#FFF5F5F5</color>
+    <color name="common_alpha_black">#90000000</color>
+    <color name="common_text_gray">#7C7C7C</color>
+    <color name="common_text_dark">#3F3F3F</color>
+    <color name="common_detail_color">#FF393C41</color>
+    <color name="common_window_background">#FFEDEDED</color>
+
+    <color name="progress_hub_text_color">#FFFFFF</color>
+    <color name="progress_hub_bg_color">#DF404040</color>
+    <color name="edit_border_color">#FFECECEC</color>
+
+    <color name="font_primary">#FF383838</color>
+    <color name="font_secondary">#FF5b5b5b</color>
+    <color name="font_thirdary">#FFB2B2B2</color>
+
+    <!-- Tab栏底色 -->
+    <color name="tab_bg_color">#FFFBFBFB</color>
+
+    <!-- 告警颜色 -->
+    <color name="alert_yellow_color">#FFE9AD2B</color>
+    <color name="alert_red_color">#FFE56961</color>
+    <color name="alert_green_color">#FF6DD2CE</color>
+
+    <color name="avatar_border_color">#85FFFFFF</color>
+
+    <!-- 皮肤颜色 -->
+    <color name="skin_style_red_color">#FFDB544F</color>
+    <color name="skin_style_blue_color">#FF388AB9</color>
+    <color name="skin_style_green_color">#FF159F85</color>
+    <color name="skin_style_dullgrey_color">#FF3B4E5F</color>
 </resources>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <include
         android:id="@+id/common_id_toolbar"
-        layout="@layout/layout_common_toolbar" />
+        layout="@layout/layout_common_toolbar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:src="@drawable/ic_device_default"
             app:riv_border_color="@color/common_white"
             app:riv_border_width="@dimen/line_height_1dp"
-            app:riv_oval="true" />
+            app:riv_oval="true"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                 android:singleLine="true"
                 android:text="泰安中心医院高压无线测温"
                 android:textColor="@color/common_white"
-                android:textSize="@dimen/font_18sp" />
+                android:textSize="@dimen/font_18sp"/>
 
             <TextView
                 android:id="@+id/device_detail_id_sate"
@@ -58,7 +58,7 @@
                 android:paddingTop="@dimen/padding_2dp"
                 android:text="正常"
                 android:textColor="@color/common_success"
-                android:textSize="@dimen/font_12sp" />
+                android:textSize="@dimen/font_12sp"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:text="序列号："
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_14sp" />
+                    android:textSize="@dimen/font_14sp"/>
 
                 <TextView
                     android:id="@+id/device_detail_id_sn"
@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:text="SS-600"
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_14sp" />
+                    android:textSize="@dimen/font_14sp"/>
             </LinearLayout>
 
             <TextView
@@ -111,7 +111,7 @@
                 android:paddingTop="@dimen/padding_2dp"
                 android:text="启用"
                 android:textColor="@color/common_text_color_primary_to_white"
-                android:textSize="@dimen/font_14sp" />
+                android:textSize="@dimen/font_14sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -132,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:text="出厂日期："
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_14sp" />
+                    android:textSize="@dimen/font_14sp"/>
 
                 <TextView
                     android:id="@+id/device_detail_id_product_date"
@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:text="2017-04-18"
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_14sp" />
+                    android:textSize="@dimen/font_14sp"/>
             </LinearLayout>
 
             <TextView
@@ -156,7 +156,7 @@
                 android:paddingTop="@dimen/padding_2dp"
                 android:text="停用"
                 android:textColor="@color/common_text_color_white_to_primary"
-                android:textSize="@dimen/font_14sp" />
+                android:textSize="@dimen/font_14sp"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -176,12 +176,12 @@
             android:paddingTop="@dimen/padding_8dp"
             android:text="工况"
             android:textColor="@color/font_primary"
-            android:textSize="@dimen/font_16sp" />
+            android:textSize="@dimen/font_16sp"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/line_height_1dp"
-            android:background="@color/common_window_background" />
+            android:background="@color/common_window_background"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -202,18 +202,18 @@
                     android:id="@+id/device_detail_id_test_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minWidth="@dimen/width_25dp"
-                    android:minHeight="@dimen/height_25dp"
                     android:layout_marginLeft="@dimen/margin_18dp"
+                    android:minHeight="@dimen/height_25dp"
+                    android:minWidth="@dimen/width_25dp"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/font_22sp" />
+                    android:textSize="@dimen/font_22sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="测点名称"
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_13sp" />
+                    android:textSize="@dimen/font_13sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -227,17 +227,17 @@
                     android:id="@+id/device_detail_id_test_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minWidth="@dimen/width_25dp"
                     android:minHeight="@dimen/height_25dp"
+                    android:minWidth="@dimen/width_25dp"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/font_22sp" />
+                    android:textSize="@dimen/font_22sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="当前值"
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_13sp" />
+                    android:textSize="@dimen/font_13sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -251,10 +251,10 @@
                     android:id="@+id/device_detail_id_test_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minWidth="@dimen/width_25dp"
                     android:minHeight="@dimen/height_25dp"
+                    android:minWidth="@dimen/width_25dp"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/font_22sp" />
+                    android:textSize="@dimen/font_22sp"/>
 
                 <TextView
                     android:id="@+id/textView"
@@ -262,7 +262,7 @@
                     android:layout_height="wrap_content"
                     android:text="采集时间"
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_13sp" />
+                    android:textSize="@dimen/font_13sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -276,29 +276,39 @@
                     android:id="@+id/device_detail_id_test_history"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minWidth="@dimen/width_25dp"
                     android:layout_marginRight="@dimen/margin_6dp"
                     android:minHeight="@dimen/height_25dp"
+                    android:minWidth="@dimen/width_25dp"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/font_22sp" />
+                    android:textSize="@dimen/font_22sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="历史值"
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_13sp" />
+                    android:textSize="@dimen/font_13sp"/>
             </LinearLayout>
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/line_height_1dp"
-            android:background="@color/common_window_background" />
+            android:background="@color/common_window_background"/>
 
-        <com.jcodecraeer.xrecyclerview.XRecyclerView
-            android:id="@+id/device_detail_id_recylerview"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+
+            <com.jcodecraeer.xrecyclerview.XRecyclerView
+                android:id="@+id/device_detail_id_recylerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <include
+                android:id="@+id/recylerview_id_empty_data"
+                layout="@layout/layout_item_empty_data"
+                android:visibility="gone"/>
+        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

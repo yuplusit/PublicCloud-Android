@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_30dp"
                 android:minWidth="@dimen/width_30dp"
-                android:textColor="@color/common_text_color_gray_to_primary"
+                android:textColor="@color/tab_item_select_bg"
                 android:textSize="@dimen/font_25sp" />
 
             <TextView
@@ -36,9 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="-5dp"
-                android:paddingRight="@dimen/padding_10dp"
                 android:text="全部"
-                android:textColor="@color/common_text_color_black_to_primary"
+                android:textColor="@color/tab_item_select_bg"
                 android:textSize="@dimen/font_14sp" />
         </LinearLayout>
 
@@ -60,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_30dp"
                 android:minWidth="@dimen/width_30dp"
-                android:textColor="@color/common_text_color_gray_to_primary"
+                android:textColor="@color/tab_item_select_bg"
                 android:textSize="@dimen/font_25sp" />
 
             <TextView
@@ -69,7 +68,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="-5dp"
                 android:text="新产生"
-                android:textColor="@color/common_text_color_black_to_primary"
+                android:textColor="@color/tab_item_select_bg"
                 android:textSize="@dimen/font_14sp" />
         </LinearLayout>
 
@@ -91,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_30dp"
                 android:minWidth="@dimen/width_30dp"
-                android:textColor="@color/common_text_color_gray_to_primary"
+                android:textColor="@color/tab_item_select_bg"
                 android:textSize="@dimen/font_25sp" />/>
 
             <TextView
@@ -99,9 +98,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="-5dp"
-                android:paddingRight="@dimen/padding_5dp"
                 android:text="处理中"
-                android:textColor="@color/common_text_color_black_to_primary"
+                android:textColor="@color/tab_item_select_bg"
                 android:textSize="@dimen/font_14sp" />
         </LinearLayout>
 
@@ -123,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_30dp"
                 android:minWidth="@dimen/width_30dp"
-                android:textColor="@color/common_text_color_gray_to_primary"
+                android:textColor="@color/tab_item_select_bg"
                 android:textSize="@dimen/font_25sp" />/>
 
             <TextView
@@ -131,9 +129,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="-5dp"
-                android:paddingRight="@dimen/padding_5dp"
                 android:text="已解决"
-                android:textColor="@color/common_text_color_black_to_primary"
+                android:textColor="@color/tab_item_select_bg"
                 android:textSize="@dimen/font_14sp" />
         </LinearLayout>
     </LinearLayout>

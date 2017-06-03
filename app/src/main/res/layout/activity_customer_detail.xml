@@ -3,10 +3,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <com.jcodecraeer.xrecyclerview.XRecyclerView
-        android:id="@+id/custom_detail_id_recylerview"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/custom_detail_id_recylerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <include
+            android:id="@+id/recylerview_id_empty_data"
+            layout="@layout/layout_item_empty_data"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
 
     <include
         android:id="@+id/common_id_toolbar"

@@ -22,6 +22,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 
 import okhttp3.OkHttpClient;
+import solid.ren.skinlibrary.SkinConfig;
 import solid.ren.skinlibrary.base.SkinBaseApplication;
 
 
@@ -46,6 +47,8 @@ public class AppApplication extends SkinBaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        SkinConfig.setCanChangeStatusColor(true);
+        SkinConfig.setDebug(true);
         application = this;
         appFutureImpl = new AppFutureImpl();
         prefer = PublicCloudPreferences.getInstance(this);

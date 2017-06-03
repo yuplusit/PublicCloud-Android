@@ -59,4 +59,8 @@
         <item name="android:singleLine">true</item>
     </style>
 
+    <style name="ItemTextColor">
+        <item name="android:textColor">@color/tab_item_select_bg</item>
+    </style>
+
 </resources>

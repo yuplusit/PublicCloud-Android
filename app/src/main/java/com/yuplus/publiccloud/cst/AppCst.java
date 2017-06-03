@@ -13,10 +13,10 @@ public class AppCst {
     public static final String SHAREDPREFERENCES_NAME = APP_NAME;
 
     //服务器地址
-    public static final String SERVER_HOST = "http://36.110.36.118";//"http://demo.proudsmart.com";//"http://36.110.36.118";
+    public static final String SERVER_HOST = "http://demo.proudsmart.com";//"http://36.110.36.118";
 
     //服务器端口
-    public static final int SERVER_PORT = 8095;//80;//8095;
+    public static final int SERVER_PORT = 80;//8095;
 
     //WebSocket地址
     public static final String WEBSOCKET_ADDRESS = "wss://yzt.raonecloud.com/websocket/message";

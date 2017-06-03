@@ -68,6 +68,8 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
     TextView         mDeviceTestHistoryTv;
     @BindView(R.id.device_detail_id_recylerview)
     XRecyclerView    mXRecyclerView;
+    @BindView(R.id.recylerview_id_empty_data)
+    View             mEmptyDataView;
 
     private ProgressHUBDialog mLoadingView;
 
@@ -232,6 +234,7 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
             }
         }
         mDeviceTestAdapter.insertAll(mKpiList);
+        mXRecyclerView.setEmptyView(mEmptyDataView);
         mXRecyclerView.refreshComplete();
     }
 

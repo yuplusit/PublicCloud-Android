@@ -52,24 +52,26 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
 
     @BindView(R.id.custom_detail_id_recylerview)
     XRecyclerView mXRecyclerView;
+    @BindView(R.id.recylerview_id_empty_data)
+    View          mEmptyDataView;
 
-    private TextView mCustomerNameTv;
-    private ImageView mCustomerBgIv;
+    private TextView         mCustomerNameTv;
+    private ImageView        mCustomerBgIv;
     private RoundedImageView mCustomerAvatar;
-    private TextView mCustomerDeviceCountTv;
-    private TextView mCustomerAlertCountTv;
-    private TextView mCustomerOrderCountTv;
+    private TextView         mCustomerDeviceCountTv;
+    private TextView         mCustomerAlertCountTv;
+    private TextView         mCustomerOrderCountTv;
 
-    private ProjectPresenter mProjectPresenter;
+    private ProjectPresenter  mProjectPresenter;
     private KpiValuePresenter mKpiValuePresenter;
 
-    private ProgressHUBDialog mLoadingView;
+    private ProgressHUBDialog     mLoadingView;
     private CustomerDetailAdapter mCustomerDetailAdapter;
 
-    private CustomerBean mCustomer;
+    private CustomerBean      mCustomer;
     private List<ProjectBean> mProjectList;
-    private Toolbar mToolbar;
-    private int mMoveDistance;
+    private Toolbar           mToolbar;
+    private int               mMoveDistance;
 
     @Override
     protected int getLayoutRes() {
@@ -153,7 +155,7 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
         mCustomerOrderCountTv.setText(String.valueOf(mCustomer.getOrderCount()));
         mXRecyclerView.addHeaderView(headerView);
 
-        mCustomerDetailAdapter = new CustomerDetailAdapter(this, null,mCustomer);
+        mCustomerDetailAdapter = new CustomerDetailAdapter(this, null, mCustomer);
         mXRecyclerView.setAdapter(mCustomerDetailAdapter);
 
         mXRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
@@ -262,16 +264,18 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
                 for (KpiValueBean kpiValue : data) {
                     if (project.getId() == kpiValue.getNodeId()) {
                         if (kpiValue.getKpiCode() == 3001) {
-                            project.setDeviceCount((int)kpiValue.getValue());
+                            project.setDeviceCount((int) kpiValue.getValue());
                         } else if (kpiValue.getKpiCode() == 3003) {
-                            project.setAlertCount((int)kpiValue.getValue());
+                            project.setAlertCount((int) kpiValue.getValue());
                         } else if (kpiValue.getKpiCode() == 3004) {
-                            project.setOrderCount((int)kpiValue.getValue());
+                            project.setOrderCount((int) kpiValue.getValue());
                         }
                     }
                 }
             }
             mCustomerDetailAdapter.insertAll(mProjectList);
+        } else {
+            mXRecyclerView.setEmptyView(mEmptyDataView);
         }
         mXRecyclerView.refreshComplete();
     }
