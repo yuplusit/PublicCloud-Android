@@ -2,6 +2,7 @@ package com.yuplus.publiccloud.ui.base;
 
 import android.view.View;
 import android.view.ViewStub;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yuplus.publiccloud.R;
@@ -19,11 +20,13 @@ public abstract class TitleActivity extends BaseActivity {
 
     @BindView(R.id.toolbar_title)
     ViewStub mTbTitle;
+    @BindView(R.id.toolbar_menu)
+    ViewStub mMenuViewStub;
 
-    private int mMenuRes;
     private int mShowHomeAsUpRes;
     private boolean mShowTextTitle = true;
     private TextView mTitleTv;
+    private LinearLayout mMenuLayout;
 
     @Override
     protected void onTitleChanged(CharSequence title, int color) {
@@ -85,15 +88,19 @@ public abstract class TitleActivity extends BaseActivity {
         }
     }
 
-    public void setMenuRes(final int menuRes, final boolean change) {
-        this.mMenuRes = menuRes;
-        if (change) {
-            supportInvalidateOptionsMenu();
+    public void setMenuView(View view) {
+        if (null != view) {
+            if (null == mMenuLayout) {
+                mMenuLayout = ButterKnife.findById(mMenuViewStub.inflate(), R.id.toolbar_menu_common);
+            }
+            mMenuLayout.addView(view);
         }
     }
 
-    public int getMenuRes() {
-        return mMenuRes;
+    public void setmMenuVisibility(int visibility) {
+        if (null != mMenuLayout) {
+            mMenuLayout.setVisibility(visibility);
+        }
     }
 
     private void showTextTitle() {

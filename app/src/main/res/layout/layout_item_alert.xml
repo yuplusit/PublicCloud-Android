@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@drawable/item_touch_bg"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_touch_bg"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/common_white"
-                android:textSize="@dimen/font_25sp"/>
+                android:textSize="@dimen/font_25sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -50,7 +50,7 @@
                     android:singleLine="true"
                     android:text="温度过高"
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_15sp"/>
+                    android:textSize="@dimen/font_15sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
                         android:paddingTop="@dimen/padding_1dp"
                         android:text="严重"
                         android:textColor="@color/common_serious"
-                        android:textSize="@dimen/font_10sp"/>
+                        android:textSize="@dimen/font_10sp" />
 
                     <TextView
                         android:id="@+id/alert_id_flag_state"
@@ -82,7 +82,7 @@
                         android:paddingTop="@dimen/padding_1dp"
                         android:text="已解决"
                         android:textColor="@color/common_success"
-                        android:textSize="@dimen/font_10sp"/>
+                        android:textSize="@dimen/font_10sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -94,7 +94,7 @@
                 android:paddingRight="@dimen/padding_10dp"
                 android:text="温度1:111.00C[4]异常"
                 android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_13sp"/>
+                android:textSize="@dimen/font_13sp" />
 
         </LinearLayout>
     </RelativeLayout>
@@ -117,15 +117,16 @@
                 android:id="@+id/alert_id_first_alert_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:minHeight="@dimen/width_16dp"
                 android:minWidth="@dimen/width_16dp"
                 android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_14sp"/>
+                android:textSize="@dimen/font_16sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_3dp"
+                android:layout_marginLeft="@dimen/margin_5dp"
                 android:gravity="center_vertical|left"
                 android:orientation="vertical">
 
@@ -134,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:text="首次告警时间"
                     android:textColor="@color/font_secondary"
-                    android:textSize="@dimen/font_10sp"/>
+                    android:textSize="@dimen/font_10sp" />
 
                 <TextView
                     android:id="@+id/alert_id_first_alert_time"
@@ -142,14 +143,14 @@
                     android:layout_height="wrap_content"
                     android:text="2017.06.06"
                     android:textColor="@color/font_secondary"
-                    android:textSize="@dimen/font_10sp"/>
+                    android:textSize="@dimen/font_10sp" />
             </LinearLayout>
         </LinearLayout>
 
         <View
             android:layout_width="@dimen/line_height_1dp"
             android:layout_height="match_parent"
-            android:background="@color/common_window_background"/>
+            android:background="@color/common_window_background" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -162,15 +163,16 @@
                 android:id="@+id/alert_id_recent_alert_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:minHeight="@dimen/width_16dp"
                 android:minWidth="@dimen/width_16dp"
                 android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_14sp"/>
+                android:textSize="@dimen/font_16sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_3dp"
+                android:layout_marginLeft="@dimen/margin_5dp"
                 android:gravity="center_vertical|left"
                 android:orientation="vertical">
 
@@ -179,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:text="最近告警时间"
                     android:textColor="@color/font_secondary"
-                    android:textSize="@dimen/font_10sp"/>
+                    android:textSize="@dimen/font_10sp" />
 
                 <TextView
                     android:id="@+id/alert_id_recent_alert_time"
@@ -188,14 +190,14 @@
                     android:layout_gravity="left"
                     android:text="2017.06.06"
                     android:textColor="@color/font_secondary"
-                    android:textSize="@dimen/font_10sp"/>
+                    android:textSize="@dimen/font_10sp" />
             </LinearLayout>
         </LinearLayout>
 
         <View
             android:layout_width="@dimen/line_height_1dp"
             android:layout_height="match_parent"
-            android:background="@color/common_window_background"/>
+            android:background="@color/common_window_background" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -208,15 +210,16 @@
                 android:id="@+id/alert_id_close_alert_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:minHeight="@dimen/width_16dp"
                 android:minWidth="@dimen/width_16dp"
                 android:textColor="@color/font_secondary"
-                android:textSize="@dimen/font_14sp"/>
+                android:textSize="@dimen/font_16sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_3dp"
+                android:layout_marginLeft="@dimen/margin_5dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -225,7 +228,7 @@
                     android:layout_height="wrap_content"
                     android:text="关闭告警时间"
                     android:textColor="@color/font_secondary"
-                    android:textSize="@dimen/font_10sp"/>
+                    android:textSize="@dimen/font_10sp" />
 
                 <TextView
                     android:id="@+id/alert_id_close_alert_time"
@@ -233,7 +236,7 @@
                     android:layout_height="wrap_content"
                     android:text="2017.06.06"
                     android:textColor="@color/font_secondary"
-                    android:textSize="@dimen/font_10sp"/>
+                    android:textSize="@dimen/font_10sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -241,5 +244,5 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/line_height_1dp"
-        android:background="@color/common_window_background"/>
+        android:background="@color/common_window_background" />
 </LinearLayout>

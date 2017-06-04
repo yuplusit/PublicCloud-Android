@@ -10,129 +10,223 @@
         android:background="@color/common_white"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/alert_id_all_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/btn_shadow_bg"
             android:clickable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
             android:paddingBottom="@dimen/padding_10dp"
             android:paddingTop="@dimen/padding_10dp">
 
-            <TextView
-                android:id="@+id/alert_id_all_icon"
+            <LinearLayout
+                android:id="@+id/alert_id_all_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/height_30dp"
-                android:minWidth="@dimen/width_30dp"
-                android:textColor="@color/tab_item_select_bg"
-                android:textSize="@dimen/font_25sp" />
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/alert_id_all_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minHeight="@dimen/height_30dp"
+                    android:minWidth="@dimen/width_30dp"
+                    android:textColor="@color/tab_item_select_bg"
+                    android:textSize="@dimen/font_25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="-5dp"
+                    android:text="全部"
+                    android:textColor="@color/tab_item_select_bg"
+                    android:textSize="@dimen/font_14sp" />
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/slide_id_all_red_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="-5dp"
-                android:text="全部"
-                android:textColor="@color/tab_item_select_bg"
-                android:textSize="@dimen/font_14sp" />
-        </LinearLayout>
+                android:layout_marginLeft="-8dp"
+                android:layout_toRightOf="@+id/alert_id_all_state"
+                android:background="@drawable/common_little_red_point_bg"
+                android:paddingBottom="@dimen/padding_1dp"
+                android:paddingLeft="@dimen/padding_4dp"
+                android:paddingRight="@dimen/padding_4dp"
+                android:paddingTop="@dimen/padding_1dp"
+                android:text="13"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/font_10sp" />
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/alert_id_new_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/btn_shadow_bg"
             android:clickable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
             android:paddingBottom="@dimen/padding_10dp"
             android:paddingTop="@dimen/padding_10dp">
 
-            <TextView
-                android:id="@+id/alert_id_new_icon"
+            <LinearLayout
+                android:id="@+id/alert_id_new_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/height_30dp"
-                android:minWidth="@dimen/width_30dp"
-                android:textColor="@color/tab_item_select_bg"
-                android:textSize="@dimen/font_25sp" />
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/alert_id_new_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minHeight="@dimen/height_30dp"
+                    android:minWidth="@dimen/width_30dp"
+                    android:textColor="@color/tab_item_select_bg"
+                    android:textSize="@dimen/font_25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="-5dp"
+                    android:text="新产生"
+                    android:textColor="@color/tab_item_select_bg"
+                    android:textSize="@dimen/font_14sp" />
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/slide_id_new_red_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="-5dp"
-                android:text="新产生"
-                android:textColor="@color/tab_item_select_bg"
-                android:textSize="@dimen/font_14sp" />
-        </LinearLayout>
+                android:layout_marginLeft="-14dp"
+                android:layout_toRightOf="@+id/alert_id_new_state"
+                android:background="@drawable/common_little_red_point_bg"
+                android:paddingBottom="@dimen/padding_1dp"
+                android:paddingLeft="@dimen/padding_4dp"
+                android:paddingRight="@dimen/padding_4dp"
+                android:paddingTop="@dimen/padding_1dp"
+                android:text="13"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/font_10sp" />
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/alert_id_dealing_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/btn_shadow_bg"
             android:clickable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
             android:paddingBottom="@dimen/padding_10dp"
             android:paddingTop="@dimen/padding_10dp">
 
-            <TextView
-                android:id="@+id/alert_id_dealing_icon"
+            <LinearLayout
+                android:id="@+id/alert_id_dealing_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/height_30dp"
-                android:minWidth="@dimen/width_30dp"
-                android:textColor="@color/tab_item_select_bg"
-                android:textSize="@dimen/font_25sp" />/>
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/alert_id_dealing_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minHeight="@dimen/height_30dp"
+                    android:minWidth="@dimen/width_30dp"
+                    android:textColor="@color/tab_item_select_bg"
+                    android:textSize="@dimen/font_25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="-5dp"
+                    android:text="处理中"
+                    android:textColor="@color/tab_item_select_bg"
+                    android:textSize="@dimen/font_14sp" />
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/slide_id_dealing_red_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="-5dp"
-                android:text="处理中"
-                android:textColor="@color/tab_item_select_bg"
-                android:textSize="@dimen/font_14sp" />
-        </LinearLayout>
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="-16dp"
+                android:layout_toEndOf="@+id/alert_id_dealing_state"
+                android:layout_toRightOf="@+id/alert_id_dealing_state"
+                android:background="@drawable/common_little_red_point_bg"
+                android:paddingBottom="@dimen/padding_1dp"
+                android:paddingLeft="@dimen/padding_4dp"
+                android:paddingRight="@dimen/padding_4dp"
+                android:paddingTop="@dimen/padding_1dp"
+                android:text="13"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/font_10sp" />
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/alert_id_finish_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/btn_shadow_bg"
             android:clickable="true"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
             android:paddingBottom="@dimen/padding_10dp"
             android:paddingTop="@dimen/padding_10dp">
 
-            <TextView
-                android:id="@+id/alert_id_finish_icon"
+            <LinearLayout
+                android:id="@+id/alert_id_finish_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/height_30dp"
-                android:minWidth="@dimen/width_30dp"
-                android:textColor="@color/tab_item_select_bg"
-                android:textSize="@dimen/font_25sp" />/>
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/alert_id_finish_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minHeight="@dimen/height_30dp"
+                    android:minWidth="@dimen/width_30dp"
+                    android:textColor="@color/tab_item_select_bg"
+                    android:textSize="@dimen/font_25sp" />/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="-5dp"
+                    android:text="已解决"
+                    android:textColor="@color/tab_item_select_bg"
+                    android:textSize="@dimen/font_14sp" />
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/slide_id_finish_red_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="-5dp"
-                android:text="已解决"
-                android:textColor="@color/tab_item_select_bg"
-                android:textSize="@dimen/font_14sp" />
-        </LinearLayout>
+                android:layout_marginLeft="-15dp"
+                android:layout_toRightOf="@+id/alert_id_finish_state"
+                android:background="@drawable/common_little_red_point_bg"
+                android:paddingBottom="@dimen/padding_1dp"
+                android:paddingLeft="@dimen/padding_4dp"
+                android:paddingRight="@dimen/padding_4dp"
+                android:paddingTop="@dimen/padding_1dp"
+                android:text="13"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/font_10sp" />
+        </RelativeLayout>
     </LinearLayout>
 
     <RelativeLayout
@@ -144,11 +238,11 @@
         <com.jcodecraeer.xrecyclerview.XRecyclerView
             android:id="@+id/alert_id_recylerview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
         <include
             android:id="@+id/recylerview_id_empty_data"
             layout="@layout/layout_item_empty_data"
-            android:visibility="gone"/>
+            android:visibility="gone" />
     </RelativeLayout>
 </LinearLayout>

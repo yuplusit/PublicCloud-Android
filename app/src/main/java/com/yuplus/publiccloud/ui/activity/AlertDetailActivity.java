@@ -126,19 +126,19 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
         }
         mCloseAlertTimeTv.setText(getString(R.string.common_null));
         if (mAlert.getState() < 10) {
-            mHandleIdOrderBtn.setBackground(getDrawable(R.drawable.common_round_primary_bg));
+            mHandleIdOrderBtn.setBackground(getResources().getDrawable(R.drawable.common_round_primary_bg));
         } else {
-            mHandleIdOrderBtn.setBackground(getDrawable(R.drawable.common_round_grey_bg));
+            mHandleIdOrderBtn.setBackground(getResources().getDrawable(R.drawable.common_round_grey_bg));
         }
         if (mAlert.getState() == 0) {
-            mHandleIdSureBtn.setBackground(getDrawable(R.drawable.common_round_primary_bg));
+            mHandleIdSureBtn.setBackground(getResources().getDrawable(R.drawable.common_round_primary_bg));
         } else {
-            mHandleIdSureBtn.setBackground(getDrawable(R.drawable.common_round_grey_bg));
+            mHandleIdSureBtn.setBackground(getResources().getDrawable(R.drawable.common_round_grey_bg));
         }
         if (mAlert.getState() < 0) {
-            mHandleIdCloseBtn.setBackground(getDrawable(R.drawable.common_round_primary_bg));
+            mHandleIdCloseBtn.setBackground(getResources().getDrawable(R.drawable.common_round_primary_bg));
         } else {
-            mHandleIdCloseBtn.setBackground(getDrawable(R.drawable.common_round_grey_bg));
+            mHandleIdCloseBtn.setBackground(getResources().getDrawable(R.drawable.common_round_grey_bg));
         }
     }
 
@@ -207,7 +207,7 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
         mAlertFlagSeverityTv.setText(severityValue);
         mAlertFlagSeverityTv.setTextColor(getResources().getColor(textColor));
         mAlertFlagSeverityTv.setBackground(getResources().getDrawable(flagBgResId));
-        mStateLayout.setBackground(getDrawable(bgResId));
+        mStateLayout.setBackground(getResources().getDrawable(bgResId));
     }
 
     @Override
@@ -248,7 +248,7 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
     @Override
     public void onRenderCalimAlertAction(AlertActionBean alertAction) {
         if (null != alertAction && alertAction.isDone()) {
-            mHandleIdSureBtn.setBackground(getDrawable(R.drawable.common_round_grey_bg));
+            mHandleIdSureBtn.setBackground(getResources().getDrawable(R.drawable.common_round_grey_bg));
             ToastUtils.make("确认成功！");
             mAlert.setState(5);
             handleSate(mAlert);
@@ -260,7 +260,7 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
     @Override
     public void onRenderRecoverAlertAction(AlertActionBean alertAction) {
         if (null != alertAction && alertAction.isDone()) {
-            mHandleIdCloseBtn.setBackground(getDrawable(R.drawable.common_round_grey_bg));
+            mHandleIdCloseBtn.setBackground(getResources().getDrawable(R.drawable.common_round_grey_bg));
             ToastUtils.make("关闭成功！");
             mAlert.setState(20);
             handleSate(mAlert);

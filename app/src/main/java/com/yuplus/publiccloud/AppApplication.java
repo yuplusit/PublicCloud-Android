@@ -1,5 +1,6 @@
 package com.yuplus.publiccloud;
 
+import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
@@ -22,8 +23,8 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 
 import okhttp3.OkHttpClient;
-import solid.ren.skinlibrary.SkinConfig;
-import solid.ren.skinlibrary.base.SkinBaseApplication;
+import skin.support.SkinCompatManager;
+import skin.support.design.app.SkinMaterialViewInflater;
 
 
 /**
@@ -32,7 +33,7 @@ import solid.ren.skinlibrary.base.SkinBaseApplication;
  * @desc
  */
 
-public class AppApplication extends SkinBaseApplication {
+public class AppApplication extends Application {
     public static AppFutureImpl          appFutureImpl;
     public static AppApplication         application;
     public static UserBean               user;
@@ -47,8 +48,9 @@ public class AppApplication extends SkinBaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        SkinConfig.setCanChangeStatusColor(true);
-        SkinConfig.setDebug(true);
+        SkinCompatManager.init(this)                          // 基础控件换肤初始化
+                .addInflater(new SkinMaterialViewInflater())  // material design 控件换肤初始化[可选]
+                .loadSkin();
         application = this;
         appFutureImpl = new AppFutureImpl();
         prefer = PublicCloudPreferences.getInstance(this);

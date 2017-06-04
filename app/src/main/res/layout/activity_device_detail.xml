@@ -46,19 +46,32 @@
                 android:textColor="@color/common_white"
                 android:textSize="@dimen/font_18sp"/>
 
-            <TextView
-                android:id="@+id/device_detail_id_sate"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_5dp"
-                android:background="@drawable/common_round_stroke_success"
-                android:paddingBottom="@dimen/padding_2dp"
-                android:paddingLeft="@dimen/padding_12dp"
-                android:paddingRight="@dimen/padding_12dp"
-                android:paddingTop="@dimen/padding_2dp"
-                android:text="正常"
-                android:textColor="@color/common_success"
-                android:textSize="@dimen/font_12sp"/>
+                android:layout_marginTop="@dimen/margin_5dp">
+
+                <TextView
+                    android:id="@+id/device_detail_id_sate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/common_round_stroke_success"
+                    android:paddingBottom="@dimen/padding_2dp"
+                    android:paddingLeft="@dimen/padding_12dp"
+                    android:paddingRight="@dimen/padding_12dp"
+                    android:paddingTop="@dimen/padding_2dp"
+                    android:text="正常"
+                    android:textColor="@color/common_success"
+                    android:textSize="@dimen/font_12sp"/>
+
+                <ImageView
+                    android:id="@+id/device_id_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:src="@drawable/ic_device"/>
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 

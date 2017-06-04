@@ -10,6 +10,7 @@ import com.yuplus.cloudsdk.future.data.bean.UserBean;
 import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.AppApplication;
 import com.yuplus.publiccloud.R;
+import com.yuplus.publiccloud.cst.AppCst;
 import com.yuplus.publiccloud.mvp.presenter.LoginPresenter;
 import com.yuplus.publiccloud.mvp.view.LoginView;
 import com.yuplus.publiccloud.ui.DispatchManager;
@@ -34,7 +35,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @BindView(R.id.login_id_password)
     ClearableEditText mPasswordEt;
     @BindView(R.id.login_id_password_show)
-    ImageView         mShowPasswordIv;
+    ImageView mShowPasswordIv;
 
     private LoginPresenter mLoginPresenter;
 
@@ -82,6 +83,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
         mPasswordEt.setSelection(StringUtils.isEmpty(mPasswordEt.getText().toString()) ? 0 : mPasswordEt.length());
     }
 
+    @OnClick(R.id.login_id_forget_pwd)
+    public void onForgetPwd() {
+        DispatchManager.startWebActivity(this, "忘记密码", AppCst.FORGET_PASSWORD_URL);
+    }
 
     public boolean onCheck(final String account, final String password) {
         if (StringUtils.isBlank(account)) {

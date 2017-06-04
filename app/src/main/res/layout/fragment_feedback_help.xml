@@ -1,8 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <RelativeLayout
+            android:id="@+id/fb_id_common_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_touch_bg"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/padding_10dp"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="常见问题"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_16dp"
+                android:src="@drawable/item_arrow" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:background="@color/common_window_background" />
+
+        <RelativeLayout
+            android:id="@+id/fb_id_feebback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_touch_bg"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/padding_10dp"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="意见反馈"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_16dp"
+                android:src="@drawable/item_arrow" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:background="@color/common_window_background" />
+
+        <RelativeLayout
+            android:id="@+id/fb_id_tel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_touch_bg"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/padding_10dp"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="联系我们/客服"
+                android:textColor="@color/font_secondary"
+                android:textSize="@dimen/font_16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_16dp"
+                android:src="@drawable/item_arrow" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_1dp"
+            android:background="@color/common_window_background" />
+    </LinearLayout>
 </LinearLayout>

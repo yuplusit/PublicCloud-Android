@@ -39,7 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     skin:enable="true"
-                    android:background="@color/tab_bg_color"
+                    android:background="@drawable/common_tab_item_bg"
                     android:padding="0dp">
 
                     <FrameLayout

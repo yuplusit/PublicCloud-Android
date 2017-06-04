@@ -1,16 +1,22 @@
 package com.yuplus.cloudsdk.future.handler;
 
+import android.content.Intent;
+
 import com.alibaba.fastjson.JSON;
+import com.yuplus.cloudsdk.CloudSDKManager;
 import com.yuplus.cloudsdk.base.BaseResponse;
 import com.yuplus.cloudsdk.cst.HttpCst;
+import com.yuplus.cloudsdk.future.Action;
 import com.yuplus.cloudsdk.future.FutureResult;
 import com.yuplus.cloudsdk.future.HttpStatus;
 import com.yuplus.cloudsdk.log.LogUtils;
 
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 import okhttp3.Call;
+import okhttp3.Headers;
 import okhttp3.Response;
 
 /**
@@ -30,6 +36,7 @@ public class HttpHandler<T> extends BaseHandler {
 
     @Override
     public void onResponse(Call call, Response response) {
+        getCookiesValue(response);
         try {
             final String str = response.body().string();
             LogUtils.t(HttpCst.TAG).d(str);
@@ -38,6 +45,7 @@ public class HttpHandler<T> extends BaseHandler {
             if (code == HttpStatus.SUCCESS) {
                 onHandleSuccess(baseResponse.getCode(), true, baseResponse.getData(), str, call);
             } else if (code == HttpStatus.LOGIN_AGAIN) {
+                sendBraodCast(Action.LOGIN_AGAIN_ACTION);
                 onHandleFailure(true, str, call, new RuntimeException(HttpCst.ExceptionMsg.LOGIN_AGAIN));
             } else {
                 onHandleFailure(true, str, call, new RuntimeException(String.format(HttpCst.ExceptionMsg.FAILURE_CODE_MSG,
@@ -70,5 +78,24 @@ public class HttpHandler<T> extends BaseHandler {
                 .setCall(call)
                 .setException(ex);
         commitException(result);
+    }
+
+    private void sendBraodCast(String action) {
+        Intent intent = new Intent();
+        intent.setAction(action);
+        CloudSDKManager.getInstance().getApplication().sendBroadcast(intent);
+    }
+
+    private void getCookiesValue(Response response) {
+        if (response.isSuccessful()) {
+            Headers headers = response.headers();
+            List<String> cookies = headers.values("Set-Cookie");
+            for (String str : cookies) {
+                if (str.startsWith("PSIOT_JSESSIONID")) {
+                    CloudSDKManager.getInstance().setJsessionId(str);
+                }
+            }
+
+        }
     }
 }

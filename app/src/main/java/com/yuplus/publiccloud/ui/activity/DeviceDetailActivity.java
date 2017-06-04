@@ -5,15 +5,19 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.makeramen.roundedimageview.RoundedImageView;
+import com.yuplus.cloudsdk.CloudSDKManager;
+import com.yuplus.cloudsdk.future.ApiCst;
 import com.yuplus.cloudsdk.future.data.bean.DeviceBean;
 import com.yuplus.cloudsdk.future.data.bean.KpiBean;
 import com.yuplus.cloudsdk.future.data.bean.KpiValueBean;
 import com.yuplus.cloudsdk.future.data.bean.UnitBean;
+import com.yuplus.cloudsdk.future.data.params.MapParams;
 import com.yuplus.cloudsdk.util.ListUtils;
 import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
@@ -47,38 +51,40 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
     @BindView(R.id.device_detail_id_avatar)
     RoundedImageView mDeviceAvatar;
     @BindView(R.id.device_detail_id_name)
-    TextView         mDeviceNameTv;
+    TextView mDeviceNameTv;
     @BindView(R.id.device_detail_id_sate)
-    TextView         mDeviceStateTv;
+    TextView mDeviceStateTv;
     @BindView(R.id.device_detail_id_sn)
-    TextView         mDeviceSnTv;
+    TextView mDeviceSnTv;
     @BindView(R.id.device_detail_id_open_btn)
-    TextView         mDeviceOpenBtn;
+    TextView mDeviceOpenBtn;
     @BindView(R.id.device_detail_id_product_date)
-    TextView         mDeviceProductTv;
+    TextView mDeviceProductTv;
     @BindView(R.id.device_detail_id_stop_btn)
-    TextView         mDeviceStopBtn;
+    TextView mDeviceStopBtn;
     @BindView(R.id.device_detail_id_test_name)
-    TextView         mDeviceTestNameTv;
+    TextView mDeviceTestNameTv;
     @BindView(R.id.device_detail_id_test_value)
-    TextView         mDeviceTestValueTv;
+    TextView mDeviceTestValueTv;
     @BindView(R.id.device_detail_id_test_date)
-    TextView         mDeviceTestDateTv;
+    TextView mDeviceTestDateTv;
     @BindView(R.id.device_detail_id_test_history)
-    TextView         mDeviceTestHistoryTv;
+    TextView mDeviceTestHistoryTv;
     @BindView(R.id.device_detail_id_recylerview)
-    XRecyclerView    mXRecyclerView;
+    XRecyclerView mXRecyclerView;
     @BindView(R.id.recylerview_id_empty_data)
-    View             mEmptyDataView;
+    View mEmptyDataView;
+    @BindView(R.id.device_id_share)
+    ImageView mDeviceShareBtn;
 
     private ProgressHUBDialog mLoadingView;
 
-    private DeviceBean        mDevice;
-    private KpisPresenter     mKpisPresenter;
-    private UnitPresenter     mUnitPresenter;
+    private DeviceBean mDevice;
+    private KpisPresenter mKpisPresenter;
+    private UnitPresenter mUnitPresenter;
     private KpiValuePresenter mKpiValuePresenter;
-    private List<KpiBean>     mKpiList;
-    private List<UnitBean>    mUnitList;
+    private List<KpiBean> mKpiList;
+    private List<UnitBean> mUnitList;
     private DeviceTestAdapter mDeviceTestAdapter;
 
     @Override
@@ -191,6 +197,17 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
                     testName += "(" + mDeviceTestAdapter.getUnitFlag(kpi.getUnit()) + ")";
                 }
                 DispatchManager.startDeviceHistoryDataActivity(DeviceDetailActivity.this, kpi.getId(), kpi.getNodeId(), testName);
+            }
+        });
+        mDeviceShareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MapParams params = new MapParams()
+                        .addParam("device_id", mDevice.getId())
+                        .addParam("cookie", CloudSDKManager.getInstance().getJsessionId())
+                        .addParam("api_prefix", ApiCst.REQUEST_API)
+                        .addParam("expire_seconds", 300);
+                DispatchManager.startQRCodeActivity(DeviceDetailActivity.this, params.toJson());
             }
         });
     }

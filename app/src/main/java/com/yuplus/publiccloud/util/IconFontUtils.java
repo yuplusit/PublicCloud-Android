@@ -51,6 +51,15 @@ public class IconFontUtils {
             case APP_TEST_HISTORY_ICON:
             case APP_TEST_NAME_ICON:
             case APP_TEST_VALUE_ICON:
+            case APP_CLOCK_OPEN_ICON:
+            case APP_CLOCK_CLOSE_ICON:
+            case APP_CLOCK_DOING_ICON:
+            case APP_DEVICE_OFFLINE_ICON:
+            case APP_DEVICE_OPENED_ICON:
+            case APP_DEVICE_ONLINE_ICON:
+            case APP_DEVICE_NORMAL_ICON:
+            case APP_DEVICE_ABNORMAL_ICON:
+            case APP_MESSAGE_ICON:
                 typeface = getAppIconTypeface(context);
                 break;
         }

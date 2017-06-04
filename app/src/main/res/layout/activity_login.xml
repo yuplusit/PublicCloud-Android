@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:skin="http://schemas.android.com/android/skin"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/common_white"
@@ -57,7 +57,7 @@
                     android:layout_marginRight="@dimen/margin_20dp"
                     android:hint="@string/login_account_hint"
                     android:inputType="text"
-                    android:text="ps_yiyuan"/>
+                    android:text="runxing"/>
             </LinearLayout>
 
             <View
@@ -88,7 +88,7 @@
                     android:layout_marginRight="@dimen/margin_10dp"
                     android:hint="@string/login_password_empty"
                     android:inputType="textPassword"
-                    android:text="abc123"/>
+                    android:text="test123"/>
 
                 <ImageView
                     android:id="@+id/login_id_password_show"
@@ -113,13 +113,13 @@
             android:layout_marginLeft="@dimen/margin_30dp"
             android:layout_marginRight="@dimen/margin_30dp"
             android:layout_marginTop="@dimen/margin_70dp"
-            android:paddingTop="@dimen/padding_12dp"
-            android:paddingBottom="@dimen/padding_12dp"
-            android:gravity="center"
             android:background="@drawable/common_round_primary_btn"
+            android:gravity="center"
+            android:paddingBottom="@dimen/padding_12dp"
+            android:paddingTop="@dimen/padding_12dp"
             android:text="@string/common_login"
             android:textColor="@color/common_text_color_white_to_primary"
-            android:textSize="@dimen/font_18sp"/>
+            android:textSize="@dimen/font_18sp" />
     </LinearLayout>
 
     <include
@@ -130,6 +130,7 @@
         android:layout_below="@+id/common_id_toolbar"/>
 
     <TextView
+        android:id="@+id/login_id_forget_pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/login_edit_text_style"
@@ -137,5 +138,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/margin_20dp"
         android:textColor="@color/colorPrimary"
-        android:text="@string/common_question"/>
+        android:text="@string/common_forget_pwd"/>
 </RelativeLayout>

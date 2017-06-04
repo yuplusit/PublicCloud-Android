@@ -10,13 +10,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingBottom="@dimen/padding_10dp"
-        android:paddingLeft="@dimen/padding_16dp"
-        android:paddingRight="@dimen/padding_16dp"
         android:paddingTop="@dimen/padding_5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingRight="@dimen/padding_16dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -133,6 +133,8 @@
             android:layout_height="@dimen/line_height_1dp"
             android:layout_marginBottom="@dimen/margin_10dp"
             android:layout_marginTop="@dimen/margin_10dp"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingRight="@dimen/padding_16dp"
             android:background="@color/common_window_background"/>
 
         <LinearLayout
@@ -158,7 +160,9 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingRight="@dimen/padding_16dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -281,7 +285,9 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingRight="@dimen/padding_16dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -385,6 +391,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_12dp"
             android:layout_marginTop="@dimen/margin_12dp"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingRight="@dimen/padding_16dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 

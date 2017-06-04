@@ -23,6 +23,26 @@ public class ViewUtils {
         View view = LayoutInflater.from(context).inflate(R.layout.layout_item_tab_view, null, false);
         TextView iconfont = (TextView) view.findViewById(R.id.tab_item_icon_font);
         TextView iconDesc = (TextView) view.findViewById(R.id.tab_item_icon_desc);
+        TextView msgTv =  (TextView)view.findViewById(R.id.message_id_icon_dig);
+        msgTv.setVisibility(View.GONE);
+        iconfont.setText(value);
+        iconfont.setTypeface(typeface);
+        iconDesc.setText(desc);
+        return view;
+    }
+
+    public static View getTabItemView(Context context, EAppIconFont eAppIconFont, String desc,boolean isRedPoint) {
+        Typeface typeface = IconFontUtils.getTypeface(context, eAppIconFont);
+        String value = eAppIconFont.getValue();
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_item_tab_view, null, false);
+        TextView iconfont = (TextView) view.findViewById(R.id.tab_item_icon_font);
+        TextView iconDesc = (TextView) view.findViewById(R.id.tab_item_icon_desc);
+        TextView msgTv =  (TextView)view.findViewById(R.id.message_id_icon_dig);
+        if (isRedPoint){
+            msgTv.setVisibility(View.VISIBLE);
+        }else{
+            msgTv.setVisibility(View.GONE);
+        }
         iconfont.setText(value);
         iconfont.setTypeface(typeface);
         iconDesc.setText(desc);

@@ -15,9 +15,10 @@ import com.yuplus.cloudsdk.okhttp.OkHttpUtils;
 
 public class CloudSDKManager {
 
-    private                 Application      mApplication;
-    private                 SDKConfiguration mSdkConfiguration;
-    private volatile static CloudSDKManager  mInstance;
+    private Application mApplication;
+    private SDKConfiguration mSdkConfiguration;
+    private volatile static CloudSDKManager mInstance;
+    private String jsessionId;
 
     public static CloudSDKManager getInstance() {
         if (mInstance == null) {
@@ -53,5 +54,13 @@ public class CloudSDKManager {
 
     public void setSdkConfiguration(SDKConfiguration sdkConfiguration) {
         this.mSdkConfiguration = sdkConfiguration;
+    }
+
+    public String getJsessionId() {
+        return jsessionId;
+    }
+
+    public void setJsessionId(String jsessionId) {
+        this.jsessionId = jsessionId;
     }
 }

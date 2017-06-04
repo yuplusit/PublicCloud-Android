@@ -8,7 +8,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         //Enabling multidex support.
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -60,9 +60,9 @@ dependencies {
     // SystemBarTint
     compile 'com.makeramen:roundedimageview:2.3.0'
     compile 'com.github.premnirmal:TextCounter:1.1.0'
-    compile('com.solid.skin:skinlibrary:1.4.5') {
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-    }
     compile "org.java-websocket:java-websocket:1.3.3"
+    compile 'skin.support:skin-support:1.2.7'          // skin-support 基础控件支持
+    compile 'skin.support:skin-support-design:1.2.4'
+    compile 'com.lb:materialdesigndialog:1.0.0'
     compile project(':XRecyclerview')
 }

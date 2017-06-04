@@ -28,6 +28,9 @@
     <color name="common_text_dark">#3F3F3F</color>
     <color name="common_detail_color">#FF393C41</color>
     <color name="common_window_background">#FFEDEDED</color>
+    <color name="common_line_color">#FFD7D7D7</color>
+
+    <color name="common_tab_item_bg">#FFFBFBFB</color>
 
     <color name="progress_hub_text_color">#FFFFFF</color>
     <color name="progress_hub_bg_color">#DF404040</color>

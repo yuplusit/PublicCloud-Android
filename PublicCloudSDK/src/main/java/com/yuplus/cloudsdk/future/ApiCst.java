@@ -26,7 +26,7 @@ public class ApiCst {
     public static final  int    PORT           = mSdkConfiguration.getHttpPort();
     public static final  String ROUTE          = mSdkConfiguration.getBasePath();
     public static final  String SERVER_ADDRESS = HOST_NAME + (PORT != 80 && PORT > 0 ? (":" + PORT) : "");
-    private static final String REQUEST_API    = SERVER_ADDRESS + ROUTE;
+    public static final String REQUEST_API    = SERVER_ADDRESS + ROUTE;
 
 
     //登录接口

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/message_id_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_touch_bg"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding_8dp"
+        android:paddingLeft="@dimen/padding_16dp"
+        android:paddingRight="@dimen/padding_10dp"
+        android:paddingTop="@dimen/padding_8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/message_id_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:text="维保计划任务-执行人指派"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_15sp" />
+
+                <TextView
+                    android:id="@+id/message_id_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2017-05-29 13:45"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_3dp">
+
+                <TextView
+                    android:id="@+id/message_id_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:text="消息类型：工单任务"
+                    android:textColor="@color/font_primary"
+                    android:textSize="@dimen/font_15sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_5dp"
+            android:src="@drawable/item_arrow" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height_1dp"
+        android:background="@color/common_window_background" />
+
+</LinearLayout>

@@ -1,5 +1,7 @@
 package com.yuplus.publiccloud.cst;
 
+import com.yuplus.cloudsdk.future.ApiCst;
+
 /**
  * @user longzhen
  * @date 5/18/2017
@@ -13,10 +15,13 @@ public class AppCst {
     public static final String SHAREDPREFERENCES_NAME = APP_NAME;
 
     //服务器地址
-    public static final String SERVER_HOST = "http://demo.proudsmart.com";//"http://36.110.36.118";
+    public static final String SERVER_HOST = "http://36.110.36.118";//"http://demo.proudsmart.com";//"http://36.110.36.118";
 
     //服务器端口
-    public static final int SERVER_PORT = 80;//8095;
+    public static final int SERVER_PORT = 8095;//8095;
+
+    //忘记密码Web url
+    public static final String FORGET_PASSWORD_URL = ApiCst.SERVER_ADDRESS + "/app-uc/forgetPassword.html";
 
     //WebSocket地址
     public static final String WEBSOCKET_ADDRESS = "wss://yzt.raonecloud.com/websocket/message";

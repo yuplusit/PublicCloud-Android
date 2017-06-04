@@ -1,11 +1,16 @@
 package com.yuplus.publiccloud.ui.fragment;
 
+import android.app.Application;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
+import com.yuplus.cloudsdk.util.StringUtils;
+import com.yuplus.publiccloud.AppApplication;
 import com.yuplus.publiccloud.R;
+import com.yuplus.publiccloud.cst.AppCst;
+import com.yuplus.publiccloud.sp.SPCst;
 import com.yuplus.publiccloud.ui.base.BaseFragment;
 import com.yuplus.publiccloud.util.ToastUtils;
 
@@ -14,8 +19,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import solid.ren.skinlibrary.SkinLoaderListener;
-import solid.ren.skinlibrary.loader.SkinManager;
+import skin.support.SkinCompatManager;
 
 /**
  * @user longzhen
@@ -26,13 +30,13 @@ import solid.ren.skinlibrary.loader.SkinManager;
 public class SkinSelectFragment extends BaseFragment {
 
     @BindView(R.id.skin_id_red_rb)
-    RadioButton  mRedSkinRb;
+    RadioButton mRedSkinRb;
     @BindView(R.id.skin_id_blue_rb)
-    RadioButton  mBlueSkinRb;
+    RadioButton mBlueSkinRb;
     @BindView(R.id.skin_id_green_rb)
-    RadioButton  mGreenSkinRb;
+    RadioButton mGreenSkinRb;
     @BindView(R.id.skin_id_dullgrey_rb)
-    RadioButton  mDullgreySkinRb;
+    RadioButton mDullgreySkinRb;
     @BindView(R.id.skin_id_red_layout)
     LinearLayout mRedSkinLayout;
     @BindView(R.id.skin_id_blue_layout)
@@ -43,6 +47,7 @@ public class SkinSelectFragment extends BaseFragment {
     LinearLayout mDullgreySkinLayout;
 
     private List<RadioButton> mRBList;
+    private List<String> mThemeNameList;
 
     public static SkinSelectFragment newInstance() {
         Bundle args = new Bundle();
@@ -68,6 +73,38 @@ public class SkinSelectFragment extends BaseFragment {
         mRBList.add(mBlueSkinRb);
         mRBList.add(mGreenSkinRb);
         mRBList.add(mDullgreySkinRb);
+        mThemeNameList = new ArrayList<>();
+        mThemeNameList.add("RedSkinStyle.skin");
+        mThemeNameList.add("BlueSkinStyle.skin");
+        mThemeNameList.add("GreenSkinStyle.skin");
+        mThemeNameList.add("DullGreySkinStyle.skin");
+
+        initRadioButton();
+    }
+
+    private void initRadioButton() {
+        String name = AppApplication.prefer.getString(SPCst.APP_THEME_VALUE);
+        if (StringUtils.isNotBlank(name)) {
+            switch (name) {
+                case "RedSkinStyle.skin":
+                    changeButtonStyle(mRedSkinRb.getId());
+                    break;
+                case "BlueSkinStyle.skin":
+                    changeButtonStyle(mBlueSkinRb.getId());
+                    break;
+                case "GreenSkinStyle.skin":
+                    changeButtonStyle(mGreenSkinRb.getId());
+                    break;
+                case "DullGreySkinStyle.skin":
+                    changeButtonStyle(mDullgreySkinRb.getId());
+                    break;
+                default:
+                    changeButtonStyle(mBlueSkinRb.getId());
+                    break;
+            }
+        } else {
+            changeButtonStyle(mBlueSkinRb.getId());
+        }
     }
 
     @OnClick({R.id.skin_id_red_rb, R.id.skin_id_blue_rb, R.id.skin_id_green_rb, R.id.skin_id_dullgrey_rb
@@ -76,35 +113,35 @@ public class SkinSelectFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.skin_id_red_rb:
                 changeButtonStyle(view.getId());
-                onSlecetSkin("RedSkinStyle.skin");
+                onSlecetSkin(mThemeNameList.get(0));
                 break;
             case R.id.skin_id_blue_rb:
                 changeButtonStyle(view.getId());
-                onSlecetSkin("BlueSkinStyle.skin");
+                onSlecetSkin(mThemeNameList.get(1));
                 break;
             case R.id.skin_id_green_rb:
                 changeButtonStyle(view.getId());
-                onSlecetSkin("GreenSkinStyle.skin");
+                onSlecetSkin(mThemeNameList.get(2));
                 break;
             case R.id.skin_id_dullgrey_rb:
                 changeButtonStyle(view.getId());
-                onSlecetSkin("DullGreySkinStyle.skin");
+                onSlecetSkin(mThemeNameList.get(3));
                 break;
             case R.id.skin_id_red_layout:
                 changeButtonStyle(mRedSkinRb.getId());
-                onSlecetSkin("RedSkinStyle.skin");
+                onSlecetSkin(mThemeNameList.get(0));
                 break;
             case R.id.skin_id_blue_layout:
                 changeButtonStyle(mBlueSkinRb.getId());
-                onSlecetSkin("BlueSkinStyle.skin");
+                onSlecetSkin(mThemeNameList.get(1));
                 break;
             case R.id.skin_id_green_layout:
                 changeButtonStyle(mGreenSkinRb.getId());
-                onSlecetSkin("GreenSkinStyle.skin");
+                onSlecetSkin(mThemeNameList.get(2));
                 break;
             case R.id.skin_id_dullgrey_layout:
                 changeButtonStyle(mDullgreySkinRb.getId());
-                onSlecetSkin("DullGreySkinStyle.skin");
+                onSlecetSkin(mThemeNameList.get(3));
                 break;
         }
     }
@@ -119,26 +156,20 @@ public class SkinSelectFragment extends BaseFragment {
         }
     }
 
-    private void onSlecetSkin(String skinName) {
-        SkinManager.getInstance().loadSkin(skinName, new SkinLoaderListener() {
+    private void onSlecetSkin(final String skinName) {
+        SkinCompatManager.getInstance().loadSkin(skinName, new SkinCompatManager.SkinLoaderListener() {
             @Override
             public void onStart() {
-
             }
 
             @Override
             public void onSuccess() {
-                //((BaseActivity) getActivity()).setStatusBarTintColor(R.color.colorPrimary);
+                AppApplication.prefer.set(SPCst.APP_THEME_VALUE, skinName);
             }
 
             @Override
             public void onFailed(String errMsg) {
                 ToastUtils.make("切换失败，原因：" + errMsg);
-            }
-
-            @Override
-            public void onProgress(int progress) {
-
             }
         });
     }

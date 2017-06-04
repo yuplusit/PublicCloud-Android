@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import butterknife.ButterKnife;
-import solid.ren.skinlibrary.base.SkinBaseActivity;
+import skin.support.app.SkinCompatActivity;
 
 /**
  * @user longzhen
@@ -12,7 +12,7 @@ import solid.ren.skinlibrary.base.SkinBaseActivity;
  * @desc
  */
 
-public abstract class AbsActivity extends SkinBaseActivity {
+public abstract class AbsActivity extends SkinCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

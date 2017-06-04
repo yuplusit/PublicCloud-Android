@@ -1,7 +1,6 @@
 package com.yuplus.publiccloud.ui.adapter;
 
 import android.content.Context;
-import android.support.annotation.BinderThread;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +11,8 @@ import android.widget.TextView;
 import com.yuplus.cloudsdk.future.data.bean.DeviceBean;
 import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
+import com.yuplus.publiccloud.enums.EAppIconFont;
+import com.yuplus.publiccloud.util.IconFontUtils;
 
 import java.util.List;
 
@@ -56,32 +57,46 @@ public class DeviceAdapter extends BaseUltimateViewAdapter<DeviceBean> {
                 //启用
                 viewHolder.mDeviceSwitchTv.setText(R.string.device_managed_status_01);
                 viewHolder.mDeviceSwitchTv.setTextColor(mContext.getResources().getColor(R.color.common_success));
+                IconFontUtils.setIconFont(viewHolder.mDeviceSwitchIconTv, EAppIconFont.APP_DEVICE_OPENED_ICON);
+                viewHolder.mDeviceSwitchIconTv.setTextColor(mContext.getResources().getColor(R.color.common_success));
             } else {
                 //停用
                 viewHolder.mDeviceSwitchTv.setText(R.string.device_managed_status_02);
                 viewHolder.mDeviceSwitchTv.setTextColor(mContext.getResources().getColor(R.color.common_warning));
+                IconFontUtils.setIconFont(viewHolder.mDeviceSwitchIconTv, EAppIconFont.APP_DEVICE_OPENED_ICON);
+                viewHolder.mDeviceSwitchIconTv.setTextColor(mContext.getResources().getColor(R.color.common_warning));
             }
             if (device.getOnlineStatus() == 1) {
                 //在线
                 viewHolder.mIsOnlineTv.setText(R.string.device_online_status_01);
                 viewHolder.mIsOnlineTv.setTextColor(mContext.getResources().getColor(R.color.common_success));
+                IconFontUtils.setIconFont(viewHolder.mIsOnlineIconTv, EAppIconFont.APP_DEVICE_ONLINE_ICON);
+                viewHolder.mIsOnlineIconTv.setTextColor(mContext.getResources().getColor(R.color.common_success));
             } else if (device.getOnlineStatus() == 0) {
                 //离线
                 viewHolder.mIsOnlineTv.setText(R.string.device_online_status_02);
                 viewHolder.mIsOnlineTv.setTextColor(mContext.getResources().getColor(R.color.common_warning));
+                IconFontUtils.setIconFont(viewHolder.mIsOnlineIconTv, EAppIconFont.APP_DEVICE_OFFLINE_ICON);
+                viewHolder.mIsOnlineIconTv.setTextColor(mContext.getResources().getColor(R.color.common_warning));
             } else {
                 //无数据
                 viewHolder.mIsOnlineTv.setText(R.string.device_online_status_03);
                 viewHolder.mIsOnlineTv.setTextColor(mContext.getResources().getColor(R.color.common_warning));
+                IconFontUtils.setIconFont(viewHolder.mIsOnlineIconTv, EAppIconFont.APP_DEVICE_OFFLINE_ICON);
+                viewHolder.mIsOnlineIconTv.setTextColor(mContext.getResources().getColor(R.color.common_warning));
             }
             if (device.getSeverity() < 1) {
                 //正常
                 viewHolder.mIsNormalStateTv.setText(R.string.device_severity_status_01);
                 viewHolder.mIsNormalStateTv.setTextColor(mContext.getResources().getColor(R.color.common_success));
+                IconFontUtils.setIconFont(viewHolder.mIsNormalIconTv, EAppIconFont.APP_DEVICE_NORMAL_ICON);
+                viewHolder.mIsNormalIconTv.setTextColor(mContext.getResources().getColor(R.color.common_success));
             } else {
                 //告警
                 viewHolder.mIsNormalStateTv.setText(R.string.device_severity_status_02);
                 viewHolder.mIsNormalStateTv.setTextColor(mContext.getResources().getColor(R.color.common_warning));
+                IconFontUtils.setIconFont(viewHolder.mIsNormalIconTv, EAppIconFont.APP_DEVICE_ABNORMAL_ICON);
+                viewHolder.mIsNormalIconTv.setTextColor(mContext.getResources().getColor(R.color.common_warning));
             }
         }
     }
@@ -97,10 +112,16 @@ public class DeviceAdapter extends BaseUltimateViewAdapter<DeviceBean> {
         TextView mCustomerNameTv;
         @BindView(R.id.device_id_state_isnormal)
         TextView mIsNormalStateTv;
+        @BindView(R.id.device_id_state_isnormal_icon)
+        TextView mIsNormalIconTv;
         @BindView(R.id.device_id_state_swtich)
         TextView mDeviceSwitchTv;
+        @BindView(R.id.device_id_state_swtich_icon)
+        TextView mDeviceSwitchIconTv;
         @BindView(R.id.device_id_state_isonline)
         TextView mIsOnlineTv;
+        @BindView(R.id.device_id_state_swtich_isonline)
+        TextView mIsOnlineIconTv;
 
         public ViewHolder(View itemView) {
             super(itemView, onItemClickListener);

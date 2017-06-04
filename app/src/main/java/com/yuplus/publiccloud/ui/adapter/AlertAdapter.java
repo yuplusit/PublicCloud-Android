@@ -128,7 +128,7 @@ public class AlertAdapter extends BaseUltimateViewAdapter<AlertBean> {
         viewHolder.mAlertFlagSeverityTv.setText(severityValue);
         viewHolder.mAlertFlagSeverityTv.setTextColor(mContext.getResources().getColor(textColor));
         viewHolder.mAlertFlagSeverityTv.setBackground(mContext.getResources().getDrawable(flagBgResId));
-        viewHolder.mStateLayout.setBackground(mContext.getDrawable(bgResId));
+        viewHolder.mStateLayout.setBackground(mContext.getResources().getDrawable(bgResId));
     }
 
     class ViewHolder extends UltimateViewHolder {

@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:text="序列号："
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_13sp"/>
+                    android:textSize="@dimen/font_13sp" />
 
                 <TextView
                     android:id="@+id/device_id_sn_name"
@@ -78,7 +78,7 @@
                     android:singleLine="true"
                     android:text="电压电流温度变送"
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_13sp"/>
+                    android:textSize="@dimen/font_13sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -115,37 +115,75 @@
                 android:layout_gravity="bottom"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/device_id_state_isnormal"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_device_normal"
-                    android:drawablePadding="@dimen/padding_3dp"
-                    android:text="正常"
-                    android:textColor="@color/common_green"
-                    android:textSize="@dimen/font_12sp" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/device_id_state_swtich"
+                    <TextView
+                        android:id="@+id/device_id_state_isnormal_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/font_12sp" />
+
+                    <TextView
+                        android:id="@+id/device_id_state_isnormal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_3dp"
+                        android:text="正常"
+                        android:textColor="@color/common_green"
+                        android:textSize="@dimen/font_12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/device_id_state_swtich_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/font_12sp" />
+
+                    <TextView
+                        android:id="@+id/device_id_state_swtich"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_3dp"
+                        android:text="启用"
+                        android:textColor="@color/common_green"
+                        android:textSize="@dimen/font_12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_12dp"
-                    android:drawableLeft="@drawable/ic_device_normal"
-                    android:drawablePadding="@dimen/padding_3dp"
-                    android:text="启用"
-                    android:textColor="@color/common_green"
-                    android:textSize="@dimen/font_12sp" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/device_id_state_isonline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_12dp"
-                    android:drawableLeft="@drawable/ic_device_normal"
-                    android:drawablePadding="@dimen/padding_3dp"
-                    android:text="离线"
-                    android:textColor="@color/common_green"
-                    android:textSize="@dimen/font_12sp" />
+                    <TextView
+                        android:id="@+id/device_id_state_swtich_isonline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/font_12sp" />
+
+                    <TextView
+                        android:id="@+id/device_id_state_isonline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_3dp"
+                        android:text="离线"
+                        android:textColor="@color/common_green"
+                        android:textSize="@dimen/font_12sp" />
+
+                </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
@@ -153,5 +191,5 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/line_height_1dp"
-        android:background="@color/common_window_background"/>
+        android:background="@color/common_window_background" />
 </LinearLayout>
