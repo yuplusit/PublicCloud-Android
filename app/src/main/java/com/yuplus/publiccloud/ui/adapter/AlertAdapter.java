@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yuplus.cloudsdk.future.data.bean.AlertBean;
+import com.yuplus.cloudsdk.util.ListUtils;
 import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
 import com.yuplus.publiccloud.enums.EAppIconFont;
@@ -129,6 +130,32 @@ public class AlertAdapter extends BaseUltimateViewAdapter<AlertBean> {
         viewHolder.mAlertFlagSeverityTv.setTextColor(mContext.getResources().getColor(textColor));
         viewHolder.mAlertFlagSeverityTv.setBackground(mContext.getResources().getDrawable(flagBgResId));
         viewHolder.mStateLayout.setBackground(mContext.getResources().getDrawable(bgResId));
+    }
+
+    public void notifyItem(AlertBean alert) {
+        if (ListUtils.isEmpty(mData)) {
+            return;
+        }
+        for (int position = 0; position < mData.size(); position++) {
+            if (alert.getAlertId() == mData.get(position).getAlertId()) {
+                mData.set(position, alert);
+                notifyItemChanged(position + 1);//+1是为了除去下拉的头
+                break;
+            }
+        }
+    }
+
+    public void removeItem(AlertBean alert) {
+        if (ListUtils.isEmpty(mData)) {
+            return;
+        }
+        for (int position = 0; position < mData.size(); position++) {
+            if (alert.getAlertId() == mData.get(position).getAlertId()) {
+                mData.remove(position);
+                notifyItemRemoved(position + 1);//+1是为了除去下拉的头
+                break;
+            }
+        }
     }
 
     class ViewHolder extends UltimateViewHolder {

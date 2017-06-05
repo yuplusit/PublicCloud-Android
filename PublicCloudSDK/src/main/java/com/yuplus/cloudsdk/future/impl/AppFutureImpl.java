@@ -158,16 +158,16 @@ public class AppFutureImpl implements IAppFuture {
     }
 
     @Override
-    public void deviceActivateGateway(String deviceId, Object tag, FutureListener listener) {
+    public void deviceActivateGateway(long deviceId, Object tag, FutureListener listener) {
         ListParams requestParams = new ListParams()
-                .addParam(Long.parseLong(deviceId));
+                .addParam(deviceId);
         postJSON(ApiCst.DEVICE_ACTIVATE_GATEWAY_API, requestParams, tag, DeviceHandler.class, listener);
     }
 
     @Override
-    public void deviceDeactivateGateway(String deviceId, Object tag, FutureListener listener) {
+    public void deviceDeactivateGateway(long deviceId, Object tag, FutureListener listener) {
         ListParams requestParams = new ListParams()
-                .addParam(Long.parseLong(deviceId));
+                .addParam(deviceId);
         postJSON(ApiCst.DEVICE_DEACTIVATE_GATEWAY_API, requestParams, tag, DeviceHandler.class, listener);
     }
 

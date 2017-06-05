@@ -6,6 +6,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.lb.materialdesigndialog.base.DialogBase;
+import com.lb.materialdesigndialog.base.DialogWithTitle;
+import com.lb.materialdesigndialog.impl.MaterialDialogNormal;
 import com.yuplus.cloudsdk.future.data.bean.AlertActionBean;
 import com.yuplus.cloudsdk.future.data.bean.AlertBean;
 import com.yuplus.cloudsdk.util.StringUtils;
@@ -14,6 +17,7 @@ import com.yuplus.publiccloud.cst.AppCst;
 import com.yuplus.publiccloud.enums.EAppIconFont;
 import com.yuplus.publiccloud.mvp.presenter.AlertActionPresenter;
 import com.yuplus.publiccloud.mvp.view.AlertActionView;
+import com.yuplus.publiccloud.ui.DispatchManager;
 import com.yuplus.publiccloud.ui.base.TitleActivity;
 import com.yuplus.publiccloud.ui.dialog.ProgressHUBDialog;
 import com.yuplus.publiccloud.util.DateUtils;
@@ -59,13 +63,13 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
     TextView mCloseAlertIcon;
 
     @BindView(R.id.alert_handle_id_feedback_et)
-    EditText     mHandleFeedbackEt;
+    EditText mHandleFeedbackEt;
     @BindView(R.id.alert_handle_id_close_btn)
-    TextView     mHandleIdCloseBtn;
+    TextView mHandleIdCloseBtn;
     @BindView(R.id.alert_handle_id_sure_btn)
-    TextView     mHandleIdSureBtn;
+    TextView mHandleIdSureBtn;
     @BindView(R.id.alert_handle_id_order_btn)
-    TextView     mHandleIdOrderBtn;
+    TextView mHandleIdOrderBtn;
 
     private AlertActionPresenter mAlertActionPresenter;
 
@@ -125,6 +129,10 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
             mRecentAlertTimeTv.setText(DateUtils.timeFormat(mAlert.getArisingTime(), "yyyy.MM.dd"));
         }
         mCloseAlertTimeTv.setText(getString(R.string.common_null));
+        handleBtnStyle(mAlert);
+    }
+
+    public void handleBtnStyle(AlertBean alert) {
         if (mAlert.getState() < 10) {
             mHandleIdOrderBtn.setBackground(getResources().getDrawable(R.drawable.common_round_primary_bg));
         } else {
@@ -135,7 +143,7 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
         } else {
             mHandleIdSureBtn.setBackground(getResources().getDrawable(R.drawable.common_round_grey_bg));
         }
-        if (mAlert.getState() < 0) {
+        if (mAlert.getState() < 20) {
             mHandleIdCloseBtn.setBackground(getResources().getDrawable(R.drawable.common_round_primary_bg));
         } else {
             mHandleIdCloseBtn.setBackground(getResources().getDrawable(R.drawable.common_round_grey_bg));
@@ -223,7 +231,22 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
                     ToastUtils.make("该告警已经关闭，无需重复操作");
                     return;
                 }
-                mAlertActionPresenter.sendAlertRecoverAction(mAlert.getAlertId());
+                MaterialDialogNormal dialog = new MaterialDialogNormal(AlertDetailActivity.this);
+                dialog.setTitle("关闭告警");
+                dialog.setMessage("你要关闭此告警吗？");
+                dialog.setNegativeButton("取消", new DialogWithTitle.OnClickListener() {
+                    @Override
+                    public void click(DialogBase dialog, View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.setPositiveButton("确定", new DialogWithTitle.OnClickListener() {
+                    @Override
+                    public void click(DialogBase dialog, View view) {
+                        mAlertActionPresenter.sendAlertRecoverAction(mAlert.getAlertId());
+                        dialog.dismiss();
+                    }
+                });
                 break;
             case R.id.alert_handle_id_sure_btn:
                 if (mAlert.getState() == 5) {
@@ -233,7 +256,23 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
                     ToastUtils.make("该告警已经解决");
                     return;
                 }
-                mAlertActionPresenter.sendAlertClaimAction(mAlert.getAlertId());
+                final MaterialDialogNormal dialog1 = new MaterialDialogNormal(AlertDetailActivity.this);
+                dialog1.setTitle("确认告警");
+                dialog1.setMessage("你要确认此告警吗？");
+                dialog1.setNegativeButton("取消", new DialogWithTitle.OnClickListener() {
+                    @Override
+                    public void click(DialogBase dialog, View view) {
+                        dialog1.dismiss();
+                    }
+                });
+                dialog1.setPositiveButton("确定", new DialogWithTitle.OnClickListener() {
+                    @Override
+                    public void click(DialogBase dialog, View view) {
+                        mAlertActionPresenter.sendAlertClaimAction(mAlert.getAlertId());
+                        dialog1.dismiss();
+                    }
+                });
+
                 break;
             case R.id.alert_handle_id_order_btn:
                 if (mAlert.getState() == 20) {
@@ -252,6 +291,8 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
             ToastUtils.make("确认成功！");
             mAlert.setState(5);
             handleSate(mAlert);
+            handleBtnStyle(mAlert);
+            DispatchManager.sendUpdateAlertInfoBroadCast(this, mAlert);
         } else {
             ToastUtils.make("确认失败！");
         }
@@ -264,6 +305,8 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
             ToastUtils.make("关闭成功！");
             mAlert.setState(20);
             handleSate(mAlert);
+            handleBtnStyle(mAlert);
+            DispatchManager.sendUpdateAlertInfoBroadCast(this, mAlert);
         } else {
             ToastUtils.make("关闭失败！");
         }

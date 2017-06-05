@@ -1,6 +1,8 @@
 package com.yuplus.publiccloud.ui.activity;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.widget.ImageView;
@@ -74,7 +76,7 @@ public class QRCodeActivity extends TitleActivity {
                     @Override
                     public void onSuccess(String response, Call request) {
                         super.onSuccess(response, request);
-                        ResultResponse result = JSON.parseObject(response,ResultResponse.class);
+                        ResultResponse result = JSON.parseObject(response, ResultResponse.class);
                         initQRCode(result);
                     }
 
@@ -88,21 +90,22 @@ public class QRCodeActivity extends TitleActivity {
     private void initQRCode(ResultResponse result) {
         final String filePath = this.getFileRoot(QRCodeActivity.this) + File.separator
                 + "qr_" + System.currentTimeMillis() + ".jpg";
-        if (QRCodeUtils.createQRImage(getmParams(result), 800, 800, null, filePath)) {
+        final Bitmap logoBitmap = BitmapFactory.decodeResource(this.getResources(), R.mipmap.ic_launcher);
+        if (QRCodeUtils.createQRImage(getParams(result), 800, 800, logoBitmap, filePath)) {
             Glide.with(this)
                     .load(filePath)
                     .into(mQRCodeIm);
         }
     }
 
-    private String getmParams(ResultResponse result) {
+    private String getParams(ResultResponse result) {
         StringBuffer content = new StringBuffer();
         content.append("http://proudsmart-paydemo.yuplus.net/device/detail")
                 .append("?")
                 .append("share_id=")
                 .append(result.getShare_id())
                 .append("&")
-                .append("share_token")
+                .append("share_token=")
                 .append(result.getShare_token());
         return content.toString();
     }
@@ -122,9 +125,9 @@ public class QRCodeActivity extends TitleActivity {
 
     static class ResultResponse {
 
-        private int share_id;
+        private int    share_id;
         private String share_token;
-        private int error_code;
+        private int    error_code;
 
         public int getShare_id() {
             return share_id;

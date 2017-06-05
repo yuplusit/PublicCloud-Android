@@ -52,13 +52,13 @@ public class MainActivity extends TitleActivity implements MessageListView {
     @BindView(android.R.id.tabhost)
     FragmentTabHost mTabHost;
     @BindView(R.id.main_navigation_layout)
-    NavigationView mainNavigationLayout;
+    NavigationView  mainNavigationLayout;
     @BindView(R.id.main_drawer_layout)
-    DrawerLayout mainDrawerLayout;
+    DrawerLayout    mainDrawerLayout;
 
-    private ImageView mUserAvatar;
-    private TextView mUserName;
-    private TextView mUserSign;
+    private ImageView    mUserAvatar;
+    private TextView     mUserName;
+    private TextView     mUserSign;
     private LinearLayout mMessageLl;
     private LinearLayout mSkinLl;
     private LinearLayout mFeedbackHelpLl;
@@ -67,7 +67,7 @@ public class MainActivity extends TitleActivity implements MessageListView {
 
     private TextView mSlideMsgCountTv;
     private TextView mMessageCountTv;
-    private View mMenuView;
+    private View     mMenuView;
 
     private long startTime = 0L;
     private View mHeaderView;
@@ -126,14 +126,14 @@ public class MainActivity extends TitleActivity implements MessageListView {
     @Override
     protected void initData() {
         super.initData();
-        if(TokenUtils.checkUserState(this)){
+        if (!TokenUtils.checkUserState(this)) {
             return;
         }
         UserBean user = AppApplication.user;
-        if (StringUtils.isNotBlank(user.getLoginName())){
+        if (StringUtils.isNotBlank(user.getLoginName())) {
             mUserSign.setText(user.getLoginName());
         }
-        if (StringUtils.isNotBlank(user.getUserName())){
+        if (StringUtils.isNotBlank(user.getUserName())) {
             mUserName.setText(user.getUserName());
         }
     }
@@ -291,7 +291,7 @@ public class MainActivity extends TitleActivity implements MessageListView {
         View view = mTabHost.getTabWidget().getChildAt(3);
         TextView redPoint = (TextView) view.findViewById(R.id.message_id_icon_dig);
         if (null != redPoint) {
-            if (0 == count) {
+            if (count <= 0) {
                 redPoint.setVisibility(View.GONE);
             } else {
                 redPoint.setVisibility(View.VISIBLE);

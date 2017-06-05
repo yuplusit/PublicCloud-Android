@@ -92,10 +92,9 @@ public class HttpHandler<T> extends BaseHandler {
             List<String> cookies = headers.values("Set-Cookie");
             for (String str : cookies) {
                 if (str.startsWith("PSIOT_JSESSIONID")) {
-                    CloudSDKManager.getInstance().setJsessionId(str);
+                    CloudSDKManager.getInstance().setJsessionId(str.substring(0, str.indexOf(";")));
                 }
             }
-
         }
     }
 }

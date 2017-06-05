@@ -404,7 +404,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_13dp"
+                    android:layout_height="@dimen/height_16dp"
                     android:layout_marginTop="@dimen/margin_6dp">
 
                     <com.yuplus.publiccloud.ui.widget.AnimateHorizontalProgressBar
@@ -422,7 +422,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/margin_2dp"
                         android:textColor="@color/common_white"
-                        android:textSize="@dimen/font_7sp"/>
+                        android:textSize="@dimen/font_9sp"/>
                 </RelativeLayout>
 
                 <TextView
@@ -435,7 +435,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_13dp"
+                    android:layout_height="@dimen/height_16dp"
                     android:layout_marginTop="@dimen/margin_6dp">
 
                     <com.yuplus.publiccloud.ui.widget.AnimateHorizontalProgressBar
@@ -453,7 +453,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/margin_2dp"
                         android:textColor="@color/common_white"
-                        android:textSize="@dimen/font_7sp"/>
+                        android:textSize="@dimen/font_9sp"/>
                 </RelativeLayout>
 
                 <TextView
@@ -496,7 +496,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_13dp"
+                    android:layout_height="@dimen/height_16dp"
                     android:layout_marginTop="@dimen/margin_6dp">
 
                     <com.yuplus.publiccloud.ui.widget.AnimateHorizontalProgressBar
@@ -514,7 +514,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/margin_2dp"
                         android:textColor="@color/common_white"
-                        android:textSize="@dimen/font_7sp"/>
+                        android:textSize="@dimen/font_9sp"/>
                 </RelativeLayout>
 
                 <TextView
@@ -528,7 +528,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_13dp"
+                    android:layout_height="@dimen/height_16dp"
                     android:layout_marginTop="@dimen/margin_6dp">
 
                     <com.yuplus.publiccloud.ui.widget.AnimateHorizontalProgressBar
@@ -547,7 +547,7 @@
                         android:layout_marginLeft="@dimen/margin_2dp"
                         android:text="62%"
                         android:textColor="@color/common_white"
-                        android:textSize="@dimen/font_7sp"/>
+                        android:textSize="@dimen/font_9sp"/>
                 </RelativeLayout>
 
                 <TextView

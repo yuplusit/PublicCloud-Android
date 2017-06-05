@@ -117,7 +117,7 @@ public interface IAppFuture {
      * @param tag      网络请求TAG标记
      * @param listener 回调操作
      */
-    void deviceActivateGateway(String deviceId, Object tag, FutureListener listener);
+    void deviceActivateGateway(long deviceId, Object tag, FutureListener listener);
 
     /**
      * 停用设备
@@ -126,7 +126,7 @@ public interface IAppFuture {
      * @param tag      网络请求TAG标记
      * @param listener 回调操作
      */
-    void deviceDeactivateGateway(String deviceId, Object tag, FutureListener listener);
+    void deviceDeactivateGateway(long deviceId, Object tag, FutureListener listener);
 
     /**
      * 通过条件配置查找项目信息

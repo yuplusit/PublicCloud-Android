@@ -1,7 +1,6 @@
 package com.yuplus.publiccloud.util;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -11,6 +10,11 @@ import java.util.Date;
 
 public class DateUtils {
 
+    /**
+     * @param jsonDate
+     * @param fmt
+     * @return yyyy-MM-dd'T'HH:mm:ss.SSSZ
+     */
     public static String timeFormat(String jsonDate, String fmt) {
         int year = Integer.parseInt(jsonDate.substring(0, 4));
         int month = Integer.parseInt(jsonDate.substring(5, 7));

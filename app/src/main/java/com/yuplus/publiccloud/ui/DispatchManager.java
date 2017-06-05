@@ -230,4 +230,36 @@ public class DispatchManager {
         intent.setAction(BroadcastCst.UNTREATED_ALERT_COUNT_UPDATE);
         LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
     }
+
+    /**
+     * 发送更新设备信息
+     *
+     * @param context
+     * @param device
+     */
+    public static void sendUpdateDeviceInfoBroadCast(Context context, DeviceBean device) {
+        if (null == context) {
+            return;
+        }
+        Intent intent = new Intent();
+        intent.putExtra(AppCst.COMMON_DATA, (Parcelable) device);
+        intent.setAction(BroadcastCst.DEVICE_INFO_UPDATE);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+    }
+
+    /**
+     * 发送更新告警信息
+     *
+     * @param context
+     * @param alert
+     */
+    public static void sendUpdateAlertInfoBroadCast(Context context, AlertBean alert) {
+        if (null == alert) {
+            return;
+        }
+        Intent intent = new Intent();
+        intent.putExtra(AppCst.COMMON_DATA, (Parcelable) alert);
+        intent.setAction(BroadcastCst.ALERT_INFO_UPDATE);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+    }
 }

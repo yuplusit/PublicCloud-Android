@@ -1,5 +1,6 @@
 package com.yuplus.publiccloud.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.AppApplication;
 import com.yuplus.publiccloud.R;
 import com.yuplus.publiccloud.cst.AppCst;
+import com.yuplus.publiccloud.cst.BroadcastCst;
 import com.yuplus.publiccloud.enums.EAppIconFont;
 import com.yuplus.publiccloud.mvp.presenter.AlertPresenter;
 import com.yuplus.publiccloud.mvp.presenter.KpiValuePresenter;
@@ -28,6 +30,7 @@ import com.yuplus.publiccloud.ui.base.BaseFragment;
 import com.yuplus.publiccloud.ui.dialog.ProgressHUBDialog;
 import com.yuplus.publiccloud.util.IconFontUtils;
 import com.yuplus.publiccloud.util.ToastUtils;
+import com.yuplus.publiccloud.util.TokenUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,17 +54,17 @@ public class AlertFragment extends BaseFragment implements AlertListView, KpiVal
     @BindView(R.id.alert_id_finish_layout)
     RelativeLayout mFinishAlertIconLl;
     @BindView(R.id.alert_id_all_icon)
-    TextView mAllAlertIconTv;
+    TextView       mAllAlertIconTv;
     @BindView(R.id.alert_id_new_icon)
-    TextView mNewAlertIconTv;
+    TextView       mNewAlertIconTv;
     @BindView(R.id.alert_id_dealing_icon)
-    TextView mDealingAlertIconTv;
+    TextView       mDealingAlertIconTv;
     @BindView(R.id.alert_id_finish_icon)
-    TextView mFinishAlertIconTv;
+    TextView       mFinishAlertIconTv;
     @BindView(R.id.alert_id_recylerview)
-    XRecyclerView mXRecyclerView;
+    XRecyclerView  mXRecyclerView;
     @BindView(R.id.recylerview_id_empty_data)
-    View mEmptyDataView;
+    View           mEmptyDataView;
 
     @BindView(R.id.slide_id_all_red_point)
     TextView mAllCountRedTv;
@@ -73,17 +76,22 @@ public class AlertFragment extends BaseFragment implements AlertListView, KpiVal
     TextView mFinshCountRedTv;
 
     private List<View> mViewList = new ArrayList<>();
-    private List<AlertBean> mAlertList;
+    private List<AlertBean>   mAlertList;
     private ProgressHUBDialog mLoadingView;
-    private AlertAdapter mAlertAdapter;
-    private AlertPresenter mAlertPresenter;
+    private AlertAdapter      mAlertAdapter;
+    private AlertPresenter    mAlertPresenter;
     private KpiValuePresenter mKpiValuePresenter;
 
-    private int start = 0;
-    private int total = 0;
+    private int    start      = 0;
+    private int    total      = 0;
     private String severities = "1,2,3,4";
-    private String states = "0,5,10,20";
+    private String states     = "0,5,10,20";
     private String mDomian;
+
+    private long allCount     = 0;
+    private long newCount     = 0;
+    private long dealingCount = 0;
+    private long finishCount  = 0;
 
     public static AlertFragment newInstance(String domain) {
 
@@ -123,6 +131,7 @@ public class AlertFragment extends BaseFragment implements AlertListView, KpiVal
         mViewList.add(mFinishAlertIconLl);
         mAlertPresenter.getAlert(true, start, AppCst.PAGE_SIZE, mDomian, severities, states);
 
+        registerAction(BroadcastCst.ALERT_INFO_UPDATE);
     }
 
     @Override
@@ -149,11 +158,14 @@ public class AlertFragment extends BaseFragment implements AlertListView, KpiVal
         IconFontUtils.setIconFont(mDealingAlertIconTv, EAppIconFont.APP_ALERT_DEALING_ICON);
         IconFontUtils.setIconFont(mFinishAlertIconTv, EAppIconFont.APP_ALERT_FINISH_ICON);
         selectViewState(mAllAlertIconLl);
-
+        if (!TokenUtils.checkUserState(getActivity())) {
+            return;
+        }
         List<Long> nodeIds = new ArrayList<>();
         nodeIds.add(AppApplication.user.getDomainID());
         List<Long> kpiCodes = new ArrayList<>();
         kpiCodes.add(3017L);// 全部告警
+        kpiCodes.add(3003L);// 新产生告警
         kpiCodes.add(3050L);//完结的告警
         kpiCodes.add(3051L);//处理中告警
         mKpiValuePresenter.getKpiValueListByNodeIds(kpiCodes, nodeIds);
@@ -261,10 +273,6 @@ public class AlertFragment extends BaseFragment implements AlertListView, KpiVal
 
     @Override
     public void onRenderKpiValueData(List<KpiValueBean> data) {
-        long allCount = 0;
-        long newCount = 0;
-        long dealingCount = 0;
-        long finishCount = 0;
         if (ListUtils.isNotEmpty(data)) {
             for (KpiValueBean kpiValue : data) {
                 if (kpiValue.getKpiCode() == 3017L) {// 全部告警
@@ -273,10 +281,11 @@ public class AlertFragment extends BaseFragment implements AlertListView, KpiVal
                     finishCount = kpiValue.getValue();
                 } else if (kpiValue.getKpiCode() == 3051L) {//处理中告警
                     dealingCount = kpiValue.getValue();
+                } else if (kpiValue.getKpiCode() == 3003L) {// 新产生告警
+                    newCount = kpiValue.getValue();
                 }
             }
         }
-        newCount = allCount - dealingCount - finishCount;
         showRedPointFlag(mAllCountRedTv, allCount);
         showRedPointFlag(mNewCountRedTv, newCount);
         showRedPointFlag(mDealingCountRedTv, dealingCount);
@@ -315,6 +324,42 @@ public class AlertFragment extends BaseFragment implements AlertListView, KpiVal
     public void hideLoading() {
         if (null != mLoadingView) {
             mLoadingView.dismiss();
+        }
+    }
+
+    @Override
+    protected void onReceive(Intent intent) {
+        super.onReceive(intent);
+        final String action = intent.getAction();
+        if (BroadcastCst.ALERT_INFO_UPDATE.equalsIgnoreCase(action)) {
+            final AlertBean alertTemp = intent.getParcelableExtra(AppCst.COMMON_DATA);
+            if ("0,5" == states || "10" == states) {
+                if (alertTemp.getState() == 20) {
+                    mAlertAdapter.removeItem(alertTemp);
+                    if (states == "0,5") {
+                        newCount--;
+                        if (newCount < 0) {
+                            newCount = 0;
+                        }
+                        showRedPointFlag(mNewCountRedTv, newCount);
+                        finishCount++;
+                        showRedPointFlag(mFinshCountRedTv, finishCount);
+                        DispatchManager.sendAlertUntreatedCountBroadCast(getActivity(), (int) newCount);
+                    } else if (states == "10") {
+                        dealingCount--;
+                        if (dealingCount < 0) {
+                            dealingCount = 0;
+                        }
+                        showRedPointFlag(mDealingCountRedTv, dealingCount);
+                        finishCount++;
+                        showRedPointFlag(mFinshCountRedTv, finishCount);
+                    }
+                } else {
+                    mAlertAdapter.notifyItem(alertTemp);
+                }
+            } else {
+                mAlertAdapter.notifyItem(alertTemp);
+            }
         }
     }
 

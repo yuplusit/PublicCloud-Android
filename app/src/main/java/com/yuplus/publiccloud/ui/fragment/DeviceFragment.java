@@ -1,5 +1,6 @@
 package com.yuplus.publiccloud.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.yuplus.cloudsdk.util.ListUtils;
 import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
 import com.yuplus.publiccloud.cst.AppCst;
+import com.yuplus.publiccloud.cst.BroadcastCst;
 import com.yuplus.publiccloud.mvp.presenter.CustomerPresenter;
 import com.yuplus.publiccloud.mvp.presenter.DevicePresenter;
 import com.yuplus.publiccloud.mvp.presenter.KpiValuePresenter;
@@ -104,6 +106,8 @@ public class DeviceFragment extends BaseFragment implements CustomerView, Device
         mDeviceList = new ArrayList<>();
 
         mCustomerPresenter.getCustomerListInfo();
+
+        registerAction(BroadcastCst.DEVICE_INFO_UPDATE);
     }
 
     @Override
@@ -219,7 +223,13 @@ public class DeviceFragment extends BaseFragment implements CustomerView, Device
                 mKpiValuePresenter.getKpiValueListByNodeIds(kpiCodes, nodeIds);
             }
         } else {
-            ToastUtils.make(R.string.common_no_more_data);
+            if (isRefresh) {
+                mDeviceAdapter.clear();
+            }
+            if (!isRefresh) {
+                ToastUtils.make(R.string.common_no_more_data);
+            }
+            mXRecyclerView.setEmptyView(mEmptyDatView);
             mXRecyclerView.refreshComplete();
         }
     }
@@ -264,6 +274,18 @@ public class DeviceFragment extends BaseFragment implements CustomerView, Device
     public void hideLoading() {
         if (null != mLoadingView) {
             mLoadingView.dismiss();
+        }
+    }
+
+    @Override
+    protected void onReceive(Intent intent) {
+        super.onReceive(intent);
+        final String action = intent.getAction();
+        if (BroadcastCst.DEVICE_INFO_UPDATE.equalsIgnoreCase(action)) {
+            final DeviceBean device = intent.getParcelableExtra(AppCst.COMMON_DATA);
+            if (null != mDeviceAdapter) {
+                mDeviceAdapter.notifyItem(device);
+            }
         }
     }
 

@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_customer_bg"/>
+            android:src="@drawable/ic_not_find"/>
 
         <RelativeLayout
             android:layout_width="0dp"

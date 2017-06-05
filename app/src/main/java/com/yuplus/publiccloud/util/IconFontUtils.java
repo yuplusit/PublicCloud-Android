@@ -60,6 +60,7 @@ public class IconFontUtils {
             case APP_DEVICE_NORMAL_ICON:
             case APP_DEVICE_ABNORMAL_ICON:
             case APP_MESSAGE_ICON:
+            case APP_DEVICE_STOPED_ICON:
                 typeface = getAppIconTypeface(context);
                 break;
         }
@@ -76,7 +77,7 @@ public class IconFontUtils {
 
     static class IconWrapper {
         private Typeface mTypeface;
-        private String mValue;
+        private String   mValue;
 
         public Typeface getmTypeface() {
             return mTypeface;

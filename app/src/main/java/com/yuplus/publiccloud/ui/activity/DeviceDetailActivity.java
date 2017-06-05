@@ -23,9 +23,12 @@ import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
 import com.yuplus.publiccloud.cst.AppCst;
 import com.yuplus.publiccloud.enums.EAppIconFont;
+import com.yuplus.publiccloud.mvp.presenter.DeviceActivatePresenter;
+import com.yuplus.publiccloud.mvp.presenter.DeviceDeactivatePresenter;
 import com.yuplus.publiccloud.mvp.presenter.KpiValuePresenter;
 import com.yuplus.publiccloud.mvp.presenter.KpisPresenter;
 import com.yuplus.publiccloud.mvp.presenter.UnitPresenter;
+import com.yuplus.publiccloud.mvp.view.DeviceView;
 import com.yuplus.publiccloud.mvp.view.KpiValueView;
 import com.yuplus.publiccloud.mvp.view.KpisView;
 import com.yuplus.publiccloud.mvp.view.UnitListView;
@@ -47,45 +50,47 @@ import butterknife.BindView;
  * Created by zlzsa on 2017/5/30.
  */
 
-public class DeviceDetailActivity extends TitleActivity implements KpisView, UnitListView, KpiValueView {
+public class DeviceDetailActivity extends TitleActivity implements KpisView, UnitListView, KpiValueView, DeviceView {
     @BindView(R.id.device_detail_id_avatar)
     RoundedImageView mDeviceAvatar;
     @BindView(R.id.device_detail_id_name)
-    TextView mDeviceNameTv;
+    TextView         mDeviceNameTv;
     @BindView(R.id.device_detail_id_sate)
-    TextView mDeviceStateTv;
+    TextView         mDeviceStateTv;
     @BindView(R.id.device_detail_id_sn)
-    TextView mDeviceSnTv;
+    TextView         mDeviceSnTv;
     @BindView(R.id.device_detail_id_open_btn)
-    TextView mDeviceOpenBtn;
+    TextView         mDeviceOpenBtn;
     @BindView(R.id.device_detail_id_product_date)
-    TextView mDeviceProductTv;
+    TextView         mDeviceProductTv;
     @BindView(R.id.device_detail_id_stop_btn)
-    TextView mDeviceStopBtn;
+    TextView         mDeviceStopBtn;
     @BindView(R.id.device_detail_id_test_name)
-    TextView mDeviceTestNameTv;
+    TextView         mDeviceTestNameTv;
     @BindView(R.id.device_detail_id_test_value)
-    TextView mDeviceTestValueTv;
+    TextView         mDeviceTestValueTv;
     @BindView(R.id.device_detail_id_test_date)
-    TextView mDeviceTestDateTv;
+    TextView         mDeviceTestDateTv;
     @BindView(R.id.device_detail_id_test_history)
-    TextView mDeviceTestHistoryTv;
+    TextView         mDeviceTestHistoryTv;
     @BindView(R.id.device_detail_id_recylerview)
-    XRecyclerView mXRecyclerView;
+    XRecyclerView    mXRecyclerView;
     @BindView(R.id.recylerview_id_empty_data)
-    View mEmptyDataView;
+    View             mEmptyDataView;
     @BindView(R.id.device_id_share)
-    ImageView mDeviceShareBtn;
+    ImageView        mDeviceShareBtn;
 
     private ProgressHUBDialog mLoadingView;
 
-    private DeviceBean mDevice;
-    private KpisPresenter mKpisPresenter;
-    private UnitPresenter mUnitPresenter;
-    private KpiValuePresenter mKpiValuePresenter;
-    private List<KpiBean> mKpiList;
-    private List<UnitBean> mUnitList;
-    private DeviceTestAdapter mDeviceTestAdapter;
+    private DeviceBean                mDevice;
+    private KpisPresenter             mKpisPresenter;
+    private UnitPresenter             mUnitPresenter;
+    private DeviceActivatePresenter   mDeviceActivatePresenter;
+    private DeviceDeactivatePresenter mDeviceDeactivatePresenter;
+    private KpiValuePresenter         mKpiValuePresenter;
+    private List<KpiBean>             mKpiList;
+    private List<UnitBean>            mUnitList;
+    private DeviceTestAdapter         mDeviceTestAdapter;
 
     @Override
     protected int getLayoutRes() {
@@ -103,6 +108,12 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
         mKpiValuePresenter = new KpiValuePresenter();
         mKpiValuePresenter.setView(this);
         mKpiValuePresenter.setTag(this);
+        mDeviceActivatePresenter = new DeviceActivatePresenter();
+        mDeviceActivatePresenter.setView(this);
+        mDeviceActivatePresenter.setTag(this);
+        mDeviceDeactivatePresenter = new DeviceDeactivatePresenter();
+        mDeviceDeactivatePresenter.setView(this);
+        mDeviceDeactivatePresenter.setTag(this);
     }
 
     @Override
@@ -148,14 +159,14 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
         }
         if ("active".equalsIgnoreCase(mDevice.getManagedStatus())) {
             mDeviceOpenBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_sec));
-            mDeviceOpenBtn.setTextColor(getResources().getColor(R.color.common_text_color_white_to_primary));
+            mDeviceOpenBtn.setTextColor(getResources().getColorStateList(R.color.common_text_color_white_to_primary));
             mDeviceStopBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_first));
-            mDeviceStopBtn.setTextColor(getResources().getColor(R.color.common_text_color_primary_to_white));
+            mDeviceStopBtn.setTextColor(getResources().getColorStateList(R.color.common_text_color_primary_to_white));
         } else {
             mDeviceOpenBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_first));
-            mDeviceOpenBtn.setTextColor(getResources().getColor(R.color.common_text_color_primary_to_white));
+            mDeviceOpenBtn.setTextColor(getResources().getColorStateList(R.color.common_text_color_primary_to_white));
             mDeviceStopBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_sec));
-            mDeviceStopBtn.setTextColor(getResources().getColor(R.color.common_text_color_white_to_primary));
+            mDeviceStopBtn.setTextColor(getResources().getColorStateList(R.color.common_text_color_white_to_primary));
         }
         if (StringUtils.isNotBlank(mDevice.getSn())) {
             mDeviceSnTv.setText(mDevice.getSn());
@@ -205,9 +216,30 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
                 MapParams params = new MapParams()
                         .addParam("device_id", mDevice.getId())
                         .addParam("cookie", CloudSDKManager.getInstance().getJsessionId())
-                        .addParam("api_prefix", ApiCst.REQUEST_API)
-                        .addParam("expire_seconds", 300);
+                        .addParam("api_prefix", ApiCst.REQUEST_API + "/")
+                        .addParam("expire_seconds", 1800);//有效期：半个小时
                 DispatchManager.startQRCodeActivity(DeviceDetailActivity.this, params.toJson());
+            }
+        });
+
+        mDeviceOpenBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ("active".equalsIgnoreCase(mDevice.getManagedStatus())) {
+                    ToastUtils.make("该设备已经启用，无需重复操作!");
+                    return;
+                }
+                mDeviceActivatePresenter.deviceActivateGateway(mDevice.getId());
+            }
+        });
+        mDeviceStopBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ("deactive".equalsIgnoreCase(mDevice.getManagedStatus())) {
+                    ToastUtils.make("该设备已经停用，无需重复操作!");
+                    return;
+                }
+                mDeviceDeactivatePresenter.deviceDeactivateGateway(mDevice.getId());
             }
         });
     }
@@ -253,6 +285,27 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
         mDeviceTestAdapter.insertAll(mKpiList);
         mXRecyclerView.setEmptyView(mEmptyDataView);
         mXRecyclerView.refreshComplete();
+    }
+
+    @Override
+    public void onDeviceSuccess(DeviceBean device) {
+        if (null != device) {
+            if ("active".equalsIgnoreCase(device.getManagedStatus())) {
+                mDeviceOpenBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_sec));
+                mDeviceOpenBtn.setTextColor(getResources().getColorStateList(R.color.common_text_color_white_to_primary));
+                mDeviceStopBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_first));
+                mDeviceStopBtn.setTextColor(getResources().getColorStateList(R.color.common_text_color_primary_to_white));
+                ToastUtils.make("设备启用成功");
+            } else {
+                mDeviceOpenBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_first));
+                mDeviceOpenBtn.setTextColor(getResources().getColorStateList(R.color.common_text_color_primary_to_white));
+                mDeviceStopBtn.setBackground(getResources().getDrawable(R.drawable.detail_swtich_btn_sec));
+                mDeviceStopBtn.setTextColor(getResources().getColorStateList(R.color.common_text_color_white_to_primary));
+                ToastUtils.make("设备停用成功");
+            }
+            mDevice = device;
+            DispatchManager.sendUpdateDeviceInfoBroadCast(this, device);
+        }
     }
 
     @Override

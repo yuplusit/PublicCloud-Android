@@ -9,7 +9,6 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0.0"
-        //Enabling multidex support.
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -17,14 +16,35 @@ android {
     dexOptions {
         javaMaxHeapSize "4g"
     }
+    signingConfigs {
+        release {
+            storeFile file("keystore/proudsmart.keystore")
+            storePassword KEYSTORE_PASSWORD
+            keyAlias KEYSTORE_ALIAS
+            keyPassword KEYSTORE_PASSWORD
+        }
+
+        debug {
+            storeFile file("keystore/debug.keystore")
+            storePassword DEBUG_KEYSTORE_PASSWORD
+            keyAlias DEBUG_KEYSTORE_ALIAS
+            keyPassword DEBUG_KEYSTORE_PASSWORD
+        }
+    }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug{
+            signingConfig signingConfigs.debug
         }
     }
-    lintOptions{
+
+    lintOptions {
         checkReleaseBuilds false
         abortOnError false
     }
@@ -33,11 +53,6 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
-    }
-
-    lintOptions{
-        checkReleaseBuilds false
-        abortOnError false
     }
 }
 

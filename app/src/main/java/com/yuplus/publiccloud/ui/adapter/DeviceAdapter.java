@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yuplus.cloudsdk.future.data.bean.DeviceBean;
+import com.yuplus.cloudsdk.util.ListUtils;
 import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
 import com.yuplus.publiccloud.enums.EAppIconFont;
@@ -63,7 +64,7 @@ public class DeviceAdapter extends BaseUltimateViewAdapter<DeviceBean> {
                 //停用
                 viewHolder.mDeviceSwitchTv.setText(R.string.device_managed_status_02);
                 viewHolder.mDeviceSwitchTv.setTextColor(mContext.getResources().getColor(R.color.common_warning));
-                IconFontUtils.setIconFont(viewHolder.mDeviceSwitchIconTv, EAppIconFont.APP_DEVICE_OPENED_ICON);
+                IconFontUtils.setIconFont(viewHolder.mDeviceSwitchIconTv, EAppIconFont.APP_DEVICE_STOPED_ICON);
                 viewHolder.mDeviceSwitchIconTv.setTextColor(mContext.getResources().getColor(R.color.common_warning));
             }
             if (device.getOnlineStatus() == 1) {
@@ -101,27 +102,40 @@ public class DeviceAdapter extends BaseUltimateViewAdapter<DeviceBean> {
         }
     }
 
+    public void notifyItem(DeviceBean device) {
+        if (ListUtils.isEmpty(mData)) {
+            return;
+        }
+        for (int position = 0; position < mData.size(); position++) {
+            if (device.getId() == mData.get(position).getId()) {
+                mData.set(position, device);
+                notifyItemChanged(position + 1);//+1是为了除去下拉的头
+                break;
+            }
+        }
+    }
+
     class ViewHolder extends UltimateViewHolder {
         @BindView(R.id.device_id_img)
         ImageView mDeviceBgIv;
         @BindView(R.id.device_id_device_name)
-        TextView mDeviceNameTv;
+        TextView  mDeviceNameTv;
         @BindView(R.id.device_id_sn_name)
-        TextView mSnNameTv;
+        TextView  mSnNameTv;
         @BindView(R.id.device_id_customer_name)
-        TextView mCustomerNameTv;
+        TextView  mCustomerNameTv;
         @BindView(R.id.device_id_state_isnormal)
-        TextView mIsNormalStateTv;
+        TextView  mIsNormalStateTv;
         @BindView(R.id.device_id_state_isnormal_icon)
-        TextView mIsNormalIconTv;
+        TextView  mIsNormalIconTv;
         @BindView(R.id.device_id_state_swtich)
-        TextView mDeviceSwitchTv;
+        TextView  mDeviceSwitchTv;
         @BindView(R.id.device_id_state_swtich_icon)
-        TextView mDeviceSwitchIconTv;
+        TextView  mDeviceSwitchIconTv;
         @BindView(R.id.device_id_state_isonline)
-        TextView mIsOnlineTv;
+        TextView  mIsOnlineTv;
         @BindView(R.id.device_id_state_swtich_isonline)
-        TextView mIsOnlineIconTv;
+        TextView  mIsOnlineIconTv;
 
         public ViewHolder(View itemView) {
             super(itemView, onItemClickListener);

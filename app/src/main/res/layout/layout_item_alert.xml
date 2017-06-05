@@ -93,7 +93,7 @@
                 android:layout_marginTop="@dimen/margin_3dp"
                 android:paddingRight="@dimen/padding_10dp"
                 android:text="温度1:111.00C[4]异常"
-                android:textColor="@color/font_secondary"
+                android:textColor="@color/font_thirdary"
                 android:textSize="@dimen/font_13sp" />
 
         </LinearLayout>
@@ -120,7 +120,7 @@
                 android:gravity="center"
                 android:minHeight="@dimen/width_16dp"
                 android:minWidth="@dimen/width_16dp"
-                android:textColor="@color/font_secondary"
+                android:textColor="@color/font_thirdary"
                 android:textSize="@dimen/font_16sp" />
 
             <LinearLayout
@@ -134,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="首次告警时间"
-                    android:textColor="@color/font_secondary"
+                    android:textColor="@color/font_thirdary"
                     android:textSize="@dimen/font_10sp" />
 
                 <TextView
@@ -142,7 +142,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2017.06.06"
-                    android:textColor="@color/font_secondary"
+                    android:textColor="@color/font_thirdary"
                     android:textSize="@dimen/font_10sp" />
             </LinearLayout>
         </LinearLayout>
@@ -166,7 +166,7 @@
                 android:gravity="center"
                 android:minHeight="@dimen/width_16dp"
                 android:minWidth="@dimen/width_16dp"
-                android:textColor="@color/font_secondary"
+                android:textColor="@color/font_thirdary"
                 android:textSize="@dimen/font_16sp" />
 
             <LinearLayout
@@ -180,7 +180,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="最近告警时间"
-                    android:textColor="@color/font_secondary"
+                    android:textColor="@color/font_thirdary"
                     android:textSize="@dimen/font_10sp" />
 
                 <TextView
@@ -189,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="2017.06.06"
-                    android:textColor="@color/font_secondary"
+                    android:textColor="@color/font_thirdary"
                     android:textSize="@dimen/font_10sp" />
             </LinearLayout>
         </LinearLayout>
@@ -213,7 +213,7 @@
                 android:gravity="center"
                 android:minHeight="@dimen/width_16dp"
                 android:minWidth="@dimen/width_16dp"
-                android:textColor="@color/font_secondary"
+                android:textColor="@color/font_thirdary"
                 android:textSize="@dimen/font_16sp" />
 
             <LinearLayout
@@ -227,7 +227,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="关闭告警时间"
-                    android:textColor="@color/font_secondary"
+                    android:textColor="@color/font_thirdary"
                     android:textSize="@dimen/font_10sp" />
 
                 <TextView
@@ -235,7 +235,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2017.06.06"
-                    android:textColor="@color/font_secondary"
+                    android:textColor="@color/font_thirdary"
                     android:textSize="@dimen/font_10sp" />
             </LinearLayout>
         </LinearLayout>

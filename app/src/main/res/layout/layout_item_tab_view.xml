@@ -45,11 +45,11 @@
             android:layout_toRightOf="@+id/tab_item_icon_layout"
             android:layout_marginLeft="-3dp"
             android:background="@drawable/common_little_red_point_bg"
-            android:paddingLeft="@dimen/padding_3dp"
-            android:paddingRight="@dimen/padding_3dp"
+            android:paddingLeft="@dimen/padding_4dp"
+            android:paddingRight="@dimen/padding_4dp"
             android:text="13"
             android:textColor="@color/common_white"
-            android:textSize="@dimen/font_10sp" />
+            android:textSize="@dimen/font_9sp" />
 
     </RelativeLayout>
 </LinearLayout>

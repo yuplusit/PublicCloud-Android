@@ -20,12 +20,12 @@ public class TicketBean extends BaseBean {
     private int    status;
     private String category;
     private long   ticketCategoryId;
-    private int    processDefinitionId;
+    private long    processDefinitionId;
     private String title;
     private String message;
     private long   creatorId;
     private String creatorName;
-    private int    handlerId;
+    private long    handlerId;
     private String handlerName;
     private String candidateUserOrGroup;
     private String finishedTime;
@@ -36,9 +36,9 @@ public class TicketBean extends BaseBean {
     private String     processInstanceId;
     private String     domainPath;
     private long       deviceId;
-    private int        faultId;
+    private long        faultId;
     private String     origType;
-    private int        maintenanceTaskId;
+    private long        maintenanceTaskId;
     private String     projectDomains;
     private boolean    newDesign;
     private List<Long> origId;
@@ -83,11 +83,11 @@ public class TicketBean extends BaseBean {
         this.ticketCategoryId = ticketCategoryId;
     }
 
-    public int getProcessDefinitionId() {
+    public long getProcessDefinitionId() {
         return processDefinitionId;
     }
 
-    public void setProcessDefinitionId(int processDefinitionId) {
+    public void setProcessDefinitionId(long processDefinitionId) {
         this.processDefinitionId = processDefinitionId;
     }
 
@@ -123,11 +123,11 @@ public class TicketBean extends BaseBean {
         this.creatorName = creatorName;
     }
 
-    public int getHandlerId() {
+    public long getHandlerId() {
         return handlerId;
     }
 
-    public void setHandlerId(int handlerId) {
+    public void setHandlerId(long handlerId) {
         this.handlerId = handlerId;
     }
 
@@ -203,11 +203,11 @@ public class TicketBean extends BaseBean {
         this.deviceId = deviceId;
     }
 
-    public int getFaultId() {
+    public long getFaultId() {
         return faultId;
     }
 
-    public void setFaultId(int faultId) {
+    public void setFaultId(long faultId) {
         this.faultId = faultId;
     }
 
@@ -219,11 +219,11 @@ public class TicketBean extends BaseBean {
         this.origType = origType;
     }
 
-    public int getMaintenanceTaskId() {
+    public long getMaintenanceTaskId() {
         return maintenanceTaskId;
     }
 
-    public void setMaintenanceTaskId(int maintenanceTaskId) {
+    public void setMaintenanceTaskId(long maintenanceTaskId) {
         this.maintenanceTaskId = maintenanceTaskId;
     }
 
@@ -326,12 +326,12 @@ public class TicketBean extends BaseBean {
         dest.writeInt(this.status);
         dest.writeString(this.category);
         dest.writeLong(this.ticketCategoryId);
-        dest.writeInt(this.processDefinitionId);
+        dest.writeLong(this.processDefinitionId);
         dest.writeString(this.title);
         dest.writeString(this.message);
         dest.writeLong(this.creatorId);
         dest.writeString(this.creatorName);
-        dest.writeInt(this.handlerId);
+        dest.writeLong(this.handlerId);
         dest.writeString(this.handlerName);
         dest.writeString(this.candidateUserOrGroup);
         dest.writeString(this.finishedTime);
@@ -341,9 +341,9 @@ public class TicketBean extends BaseBean {
         dest.writeString(this.processInstanceId);
         dest.writeString(this.domainPath);
         dest.writeLong(this.deviceId);
-        dest.writeInt(this.faultId);
+        dest.writeLong(this.faultId);
         dest.writeString(this.origType);
-        dest.writeInt(this.maintenanceTaskId);
+        dest.writeLong(this.maintenanceTaskId);
         dest.writeString(this.projectDomains);
         dest.writeByte(this.newDesign ? (byte) 1 : (byte) 0);
         dest.writeList(this.origId);
@@ -358,12 +358,12 @@ public class TicketBean extends BaseBean {
         this.status = in.readInt();
         this.category = in.readString();
         this.ticketCategoryId = in.readLong();
-        this.processDefinitionId = in.readInt();
+        this.processDefinitionId = in.readLong();
         this.title = in.readString();
         this.message = in.readString();
         this.creatorId = in.readLong();
         this.creatorName = in.readString();
-        this.handlerId = in.readInt();
+        this.handlerId = in.readLong();
         this.handlerName = in.readString();
         this.candidateUserOrGroup = in.readString();
         this.finishedTime = in.readString();
@@ -373,9 +373,9 @@ public class TicketBean extends BaseBean {
         this.processInstanceId = in.readString();
         this.domainPath = in.readString();
         this.deviceId = in.readLong();
-        this.faultId = in.readInt();
+        this.faultId = in.readLong();
         this.origType = in.readString();
-        this.maintenanceTaskId = in.readInt();
+        this.maintenanceTaskId = in.readLong();
         this.projectDomains = in.readString();
         this.newDesign = in.readByte() != 0;
         this.origId = new ArrayList<Long>();

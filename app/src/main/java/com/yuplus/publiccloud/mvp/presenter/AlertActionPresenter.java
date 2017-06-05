@@ -40,7 +40,7 @@ public class AlertActionPresenter extends BasePresenter<AlertActionView> {
     }
 
     public void sendAlertRecoverAction(long alertId) {
-        AppApplication.appFutureImpl.sendAlertClaimAction(alertId, tag, new FutureListener() {
+        AppApplication.appFutureImpl.sendAlertRecoverAction(alertId, tag, new FutureListener() {
             @Override
             public void onStart() {
                 super.onStart();

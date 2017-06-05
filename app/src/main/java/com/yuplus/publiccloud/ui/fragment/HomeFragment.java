@@ -59,15 +59,15 @@ public class HomeFragment extends BaseFragment implements KpiValueView {
     @BindView(R.id.home_id_evaluate_bar_04)
     AnimateHorizontalProgressBar mEvaluateProgressBar04;
     @BindView(R.id.home_id_evaluate_text_01)
-    TextView mEvaluateText01;
+    TextView                     mEvaluateText01;
     @BindView(R.id.home_id_evaluate_text_02)
-    TextView mEvaluateText02;
+    TextView                     mEvaluateText02;
     @BindView(R.id.home_id_evaluate_text_03)
-    TextView mEvaluateText03;
+    TextView                     mEvaluateText03;
     @BindView(R.id.home_id_evaluate_text_04)
-    TextView mEvaluateText04;
+    TextView                     mEvaluateText04;
 
-    private float[] mEvaluateRates = {0.62f, 0.26f, 0.10f, 0.02f};
+    private float[] mEvaluateRates = {0.89f, 0.05f, 0.05f, 0.01f};
     private ProgressHUBDialog mLoadingView;
 
     private KpiValuePresenter mKpiValuePresenter;
@@ -107,9 +107,13 @@ public class HomeFragment extends BaseFragment implements KpiValueView {
         mEvaluateProgressBar04.setProgressWithAnim((int) (mEvaluateRates[3] * 100));
 
         mEvaluateText01.setText(String.format("%1$d%%", (int) (mEvaluateRates[0] * 100)));
+        setProgressBarTextColor(mEvaluateText01, mEvaluateRates[0]);
         mEvaluateText02.setText(String.format("%1$d%%", (int) (mEvaluateRates[1] * 100)));
+        setProgressBarTextColor(mEvaluateText02, mEvaluateRates[1]);
         mEvaluateText03.setText(String.format("%1$d%%", (int) (mEvaluateRates[2] * 100)));
+        setProgressBarTextColor(mEvaluateText03, mEvaluateRates[2]);
         mEvaluateText04.setText(String.format("%1$d%%", (int) (mEvaluateRates[3] * 100)));
+        setProgressBarTextColor(mEvaluateText04, mEvaluateRates[3]);
 
         if (!TokenUtils.checkUserState(getActivity())) {
             return;
@@ -128,6 +132,14 @@ public class HomeFragment extends BaseFragment implements KpiValueView {
         kpiCodes.add(3005L);//日新增告警数
         kpiCodes.add(3003L);//待处理告警数，1小时统计一次
         mKpiValuePresenter.getKpiValueListByNodeIds(kpiCodes, nodeIds);
+    }
+
+    private void setProgressBarTextColor(TextView view, float value) {
+        if (value < 0.14) {
+            view.setTextColor(getResources().getColor(R.color.font_secondary));
+        } else {
+            view.setTextColor(getResources().getColor(R.color.common_white));
+        }
     }
 
     @Override

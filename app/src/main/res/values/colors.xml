@@ -36,9 +36,11 @@
     <color name="progress_hub_bg_color">#DF404040</color>
     <color name="edit_border_color">#FFECECEC</color>
 
-    <color name="font_primary">#FF383838</color>
+    <color name="font_primary">#FF424242</color>
     <color name="font_secondary">#FF5b5b5b</color>
-    <color name="font_thirdary">#FFB2B2B2</color>
+    <color name="font_thirdary">#FF828282</color>
+
+    <color name="alert_tab_item_bg">#FFB9B9B9</color>
 
     <!-- Tab栏底色 -->
     <color name="tab_bg_color">#FFFBFBFB</color>

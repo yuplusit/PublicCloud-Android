@@ -47,7 +47,8 @@ public enum EAppIconFont {
     APP_DEVICE_ONLINE_ICON("\ua076"),
     APP_DEVICE_NORMAL_ICON("\ua077"),
     APP_DEVICE_ABNORMAL_ICON("\ua078"),
-    APP_MESSAGE_ICON("\ua079");
+    APP_MESSAGE_ICON("\ua079"),
+    APP_DEVICE_STOPED_ICON("\ua080");
 
     private String mValue;
 
