@@ -105,6 +105,7 @@ public class DeviceFragment extends BaseFragment implements CustomerView, Device
         mCustomerList = new ArrayList<>();
         mDeviceList = new ArrayList<>();
 
+        mLoadingView = ProgressHUBDialog.createDialog(getActivity());
         mCustomerPresenter.getCustomerListInfo();
 
         registerAction(BroadcastCst.DEVICE_INFO_UPDATE);
@@ -113,7 +114,6 @@ public class DeviceFragment extends BaseFragment implements CustomerView, Device
     @Override
     protected void initView() {
         super.initView();
-        mLoadingView = ProgressHUBDialog.createDialog(getActivity());
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

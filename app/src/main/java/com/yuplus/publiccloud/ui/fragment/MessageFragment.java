@@ -64,12 +64,12 @@ public class MessageFragment extends BaseFragment implements MessageListView {
     protected void init(Bundle savedInstanceState) {
         super.init(savedInstanceState);
         mMessageList = new ArrayList<>();
+        mLoadingView = ProgressHUBDialog.createDialog(getActivity());
     }
 
     @Override
     protected void initView() {
         super.initView();
-        mLoadingView = ProgressHUBDialog.createDialog(getActivity());
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.yuplus.cloudsdk.future.Action;
+import com.yuplus.publiccloud.R;
 import com.yuplus.publiccloud.ui.DispatchManager;
+import com.yuplus.publiccloud.util.ToastUtils;
 
 /**
  * @user longzhen
@@ -18,6 +20,7 @@ public class ActionReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         final String action = intent.getAction();
         if (Action.LOGIN_AGAIN_ACTION.equalsIgnoreCase(action)) {
+            ToastUtils.make(R.string.login_again);
             DispatchManager.startLoginActivity(context);
         }
     }

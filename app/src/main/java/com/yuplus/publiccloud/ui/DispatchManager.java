@@ -8,6 +8,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import com.yuplus.cloudsdk.future.data.bean.AlertBean;
 import com.yuplus.cloudsdk.future.data.bean.CustomerBean;
 import com.yuplus.cloudsdk.future.data.bean.DeviceBean;
+import com.yuplus.cloudsdk.future.data.bean.TicketBean;
 import com.yuplus.publiccloud.cst.AppCst;
 import com.yuplus.publiccloud.cst.BroadcastCst;
 import com.yuplus.publiccloud.ui.activity.AlertDetailActivity;
@@ -20,6 +21,7 @@ import com.yuplus.publiccloud.ui.activity.LoginActivity;
 import com.yuplus.publiccloud.ui.activity.MainActivity;
 import com.yuplus.publiccloud.ui.activity.QRCodeActivity;
 import com.yuplus.publiccloud.ui.activity.SlideAreaActivity;
+import com.yuplus.publiccloud.ui.activity.TicketDetailActivity;
 import com.yuplus.publiccloud.ui.activity.WebActivity;
 
 /**
@@ -203,6 +205,21 @@ public class DispatchManager {
         context.startActivity(intent);
     }
 
+    /**
+     * 跳转到工单执行历史
+     *
+     * @param context
+     * @param ticket
+     */
+    public static void startTicketDetalActivity(Context context, TicketBean ticket) {
+        if (null == context) {
+            return;
+        }
+        Intent intent = new Intent(context, TicketDetailActivity.class);
+        intent.putExtra(AppCst.COMMON_DATA, (Parcelable) ticket);
+        context.startActivity(intent);
+    }
+
 
     /***
      * 消息数量的更新
@@ -254,12 +271,26 @@ public class DispatchManager {
      * @param alert
      */
     public static void sendUpdateAlertInfoBroadCast(Context context, AlertBean alert) {
-        if (null == alert) {
+        if (null == context) {
             return;
         }
         Intent intent = new Intent();
         intent.putExtra(AppCst.COMMON_DATA, (Parcelable) alert);
         intent.setAction(BroadcastCst.ALERT_INFO_UPDATE);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+    }
+
+    /**
+     * 用户信息更新
+     *
+     * @param context
+     */
+    public static void sendUpdateUserInfoBroadCast(Context context) {
+        if (null == context) {
+            return;
+        }
+        Intent intent = new Intent();
+        intent.setAction(BroadcastCst.USER_INFO_UPDATE);
         LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
     }
 }

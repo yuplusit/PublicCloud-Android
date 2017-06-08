@@ -3,6 +3,7 @@ package com.yuplus.cloudsdk.future.handler;
 import android.content.Intent;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.yuplus.cloudsdk.CloudSDKManager;
 import com.yuplus.cloudsdk.base.BaseResponse;
 import com.yuplus.cloudsdk.cst.HttpCst;
@@ -40,16 +41,17 @@ public class HttpHandler<T> extends BaseHandler {
         try {
             final String str = response.body().string();
             LogUtils.t(HttpCst.TAG).d(str);
-            BaseResponse baseResponse = (BaseResponse) JSON.parseObject(str, getClazz());
-            final int code = baseResponse.getCode();
+            JSONObject jsonObject = JSON.parseObject(str);
+            final int code = jsonObject.getInteger("code");
             if (code == HttpStatus.SUCCESS) {
+                BaseResponse baseResponse = (BaseResponse) JSON.parseObject(str, getClazz());
                 onHandleSuccess(baseResponse.getCode(), true, baseResponse.getData(), str, call);
             } else if (code == HttpStatus.LOGIN_AGAIN) {
                 sendBraodCast(Action.LOGIN_AGAIN_ACTION);
                 onHandleFailure(true, str, call, new RuntimeException(HttpCst.ExceptionMsg.LOGIN_AGAIN));
             } else {
                 onHandleFailure(true, str, call, new RuntimeException(String.format(HttpCst.ExceptionMsg.FAILURE_CODE_MSG,
-                        code, baseResponse.getMessage())));
+                        code, jsonObject.getString("message"))));
             }
         } catch (IOException ex) {
             onHandleFailure(true, null, call, ex);

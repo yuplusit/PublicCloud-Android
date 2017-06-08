@@ -17,7 +17,7 @@ public class UserBean extends BaseBean {
     private long         userID;
     private long         enterpriseID;
     private String       roleID;
-    private String       userType;
+    private int          userType;
     private String       loginName;
     private String       userName;
     private String       createDate;
@@ -34,7 +34,7 @@ public class UserBean extends BaseBean {
     private long         updator;
     private String       countryRegion;
     private int          industry;
-    private Long       domainID;
+    private Long         domainID;
     private String       domainPath;
     private String       address;
     private String       city;
@@ -76,11 +76,11 @@ public class UserBean extends BaseBean {
         this.roleID = roleID;
     }
 
-    public String getUserType() {
+    public int getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(int userType) {
         this.userType = userType;
     }
 
@@ -347,7 +347,7 @@ public class UserBean extends BaseBean {
         dest.writeLong(this.userID);
         dest.writeLong(this.enterpriseID);
         dest.writeString(this.roleID);
-        dest.writeString(this.userType);
+        dest.writeInt(this.userType);
         dest.writeString(this.loginName);
         dest.writeString(this.userName);
         dest.writeString(this.createDate);
@@ -389,7 +389,7 @@ public class UserBean extends BaseBean {
         this.userID = in.readLong();
         this.enterpriseID = in.readLong();
         this.roleID = in.readString();
-        this.userType = in.readString();
+        this.userType = in.readInt();
         this.loginName = in.readString();
         this.userName = in.readString();
         this.createDate = in.readString();

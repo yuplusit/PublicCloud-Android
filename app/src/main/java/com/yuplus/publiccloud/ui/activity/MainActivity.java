@@ -32,11 +32,12 @@ import com.yuplus.publiccloud.mvp.presenter.MessagePresenter;
 import com.yuplus.publiccloud.mvp.view.MessageListView;
 import com.yuplus.publiccloud.ui.DispatchManager;
 import com.yuplus.publiccloud.ui.base.TitleActivity;
+import com.yuplus.publiccloud.ui.dialog.ProgressHUBDialog;
 import com.yuplus.publiccloud.ui.fragment.AlertFragment;
 import com.yuplus.publiccloud.ui.fragment.CustomerFragment;
 import com.yuplus.publiccloud.ui.fragment.DeviceFragment;
 import com.yuplus.publiccloud.ui.fragment.HomeFragment;
-import com.yuplus.publiccloud.ui.fragment.OrderFragment;
+import com.yuplus.publiccloud.ui.fragment.TicketFragment;
 import com.yuplus.publiccloud.ui.widget.FragmentTabHost;
 import com.yuplus.publiccloud.util.IconFontUtils;
 import com.yuplus.publiccloud.util.ToastUtils;
@@ -70,7 +71,8 @@ public class MainActivity extends TitleActivity implements MessageListView {
     private View     mMenuView;
 
     private long startTime = 0L;
-    private View mHeaderView;
+    private View              mHeaderView;
+    private ProgressHUBDialog mLoadingView;
 
     private MessagePresenter mMessagePresenter;
 
@@ -94,7 +96,9 @@ public class MainActivity extends TitleActivity implements MessageListView {
 
         registerAction(BroadcastCst.MSG_RED_POINT_COUNT_UPDATE);
         registerAction(BroadcastCst.UNTREATED_ALERT_COUNT_UPDATE);
+        registerAction(BroadcastCst.USER_INFO_UPDATE);
 
+        mLoadingView = ProgressHUBDialog.createDialog(this);
         mMessagePresenter.getLatestMessage();
     }
 
@@ -126,6 +130,10 @@ public class MainActivity extends TitleActivity implements MessageListView {
     @Override
     protected void initData() {
         super.initData();
+        initUserInfo();
+    }
+
+    private void initUserInfo() {
         if (!TokenUtils.checkUserState(this)) {
             return;
         }
@@ -154,7 +162,7 @@ public class MainActivity extends TitleActivity implements MessageListView {
                 AlertFragment.class, null);
 
         mTabHost.addTab(mTabHost.newTabSpec("4").setIndicator(ViewUtils.getTabItemView(this, EAppIconFont.APP_ICON_ORDER_SOLID, "工单")),
-                OrderFragment.class, null);
+                TicketFragment.class, null);
 
         mTabHost.getTabWidget().setDividerDrawable(null);
         mTabHost.getTabWidget().setStripEnabled(false);
@@ -213,7 +221,7 @@ public class MainActivity extends TitleActivity implements MessageListView {
         mUserAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //DispatchManager.startSlideAreaActivity(MainActivity.this, "个人资料", TypeCst.SlideArea.TYPE_USER_INFO);
+                DispatchManager.startSlideAreaActivity(MainActivity.this, "个人资料", TypeCst.SlideArea.TYPE_USER_INFO);
                 closeDrawerLayout();
             }
         });
@@ -284,6 +292,8 @@ public class MainActivity extends TitleActivity implements MessageListView {
         } else if (BroadcastCst.UNTREATED_ALERT_COUNT_UPDATE.equalsIgnoreCase(action)) {
             final int count = intent.getIntExtra(AppCst.COMMON_DATA, 0);
             initTabRedPointCount(count);
+        } else if (BroadcastCst.USER_INFO_UPDATE.equalsIgnoreCase(action)) {
+            initUserInfo();
         }
     }
 
@@ -343,12 +353,16 @@ public class MainActivity extends TitleActivity implements MessageListView {
 
     @Override
     public void showLoading() {
-
+        if (null != mLoadingView && !mLoadingView.isShowing()) {
+            mLoadingView.show();
+        }
     }
 
     @Override
     public void hideLoading() {
-
+        if (null != mLoadingView) {
+            mLoadingView.dismiss();
+        }
     }
 
 }

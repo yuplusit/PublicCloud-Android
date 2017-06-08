@@ -103,14 +103,13 @@ public class CustomerDetailActivity extends TitleActivity implements ProjectList
         mProjectList = new ArrayList<>();
         mToolbar = getToolbar();
 
+        mLoadingView = ProgressHUBDialog.createDialog(this);
         mProjectPresenter.findProjectListByCustomerId(String.valueOf(mCustomer.getId()));
     }
 
     @Override
     protected void initView() {
         super.initView();
-
-        mLoadingView = ProgressHUBDialog.createDialog(this);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

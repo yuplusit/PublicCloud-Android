@@ -62,7 +62,9 @@ public class DensityUtils {
         return new Pair<Integer, Integer>(screenWidth, screenHeight);
     }
 
-    /** 获取状态栏高度
+    /**
+     * 获取状态栏高度
+     *
      * @param v
      * @return
      */

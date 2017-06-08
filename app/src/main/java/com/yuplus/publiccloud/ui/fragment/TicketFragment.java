@@ -12,6 +12,8 @@ import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
 import com.yuplus.publiccloud.mvp.presenter.TicketsPresenter;
 import com.yuplus.publiccloud.mvp.view.TicketsListView;
+import com.yuplus.publiccloud.ui.DispatchManager;
+import com.yuplus.publiccloud.ui.adapter.BaseUltimateViewAdapter;
 import com.yuplus.publiccloud.ui.adapter.TicketAdapter;
 import com.yuplus.publiccloud.ui.base.BaseFragment;
 import com.yuplus.publiccloud.ui.dialog.ProgressHUBDialog;
@@ -28,7 +30,7 @@ import butterknife.BindView;
  * @desc
  */
 
-public class OrderFragment extends BaseFragment implements TicketsListView {
+public class TicketFragment extends BaseFragment implements TicketsListView {
 
     @BindView(R.id.order_id_recyclerview)
     XRecyclerView mXRecyclerView;
@@ -41,16 +43,16 @@ public class OrderFragment extends BaseFragment implements TicketsListView {
     private TicketAdapter    mTicketAdapter;
     private List<TicketBean> mTicketList;
 
-    public static OrderFragment newInstance() {
+    public static TicketFragment newInstance() {
         Bundle args = new Bundle();
-        OrderFragment fragment = new OrderFragment();
+        TicketFragment fragment = new TicketFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     protected int getLayoutRes() {
-        return R.layout.fragment_order;
+        return R.layout.fragment_ticket;
     }
 
     @Override
@@ -64,12 +66,12 @@ public class OrderFragment extends BaseFragment implements TicketsListView {
     protected void init(Bundle savedInstanceState) {
         super.init(savedInstanceState);
         mTicketList = new ArrayList<>();
+        mLoadingView = ProgressHUBDialog.createDialog(getActivity());
     }
 
     @Override
     protected void initView() {
         super.initView();
-        mLoadingView = ProgressHUBDialog.createDialog(getActivity());
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -103,6 +105,13 @@ public class OrderFragment extends BaseFragment implements TicketsListView {
             @Override
             public void onLoadMore() {
 
+            }
+        });
+        mTicketAdapter.setOnItemClickListener(new BaseUltimateViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                final TicketBean ticket = mTicketAdapter.getItem(position);
+                DispatchManager.startTicketDetalActivity(getActivity(), ticket);
             }
         });
     }

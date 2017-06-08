@@ -8,7 +8,7 @@ import com.yuplus.publiccloud.cst.TypeCst;
 import com.yuplus.publiccloud.ui.base.TitleActivity;
 import com.yuplus.publiccloud.ui.fragment.AlertFragment;
 import com.yuplus.publiccloud.ui.fragment.DeviceFragment;
-import com.yuplus.publiccloud.ui.fragment.OrderFragment;
+import com.yuplus.publiccloud.ui.fragment.TicketFragment;
 import com.yuplus.publiccloud.util.FragmentUtils;
 
 /**
@@ -56,7 +56,7 @@ public class CustomerAreaActivity extends TitleActivity {
                 FragmentUtils.showFragment(getSupportFragmentManager(), AlertFragment.newInstance(mDomain), R.id.fragment_id_containter);
                 break;
             case TypeCst.CustomerArea.ORDER_PAGE:
-                FragmentUtils.showFragment(getSupportFragmentManager(), OrderFragment.newInstance(), R.id.fragment_id_containter);
+                FragmentUtils.showFragment(getSupportFragmentManager(), TicketFragment.newInstance(), R.id.fragment_id_containter);
                 break;
         }
     }

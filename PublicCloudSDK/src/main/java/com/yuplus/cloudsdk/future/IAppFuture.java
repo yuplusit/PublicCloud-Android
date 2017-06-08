@@ -24,6 +24,26 @@ public interface IAppFuture {
     void login(String account, String password, Object tag, FutureListener listener);
 
     /**
+     * 获取当前的用户信息
+     *
+     * @param tag      网络请求TAG标记
+     * @param listener 回调操作
+     */
+    void getCurrentUserInfo(Object tag, FutureListener listener);
+
+    /**
+     * 修改用户信息
+     *
+     * @param userId      用户ID
+     * @param loginName   用户登录名称
+     * @param userName    用户显示名称
+     * @param officePhone 办公电话
+     * @param tag         网络请求TAG标记
+     * @param listener    回调操作
+     */
+    void modifyUserInfo(long userId, String loginName, String userName, String officePhone, Object tag, FutureListener listener);
+
+    /**
      * 获取不同级别的警告数据
      *
      * @param start      分页的起始位置

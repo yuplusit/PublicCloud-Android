@@ -129,14 +129,13 @@ public class DeviceDetailActivity extends TitleActivity implements KpisView, Uni
 
         mKpiList = new ArrayList<>();
         mUnitList = new ArrayList<>();
-
+        mLoadingView = ProgressHUBDialog.createDialog(this);
         mKpisPresenter.getKpisByModelId(mDevice.getModelId());
     }
 
     @Override
     protected void initView() {
         super.initView();
-        mLoadingView = ProgressHUBDialog.createDialog(this);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)

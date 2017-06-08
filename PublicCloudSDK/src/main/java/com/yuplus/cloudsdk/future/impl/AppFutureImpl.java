@@ -50,6 +50,21 @@ public class AppFutureImpl implements IAppFuture {
     }
 
     @Override
+    public void getCurrentUserInfo(Object tag, FutureListener listener) {
+        postJSON(ApiCst.GET_CURRENT_USER_API, "", tag, UserHandler.class, listener);
+    }
+
+    @Override
+    public void modifyUserInfo(long userId, String loginName, String userName, String officePhone, Object tag, FutureListener listener) {
+        MapParams requestParams = new MapParams()
+                .addParam("userID", String.valueOf(userId))
+                .addParam("loginName", loginName)
+                .addParam("userName", userName)
+                .addParam("officePhone", officePhone);
+        postJSON(ApiCst.MODIFY_USER_INFO_API, requestParams, tag, UserHandler.class, listener);
+    }
+
+    @Override
     public void getAlertByPage(int start, int pageSize, String domains, String severities, String states, Object tag, FutureListener listener) {
         MapParams params1 = new MapParams()
                 .addParam("domain", domains == null ? "" : domains)

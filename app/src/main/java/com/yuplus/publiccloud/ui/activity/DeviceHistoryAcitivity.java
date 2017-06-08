@@ -111,12 +111,12 @@ public class DeviceHistoryAcitivity extends TitleActivity implements KpiValueVie
         mTestTimeList = new ArrayList<>();
         mTestValueList = new ArrayList<>();
         mUUID = UUID.randomUUID().toString();
+        mLoadingView = ProgressHUBDialog.createDialog(this);
     }
 
     @Override
     protected void initView() {
         super.initView();
-        mLoadingView = ProgressHUBDialog.createDialog(this);
 
         if (StringUtils.isNotBlank(mTestName)) {
             mTestNameTv.setText(mTestName);

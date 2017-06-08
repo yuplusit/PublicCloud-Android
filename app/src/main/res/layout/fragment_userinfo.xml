@@ -1,7 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/common_white"
+            android:orientation="vertical">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_white"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/userinfo_id_identify_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/common_id_toolbar"
+            android:layout_marginLeft="@dimen/margin_30dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/login_edit_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_info_identify"/>
+
+                <com.yuplus.publiccloud.ui.widget.ClearableEditText
+                    android:id="@+id/userinfo_id_identify"
+                    style="@style/login_edit_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:layout_marginRight="@dimen/margin_20dp"
+                    android:background="@null"
+                    android:inputType="text"
+                    android:text="@string/user_info_identify_admin"/>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/userinfo_id_identify_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height_0.5dp"
+                android:layout_below="@id/login_id_account"
+                android:background="@color/edit_border_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/login_edit_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_info_tel"/>
+
+                <com.yuplus.publiccloud.ui.widget.ClearableEditText
+                    android:id="@+id/userinfo_id_login_tel"
+                    style="@style/login_edit_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_weight="1"
+                    android:background="@null"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height_0.5dp"
+                android:background="@color/edit_border_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/login_edit_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_info_email"/>
+
+                <com.yuplus.publiccloud.ui.widget.ClearableEditText
+                    android:id="@+id/userinfo_id_email"
+                    style="@style/login_edit_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:layout_marginRight="@dimen/margin_20dp"
+                    android:background="@null"
+                    android:inputType="text"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height_0.5dp"
+                android:layout_below="@id/login_id_account"
+                android:background="@color/edit_border_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/login_edit_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_info_login_name"/>
+
+                <com.yuplus.publiccloud.ui.widget.ClearableEditText
+                    android:id="@+id/userinfo_id_login_name"
+                    style="@style/login_edit_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:layout_marginRight="@dimen/margin_20dp"
+                    android:background="@null"
+                    android:inputType="text"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height_0.5dp"
+                android:layout_below="@id/login_id_account"
+                android:background="@color/edit_border_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/login_edit_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_info_show_name"/>
+
+                <com.yuplus.publiccloud.ui.widget.ClearableEditText
+                    android:id="@+id/userinfo_id_show_name"
+                    style="@style/login_edit_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:layout_marginRight="@dimen/margin_20dp"
+                    android:background="@null"
+                    android:inputType="text"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height_0.5dp"
+                android:layout_below="@id/login_id_account"
+                android:background="@color/edit_border_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/login_edit_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_info_office_tel"/>
+
+                <com.yuplus.publiccloud.ui.widget.ClearableEditText
+                    android:id="@+id/userinfo_id_work_tel"
+                    style="@style/login_edit_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:layout_marginRight="@dimen/margin_20dp"
+                    android:background="@null"
+                    android:inputType="text"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height_0.5dp"
+                android:layout_below="@id/login_id_account"
+                android:background="@color/edit_border_color"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/userinfo_id_confirm_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_30dp"
+            android:layout_marginRight="@dimen/margin_30dp"
+            android:layout_marginTop="@dimen/margin_70dp"
+            android:background="@drawable/common_round_primary_btn"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingBottom="@dimen/padding_12dp"
+            android:paddingTop="@dimen/padding_12dp"
+            android:text="@string/user_info_save"
+            android:textColor="@color/common_text_color_white_to_primary"
+            android:textSize="@dimen/font_18sp"/>
+
+    </LinearLayout>
+</ScrollView>

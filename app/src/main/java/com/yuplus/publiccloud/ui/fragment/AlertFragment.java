@@ -129,6 +129,8 @@ public class AlertFragment extends BaseFragment implements AlertListView, KpiVal
         mViewList.add(mNewAlertIconLl);
         mViewList.add(mDealingAlertIconLl);
         mViewList.add(mFinishAlertIconLl);
+
+        mLoadingView = ProgressHUBDialog.createDialog(getActivity());
         mAlertPresenter.getAlert(true, start, AppCst.PAGE_SIZE, mDomian, severities, states);
 
         registerAction(BroadcastCst.ALERT_INFO_UPDATE);
@@ -137,7 +139,6 @@ public class AlertFragment extends BaseFragment implements AlertListView, KpiVal
     @Override
     protected void initView() {
         super.initView();
-        mLoadingView = ProgressHUBDialog.createDialog(getActivity());
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

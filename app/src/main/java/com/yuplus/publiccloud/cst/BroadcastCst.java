@@ -15,4 +15,6 @@ public class BroadcastCst {
     public static final String DEVICE_INFO_UPDATE           = PROJECT_NAME + "_device_info_update_action";
     //更新告警信息
     public static final String ALERT_INFO_UPDATE            = PROJECT_NAME + "_alert_info_update_action";
+    //用户信息的修改
+    public static final String USER_INFO_UPDATE             = PROJECT_NAME + "_user_info_update_action";
 }

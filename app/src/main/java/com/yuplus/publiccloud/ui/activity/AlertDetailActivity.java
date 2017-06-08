@@ -99,12 +99,12 @@ public class AlertDetailActivity extends TitleActivity implements AlertActionVie
         setShowTitle(true);
         setTitle("告警处理");
         setShowHomeBack();
+        mLoadingView = ProgressHUBDialog.createDialog(this);
     }
 
     @Override
     protected void initView() {
         super.initView();
-        mLoadingView = ProgressHUBDialog.createDialog(this);
         IconFontUtils.setIconFont(mStateFlagTv, EAppIconFont.APP_ALERT_FLAG_ICON);
         IconFontUtils.setIconFont(mFirstAlertIcon, EAppIconFont.APP_CLOCK_OPEN_ICON);
         IconFontUtils.setIconFont(mRecentAlertIcon, EAppIconFont.APP_CLOCK_DOING_ICON);

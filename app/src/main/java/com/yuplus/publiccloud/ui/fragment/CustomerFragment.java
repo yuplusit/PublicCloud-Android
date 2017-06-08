@@ -81,14 +81,14 @@ public class CustomerFragment extends BaseFragment implements CustomerView, KpiV
         mCustomerInfoList = new ArrayList<>();
         mConfigurationList = new ArrayList<>();
         mKpiValueBeanList = new ArrayList<>();
+
+        mLoadingView = ProgressHUBDialog.createDialog(getActivity());
         mCustomerPresenter.getCustomerListInfo();
     }
 
     @Override
     protected void initView() {
         super.initView();
-
-        mLoadingView = ProgressHUBDialog.createDialog(getActivity());
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

@@ -22,15 +22,24 @@ public class ApiCst {
         }
     }
 
-    public static final  String HOST_NAME      = mSdkConfiguration.getHttpHost();
-    public static final  int    PORT           = mSdkConfiguration.getHttpPort();
-    public static final  String ROUTE          = mSdkConfiguration.getBasePath();
-    public static final  String SERVER_ADDRESS = HOST_NAME + (PORT != 80 && PORT > 0 ? (":" + PORT) : "");
+    public static final String HOST_NAME      = mSdkConfiguration.getHttpHost();
+    public static final int    PORT           = mSdkConfiguration.getHttpPort();
+    public static final String ROUTE          = mSdkConfiguration.getBasePath();
+    public static final String SERVER_ADDRESS = HOST_NAME + (PORT != 80 && PORT > 0 ? (":" + PORT) : "");
     public static final String REQUEST_API    = SERVER_ADDRESS + ROUTE;
 
 
     //登录接口
     public static final String LOGIN_API = REQUEST_API + "/userLoginUIService/login";
+
+    //获取当前的用户信息
+    public static final String GET_CURRENT_USER_API = REQUEST_API + "/userLoginUIService/getCurrentUser";
+
+    //修改用户信息接口
+    public static final String MODIFY_USER_INFO_API = REQUEST_API + "/userUIService/modifyUser";
+
+    //获取用户的角色
+    public static final String  QUERY_ENTERPRISE_ROLE = REQUEST_API + "/userEnterpriseService/queryEnterpriseRole";
 
     //获取警告信息接口
     public static final String GET_ALERT_BY_PAGE_API = REQUEST_API + "/alertQueryFlexService/getAlertByPage";

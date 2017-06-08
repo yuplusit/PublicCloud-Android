@@ -32,6 +32,9 @@
 
     <color name="common_tab_item_bg">#FFFBFBFB</color>
 
+    <color name="userinfo_bg_color">#FFFAFAFA</color>
+    <color name="ed_bg_grey_color">#FFEEEEEE</color>
+
     <color name="progress_hub_text_color">#FFFFFF</color>
     <color name="progress_hub_bg_color">#DF404040</color>
     <color name="edit_border_color">#FFECECEC</color>
