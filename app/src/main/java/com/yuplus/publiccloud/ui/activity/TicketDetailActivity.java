@@ -31,6 +31,16 @@ public class TicketDetailActivity extends TitleActivity {
     }
 
     @Override
+    protected void initView() {
+        super.initView();
+    }
+
+    @Override
+    protected void initListener() {
+        super.initListener();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
     }

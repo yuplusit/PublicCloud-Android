@@ -11,15 +11,6 @@
     <string name="common_null">——</string>
     <string name="common_edittext_device_hint">输入要查找的设备</string>
 
-    <string name="menu_square_bingo">我的首页</string>
-    <string name="menu_my_bingo">我的分享</string>
-    <string name="menu_my_favorite">我的收藏</string>
-    <string name="menu_change_theme">设置主题</string>
-    <string name="menu_send_to_friend">发送给好友</string>
-    <string name="menu_share">分享</string>
-    <string name="menu_feedback">反馈</string>
-    <string name="menu_about">关于</string>
-
     <string name="login_account">账号</string>
     <string name="login_password">密码</string>
     <string name="login_again">请重新登录！</string>
@@ -86,4 +77,12 @@
     <string name="user_info_save">保存信息</string>
     <string name="user_info_modify_success">信息修改成功</string>
     <string name="user_info_not_modifty">抱歉，此处用户信息不能修改</string>
+
+    <!-- activity区域 -->
+    <string name="main_home_title">首页</string>
+    <string name="main_customer_title">客户</string>
+    <string name="main_device_title">设备</string>
+    <string name="main_alert_title">告警</string>
+    <string name="main_ticket_title">工单</string>
+
 </resources>
