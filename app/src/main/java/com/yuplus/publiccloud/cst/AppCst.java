@@ -1,6 +1,6 @@
 package com.yuplus.publiccloud.cst;
 
-import com.yuplus.cloudsdk.future.ApiCst;
+import com.yuplus.publiccloud.BuildConfig;
 
 /**
  * @user longzhen
@@ -9,25 +9,25 @@ import com.yuplus.cloudsdk.future.ApiCst;
  */
 
 public class AppCst {
-    public static final String APP_NAME = "PublicCloud";
+    public static final String APP_NAME = BuildConfig.APP_NAME;
 
     //SP名字
     public static final String SHAREDPREFERENCES_NAME = APP_NAME;
 
     //服务器地址
-    public static final String SERVER_HOST = "http://demo.proudsmart.com";//"http://36.110.36.118";
+    public static final String SERVER_HOST = BuildConfig.SERVER_HOST;
 
     //服务器端口
-    public static final int SERVER_PORT = 80;//8095;
+    public static final int SERVER_PORT = BuildConfig.SERVER_PORT;
 
     //忘记密码Web url
-    public static final String FORGET_PASSWORD_URL = ApiCst.SERVER_ADDRESS + "/app-uc/forgetPassword.html";
+    public static final String FORGET_PASSWORD_URL = BuildConfig.FORGET_PASSWORD_URL;
 
     //WebSocket地址
-    public static final String WEBSOCKET_ADDRESS = "wss://yzt.raonecloud.com/websocket/message";
+    public static final String WEBSOCKET_ADDRESS = BuildConfig.WEBSOCKET_MESSAGE;
 
     //Api基本path
-    public static final String SERVER_BASE_PATH = "/api/rest/post";
+    public static final String SERVER_BASE_PATH = BuildConfig.SERVER_BASE_PATH;
 
     //SplashActivity页面过度的时间
     public static final int SPLASH_TRANSITION_TIME = 3000;

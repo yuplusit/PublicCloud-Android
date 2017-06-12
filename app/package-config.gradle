@@ -1,0 +1,126 @@
+android {
+    compileSdkVersion Integer.parseInt(project.COMPILE_SDK_VERSION)
+    buildToolsVersion BUILDTOOLS_VERSION
+    defaultConfig {
+        applicationId APPLICATION_ID
+        minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
+        versionCode Integer.parseInt(project.PROJCET_VERSION_CODE)
+        versionName PROJCET_VERSION_NAME
+
+        //Enabling multidex support.
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "APP_NAME", "\"PublicCloud\""
+        buildConfigField "String", "SERVER_HOST", "\"http://demo.proudsmart.com\""
+        buildConfigField "Integer", "SERVER_PORT", "80"
+        buildConfigField "String", "SERVER_BASE_PATH", "\"/api/rest/post\""
+        buildConfigField "String", "FORGET_PASSWORD_URL", "\"http://demo.proudsmart.com/app-uc/forgetPassword.html\""
+        buildConfigField "String", "WESITE_URL", "\"http://demo.proudsmart.com\""
+        buildConfigField "String", "WEBSOCKET_MESSAGE", "\"wss://yzt.raonecloud.com/websocket/message\""
+        buildConfigField "boolean", "APP_DEBUG", "true"
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("keystore/debug.keystore")
+            storePassword DEBUG_KEYSTORE_PASSWORD
+            keyAlias DEBUG_KEYSTORE_ALIAS
+            keyPassword DEBUG_KEYSTORE_PASSWORD
+        }
+
+        release {
+            storeFile file("keystore/proudsmart.keystore")
+            storePassword KEYSTORE_PASSWORD
+            keyAlias KEYSTORE_ALIAS
+            keyPassword KEYSTORE_PASSWORD
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            zipAlignEnabled true
+            applicationIdSuffix ".debug"
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            //混淆
+            minifyEnabled false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    buildTypes.all { buildType ->
+        Properties properties = new Properties()
+        File pFile = null
+        if (buildType.name == 'release') {
+            pFile = file('../configs/release.properties')
+        } else {
+            pFile = file('../configs/debug.properties')
+        }
+        properties.load(new FileInputStream(pFile.path))
+        if (null == properties) {
+            println '|-----------------' + buildType.name + 'properties path is error------------------|'
+            return
+        }
+
+        println '|   buildTypes ' + buildType.name + ", requestApi: " + properties['server_host'] + properties['server_port'] + properties['server_base_path'] + "|"
+
+        buildConfigField "String", "APP_NAME", "\"${PROJECT_NAME}\""
+        buildConfigField "String", "SERVER_HOST", "\"${properties['server_host']}\""
+        buildConfigField "Integer", "SERVER_PORT", "\"${properties['server_port']}\""
+        buildConfigField "String", "SERVER_BASE_PATH", "\"${properties['server_base_path']}\""
+        buildConfigField "String", "FORGET_PASSWORD_URL", "\"${properties['forget_password_url']}\""
+        buildConfigField "String", "WESITE_URL", "\"${properties['wesite_url']}\""
+        buildConfigField "String", "WEBSOCKET_MESSAGE", "\"${properties['websocket_message']}\""
+        buildConfigField "boolean", "APP_DEBUG", "${properties['debug_switch']}"
+    }
+
+    productFlavors {
+        //多渠道打包配置
+    }
+
+    productFlavors.all {
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+            assets.srcDirs = ['src/main/assets']
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+        // 防止在发布的时候出现因MissingTranslation导致Build Failed!
+        disable 'MissingTranslation'
+    }
+
+    packagingOptions {
+        //exclude 'META-INF/LICENSE' // 排除一些文件
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}

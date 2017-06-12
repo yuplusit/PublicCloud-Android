@@ -1,0 +1,69 @@
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile project(':PublicCloudSDK')
+    compile project(':XRecyclerview')
+
+    final supportLibVersion = '25.2.0'
+    final multidex = '1.0.1'
+    final butterKnife = '8.6.0'
+    final crouton = '1.8.5@aar'
+    final glide = '3.8.0'
+    final gson = '2.8.0'
+    final roundedImageview = '2.3.0'
+    final textCounter = '1.1.0'
+    final webSocket = '1.3.3'
+    final skinSupport = '1.2.7'
+    final skinSupportDesign = '1.2.4'
+    final materialDesignDialog = '1.0.0'
+
+    //SupportDependencies
+    def supportDependencies = [
+            appcompat  : "com.android.support:appcompat-v7:${supportLibVersion}",
+            cardview   : "com.android.support:cardview-v7:${supportLibVersion}",
+            annotations: "com.android.support:support-annotations:${supportLibVersion}",
+            multidex   : "com.android.support:multidex:${multidex}"
+    ]
+
+    //UiDependencies
+    def uiDependencies = [
+            roundedImageview    : "com.makeramen:roundedimageview:${roundedImageview}",
+            textCounter         : "com.github.premnirmal:TextCounter:${textCounter}",
+            crouton             : "de.keyboardsurfer.android.widget:crouton:${crouton}",
+            skinSupport         : "skin.support:skin-support:${skinSupport}",
+            skinSupportDesign   : "skin.support:skin-support-design:${skinSupportDesign}",
+            materialDesignDialog: "com.lb:materialdesigndialog:${materialDesignDialog}"
+    ]
+
+    //UtilDependencies
+    def utilDependencies = [
+            glide              : "com.github.bumptech.glide:glide:${glide}",
+            gson               : "com.google.code.gson:gson:${gson}",
+            webSocket          : "org.java-websocket:java-websocket:${webSocket}",
+            butterknifecompiler: "com.jakewharton:butterknife-compiler:${butterKnife}",
+            butterknife        : "com.jakewharton:butterknife:${butterKnife}"
+    ]
+
+    //SupportDependencies
+    compile supportDependencies.appcompat
+    compile supportDependencies.cardview
+    compile supportDependencies.annotations
+    compile supportDependencies.multidex
+
+    //UiDependencies
+    compile uiDependencies.roundedImageview
+    compile uiDependencies.textCounter
+    compile uiDependencies.skinSupport
+    compile uiDependencies.skinSupportDesign
+    compile uiDependencies.materialDesignDialog
+    compile(uiDependencies.crouton) {
+        exclude group: 'com.google.android', module: 'support-v4'
+    }
+
+    //UtilDependencies
+    compile utilDependencies.butterknifecompiler
+    compile utilDependencies.butterknife
+    compile utilDependencies.glide
+    compile utilDependencies.gson
+    compile utilDependencies.webSocket
+}
