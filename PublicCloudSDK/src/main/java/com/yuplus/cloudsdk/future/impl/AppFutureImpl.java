@@ -22,6 +22,8 @@ import com.yuplus.cloudsdk.future.handler.KpiValueListHandler;
 import com.yuplus.cloudsdk.future.handler.MessageListHandler;
 import com.yuplus.cloudsdk.future.handler.ModeListHandler;
 import com.yuplus.cloudsdk.future.handler.ProjectListHandler;
+import com.yuplus.cloudsdk.future.handler.TicketCategoryHandler;
+import com.yuplus.cloudsdk.future.handler.TicketDetailHandler;
 import com.yuplus.cloudsdk.future.handler.TicketListHandler;
 import com.yuplus.cloudsdk.future.handler.UnitListHandler;
 import com.yuplus.cloudsdk.future.handler.UserHandler;
@@ -218,8 +220,21 @@ public class AppFutureImpl implements IAppFuture {
         MapParams params1 = new MapParams()
                 .addParam("status", String.valueOf(status));
         ListParams requestParams = new ListParams()
-                .addParam(params1);
+                .addParam(params1.getParams());
         postJSON(ApiCst.TASK_FIND_TICKETS_API, requestParams, tag, TicketListHandler.class, listener);
+    }
+
+    @Override
+    public void getTicketCategorys(Object tag, FutureListener listener) {
+        ListParams requestParams = new ListParams();
+        postJSON(ApiCst.TICKERT_FLOW_API, requestParams, tag, TicketCategoryHandler.class, listener);
+    }
+
+    @Override
+    public void getByTicketNo(long ticketNo, Object tag, FutureListener listener) {
+        LongParams requestParams = new LongParams()
+                .addParam(ticketNo);
+        postJSON(ApiCst.GET_TICKET_NO_DETAIL_API, requestParams, tag, TicketDetailHandler.class, listener);
     }
 
     @Override

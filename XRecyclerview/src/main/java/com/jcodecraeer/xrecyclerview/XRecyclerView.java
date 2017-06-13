@@ -188,6 +188,12 @@ public class XRecyclerView extends RecyclerView {
 
     public void setEmptyView(View emptyView) {
         this.mEmptyView = emptyView;
+        this.mEmptyView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                refresh();
+            }
+        });
         mDataObserver.onChanged();
     }
 

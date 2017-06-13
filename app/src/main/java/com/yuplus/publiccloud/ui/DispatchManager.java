@@ -17,12 +17,16 @@ import com.yuplus.publiccloud.ui.activity.CustomerDetailActivity;
 import com.yuplus.publiccloud.ui.activity.DeviceDetailActivity;
 import com.yuplus.publiccloud.ui.activity.DeviceHistoryAcitivity;
 import com.yuplus.publiccloud.ui.activity.FeedbackActivity;
+import com.yuplus.publiccloud.ui.activity.GalleryImagesActivity;
 import com.yuplus.publiccloud.ui.activity.LoginActivity;
 import com.yuplus.publiccloud.ui.activity.MainActivity;
 import com.yuplus.publiccloud.ui.activity.QRCodeActivity;
 import com.yuplus.publiccloud.ui.activity.SlideAreaActivity;
 import com.yuplus.publiccloud.ui.activity.TicketDetailActivity;
 import com.yuplus.publiccloud.ui.activity.WebActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @user longzhen
@@ -217,6 +221,24 @@ public class DispatchManager {
         }
         Intent intent = new Intent(context, TicketDetailActivity.class);
         intent.putExtra(AppCst.COMMON_DATA, (Parcelable) ticket);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 调到公用的图片展示界面
+     *
+     * @param context
+     * @param title
+     * @param imageList
+     */
+    public static void startGalleryImagesActivity(Context context, String title, List<String> imageList,int position) {
+        if (null == context) {
+            return;
+        }
+        Intent intent = new Intent(context, GalleryImagesActivity.class);
+        intent.putExtra(AppCst.COMMON_TITLE, title);
+        intent.putStringArrayListExtra(AppCst.COMMON_DATA, (ArrayList<String>) imageList);
+        intent.putExtra(AppCst.COMMON_KEY,position);
         context.startActivity(intent);
     }
 

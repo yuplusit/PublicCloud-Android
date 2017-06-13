@@ -7,6 +7,8 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_6dp"
+        android:paddingRight="@dimen/padding_4dp"
         android:background="@drawable/btn_shadow_bg">
 
         <TextView
@@ -15,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/common_white"
-            android:textSize="@dimen/font_22sp"/>
+            android:textSize="@dimen/font_20sp"/>
 
         <TextView
             android:id="@+id/message_id_icon_dig"

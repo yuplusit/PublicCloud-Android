@@ -1,5 +1,6 @@
 package com.yuplus.publiccloud.ui.base;
 
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.LinearLayout;
@@ -25,7 +26,7 @@ public abstract class TitleActivity extends BaseActivity {
 
     private int mShowHomeAsUpRes;
     private boolean mShowTextTitle = true;
-    private TextView mTitleTv;
+    private TextView     mTitleTv;
     private LinearLayout mMenuLayout;
 
     @Override
@@ -34,6 +35,12 @@ public abstract class TitleActivity extends BaseActivity {
         if (null != mTitleTv) {
             mTitleTv.setText(title);
         }
+    }
+
+    @Override
+    protected void init(Bundle savedInstanceState) {
+        super.init(savedInstanceState);
+        //setToolbarDefaultBackground();
     }
 
     public void setToolbarDefaultBackground() {

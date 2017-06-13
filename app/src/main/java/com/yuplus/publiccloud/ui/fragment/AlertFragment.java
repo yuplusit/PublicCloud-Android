@@ -294,15 +294,19 @@ public class AlertFragment extends BaseFragment implements AlertListView, KpiVal
     }
 
     private void showRedPointFlag(TextView view, long value) {
-        if (value == 0) {
-            view.setVisibility(View.GONE);
-        } else {
-            view.setVisibility(View.VISIBLE);
-            if (value <= 99L) {
-                view.setText(String.valueOf(value));
+        if (AppCst.ALERT_RED_POINT_SWITCH) {
+            if (value == 0) {
+                view.setVisibility(View.GONE);
             } else {
-                view.setText("99+");
+                view.setVisibility(View.VISIBLE);
+                if (value <= 99L) {
+                    view.setText(String.valueOf(value));
+                } else {
+                    view.setText("99+");
+                }
             }
+        } else {
+            view.setVisibility(View.GONE);
         }
     }
 

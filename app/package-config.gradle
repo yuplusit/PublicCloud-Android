@@ -14,12 +14,13 @@ android {
 
         buildConfigField "String", "APP_NAME", "\"PublicCloud\""
         buildConfigField "String", "SERVER_HOST", "\"http://demo.proudsmart.com\""
-        buildConfigField "Integer", "SERVER_PORT", "80"
+        buildConfigField "int", "SERVER_PORT", "80"
         buildConfigField "String", "SERVER_BASE_PATH", "\"/api/rest/post\""
         buildConfigField "String", "FORGET_PASSWORD_URL", "\"http://demo.proudsmart.com/app-uc/forgetPassword.html\""
         buildConfigField "String", "WESITE_URL", "\"http://demo.proudsmart.com\""
         buildConfigField "String", "WEBSOCKET_MESSAGE", "\"wss://yzt.raonecloud.com/websocket/message\""
         buildConfigField "boolean", "APP_DEBUG", "true"
+        buildConfigField "boolean", "ALERT_RED_POINT_SWITCH", "false"
     }
 
     dexOptions {
@@ -78,12 +79,13 @@ android {
 
         buildConfigField "String", "APP_NAME", "\"${PROJECT_NAME}\""
         buildConfigField "String", "SERVER_HOST", "\"${properties['server_host']}\""
-        buildConfigField "Integer", "SERVER_PORT", "\"${properties['server_port']}\""
+        buildConfigField "int", "SERVER_PORT", "${properties['server_port']}"
         buildConfigField "String", "SERVER_BASE_PATH", "\"${properties['server_base_path']}\""
         buildConfigField "String", "FORGET_PASSWORD_URL", "\"${properties['forget_password_url']}\""
         buildConfigField "String", "WESITE_URL", "\"${properties['wesite_url']}\""
         buildConfigField "String", "WEBSOCKET_MESSAGE", "\"${properties['websocket_message']}\""
         buildConfigField "boolean", "APP_DEBUG", "${properties['debug_switch']}"
+        buildConfigField "boolean", "ALERT_RED_POINT_SWITCH", "${properties['alert_red_point_switch']}"
     }
 
     productFlavors {

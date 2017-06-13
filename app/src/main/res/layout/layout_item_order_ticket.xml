@@ -19,7 +19,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
@@ -37,24 +36,23 @@
                         android:id="@+id/ticket_id_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:singleLine="true"
+
                         android:ellipsize="end"
-                        android:text="流量过大"
+                        android:singleLine="true"
                         android:textColor="@color/font_primary"
-                        android:textSize="@dimen/font_15sp" />
+                        android:textSize="@dimen/font_15sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:textColor="@color/common_white"
-                        android:paddingTop="@dimen/padding_1dp"
-                        android:paddingBottom="@dimen/padding_1dp"
                         android:layout_marginLeft="@dimen/margin_10dp"
+                        android:background="@drawable/common_round_warning_bg"
+                        android:gravity="center"
                         android:paddingLeft="@dimen/padding_5dp"
                         android:paddingRight="@dimen/padding_5dp"
-                        android:background="@drawable/common_round_warning_bg"
-                        android:textSize="@dimen/font_12sp"
-                        android:text="处理中"/>
+                        android:text="处理中"
+                        android:textColor="@color/common_white"
+                        android:textSize="@dimen/font_12sp"/>
                 </LinearLayout>
 
                 <TextView
@@ -62,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/font_secondary"
-                    android:textSize="@dimen/font_12sp" />
+                    android:textSize="@dimen/font_12sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -71,28 +69,63 @@
                 android:layout_marginTop="@dimen/margin_3dp">
 
                 <TextView
+                    android:id="@+id/ticket_id_liucheng"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_13sp"/>
+
+                <TextView
+                    android:id="@+id/ticket_id_handle_people"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
                     android:id="@+id/ticket_id_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_10dp"
                     android:layout_weight="1"
-                    android:singleLine="true"
                     android:ellipsize="end"
-                    android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_14sp" />
+                    android:singleLine="true"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_13sp"/>
+
+                <TextView
+                    android:id="@+id/ticket_id_history_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/common_round_primary_small_bg"
+                    android:paddingBottom="@dimen/padding_4dp"
+                    android:paddingLeft="@dimen/padding_8dp"
+                    android:paddingRight="@dimen/padding_8dp"
+                    android:paddingTop="@dimen/padding_4dp"
+                    android:text="@string/common_handle_history"
+                    android:textColor="@color/common_text_color_white_to_black"
+                    android:textSize="@dimen/font_12sp"/>
             </LinearLayout>
         </LinearLayout>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/margin_5dp"
-            android:src="@drawable/item_arrow" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/line_height_1dp"
-        android:background="@color/common_window_background" />
+        android:background="@color/common_window_background"/>
 
 </LinearLayout>

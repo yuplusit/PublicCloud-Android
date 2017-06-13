@@ -22,6 +22,7 @@
     <color name="common_transparent">#00000000</color>
     <color name="common_transparent_40_precent">#3C000000</color>
     <color name="common_transparent_65_precent">#85000000</color>
+    <color name="common_half_transparent">#7F000000</color>
     <color name="common_background_color">#FFF5F5F5</color>
     <color name="common_alpha_black">#90000000</color>
     <color name="common_text_gray">#7C7C7C</color>
@@ -31,6 +32,9 @@
     <color name="common_line_color">#FFD7D7D7</color>
 
     <color name="common_tab_item_bg">#FFFBFBFB</color>
+
+    <color name="userinfo_bg_color">#FFFAFAFA</color>
+    <color name="ed_bg_grey_color">#FFEEEEEE</color>
 
     <color name="progress_hub_text_color">#FFFFFF</color>
     <color name="progress_hub_bg_color">#DF404040</color>
@@ -57,4 +61,7 @@
     <color name="skin_style_blue_color">#FF388AB9</color>
     <color name="skin_style_green_color">#FF159F85</color>
     <color name="skin_style_dullgrey_color">#FF3B4E5F</color>
+
+    <color name="time_line_start_color">#FF00B9B2</color>
+    <color name="time_line_ing_title_color">#FF3C8DCB</color>
 </resources>

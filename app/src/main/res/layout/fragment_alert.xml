@@ -57,9 +57,9 @@
                 android:background="@drawable/common_little_red_point_bg"
                 android:paddingLeft="@dimen/padding_4dp"
                 android:paddingRight="@dimen/padding_4dp"
-                android:text="13"
                 android:textColor="@color/common_white"
-                android:textSize="@dimen/font_9sp"/>
+                android:textSize="@dimen/font_9sp"
+                android:visibility="gone"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -109,7 +109,7 @@
                 android:background="@drawable/common_little_red_point_bg"
                 android:paddingLeft="@dimen/padding_4dp"
                 android:paddingRight="@dimen/padding_4dp"
-                android:text="13"
+                android:visibility="gone"
                 android:textColor="@color/common_white"
                 android:textSize="@dimen/font_9sp"/>
         </RelativeLayout>
@@ -163,7 +163,7 @@
                 android:background="@drawable/common_little_red_point_bg"
                 android:paddingLeft="@dimen/padding_4dp"
                 android:paddingRight="@dimen/padding_4dp"
-                android:text="13"
+                android:visibility="gone"
                 android:textColor="@color/common_white"
                 android:textSize="@dimen/font_9sp"/>
         </RelativeLayout>
@@ -215,7 +215,7 @@
                 android:background="@drawable/common_little_red_point_bg"
                 android:paddingLeft="@dimen/padding_4dp"
                 android:paddingRight="@dimen/padding_4dp"
-                android:text="3"
+                android:visibility="gone"
                 android:textColor="@color/common_white"
                 android:textSize="@dimen/font_9sp"/>
         </RelativeLayout>

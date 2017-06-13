@@ -81,6 +81,11 @@
             android:screenOrientation="portrait"/>
 
         <activity
+            android:name=".ui.activity.GalleryImagesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeDefaultAnimationStyle"/>
+
+        <activity
             android:name=".ui.activity.TestApiActivity"
             android:screenOrientation="portrait"/>
 
@@ -94,6 +99,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="com.yuplus.publiccloud.LOGIN_AGAIN_ACTION"/>
+                <action android:name="com.yuplus.publiccloud.debug.LOGIN_AGAIN_ACTION"/>
             </intent-filter>
         </receiver>
     </application>

@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:skin="http://schemas.android.com/android/skin"
-    android:id="@+id/toolbar_common"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/height_toolbar_size"
-    android:background="@color/colorPrimary"
-    android:minHeight="@dimen/height_toolbar_size"
-    skin:enable="true">
+                                   android:id="@+id/toolbar_common"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="@dimen/height_toolbar_size"
+                                   android:background="@color/colorPrimary"
+                                   android:minHeight="@dimen/height_toolbar_size">
 
     <ViewStub
         android:id="@+id/toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout="@layout/layout_toolbar_title" />
+        android:layout="@layout/layout_toolbar_title"/>
 
     <ViewStub
         android:id="@+id/toolbar_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginRight="@dimen/margin_16dp"
-        android:layout="@layout/layout_toolbar_menu" />
+        android:layout_marginRight="@dimen/margin_12dp"
+        android:layout="@layout/layout_toolbar_menu"/>
 </android.support.v7.widget.Toolbar>

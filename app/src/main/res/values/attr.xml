@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="AnimateHorizontalProgressBar">
-        <attr name="ahp_progressColor" format="color|reference" />
-        <attr name="ahp_backgroundColor" format="color|reference" />
-        <attr name="ahp_cornerRadius" format="dimension|reference" />
+        <attr name="ahp_progressColor" format="color|reference"/>
+        <attr name="ahp_backgroundColor" format="color|reference"/>
+        <attr name="ahp_cornerRadius" format="dimension|reference"/>
     </declare-styleable>
 
     <declare-styleable name="ExpandableLayout">
         <attr name="el_headerLayout" format="reference"/>
-        <attr name="el_contentLayout" format="reference" />
-        <attr name="el_duration" format="integer" />
+        <attr name="el_contentLayout" format="reference"/>
+        <attr name="el_duration" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="timeline_style">
+        <attr name="marker" format="color|reference"/>
+        <attr name="line" format="color|reference"/>
+        <attr name="markerSize" format="dimension"/>
+        <attr name="lineSize" format="dimension"/>
+        <attr name="lineOrientation" format="enum">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr name="linePadding" format="dimension"/>
+        <attr name="markerInCenter" format="boolean"/>
     </declare-styleable>
 </resources>

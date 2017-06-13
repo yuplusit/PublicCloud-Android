@@ -29,6 +29,9 @@ public class AppCst {
     //Api基本path
     public static final String SERVER_BASE_PATH = BuildConfig.SERVER_BASE_PATH;
 
+    //告警小红点开关
+    public static final boolean ALERT_RED_POINT_SWITCH = BuildConfig.ALERT_RED_POINT_SWITCH;
+
     //SplashActivity页面过度的时间
     public static final int SPLASH_TRANSITION_TIME = 3000;
 

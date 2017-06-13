@@ -9,6 +9,7 @@
     <string name="common_exit_tip">再按一次退出应用</string>
     <string name="common_no_more_data">没有更多的数据了</string>
     <string name="common_null">——</string>
+    <string name="common_handle_history">执行历史</string>
     <string name="common_edittext_device_hint">输入要查找的设备</string>
 
     <string name="login_account">账号</string>

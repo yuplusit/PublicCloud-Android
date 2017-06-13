@@ -15,17 +15,17 @@ import java.util.List;
 
 public class TicketBean extends BaseBean {
 
-    private String ticketNo;
+    private long   ticketNo;
     private int    priorityCode;
     private int    status;
     private String category;
     private long   ticketCategoryId;
-    private long    processDefinitionId;
+    private long   processDefinitionId;
     private String title;
     private String message;
     private long   creatorId;
     private String creatorName;
-    private long    handlerId;
+    private long   handlerId;
     private String handlerName;
     private String candidateUserOrGroup;
     private String finishedTime;
@@ -36,18 +36,21 @@ public class TicketBean extends BaseBean {
     private String     processInstanceId;
     private String     domainPath;
     private long       deviceId;
-    private long        faultId;
+    private long       faultId;
     private String     origType;
-    private long        maintenanceTaskId;
+    private long       maintenanceTaskId;
     private String     projectDomains;
     private boolean    newDesign;
     private List<Long> origId;
 
-    public String getTicketNo() {
+    //后拼接
+    private String flowDesc;
+
+    public long getTicketNo() {
         return ticketNo;
     }
 
-    public void setTicketNo(String ticketNo) {
+    public void setTicketNo(long ticketNo) {
         this.ticketNo = ticketNo;
     }
 
@@ -131,7 +134,7 @@ public class TicketBean extends BaseBean {
         this.handlerId = handlerId;
     }
 
-    public Object getHandlerName() {
+    public String getHandlerName() {
         return handlerName;
     }
 
@@ -251,7 +254,15 @@ public class TicketBean extends BaseBean {
         this.origId = origId;
     }
 
-    public static class ValuesBean extends BaseBean{
+    public String getFlowDesc() {
+        return flowDesc;
+    }
+
+    public void setFlowDesc(String flowDesc) {
+        this.flowDesc = flowDesc;
+    }
+
+    public static class ValuesBean extends BaseBean {
         private String ticketNo;
         private int    faultId;
         private long   deviceId;
@@ -321,7 +332,7 @@ public class TicketBean extends BaseBean {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.ticketNo);
+        dest.writeLong(this.ticketNo);
         dest.writeInt(this.priorityCode);
         dest.writeInt(this.status);
         dest.writeString(this.category);
@@ -346,6 +357,7 @@ public class TicketBean extends BaseBean {
         dest.writeLong(this.maintenanceTaskId);
         dest.writeString(this.projectDomains);
         dest.writeByte(this.newDesign ? (byte) 1 : (byte) 0);
+        dest.writeString(this.flowDesc);
         dest.writeList(this.origId);
     }
 
@@ -353,7 +365,7 @@ public class TicketBean extends BaseBean {
     }
 
     protected TicketBean(Parcel in) {
-        this.ticketNo = in.readString();
+        this.ticketNo = in.readLong();
         this.priorityCode = in.readInt();
         this.status = in.readInt();
         this.category = in.readString();
@@ -378,6 +390,7 @@ public class TicketBean extends BaseBean {
         this.maintenanceTaskId = in.readLong();
         this.projectDomains = in.readString();
         this.newDesign = in.readByte() != 0;
+        this.flowDesc = in.readString();
         this.origId = new ArrayList<Long>();
         in.readList(this.origId, Long.class.getClassLoader());
     }

@@ -47,6 +47,6 @@
         android:paddingBottom="@dimen/padding_10dp"
         android:paddingTop="@dimen/padding_10dp"
         android:text="提交反馈"
-        android:textColor="@color/common_white"
+        android:textColor="@color/common_text_color_white_to_black"
         android:textSize="@dimen/font_22sp" />
 </LinearLayout>

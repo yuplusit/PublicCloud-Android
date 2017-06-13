@@ -7,10 +7,13 @@ import android.view.View;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.yuplus.cloudsdk.future.data.bean.TicketBean;
+import com.yuplus.cloudsdk.future.data.bean.TicketCategoryBean;
 import com.yuplus.cloudsdk.util.ListUtils;
 import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
+import com.yuplus.publiccloud.mvp.presenter.TicketCategoryPresenter;
 import com.yuplus.publiccloud.mvp.presenter.TicketsPresenter;
+import com.yuplus.publiccloud.mvp.view.TicketCategoryView;
 import com.yuplus.publiccloud.mvp.view.TicketsListView;
 import com.yuplus.publiccloud.ui.DispatchManager;
 import com.yuplus.publiccloud.ui.adapter.BaseUltimateViewAdapter;
@@ -30,15 +33,16 @@ import butterknife.BindView;
  * @desc
  */
 
-public class TicketFragment extends BaseFragment implements TicketsListView {
+public class TicketFragment extends BaseFragment implements TicketsListView, TicketCategoryView {
 
     @BindView(R.id.order_id_recyclerview)
     XRecyclerView mXRecyclerView;
     @BindView(R.id.recylerview_id_empty_data)
     View          mEmptyDataView;
 
-    private TicketsPresenter  mTicketsPresenter;
-    private ProgressHUBDialog mLoadingView;
+    private TicketsPresenter        mTicketsPresenter;
+    private TicketCategoryPresenter mTicketCategoryPresenter;
+    private ProgressHUBDialog       mLoadingView;
 
     private TicketAdapter    mTicketAdapter;
     private List<TicketBean> mTicketList;
@@ -60,6 +64,9 @@ public class TicketFragment extends BaseFragment implements TicketsListView {
         mTicketsPresenter = new TicketsPresenter();
         mTicketsPresenter.setView(this);
         mTicketsPresenter.setTag(this);
+        mTicketCategoryPresenter = new TicketCategoryPresenter();
+        mTicketCategoryPresenter.setView(this);
+        mTicketCategoryPresenter.setTag(this);
     }
 
     @Override
@@ -121,9 +128,24 @@ public class TicketFragment extends BaseFragment implements TicketsListView {
         if (ListUtils.isNotEmpty(data)) {
             mTicketList.clear();
             mTicketList.addAll(data);
-            mTicketAdapter.insertAll(mTicketList);
+            mTicketCategoryPresenter.getTicketCategorys();
         } else {
             mXRecyclerView.setEmptyView(mEmptyDataView);
+        }
+    }
+
+    @Override
+    public void onRenderTicketCategoryData(List<TicketCategoryBean> data) {
+        if (ListUtils.isNotEmpty(data)) {
+            for (TicketBean ticket : mTicketList) {
+                for (TicketCategoryBean ticketCategory : data) {
+                    if (ticket.getTicketCategoryId() == ticketCategory.getId()) {
+                        ticket.setFlowDesc(ticketCategory.getName());
+                        break;
+                    }
+                }
+            }
+            mTicketAdapter.insertAll(mTicketList);
         }
         mXRecyclerView.refreshComplete();
     }

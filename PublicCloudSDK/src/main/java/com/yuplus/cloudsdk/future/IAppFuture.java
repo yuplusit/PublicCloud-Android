@@ -203,6 +203,23 @@ public interface IAppFuture {
     void findTicketsByCondition(int status, Object tag, FutureListener listener);
 
     /**
+     * 获取到工单流程
+     *
+     * @param tag
+     * @param listener
+     */
+    void getTicketCategorys(Object tag, FutureListener listener);
+
+    /**
+     * 获取工单详情
+     *
+     * @param ticketNo 工单编号
+     * @param tag      网络请求TAG标记
+     * @param listener 回调操作
+     */
+    void getByTicketNo(long ticketNo, Object tag, FutureListener listener);
+
+    /**
      * 获取系统各级别KPI/KQI数据
      *
      * @param kpiQueryModel 开放式的请求参数配置 例如:kpiQueryModel.toJson() = {"category":"ci","isRealTimeData":true,"nodeIds":[186793350166066],"kpiCodes":[3022],"startTime":null,"endTime":null,"timeRange":"","statisticType":"psiot","includeInstance":true,"condList":[]}

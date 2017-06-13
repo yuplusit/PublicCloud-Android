@@ -47,7 +47,17 @@ public class TicketAdapter extends BaseUltimateViewAdapter<TicketBean> {
                 viewHolder.mTicketDate.setText(DateUtils.timeFormat(ticket.getCommitTime(), "yyyy-MM-dd hh:mm"));
             }
             if (StringUtils.isNotBlank(ticket.getMessage())) {
-                viewHolder.mTicketDesc.setText(ticket.getMessage());
+                viewHolder.mTicketDesc.setText(String.format("详情：%1s", ticket.getMessage()));
+            } else {
+                viewHolder.mTicketDesc.setText("详情：");
+            }
+            if (StringUtils.isNotBlank(ticket.getFlowDesc())) {
+                viewHolder.mTicketLiucheng.setText(String.format("流程：%1s", ticket.getFlowDesc()));
+            } else {
+                viewHolder.mTicketLiucheng.setText("流程：");
+            }
+            if (StringUtils.isNotBlank(ticket.getHandlerName())) {
+                viewHolder.mTicketHandlePeople.setText(String.format("处理人：%1s", ticket.getHandlerName()));
             }
         }
     }
@@ -59,6 +69,12 @@ public class TicketAdapter extends BaseUltimateViewAdapter<TicketBean> {
         TextView mTicketDate;
         @BindView(R.id.ticket_id_desc)
         TextView mTicketDesc;
+        @BindView(R.id.ticket_id_liucheng)
+        TextView mTicketLiucheng;
+        @BindView(R.id.ticket_id_handle_people)
+        TextView mTicketHandlePeople;
+        @BindView(R.id.ticket_id_history_btn)
+        TextView mTicketIdHistoryBtn;
 
         public ViewHolder(View itemView) {
             super(itemView, onItemClickListener);

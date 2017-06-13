@@ -39,7 +39,7 @@ public class ApiCst {
     public static final String MODIFY_USER_INFO_API = REQUEST_API + "/userUIService/modifyUser";
 
     //获取用户的角色
-    public static final String  QUERY_ENTERPRISE_ROLE = REQUEST_API + "/userEnterpriseService/queryEnterpriseRole";
+    public static final String QUERY_ENTERPRISE_ROLE = REQUEST_API + "/userEnterpriseService/queryEnterpriseRole";
 
     //获取警告信息接口
     public static final String GET_ALERT_BY_PAGE_API = REQUEST_API + "/alertQueryFlexService/getAlertByPage";
@@ -70,6 +70,12 @@ public class ApiCst {
 
     //查找工单
     public static final String TASK_FIND_TICKETS_API = REQUEST_API + "/ticketTaskService/findTickets";
+
+    //获取工单流程
+    public static final String TICKERT_FLOW_API = REQUEST_API + "/ticketCategoryService/getTicketCategorys";
+
+    //获取工单详情
+    public static final String GET_TICKET_NO_DETAIL_API = REQUEST_API + "/ticketLogService/getByTicketNo";
 
     //获得KQI/
     public static final String GET_KPI_VALUE_LIST_API = REQUEST_API + "/kpiDataFlexService/getKpiValueList";

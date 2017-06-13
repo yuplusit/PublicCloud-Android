@@ -18,8 +18,9 @@ import java.util.List;
 public abstract class BaseUltimateViewAdapter<T> extends UltimateViewAdapter {
     protected RecyclerView mRecyclerView;
     protected List<T> mData = new ArrayList<>();
-    protected OnItemClickListener onItemClickListener;
-    protected Context             mContext;
+    protected OnItemClickListener   onItemClickListener;
+    protected OnItemClickV2Listener onItemClickV2Listener;
+    protected Context               mContext;
 
     public BaseUltimateViewAdapter(final Context context) {
         this.mContext = context;
@@ -113,12 +114,20 @@ public abstract class BaseUltimateViewAdapter<T> extends UltimateViewAdapter {
         this.onItemClickListener = onItemClickListener;
     }
 
+    public void setOnItemClickV2Listener(OnItemClickV2Listener onItemClickV2Listener) {
+        this.onItemClickV2Listener = onItemClickV2Listener;
+    }
+
     public void setRecyclerView(final RecyclerView recyclerView) {
         this.mRecyclerView = recyclerView;
     }
 
 
     public interface OnItemClickListener {
+        void onItemClick(final View view, final int position);
+    }
+
+    public interface OnItemClickV2Listener {
         void onItemClick(final View view, final int position);
     }
 }
