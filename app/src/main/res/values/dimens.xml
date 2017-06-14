@@ -113,6 +113,7 @@
     <dimen name="width_18dp">18dp</dimen>
     <dimen name="width_20dp">20dp</dimen>
     <dimen name="width_25dp">25dp</dimen>
+    <dimen name="width_26dp">26dp</dimen>
     <dimen name="width_28dp">28dp</dimen>
     <dimen name="width_30dp">30dp</dimen>
     <dimen name="width_32dp">32dp</dimen>

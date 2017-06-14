@@ -7,9 +7,9 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/btn_shadow_bg"
         android:paddingLeft="@dimen/padding_6dp"
-        android:paddingRight="@dimen/padding_4dp"
-        android:background="@drawable/btn_shadow_bg">
+        android:paddingRight="@dimen/padding_4dp">
 
         <TextView
             android:id="@+id/message_id_icon"
@@ -26,13 +26,10 @@
             android:layout_marginLeft="-8dp"
             android:layout_toRightOf="@+id/message_id_icon"
             android:background="@drawable/common_little_red_point_bg"
-            android:paddingBottom="@dimen/padding_1dp"
             android:paddingLeft="@dimen/padding_4dp"
             android:paddingRight="@dimen/padding_4dp"
-            android:paddingTop="@dimen/padding_1dp"
-            android:text="13"
             android:textColor="@color/common_white"
-            android:textSize="@dimen/font_9sp"/>
+            android:textSize="@dimen/font_9sp"
+            android:visibility="gone"/>
     </RelativeLayout>
-
 </LinearLayout>

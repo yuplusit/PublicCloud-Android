@@ -1,6 +1,10 @@
 package com.yuplus.publiccloud.ui.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.RectF;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +19,9 @@ import com.yuplus.cloudsdk.future.data.bean.MessageBean;
 import com.yuplus.cloudsdk.future.data.bean.MessageWrapperBean;
 import com.yuplus.cloudsdk.util.StringUtils;
 import com.yuplus.publiccloud.R;
+import com.yuplus.publiccloud.enums.EMessageType;
 import com.yuplus.publiccloud.util.DateUtils;
+import com.yuplus.publiccloud.util.DensityUtils;
 
 import java.util.List;
 
@@ -55,7 +61,11 @@ public class MessageAdapter extends BaseUltimateViewAdapter<MessageWrapperBean> 
                 viewHolder.mDateTv.setText(DateUtils.timeFormat(message.getInsertTime(), "yyyy-MM-dd hh:mm"));
             }
             if (StringUtils.isNotBlank(message.getMsgType())) {
-                viewHolder.mTypeTv.setText(String.format("消息类型：%1s", message.getMsgType()));
+                EMessageType messageType = getMessageTypeValue(message.getMsgType());
+                viewHolder.mTypeTv.setText(String.format("消息类型：%1s", messageType.getValue()));
+                viewHolder.mMsgFlagTv.setText(messageType.getBrief());
+                viewHolder.mMsgFlagTv.setBackground(createRoundCornerShapeDrawable(DensityUtils.dip2px(mContext,15),
+                        Color.parseColor(messageType.getColor())));
             }
             viewHolder.mMsgLl.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -78,6 +88,50 @@ public class MessageAdapter extends BaseUltimateViewAdapter<MessageWrapperBean> 
         }
     }
 
+    private EMessageType getMessageTypeValue(String type) {
+        if (EMessageType.TYPE_TICKET_MESSAGE.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_TICKET_MESSAGE;
+        } else if (EMessageType.TYPE_MAINTENANCE_MESSAGE.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_MAINTENANCE_MESSAGE;
+        } else if (EMessageType.TYPE_NOTIFY_MESSAGE.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_NOTIFY_MESSAGE;
+        } else if (EMessageType.TYPE_TICKET_SERVICE_MESSAGE.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_TICKET_SERVICE_MESSAGE;
+        } else if (EMessageType.TYPE_BULLETIN_MESSAGE.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_BULLETIN_MESSAGE;
+        } else if (EMessageType.TYPE_PAYMENT_MESSAGE.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_PAYMENT_MESSAGE;
+        } else if (EMessageType.TYPE_MAINTENANCE_MSG.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_MAINTENANCE_MSG;
+        } else if (EMessageType.TYPE_ALERT_MESSAGE_INSYSTEM.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_ALERT_MESSAGE_INSYSTEM;
+        } else if (EMessageType.TYPE_GATEWAY_MESSAGE.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_GATEWAY_MESSAGE;
+        } else if (EMessageType.TYPE_COMMAND_MESSAGE.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_COMMAND_MESSAGE;
+        } else if (EMessageType.TYPE_ENERGYCONSUME_MESSAGE.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_ENERGYCONSUME_MESSAGE;
+        } else if (EMessageType.TYPE_DATAREPORT_MESSAGE.getType().equalsIgnoreCase(type)) {
+            return EMessageType.TYPE_DATAREPORT_MESSAGE;
+        } else {
+            return EMessageType.TYPE_TICKET_MESSAGE;
+        }
+    }
+
+    public static ShapeDrawable createRoundCornerShapeDrawable(float radius, int innerColor) {
+        float[] outerRadii = new float[8];
+        float[] innerRadii = new float[8];
+        for (int i = 0; i < 8; i++) {
+            outerRadii[i] = radius;
+            innerRadii[i] = radius;
+        }
+
+        ShapeDrawable sd = new ShapeDrawable(new RoundRectShape(outerRadii, new RectF(0, 0,
+                0, 0), innerRadii));
+        sd.getPaint().setColor(innerColor);
+
+        return sd;
+    }
 
     public void setOnBroadCastListener(OnBroadCastListener listener) {
         this.mOnBroadCastListener = listener;
@@ -88,14 +142,16 @@ public class MessageAdapter extends BaseUltimateViewAdapter<MessageWrapperBean> 
     }
 
     class ViewHolder extends UltimateViewHolder {
+        @BindView(R.id.message_id_flag)
+        TextView     mMsgFlagTv;
         @BindView(R.id.message_id_item_layout)
         LinearLayout mMsgLl;
         @BindView(R.id.message_id_desc)
-        TextView mTitleTv;
+        TextView     mTitleTv;
         @BindView(R.id.message_id_date)
-        TextView mDateTv;
+        TextView     mDateTv;
         @BindView(R.id.message_id_type)
-        TextView mTypeTv;
+        TextView     mTypeTv;
 
         public ViewHolder(View itemView) {
             super(itemView, onItemClickListener);

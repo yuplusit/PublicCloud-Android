@@ -300,15 +300,17 @@ public class MainActivity extends TitleActivity implements MessageListView {
     private void initTabRedPointCount(int count) {
         View view = mTabHost.getTabWidget().getChildAt(3);
         TextView redPoint = (TextView) view.findViewById(R.id.message_id_icon_dig);
-        if (null != redPoint) {
-            if (count <= 0) {
-                redPoint.setVisibility(View.GONE);
-            } else {
-                redPoint.setVisibility(View.VISIBLE);
-                if (count <= 99) {
-                    redPoint.setText(String.valueOf(count));
+        if (AppCst.ALERT_RED_POINT_SWITCH) {
+            if (null != redPoint) {
+                if (count <= 0) {
+                    redPoint.setVisibility(View.GONE);
                 } else {
-                    redPoint.setText(String.valueOf("99+"));
+                    redPoint.setVisibility(View.VISIBLE);
+                    if (count <= 99) {
+                        redPoint.setText(String.valueOf(count));
+                    } else {
+                        redPoint.setText(String.valueOf("99+"));
+                    }
                 }
             }
         }

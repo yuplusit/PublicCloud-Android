@@ -9,6 +9,7 @@
         android:id="@+id/message_id_item_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:background="@drawable/item_touch_bg"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/padding_8dp"
@@ -16,9 +17,19 @@
         android:paddingRight="@dimen/padding_10dp"
         android:paddingTop="@dimen/padding_8dp">
 
+        <TextView
+            android:id="@+id/message_id_flag"
+            android:layout_width="@dimen/width_30dp"
+            android:layout_height="@dimen/width_30dp"
+            android:gravity="center"
+            android:textColor="@color/common_white"
+            android:textSize="@dimen/font_16sp"
+            android:text="工"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -31,20 +42,11 @@
                     android:id="@+id/message_id_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:singleLine="true"
                     android:ellipsize="end"
                     android:text="维保计划任务-执行人指派"
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_15sp" />
-
-                <TextView
-                    android:id="@+id/message_id_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2017-05-29 13:45"
-                    android:textColor="@color/font_secondary"
-                    android:textSize="@dimen/font_12sp" />
+                    android:textSize="@dimen/font_14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -61,7 +63,15 @@
                     android:ellipsize="end"
                     android:text="消息类型：工单任务"
                     android:textColor="@color/font_primary"
-                    android:textSize="@dimen/font_15sp" />
+                    android:textSize="@dimen/font_14sp" />
+
+                <TextView
+                    android:id="@+id/message_id_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2017-05-29 13:45"
+                    android:textColor="@color/font_secondary"
+                    android:textSize="@dimen/font_12sp" />
             </LinearLayout>
         </LinearLayout>
 
