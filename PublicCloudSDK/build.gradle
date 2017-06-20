@@ -22,6 +22,7 @@ android {
         buildConfigField "int", "SDK_VERSION_CODE", "${properties['sdk_version_code']}"
         buildConfigField "String", "SDK_VERSION_NAME", "\"${properties['sdk_version_name']}\""
     }
+
     buildTypes {
         release {
             minifyEnabled false

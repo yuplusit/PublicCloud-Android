@@ -101,7 +101,6 @@ public class QRCodeUtils {
         if (logoWidth == 0 || logoHeight == 0) {
             return src;
         }
-
         //logo大小为二维码整体大小的1/5
         float scaleFactor = srcWidth * 1.0f / 5 / logoWidth;
         Bitmap bitmap = Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
@@ -117,7 +116,6 @@ public class QRCodeUtils {
             bitmap = null;
             e.getStackTrace();
         }
-
         return bitmap;
     }
 

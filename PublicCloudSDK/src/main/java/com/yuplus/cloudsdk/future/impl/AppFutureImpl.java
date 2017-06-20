@@ -114,11 +114,6 @@ public class AppFutureImpl implements IAppFuture {
     }
 
     @Override
-    public void getDevicesByConditionWithPage(String params, Object tag, FutureListener listener) {
-        postJSON(ApiCst.GET_DEVICES_BY_CONDITION_WITHPAGE_API, params, tag, DeviceListHandler.class, listener);
-    }
-
-    @Override
     public void getAllDevices(String domainPath, Object tag, FutureListener listener) {
         MapParams params1 = new MapParams()
                 .addParam("domainPath", domainPath);
@@ -194,11 +189,6 @@ public class AppFutureImpl implements IAppFuture {
     }
 
     @Override
-    public void findProjectsByCondition(String params, Object tag, FutureListener listener) {
-        postJSON(ApiCst.FIND_PROJECTS_API, params, tag, ProjectListHandler.class, listener);
-    }
-
-    @Override
     public void findProjectsByCustomerId(String customerId, Object tag, FutureListener listener) {
         MapParams requestParams = new MapParams()
                 .addParam("customerId", customerId);
@@ -208,11 +198,6 @@ public class AppFutureImpl implements IAppFuture {
     @Override
     public void findTicketsByCondition(BaseParams params, Object tag, FutureListener listener) {
         postJSON(ApiCst.TASK_FIND_TICKETS_API, params, tag, ProjectListHandler.class, listener);
-    }
-
-    @Override
-    public void findTicketsByCondition(String params, Object tag, FutureListener listener) {
-        postJSON(ApiCst.TASK_FIND_TICKETS_API, params, tag, TicketListHandler.class, listener);
     }
 
     @Override
@@ -242,14 +227,6 @@ public class AppFutureImpl implements IAppFuture {
         ListParams requestParams = new ListParams()
                 .addParam("kpi")
                 .addParam(kpiQueryModel.getParams());
-        postJSON(ApiCst.GET_KPI_VALUE_LIST_API, requestParams, tag, KpiValueListHandler.class, listener);
-    }
-
-    @Override
-    public void getKpiValueList(String kpiQueryModel, Object tag, FutureListener listener) {
-        ListParams requestParams = new ListParams()
-                .addParam("kpi")
-                .addParam(kpiQueryModel);
         postJSON(ApiCst.GET_KPI_VALUE_LIST_API, requestParams, tag, KpiValueListHandler.class, listener);
     }
 
@@ -289,11 +266,6 @@ public class AppFutureImpl implements IAppFuture {
 
     @Override
     public void getDomainsByFilter(BaseParams params, Object tag, FutureListener listener) {
-        postJSON(ApiCst.GET_DOMAINS_API, params, tag, DomainListHandler.class, listener);
-    }
-
-    @Override
-    public void getDomainsByFilter(String params, Object tag, FutureListener listener) {
         postJSON(ApiCst.GET_DOMAINS_API, params, tag, DomainListHandler.class, listener);
     }
 

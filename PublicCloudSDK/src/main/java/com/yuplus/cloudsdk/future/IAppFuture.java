@@ -78,15 +78,6 @@ public interface IAppFuture {
     void getDevicesByConditionWithPage(BaseParams params, Object tag, FutureListener listener);
 
     /**
-     * 通过条件筛获取所有的设备信息
-     *
-     * @param params   开发式参数配置 例如：params=[{},{"start":0,"length":10,"sort":"createTime","sortType":"desc","statCount":true}]
-     * @param tag      网络请求TAG标记
-     * @param listener 回调操作
-     */
-    void getDevicesByConditionWithPage(String params, Object tag, FutureListener listener);
-
-    /**
      * 获取所有的设备信息
      *
      * @param domainPath 域路径
@@ -158,15 +149,6 @@ public interface IAppFuture {
     void findProjectsByCondition(BaseParams params, Object tag, FutureListener listener);
 
     /**
-     * 通过条件配置查找项目信息
-     *
-     * @param params   开放式的请求参数配置 例如:params="{\"customerId\":\"45845255441\"}"
-     * @param tag      网络请求TAG标记
-     * @param listener 回调操作
-     */
-    void findProjectsByCondition(String params, Object tag, FutureListener listener);
-
-    /**
      * 通过客户ID查找项目信息
      *
      * @param customerId 客户ID
@@ -183,15 +165,6 @@ public interface IAppFuture {
      * @param listener 回调操作
      */
     void findTicketsByCondition(BaseParams params, Object tag, FutureListener listener);
-
-    /**
-     * 通过工单状态查找工单列表
-     *
-     * @param params   开放式的请求参数配置 例如:params=[{"status": 100}]
-     * @param tag      网络请求TAG标记
-     * @param listener 回调操作
-     */
-    void findTicketsByCondition(String params, Object tag, FutureListener listener);
 
     /**
      * 通过工单状态查找工单列表
@@ -227,15 +200,6 @@ public interface IAppFuture {
      * @param listener      回调操作
      */
     void getKpiValueList(BaseParams kpiQueryModel, Object tag, FutureListener listener);
-
-    /**
-     * 获取系统各级别KPI/KQI数据
-     *
-     * @param kpiQueryModel 开放式的请求参数配置 例如:kpiQueryModel = {"category":"ci","isRealTimeData":true,"nodeIds":[186793350166066],"kpiCodes":[3022],"startTime":null,"endTime":null,"timeRange":"","statisticType":"psiot","includeInstance":true,"condList":[]}
-     * @param tag           网络请求TAG标记
-     * @param listener      回调操作
-     */
-    void getKpiValueList(String kpiQueryModel, Object tag, FutureListener listener);
 
     /**
      * 通过模型IDS列表获取模型
@@ -289,15 +253,6 @@ public interface IAppFuture {
      * @param listener 回调操作
      */
     void getDomainsByFilter(BaseParams params, Object tag, FutureListener listener);
-
-    /**
-     * 获取资源域
-     *
-     * @param params   开放式的请求参数配置 例如:params = "{}"
-     * @param tag      网络请求TAG标记
-     * @param listener 回调操作
-     */
-    void getDomainsByFilter(String params, Object tag, FutureListener listener);
 
     /**
      * 获取最新的未读消息
