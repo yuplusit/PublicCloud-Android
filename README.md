@@ -494,4 +494,3 @@ OkHttpUtils.getInstance().cancel(this);//这里的this指的是之前传入的ta
 
 ## 通用参考
 
-
